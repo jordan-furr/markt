@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		C54949D524904F2600B469F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54949D424904F2600B469F6 /* AppDelegate.swift */; };
 		C54949D724904F2600B469F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54949D624904F2600B469F6 /* SceneDelegate.swift */; };
-		C54949D924904F2600B469F6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54949D824904F2600B469F6 /* ViewController.swift */; };
 		C54949DC24904F2600B469F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C54949DA24904F2600B469F6 /* Main.storyboard */; };
 		C54949DE24904F2E00B469F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C54949DD24904F2E00B469F6 /* Assets.xcassets */; };
 		C54949E124904F2E00B469F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C54949DF24904F2E00B469F6 /* LaunchScreen.storyboard */; };
@@ -19,7 +18,6 @@
 		C54949D124904F2600B469F6 /* Markt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Markt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C54949D424904F2600B469F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C54949D624904F2600B469F6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C54949D824904F2600B469F6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C54949DB24904F2600B469F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C54949DD24904F2E00B469F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C54949E024904F2E00B469F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -56,15 +54,22 @@
 		C54949D324904F2600B469F6 /* Markt */ = {
 			isa = PBXGroup;
 			children = (
+				C54949DA24904F2600B469F6 /* Main.storyboard */,
+				C54949E824904F6600B469F6 /* Resources */,
+			);
+			path = Markt;
+			sourceTree = "<group>";
+		};
+		C54949E824904F6600B469F6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				C54949D424904F2600B469F6 /* AppDelegate.swift */,
 				C54949D624904F2600B469F6 /* SceneDelegate.swift */,
-				C54949D824904F2600B469F6 /* ViewController.swift */,
-				C54949DA24904F2600B469F6 /* Main.storyboard */,
 				C54949DD24904F2E00B469F6 /* Assets.xcassets */,
 				C54949DF24904F2E00B469F6 /* LaunchScreen.storyboard */,
 				C54949E224904F2E00B469F6 /* Info.plist */,
 			);
-			path = Markt;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +143,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C54949D924904F2600B469F6 /* ViewController.swift in Sources */,
 				C54949D524904F2600B469F6 /* AppDelegate.swift in Sources */,
 				C54949D724904F2600B469F6 /* SceneDelegate.swift in Sources */,
 			);
@@ -286,7 +290,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7V2Q4X6DAJ;
-				INFOPLIST_FILE = Markt/Info.plist;
+				INFOPLIST_FILE = Markt/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,7 +308,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7V2Q4X6DAJ;
-				INFOPLIST_FILE = Markt/Info.plist;
+				INFOPLIST_FILE = Markt/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
