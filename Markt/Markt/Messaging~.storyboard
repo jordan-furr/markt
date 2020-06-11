@@ -98,7 +98,7 @@
                         <barButtonItem key="leftBarButtonItem" image="line.horizontal.3" catalog="system" id="QrR-Uj-bvg"/>
                         <barButtonItem key="rightBarButtonItem" image="envelope.fill" catalog="system" id="J8V-vv-6ba">
                             <connections>
-                                <segue destination="zJ0-Ab-IFQ" kind="show" id="UNA-Ew-gXr"/>
+                                <segue destination="Szw-Yq-3B8" kind="show" id="UNA-Ew-gXr"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -107,6 +107,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CUz-z0-grY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1924.6376811594205" y="381.69642857142856"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="USd-ec-Yd7">
+            <objects>
+                <viewController id="Szw-Yq-3B8" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="A3G-AN-hwX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="bbn-ul-RF0"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="i1K-3I-BvD"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8jV-wK-zjj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2250" y="-642"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="cbb-1M-YVk">
@@ -191,16 +207,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SgN-5B-ply" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1126" y="80"/>
-        </scene>
-        <!--Messaging-->
-        <scene sceneID="Lel-El-ux4">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Messaging" id="zJ0-Ab-IFQ" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="HQF-CS-ysH"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Dmg-Sc-Jkn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2250" y="-642"/>
         </scene>
     </scenes>
     <resources>
