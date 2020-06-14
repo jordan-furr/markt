@@ -98,7 +98,7 @@
                         <barButtonItem key="leftBarButtonItem" image="line.horizontal.3" catalog="system" id="QrR-Uj-bvg"/>
                         <barButtonItem key="rightBarButtonItem" image="envelope.fill" catalog="system" id="J8V-vv-6ba">
                             <connections>
-                                <segue destination="zJ0-Ab-IFQ" kind="show" id="UNA-Ew-gXr"/>
+                                <segue destination="zJ0-Ab-IFQ" kind="show" id="Ot2-mb-ohl"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
