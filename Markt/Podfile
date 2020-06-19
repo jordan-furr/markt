@@ -6,5 +6,6 @@ target 'Markt' do
   use_frameworks!
 
   # Pods for Markt
+pod 'SideMenuSwift'
 
 end
