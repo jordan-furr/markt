@@ -24,6 +24,10 @@
 		C5ED2B12249FF06200BB6730 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ED2B11249FF06200BB6730 /* UserController.swift */; };
 		C5ED2B15249FF2B500BB6730 /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ED2B14249FF2B500BB6730 /* UserError.swift */; };
 		C5ED2B1724A29CC400BB6730 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C5ED2B1624A29CC400BB6730 /* GoogleService-Info.plist */; };
+		C5ED2B1A24A2A03E00BB6730 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ED2B1924A2A03E00BB6730 /* LaunchViewController.swift */; };
+		C5ED2B1E24A2A07F00BB6730 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ED2B1D24A2A07F00BB6730 /* WelcomeViewController.swift */; };
+		C5ED2B2024A2A08B00BB6730 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ED2B1F24A2A08B00BB6730 /* LoginViewController.swift */; };
+		C5ED2B2224A2A09700BB6730 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ED2B2124A2A09700BB6730 /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +52,10 @@
 		C5ED2B11249FF06200BB6730 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		C5ED2B14249FF2B500BB6730 /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserError.swift; sourceTree = "<group>"; };
 		C5ED2B1624A29CC400BB6730 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C5ED2B1924A2A03E00BB6730 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		C5ED2B1D24A2A07F00BB6730 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		C5ED2B1F24A2A08B00BB6730 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C5ED2B2124A2A09700BB6730 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,9 +135,8 @@
 		C5ED2B0F249D200C00BB6730 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C5ED2B0A249D0BBB00BB6730 /* ContainerViewController.swift */,
-				C5ED2B0C249D0BE800BB6730 /* SideMenuTableViewController.swift */,
-				C5ED2B08249C445500BB6730 /* MarketViewController.swift */,
+				C5ED2B1B24A2A04A00BB6730 /* Main views */,
+				C5ED2B1C24A2A05600BB6730 /* Market views */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -158,6 +165,27 @@
 				C5ED2B14249FF2B500BB6730 /* UserError.swift */,
 			);
 			path = "Helpers & Extensions";
+			sourceTree = "<group>";
+		};
+		C5ED2B1B24A2A04A00BB6730 /* Main views */ = {
+			isa = PBXGroup;
+			children = (
+				C5ED2B1924A2A03E00BB6730 /* LaunchViewController.swift */,
+				C5ED2B1D24A2A07F00BB6730 /* WelcomeViewController.swift */,
+				C5ED2B1F24A2A08B00BB6730 /* LoginViewController.swift */,
+				C5ED2B2124A2A09700BB6730 /* RegisterViewController.swift */,
+			);
+			path = "Main views";
+			sourceTree = "<group>";
+		};
+		C5ED2B1C24A2A05600BB6730 /* Market views */ = {
+			isa = PBXGroup;
+			children = (
+				C5ED2B0A249D0BBB00BB6730 /* ContainerViewController.swift */,
+				C5ED2B0C249D0BE800BB6730 /* SideMenuTableViewController.swift */,
+				C5ED2B08249C445500BB6730 /* MarketViewController.swift */,
+			);
+			path = "Market views";
 			sourceTree = "<group>";
 		};
 		EEAFE8C5F835D0CAC8598D69 /* Pods */ = {
@@ -295,7 +323,11 @@
 				C54949EE2490512500B469F6 /* Listing.swift in Sources */,
 				C54949D724904F2600B469F6 /* SceneDelegate.swift in Sources */,
 				C5ED2B09249C445500BB6730 /* MarketViewController.swift in Sources */,
+				C5ED2B1A24A2A03E00BB6730 /* LaunchViewController.swift in Sources */,
+				C5ED2B2224A2A09700BB6730 /* RegisterViewController.swift in Sources */,
+				C5ED2B1E24A2A07F00BB6730 /* WelcomeViewController.swift in Sources */,
 				C54949EA249050E700B469F6 /* User.swift in Sources */,
+				C5ED2B2024A2A08B00BB6730 /* LoginViewController.swift in Sources */,
 				C5ED2B0D249D0BE800BB6730 /* SideMenuTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
