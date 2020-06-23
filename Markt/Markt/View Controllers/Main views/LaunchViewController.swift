@@ -16,12 +16,10 @@ class LaunchViewController: UIViewController {
         
         DispatchQueue.main.async {
             if Auth.auth().currentUser != nil {
-                /*
                 UserController.shared.fetchCurrentUser { (result) in
                     switch result {
                     case .failure(let error):
-                        print("error fetching user")
-                        print(error.localizedDescription)
+                        print("error fetching user", error)
                         self.performSegue(withIdentifier: "noUser", sender: self)
                     case .success(let user):
                         print("user fetched successfully")
@@ -30,7 +28,6 @@ class LaunchViewController: UIViewController {
                     }
                     
                 }
- */
             } else {
                 print("no user logged in")
                 self.performSegue(withIdentifier: "noUser", sender: self)

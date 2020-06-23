@@ -103,4 +103,31 @@ class UserController {
             }
         }
     }
+    
+    
+    func signup(email: String, password: String, completion: @escaping (Bool, Error?) -> Void) {
+        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+            if let error = error{
+                print("Error in \(#function) : \(error.localizedDescription) /n--/n \(error)")
+                completion(false, error)
+            }
+            guard let user = user else {return}
+            let currentUser = Auth.auth().currentUser;
+            print(" User Created \(user)")
+            let values = ["email": email, "uid": currentUser?.uid]
+            self.db.collection("users").document(currentUser!.uid).setData(values as [String : Any])
+            completion(true, nil)
+        }
+    }
+    
+    func login(email: String, password: String, completion: @escaping (Bool, Error?) -> Void){
+        Auth.auth().signIn(withEmail: email, password: password) { (_, error) in
+            if let error = error {
+                return completion(false, error)
+            }
+            print("login success")
+            return completion(true, nil)
+        }
+    }
+    
 }
