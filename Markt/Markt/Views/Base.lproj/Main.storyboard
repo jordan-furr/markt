@@ -80,10 +80,12 @@
                                 </state>
                                 <connections>
                                     <action selector="cancelTapped:" destination="nLW-Wi-7w5" eventType="touchUpInside" id="ZTg-W7-AMc"/>
+                                    <action selector="cancelTapped:" destination="9Rg-t4-0ss" eventType="touchUpInside" id="sdg-mX-iU2"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="0FN-5n-apE" firstAttribute="leading" secondItem="ZlD-g6-bPU" secondAttribute="leading" constant="50" id="6P5-ks-qcO"/>
                             <constraint firstItem="ZlD-g6-bPU" firstAttribute="trailing" secondItem="NcK-rA-KZe" secondAttribute="trailing" constant="25" id="YR9-lW-aTV"/>
@@ -92,6 +94,9 @@
                             <constraint firstItem="ZlD-g6-bPU" firstAttribute="trailing" secondItem="0FN-5n-apE" secondAttribute="trailing" constant="50" id="oLF-s8-G92"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZlD-g6-bPU"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="xYI-Kg-MKO" appends="YES" id="8CP-Iy-UPa"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="U9c-HL-66X"/>
                     <connections>
@@ -99,6 +104,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bcG-fa-E5c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="xYI-Kg-MKO">
+                    <connections>
+                        <action selector="backgroundTapped:" destination="9Rg-t4-0ss" id="Ivm-js-cd2"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2829" y="487"/>
         </scene>
