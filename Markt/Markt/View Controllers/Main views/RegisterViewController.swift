@@ -30,6 +30,7 @@ class RegisterViewController: UIViewController {
         //MARK: MAKE SURE USER CAN REGISTER
         if email.components(separatedBy: "@").last != "umich.edu" {
             presentNonUmichEMailALert()
+            return
         }
         
         if email == "" || firstName == "" || lastName == "" {
