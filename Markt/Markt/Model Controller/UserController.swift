@@ -14,6 +14,8 @@ import FirebaseAuth
 
 struct UserKeys {
     static let emailKey = "email"
+    static let firstKey = "firstName"
+    static let lastKey = "lastName"
 }
 
 class UserController {
@@ -27,17 +29,18 @@ class UserController {
     var currentUser: User?
     
     
-    func updateUserInfo(email: String, completion: @escaping (Result<User?, UserError>) -> Void) {
+    func updateUserInfo(email: String, firstName: String, lastName: String, completion: @escaping (Result<User?, UserError>) -> Void) {
         guard let currentUserID = Auth.auth().currentUser?.uid else {return}
         let userDoc = usersRef.document(currentUserID)
         let data = [
-            "\(UserKeys.emailKey)" : "\(email)"
+            "\(UserKeys.firstKey)" : "\(firstName)",
+            "\(UserKeys.lastKey)" : "\(lastName)"
             ] as [String : Any]
         userDoc.setData(data, merge: true) { (error) in
             if let error = error {
                 return completion(.failure(.firebaseError(error)))
             } else {
-                let updatedUser = User(email: email)
+                let updatedUser = User(email: email, firstName: firstName, lastName: lastName)
                 self.currentUser = updatedUser
                 return completion(.success(updatedUser))
             }
@@ -103,4 +106,31 @@ class UserController {
             }
         }
     }
+    
+    
+    func signup(firstName: String, lastName: String, email: String, password: String, completion: @escaping (Bool, Error?) -> Void) {
+        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+            if let error = error{
+                print("Error in \(#function) : \(error.localizedDescription) /n--/n \(error)")
+                completion(false, error)
+            }
+            guard let user = user else {return}
+            let currentUser = Auth.auth().currentUser;
+            print(" User Created \(user)")
+            let values = ["email": email, "uid": currentUser?.uid, "firstName" : firstName, "lastName" : lastName]
+            self.db.collection("users").document(currentUser!.uid).setData(values as [String : Any])
+            completion(true, nil)
+        }
+    }
+    
+    func login(email: String, password: String, completion: @escaping (Bool, Error?) -> Void){
+        Auth.auth().signIn(withEmail: email, password: password) { (_, error) in
+            if let error = error {
+                return completion(false, error)
+            }
+            print("login success")
+            return completion(true, nil)
+        }
+    }
+    
 }

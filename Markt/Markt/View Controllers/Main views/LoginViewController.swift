@@ -9,22 +9,53 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-
+    
+    //MARK: IB OUTLETS
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func loginTapped(_ sender: Any) {
+        guard let email = emailTextField.text, let password = passwordTextField.text else {return}
+        
+        if email != "" || password != "" {
+            UserController.shared.login(email: email, password: password) { (_, error)  in
+                if let error = error {
+                    print(error)
+                    self.presentLoginAlertView(error: error)
+                } else {
+                    UserController.shared.fetchCurrentUser { (result) in
+                        switch result {
+                        case .failure(let error):
+                            print("error fetching user", error)
+                        case .success(let user):
+                            print("user fetched successfully")
+                            UserController.shared.currentUser = user
+                            self.performSegue(withIdentifier: "loggedIn", sender: self)
+                        }
+                    }
+                    print("logging user in")
+                }
+            }
+        }
     }
-    */
-
+    
+    @IBAction func backgroundtapped(_ sender: Any) {
+        self.view.endEditing(true)
+    }
+    
+    @IBAction func cancelTapped(_ sender: Any){
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func presentLoginAlertView(error: Error) {
+        let alertController = UIAlertController(title: "Error Loggin In", message: error.localizedDescription, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(defaultAction)
+        present(alertController, animated: true, completion: nil)
+    }
 }

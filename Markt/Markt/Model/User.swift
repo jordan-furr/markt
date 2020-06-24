@@ -12,11 +12,16 @@ import Foundation
 class User: Codable {
     
     enum CodingKeys: String, CodingKey {
-        case email
+        case email, firstName, lastName
     }
     var email: String
+    var firstName: String
+    var lastName: String
+    var CampusLocation: String = ""
     
-    init(email: String) {
+    init(email: String, firstName: String, lastName: String) {
         self.email = email
+        self.firstName = firstName
+        self.lastName = lastName
     }
 }

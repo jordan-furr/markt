@@ -13,15 +13,13 @@ class LaunchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+      // UserController.shared.signoutCurrentUser()
         DispatchQueue.main.async {
             if Auth.auth().currentUser != nil {
-                /*
                 UserController.shared.fetchCurrentUser { (result) in
                     switch result {
                     case .failure(let error):
-                        print("error fetching user")
-                        print(error.localizedDescription)
+                        print("error fetching user", error)
                         self.performSegue(withIdentifier: "noUser", sender: self)
                     case .success(let user):
                         print("user fetched successfully")
@@ -30,24 +28,10 @@ class LaunchViewController: UIViewController {
                     }
                     
                 }
- */
             } else {
                 print("no user logged in")
                 self.performSegue(withIdentifier: "noUser", sender: self)
-                
             }
         }
     }
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
