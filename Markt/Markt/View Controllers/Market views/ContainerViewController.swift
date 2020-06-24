@@ -26,10 +26,6 @@ class ContainerViewController: UIViewController {
         }
     }
     
-    @IBAction func menuContainerTapped(_ sender: Any) {
-        toggleSideMenu()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(toggleSideMenu), name: NSNotification.Name("ToggleSideMenu"), object: nil)

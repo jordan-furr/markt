@@ -9,19 +9,46 @@
 import UIKit
 
 class MarketViewController: UIViewController {
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.hidesBackButton = true
-
-        // Do any additional setup after loading the view.
+        setUpViews()
     }
     
-
     @IBAction func menuTapped(_ sender: Any) {
         print("toggle side menu")
         NotificationCenter.default.post(name: NSNotification.Name("ToggleSideMenu"), object: nil)
     }
-
+    
+    
+    
+    //MARK: HELPERS
+    
+    func setUpViews() {
+        navigationItem.hidesBackButton = true
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(showProfile),
+                                               name: NSNotification.Name("ShowProfile"),
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(showSettings),
+                                               name: NSNotification.Name("ShowSettings"),
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(showAbout),
+                                               name: NSNotification.Name("ShowAbout"),
+                                               object: nil)
+        
+        
+    }
+    @objc func showProfile() {
+        performSegue(withIdentifier: "ShowProfile", sender: nil)
+    }
+    @objc func showSettings() {
+        performSegue(withIdentifier: "ShowSettings", sender: nil)
+    }
+    @objc func showAbout() {
+        performSegue(withIdentifier: "ShowAbout", sender: nil)
+    }
 }
