@@ -12,16 +12,32 @@ import Foundation
 class User: Codable {
     
     enum CodingKeys: String, CodingKey {
-        case email, firstName, lastName
+        case uid, email, firstName, lastName, campusLocation, profilePicUID, myListings, savedListings
     }
+    
+    var uid: String
     var email: String
     var firstName: String
     var lastName: String
-    var CampusLocation: String = ""
+    var campusLocation: String = ""
     
-    init(email: String, firstName: String, lastName: String) {
+    var profilePicUID: String
+    var profileImage: UIImage? = nil
+    var profileImageData: Data? {
+        guard let profileImage = profileImage else { return nil }
+        return profileImage.jpegData(compressionQuality: 0.5)
+    }
+    
+    var myListings: [String]
+    var savedListings: [String]
+    
+    init(email: String, firstName: String, lastName: String, uid: String, profilePicUID: String, myListings: [String], savedListings: [String]) {
         self.email = email
         self.firstName = firstName
         self.lastName = lastName
+        self.uid = uid
+        self.profilePicUID = profilePicUID
+        self.myListings = myListings
+        self.savedListings = savedListings
     }
 }

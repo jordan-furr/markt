@@ -16,6 +16,10 @@ struct UserKeys {
     static let emailKey = "email"
     static let firstKey = "firstName"
     static let lastKey = "lastName"
+    static let uidKey = "uidKey"
+    static let profilePicUID = "profilePicUID"
+    static let myListings = "myListings"
+    static let savedListings = "savedListings"
 }
 
 class UserController {
@@ -25,22 +29,86 @@ class UserController {
     let storage = Storage.storage()
     lazy var storageRef = storage.reference()
     let usersRef : CollectionReference = Firestore.firestore().collection("users")
-    
     var currentUser: User?
     
     
-    func updateUserInfo(email: String, firstName: String, lastName: String, completion: @escaping (Result<User?, UserError>) -> Void) {
-        guard let currentUserID = Auth.auth().currentUser?.uid else {return}
-        let userDoc = usersRef.document(currentUserID)
+    func saveListing(listingID: String){
+        guard let user = currentUser else {return}
+           let userDoc = usersRef.document(user.uid)
+           var savedListings = user.savedListings
+           savedListings.append(listingID)
+           let data = [
+               "\(UserKeys.savedListings)" : savedListings as [String]
+           ]
+           userDoc.setData(data, merge: true) { (error) in
+               if let error = error {
+                   print(error.localizedDescription)
+               }
+           }
+       }
+    
+    func unSaveListing(listingID: String){
+     guard let user = currentUser else {return}
+        let userDoc = usersRef.document(user.uid)
+        var savedListings = user.savedListings
+        guard let index = savedListings.firstIndex(of: listingID) else {return}
+        savedListings.remove(at: index)
+        let data = [
+            "\(UserKeys.savedListings)" : savedListings as [String]
+        ]
+        userDoc.setData(data, merge: true) { (error) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func addCreatedListing(listingID: String){
+        guard let user = currentUser else {return}
+        let userDoc = usersRef.document(user.uid)
+        var myListings = user.myListings
+        myListings.append(listingID)
+        let data = [
+            "\(UserKeys.myListings)" : myListings as [String]
+        ]
+        userDoc.setData(data, merge: true) { (error) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func deleteListing(listingID: String){
+     guard let user = currentUser else {return}
+        let userDoc = usersRef.document(user.uid)
+        var myListings = user.myListings
+        guard let index = myListings.firstIndex(of: listingID) else {return}
+        myListings.remove(at: index)
+        let data = [
+            "\(UserKeys.myListings)" : myListings as [String]
+        ]
+        userDoc.setData(data, merge: true) { (error) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func updateUserInfo(uid: String, email: String, firstName: String, lastName: String, profilePicUID: String, myListings: [String], savedListings: [String], completion: @escaping (Result<User?, UserError>) -> Void) {
+        let userDoc = usersRef.document(uid)
         let data = [
             "\(UserKeys.firstKey)" : "\(firstName)",
-            "\(UserKeys.lastKey)" : "\(lastName)"
+            "\(UserKeys.lastKey)" : "\(lastName)",
+            "\(UserKeys.uidKey)" : "\(uid)",
+            "\(UserKeys.profilePicUID)" : "\(profilePicUID)",
+            "\(UserKeys.myListings)" : myListings as [String],
+            "\(UserKeys.savedListings)" : savedListings as [String]
             ] as [String : Any]
         userDoc.setData(data, merge: true) { (error) in
             if let error = error {
                 return completion(.failure(.firebaseError(error)))
             } else {
-                let updatedUser = User(email: email, firstName: firstName, lastName: lastName)
+                let updatedUser = User(email: email, firstName: firstName, lastName: lastName, uid: uid, profilePicUID: profilePicUID, myListings: myListings, savedListings: savedListings)
                 self.currentUser = updatedUser
                 return completion(.success(updatedUser))
             }
@@ -133,4 +201,39 @@ class UserController {
         }
     }
     
+    func uploadPhoto(imageData: Data, objectUID: String, completion: @escaping (String?) -> Void) {
+        guard let currentUser = Auth.auth().currentUser else { print("Image Failed to upload"); return }
+        
+        let imageName = UUID().uuidString
+        let userDoc = UserController.shared.usersRef.document(currentUser.uid)
+        let userData = ["profilePicUID" : imageName]
+        userDoc.setData(userData, merge: true) { (error) in
+        }
+        let imageReference = Storage.storage().reference().child("\(currentUser.uid)/\(objectUID)").child(imageName)
+        imageReference.putData(imageData, metadata: nil) { (metaData, error) in
+            if error != nil {
+                print("Error uploading Image")
+            }
+            imageReference.downloadURL(completion: { (url, error) in
+                if error != nil {
+                    print("Error uploading Image")
+                }
+                guard let url = url else { return }
+                completion(url.absoluteString)
+            })
+        }
+    }
+    
+    func downloadPhoto(urlPath: String, completion: @escaping (Result<UIImage?, ImageError>) -> Void) {
+        let locationImageReference = storageRef.child(urlPath)
+        locationImageReference.getData(maxSize: 1000000) { (data, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                guard let picture = UIImage(data: data!) else { return completion(.failure(.noImageFound))}
+                completion(.success(picture) )
+            }
+            completion(.failure(.couldNotUnwrapImage))
+        }
+    }
 }
