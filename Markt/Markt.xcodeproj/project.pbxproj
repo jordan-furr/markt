@@ -16,6 +16,7 @@
 		C54949EA249050E700B469F6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54949E9249050E700B469F6 /* User.swift */; };
 		C54949EE2490512500B469F6 /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54949ED2490512500B469F6 /* Listing.swift */; };
 		C54949F0249051EB00B469F6 /* Market.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C54949EF249051EB00B469F6 /* Market.storyboard */; };
+		C55904F124A7AB0B0007916A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55904F024A7AB0B0007916A /* ProfileViewController.swift */; };
 		C559E9BA2492CE6300FF3AFB /* Messaging.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C559E9B92492CE6300FF3AFB /* Messaging.storyboard */; };
 		C594CFEE24A40388007E832A /* ImageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C594CFED24A40388007E832A /* ImageError.swift */; };
 		C594CFF024A40B27007E832A /* ListingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C594CFEF24A40B27007E832A /* ListingController.swift */; };
@@ -45,6 +46,7 @@
 		C54949E9249050E700B469F6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C54949ED2490512500B469F6 /* Listing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
 		C54949EF249051EB00B469F6 /* Market.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Market.storyboard; sourceTree = "<group>"; };
+		C55904F024A7AB0B0007916A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C559E9B92492CE6300FF3AFB /* Messaging.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Messaging.storyboard; sourceTree = "<group>"; };
 		C594CFED24A40388007E832A /* ImageError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageError.swift; sourceTree = "<group>"; };
 		C594CFEF24A40B27007E832A /* ListingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingController.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				C5ED2B0A249D0BBB00BB6730 /* ContainerViewController.swift */,
 				C5ED2B0C249D0BE800BB6730 /* SideMenuTableViewController.swift */,
 				C5ED2B08249C445500BB6730 /* MarketViewController.swift */,
+				C55904F024A7AB0B0007916A /* ProfileViewController.swift */,
 			);
 			path = "Market views";
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				C5ED2B0B249D0BBB00BB6730 /* ContainerViewController.swift in Sources */,
 				C54949EE2490512500B469F6 /* Listing.swift in Sources */,
 				C54949D724904F2600B469F6 /* SceneDelegate.swift in Sources */,
+				C55904F124A7AB0B0007916A /* ProfileViewController.swift in Sources */,
 				C594CFEE24A40388007E832A /* ImageError.swift in Sources */,
 				C5ED2B09249C445500BB6730 /* MarketViewController.swift in Sources */,
 				C5ED2B1A24A2A03E00BB6730 /* LaunchViewController.swift in Sources */,
