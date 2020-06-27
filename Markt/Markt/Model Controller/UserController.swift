@@ -209,7 +209,7 @@ class UserController {
         let userData = ["profilePicUID" : imageName]
         userDoc.setData(userData, merge: true) { (error) in
         }
-        let imageReference = Storage.storage().reference().child("\(currentUser.uid)/\(objectUID)").child(imageName)
+        let imageReference = storageRef.child("\(currentUser.uid)/\(objectUID)").child(imageName)
         imageReference.putData(imageData, metadata: nil) { (metaData, error) in
             if error != nil {
                 print("Error uploading Image")
