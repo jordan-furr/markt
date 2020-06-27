@@ -10,7 +10,7 @@
         <!--Create Listing-->
         <scene sceneID="N3G-r3-Enc">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="cNt-ba-Cei" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="cNt-ba-Cei" customClass="CreateListingViewController" customModule="Markt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rEs-Gw-n3m">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

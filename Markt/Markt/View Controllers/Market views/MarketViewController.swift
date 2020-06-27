@@ -10,7 +10,6 @@ import UIKit
 
 class MarketViewController: UIViewController {
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
@@ -54,6 +53,11 @@ class MarketViewController: UIViewController {
     
     @IBAction func backgroundTapped(_ sender: Any) {
         self.view.endEditing(true)
+        if sideMenuOpen {
+            menuTapped(true)
+            sideMenuOpen = false
+        }
+        
     }
     
     @IBAction func swipedLeftToMenu(_ sender: Any) {
