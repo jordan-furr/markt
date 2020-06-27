@@ -16,7 +16,7 @@ class ContainerViewController: UIViewController {
     @objc func toggleSideMenu(){
         if sideMenuOpen {
             sideMenuOpen = false
-            sideMenuConstraint.constant = -320
+            sideMenuConstraint.constant = -310
         } else {
             sideMenuOpen = true
             sideMenuConstraint.constant = 0
@@ -30,4 +30,10 @@ class ContainerViewController: UIViewController {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(toggleSideMenu), name: NSNotification.Name("ToggleSideMenu"), object: nil)
     }
+    
+    @IBAction func swipeBack(_ sender: Any) {
+        self.toggleSideMenu()
+    }
+    
+
 }

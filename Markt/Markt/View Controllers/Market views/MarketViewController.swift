@@ -51,4 +51,14 @@ class MarketViewController: UIViewController {
     @objc func showAbout() {
         performSegue(withIdentifier: "ShowAbout", sender: nil)
     }
+    
+    @IBAction func backgroundTapped(_ sender: Any) {
+        self.view.endEditing(true)
+    }
+    
+    @IBAction func swipedLeftToMenu(_ sender: Any) {
+        menuTapped(self)
+    }
+    
+    
 }

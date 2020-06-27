@@ -31,6 +31,8 @@ class SideMenuTableViewController: UITableViewController {
         return 60.0
     }
     
-    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 120.0
+    }
 
 }

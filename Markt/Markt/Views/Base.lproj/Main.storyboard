@@ -15,12 +15,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flame.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="679-da-yYA">
-                                <rect key="frame" x="87" y="384" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flame.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="679-da-yYA">
+                                <rect key="frame" x="124" y="369" width="166" height="166.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="679-da-yYA" secondAttribute="height" multiplier="1:1" id="5Rj-y5-2P6"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="679-da-yYA" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="G6r-08-YCj"/>
+                            <constraint firstItem="679-da-yYA" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="hDU-g9-rXz"/>
+                            <constraint firstItem="679-da-yYA" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.4" id="kT9-MT-bja"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="yjL-J4-ZIa"/>
@@ -31,7 +38,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1036.231884057971" y="168.75"/>
+            <point key="canvasLocation" x="1034.7826086956522" y="168.75"/>
         </scene>
         <!--Market-->
         <scene sceneID="Swt-SF-RKD">

@@ -20,6 +20,7 @@ struct UserKeys {
     static let profilePicUID = "profilePicUID"
     static let myListings = "myListings"
     static let savedListings = "savedListings"
+    static let dropOffKey = "dropOff"
 }
 
 class UserController {
@@ -100,15 +101,15 @@ class UserController {
             "\(UserKeys.firstKey)" : "\(firstName)",
             "\(UserKeys.lastKey)" : "\(lastName)",
             "\(UserKeys.uidKey)" : "\(uid)",
-            "\(UserKeys.profilePicUID)" : "\(profilePicUID)",
             "\(UserKeys.myListings)" : myListings as [String],
-            "\(UserKeys.savedListings)" : savedListings as [String]
+            "\(UserKeys.savedListings)" : savedListings as [String],
+            "\(UserKeys.dropOffKey)" : false
             ] as [String : Any]
         userDoc.setData(data, merge: true) { (error) in
             if let error = error {
                 return completion(.failure(.firebaseError(error)))
             } else {
-                let updatedUser = User(email: email, firstName: firstName, lastName: lastName, uid: uid, profilePicUID: profilePicUID, myListings: myListings, savedListings: savedListings)
+                let updatedUser = User(email: email, firstName: firstName, lastName: lastName, uid: uid, myListings: myListings, savedListings: savedListings)
                 self.currentUser = updatedUser
                 return completion(.success(updatedUser))
             }
