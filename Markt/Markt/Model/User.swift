@@ -19,7 +19,8 @@ class User: Codable {
     var email: String
     var firstName: String
     var lastName: String
-    var campusLocation: String = ""
+    var campusLocation: Int = 0
+    var dropOff: Bool = false
     
     var profilePicUID: String
     var profileImage: UIImage? = nil
