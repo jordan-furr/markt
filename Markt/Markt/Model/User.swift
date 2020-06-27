@@ -12,7 +12,7 @@ import Foundation
 class User: Codable {
     
     enum CodingKeys: String, CodingKey {
-        case uid, email, firstName, lastName, campusLocation, myListings, savedListings
+        case uid, email, firstName, lastName, campusLocation, myListings, savedListings, dropOff
     }
     
     var uid: String

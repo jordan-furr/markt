@@ -20,6 +20,7 @@ struct UserKeys {
     static let profilePicUID = "profilePicUID"
     static let myListings = "myListings"
     static let savedListings = "savedListings"
+    static let dropOffKey = "dropOff"
 }
 
 class UserController {
@@ -101,7 +102,8 @@ class UserController {
             "\(UserKeys.lastKey)" : "\(lastName)",
             "\(UserKeys.uidKey)" : "\(uid)",
             "\(UserKeys.myListings)" : myListings as [String],
-            "\(UserKeys.savedListings)" : savedListings as [String]
+            "\(UserKeys.savedListings)" : savedListings as [String],
+            "\(UserKeys.dropOffKey)" : false
             ] as [String : Any]
         userDoc.setData(data, merge: true) { (error) in
             if let error = error {

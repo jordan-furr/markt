@@ -30,27 +30,43 @@ class ProfileViewController: UIViewController {
     
     func setUpViews() {
         guard let user = UserController.shared.currentUser else {return}
+        
         nameLabel.text = user.firstName + " " + user.lastName
+        locationLabel.addCornerRadius()
+        dropOffBool.addCornerRadius()
+        
         switch (user.campusLocation) {
         case 0:
             locationLabel.text = "Not Specified"
+            locationLabel.backgroundColor = .red
+            locationLabel.textColor = .white
             break
         case 1:
             locationLabel.text = "Central Campus"
+            locationLabel.backgroundColor = .systemTeal
+            locationLabel.textColor = .black
             break
         case 2:
             locationLabel.text = "South Campus"
+            locationLabel.backgroundColor = .green
+            locationLabel.textColor = .black
             break
         case 3:
             locationLabel.text = "North Campus"
+            locationLabel.backgroundColor = .orange
+            locationLabel.textColor = .black
         default:
             locationLabel.text = "Error"
             break
         }
-        if (user.dropOff) {
+        if (user.dropOff == true) {
             dropOffBool.text = "Willing to drop"
+            dropOffBool.backgroundColor = .blue
+            dropOffBool.textColor = .white
         } else {
             dropOffBool.text = "Pickup only"
+            dropOffBool.backgroundColor = .yellow
+            dropOffBool.textColor = .black
         }
     }
 }
