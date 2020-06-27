@@ -18,6 +18,7 @@
 		C54949F0249051EB00B469F6 /* Market.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C54949EF249051EB00B469F6 /* Market.storyboard */; };
 		C55904F124A7AB0B0007916A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55904F024A7AB0B0007916A /* ProfileViewController.swift */; };
 		C55904F324A7DB820007916A /* StyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55904F224A7DB820007916A /* StyleGuide.swift */; };
+		C55904F524A7E92A0007916A /* CreateListing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C55904F424A7E92A0007916A /* CreateListing.storyboard */; };
 		C559E9BA2492CE6300FF3AFB /* Messaging.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C559E9B92492CE6300FF3AFB /* Messaging.storyboard */; };
 		C594CFEE24A40388007E832A /* ImageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C594CFED24A40388007E832A /* ImageError.swift */; };
 		C594CFF024A40B27007E832A /* ListingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C594CFEF24A40B27007E832A /* ListingController.swift */; };
@@ -49,6 +50,7 @@
 		C54949EF249051EB00B469F6 /* Market.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Market.storyboard; sourceTree = "<group>"; };
 		C55904F024A7AB0B0007916A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C55904F224A7DB820007916A /* StyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuide.swift; sourceTree = "<group>"; };
+		C55904F424A7E92A0007916A /* CreateListing.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateListing.storyboard; sourceTree = "<group>"; };
 		C559E9B92492CE6300FF3AFB /* Messaging.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Messaging.storyboard; sourceTree = "<group>"; };
 		C594CFED24A40388007E832A /* ImageError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageError.swift; sourceTree = "<group>"; };
 		C594CFEF24A40B27007E832A /* ListingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingController.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				C54949DA24904F2600B469F6 /* Main.storyboard */,
 				C54949EF249051EB00B469F6 /* Market.storyboard */,
 				C559E9B92492CE6300FF3AFB /* Messaging.storyboard */,
+				C55904F424A7E92A0007916A /* CreateListing.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				C54949DC24904F2600B469F6 /* Main.storyboard in Resources */,
 				C559E9BA2492CE6300FF3AFB /* Messaging.storyboard in Resources */,
 				C5ED2B1724A29CC400BB6730 /* GoogleService-Info.plist in Resources */,
+				C55904F524A7E92A0007916A /* CreateListing.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

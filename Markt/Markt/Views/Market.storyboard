@@ -111,11 +111,18 @@
                                 <action selector="menuTapped:" destination="Y3d-QV-HrL" id="0br-IV-CVE"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="envelope.fill" catalog="system" id="J8V-vv-6ba">
-                            <connections>
-                                <segue destination="zJ0-Ab-IFQ" kind="show" id="Ot2-mb-ohl"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem image="envelope.fill" catalog="system" id="J8V-vv-6ba">
+                                <connections>
+                                    <segue destination="zJ0-Ab-IFQ" kind="show" id="Ot2-mb-ohl"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="square.and.pencil" catalog="system" id="GZW-oN-olf">
+                                <connections>
+                                    <segue destination="I0F-Xv-xGa" kind="show" id="3ZT-MK-V0t"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <size key="freeformSize" width="414" height="1800"/>
                     <connections>
@@ -533,7 +540,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ccc-wJ-wQT">
-                                                    <rect key="frame" x="16" y="11.5" width="288" height="21"/>
+                                                    <rect key="frame" x="16" y="11.5" width="278" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -555,7 +562,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57U-BO-oM6">
-                                                    <rect key="frame" x="16" y="11.5" width="288" height="21"/>
+                                                    <rect key="frame" x="16" y="11.5" width="278" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -577,7 +584,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ulN-eP-xAf">
-                                                    <rect key="frame" x="16" y="11.5" width="288" height="21"/>
+                                                    <rect key="frame" x="16" y="11.5" width="278" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -614,10 +621,21 @@
             </objects>
             <point key="canvasLocation" x="2286" y="-329"/>
         </scene>
+        <!--CreateListing-->
+        <scene sceneID="p8c-j3-LAR">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CreateListing" id="I0F-Xv-xGa" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="qnc-Hk-IpR"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SRN-B2-ZZ6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2311" y="-284"/>
+        </scene>
     </scenes>
     <resources>
         <image name="envelope.fill" catalog="system" width="128" height="93"/>
         <image name="flame" catalog="system" width="109" height="128"/>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
+        <image name="square.and.pencil" catalog="system" width="128" height="118"/>
     </resources>
 </document>
