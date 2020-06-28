@@ -30,6 +30,7 @@ class UserController {
     let storage = Storage.storage()
     lazy var storageRef = storage.reference()
     let usersRef : CollectionReference = Firestore.firestore().collection("users")
+    
     var currentUser: User?
     
     

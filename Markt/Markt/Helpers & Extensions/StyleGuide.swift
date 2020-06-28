@@ -30,3 +30,47 @@ extension UIColor {
     static let darkGreen = UIColor(named: "loginDarkGreen")
     static let limeYellow = UIColor(named: "customYellow")
 }
+
+extension UILabel {
+    
+    func addLocationColoringAndText(user: User){
+        
+        switch (user.campusLocation) {
+        case 0:
+            self.text = "Not Specified"
+            self.backgroundColor = .red
+            self.textColor = .white
+            break
+        case 1:
+            self.text = "Central Campus"
+            self.backgroundColor = .systemTeal
+            self.textColor = .black
+            break
+        case 2:
+            self.text = "South Campus"
+            self.backgroundColor = .green
+            self.textColor = .black
+            break
+        case 3:
+            self.text = "North Campus"
+            self.backgroundColor = .orange
+            self.textColor = .black
+        default:
+            self.text = "Error"
+            break
+        }
+        
+    }
+    
+    func addDropOffColoringAndText(user: User) {
+        if (user.dropOff == true) {
+            self.text = "Willing to drop"
+            self.backgroundColor = .blue
+            self.textColor = .white
+        } else {
+            self.text = "Pickup only"
+            self.backgroundColor = .yellow
+            self.textColor = .black
+        }
+    }
+}

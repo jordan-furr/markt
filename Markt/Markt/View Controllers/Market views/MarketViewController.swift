@@ -38,8 +38,17 @@ class MarketViewController: UIViewController {
                                                selector: #selector(showAbout),
                                                name: NSNotification.Name("ShowAbout"),
                                                object: nil)
+        ListingController.shared.fetchCurrentUsersListings { (result) in
+            switch result {
+            case .failure(let error):
+                print("Could not fetch user's live listings")
+                print(error, error.localizedDescription)
+            case .success(let listings):
+                print("live user listings fetched"); if (listings != nil) { print(listings!)}
+            }
+        }
         
-        
+    
     }
     @objc func showProfile() {
         performSegue(withIdentifier: "ShowProfile", sender: nil)

@@ -18,6 +18,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     
+    var userListings: [Listing]?
+    
     override func viewWillAppear(_ animated: Bool) {
         setUpViews()
         collectionView.reloadData()
@@ -34,39 +36,18 @@ class ProfileViewController: UIViewController {
         nameLabel.text = user.firstName + " " + user.lastName
         locationLabel.addCornerRadius()
         dropOffBool.addCornerRadius()
+     
         
-        switch (user.campusLocation) {
-        case 0:
-            locationLabel.text = "Not Specified"
-            locationLabel.backgroundColor = .red
-            locationLabel.textColor = .white
-            break
-        case 1:
-            locationLabel.text = "Central Campus"
-            locationLabel.backgroundColor = .systemTeal
-            locationLabel.textColor = .black
-            break
-        case 2:
-            locationLabel.text = "South Campus"
-            locationLabel.backgroundColor = .green
-            locationLabel.textColor = .black
-            break
-        case 3:
-            locationLabel.text = "North Campus"
-            locationLabel.backgroundColor = .orange
-            locationLabel.textColor = .black
-        default:
-            locationLabel.text = "Error"
-            break
-        }
-        if (user.dropOff == true) {
-            dropOffBool.text = "Willing to drop"
-            dropOffBool.backgroundColor = .blue
-            dropOffBool.textColor = .white
-        } else {
-            dropOffBool.text = "Pickup only"
-            dropOffBool.backgroundColor = .yellow
-            dropOffBool.textColor = .black
+        locationLabel.addLocationColoringAndText(user: user)
+        dropOffBool.addDropOffColoringAndText(user: user)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let cell = sender as? ListingCollectionViewCell,
+            let indexPath = self.collectionView.indexPath(for: cell) {
+            let vc = segue.destination as! ListingDetailViewController
+            vc.listing = ListingController.shared.currentUserLiveListings[indexPath.row] as Listing
         }
     }
 }
@@ -74,15 +55,15 @@ class ProfileViewController: UIViewController {
 
 extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return UserController.shared.currentUser!.myListings.count
+        return ListingController.shared.currentUserLiveListings.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let user = UserController.shared.currentUser else {return UICollectionViewCell()}
-        
-        let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "listingCell", for: indexPath) as! ListingCollectionViewCell
-        let listingID = user.myListings[indexPath.row]
-        cell.setListing(listingID: listingID)
+        guard let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "listingCell", for: indexPath) as? ListingCollectionViewCell else {return UICollectionViewCell()}
+        let listing = ListingController.shared.currentUserLiveListings[indexPath.row]
+        cell.setListing(listing: listing)
         return cell
     }
 }
+
+
