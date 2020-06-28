@@ -74,11 +74,15 @@ class ProfileViewController: UIViewController {
 
 extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Int.random(in: 1 ..< 10)
+        return UserController.shared.currentUser!.myListings.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-       let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "listingCell", for: indexPath)
+        guard let user = UserController.shared.currentUser else {return UICollectionViewCell()}
+        
+        let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "listingCell", for: indexPath) as! ListingCollectionViewCell
+        let listingID = user.myListings[indexPath.row]
+        cell.setListing(listingID: listingID)
         return cell
     }
 }

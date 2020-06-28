@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4970AD64ACDD56E3729AB663 /* Pods_Markt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B10721D191ED55C2DF93D58 /* Pods_Markt.framework */; };
+		C51426BE24A8C8B4002F58E6 /* ListingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51426BD24A8C8B4002F58E6 /* ListingCollectionViewCell.swift */; };
+		C51426C024A8CAA5002F58E6 /* ListingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51426BF24A8CAA5002F58E6 /* ListingError.swift */; };
 		C54949D524904F2600B469F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54949D424904F2600B469F6 /* AppDelegate.swift */; };
 		C54949D724904F2600B469F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54949D624904F2600B469F6 /* SceneDelegate.swift */; };
 		C54949DC24904F2600B469F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C54949DA24904F2600B469F6 /* Main.storyboard */; };
@@ -39,6 +41,8 @@
 		1B10721D191ED55C2DF93D58 /* Pods_Markt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Markt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		36497F4227F2D9F559CF8CE7 /* Pods-Markt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Markt.debug.xcconfig"; path = "Target Support Files/Pods-Markt/Pods-Markt.debug.xcconfig"; sourceTree = "<group>"; };
 		77A4E3D36E4B9B48ED6E397D /* Pods-Markt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Markt.release.xcconfig"; path = "Target Support Files/Pods-Markt/Pods-Markt.release.xcconfig"; sourceTree = "<group>"; };
+		C51426BD24A8C8B4002F58E6 /* ListingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingCollectionViewCell.swift; sourceTree = "<group>"; };
+		C51426BF24A8CAA5002F58E6 /* ListingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingError.swift; sourceTree = "<group>"; };
 		C54949D124904F2600B469F6 /* Markt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Markt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C54949D424904F2600B469F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C54949D624904F2600B469F6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -184,6 +188,7 @@
 			children = (
 				C5ED2B14249FF2B500BB6730 /* UserError.swift */,
 				C594CFED24A40388007E832A /* ImageError.swift */,
+				C51426BF24A8CAA5002F58E6 /* ListingError.swift */,
 				C55904F224A7DB820007916A /* StyleGuide.swift */,
 			);
 			path = "Helpers & Extensions";
@@ -207,6 +212,7 @@
 				C5ED2B0C249D0BE800BB6730 /* SideMenuTableViewController.swift */,
 				C5ED2B08249C445500BB6730 /* MarketViewController.swift */,
 				C55904F024A7AB0B0007916A /* ProfileViewController.swift */,
+				C51426BD24A8C8B4002F58E6 /* ListingCollectionViewCell.swift */,
 			);
 			path = "Market views";
 			sourceTree = "<group>";
@@ -348,6 +354,7 @@
 				C54949D724904F2600B469F6 /* SceneDelegate.swift in Sources */,
 				C55904F124A7AB0B0007916A /* ProfileViewController.swift in Sources */,
 				C594CFEE24A40388007E832A /* ImageError.swift in Sources */,
+				C51426C024A8CAA5002F58E6 /* ListingError.swift in Sources */,
 				C55904F724A7E9C00007916A /* CreateListingViewController.swift in Sources */,
 				C5ED2B09249C445500BB6730 /* MarketViewController.swift in Sources */,
 				C5ED2B1A24A2A03E00BB6730 /* LaunchViewController.swift in Sources */,
@@ -355,6 +362,7 @@
 				C594CFF024A40B27007E832A /* ListingController.swift in Sources */,
 				C5ED2B1E24A2A07F00BB6730 /* WelcomeViewController.swift in Sources */,
 				C54949EA249050E700B469F6 /* User.swift in Sources */,
+				C51426BE24A8C8B4002F58E6 /* ListingCollectionViewCell.swift in Sources */,
 				C5ED2B2024A2A08B00BB6730 /* LoginViewController.swift in Sources */,
 				C5ED2B0D249D0BE800BB6730 /* SideMenuTableViewController.swift in Sources */,
 			);

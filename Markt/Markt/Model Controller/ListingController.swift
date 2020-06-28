@@ -44,4 +44,21 @@ class ListingController {
         ] as [String : Any]
         listingRef.document(listing.uid).setData(listingInfoDict)
     }
+    
+    
+    func fetchListing(listingUID: String, completion: @escaping (Result<Listing?, ListingError>) -> Void) {
+       
+        let listingDoc = listingRef.document(listingUID)
+        listingDoc.getDocument { (snapshot, error) in
+            if snapshot != nil {
+                guard let snapshot = snapshot else { return completion(.failure(.noListingFound)) }
+                guard let data = snapshot.data() else { return completion(.failure(.couldNotUnwrapListing)) }
+                let listing = try! FirestoreDecoder().decode(Listing.self, from: data)
+                return completion(.success(listing))
+            } else {
+                print("snapshot is nil")
+                return completion(.failure(.noRecordFound))
+            }
+        }
+    }
 }
