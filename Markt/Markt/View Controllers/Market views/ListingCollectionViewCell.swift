@@ -15,15 +15,8 @@ class ListingCollectionViewCell: UICollectionViewCell {
     
     var listing: Listing?
     
-    func setListing(listingID: String){
-        ListingController.shared.fetchListing(listingUID: listingID) { (result) in
-            switch result {
-            case .failure(let error):
-                print(error)
-            case .success(let listing):
-                self.listing = listing
-            }
-        }
+    func setListing(listing: Listing){
+        self.listing = listing
         updateUI()
     }
     

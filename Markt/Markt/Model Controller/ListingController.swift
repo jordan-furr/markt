@@ -31,6 +31,8 @@ class ListingController {
     lazy var storageRef = storage.reference()
     let listingRef : CollectionReference = Firestore.firestore().collection("listings")
     
+    var currentUserLiveListings: [Listing] = []
+    
     
     func createListing(with listing: Listing){
         let listingInfoDict = [
@@ -41,13 +43,28 @@ class ListingController {
             "ownerUID" : listing.ownerUID as String,
             "iconPhotoID" : "",
             "uid" : listing.uid as String
-        ] as [String : Any]
+            ] as [String : Any]
         listingRef.document(listing.uid).setData(listingInfoDict)
     }
     
+    func fetchCurrentUsersListings(completion: @escaping (Result<[Listing]?, ListingError>) -> Void) {
+        guard let user = UserController.shared.currentUser else {return completion(.failure(.noUserLoggedIn))}
+        currentUserLiveListings = []
+        for listingID in user.myListings {
+            fetchListing(listingUID: listingID) { (result) in
+                switch result {
+                case .failure(let error):
+                    print(error)
+                case .success(let listing):
+                    guard let listing = listing else {return completion(.failure(.couldNotUnwrapListing))}
+                    self.currentUserLiveListings.append(listing)
+                }
+            }
+        }
+        return completion(.success(currentUserLiveListings))
+    }
     
     func fetchListing(listingUID: String, completion: @escaping (Result<Listing?, ListingError>) -> Void) {
-       
         let listingDoc = listingRef.document(listingUID)
         listingDoc.getDocument { (snapshot, error) in
             if snapshot != nil {

@@ -10,6 +10,7 @@
 		4970AD64ACDD56E3729AB663 /* Pods_Markt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B10721D191ED55C2DF93D58 /* Pods_Markt.framework */; };
 		C51426BE24A8C8B4002F58E6 /* ListingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51426BD24A8C8B4002F58E6 /* ListingCollectionViewCell.swift */; };
 		C51426C024A8CAA5002F58E6 /* ListingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51426BF24A8CAA5002F58E6 /* ListingError.swift */; };
+		C51426C224A90564002F58E6 /* ListingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51426C124A90564002F58E6 /* ListingDetailViewController.swift */; };
 		C54949D524904F2600B469F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54949D424904F2600B469F6 /* AppDelegate.swift */; };
 		C54949D724904F2600B469F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54949D624904F2600B469F6 /* SceneDelegate.swift */; };
 		C54949DC24904F2600B469F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C54949DA24904F2600B469F6 /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 		77A4E3D36E4B9B48ED6E397D /* Pods-Markt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Markt.release.xcconfig"; path = "Target Support Files/Pods-Markt/Pods-Markt.release.xcconfig"; sourceTree = "<group>"; };
 		C51426BD24A8C8B4002F58E6 /* ListingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingCollectionViewCell.swift; sourceTree = "<group>"; };
 		C51426BF24A8CAA5002F58E6 /* ListingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingError.swift; sourceTree = "<group>"; };
+		C51426C124A90564002F58E6 /* ListingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingDetailViewController.swift; sourceTree = "<group>"; };
 		C54949D124904F2600B469F6 /* Markt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Markt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C54949D424904F2600B469F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C54949D624904F2600B469F6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				C55904F624A7E9C00007916A /* CreateListingViewController.swift */,
+				C51426C124A90564002F58E6 /* ListingDetailViewController.swift */,
 			);
 			path = "Create views";
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				C54949D724904F2600B469F6 /* SceneDelegate.swift in Sources */,
 				C55904F124A7AB0B0007916A /* ProfileViewController.swift in Sources */,
 				C594CFEE24A40388007E832A /* ImageError.swift in Sources */,
+				C51426C224A90564002F58E6 /* ListingDetailViewController.swift in Sources */,
 				C51426C024A8CAA5002F58E6 /* ListingError.swift in Sources */,
 				C55904F724A7E9C00007916A /* CreateListingViewController.swift in Sources */,
 				C5ED2B09249C445500BB6730 /* MarketViewController.swift in Sources */,
