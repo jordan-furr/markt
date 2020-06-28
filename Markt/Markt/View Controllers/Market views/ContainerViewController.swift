@@ -8,10 +8,12 @@
 
 import UIKit
 
+var sideMenuOpen = false
+
 class ContainerViewController: UIViewController {
 
     @IBOutlet weak var sideMenuConstraint: NSLayoutConstraint!
-    var sideMenuOpen = false
+    
     
     @objc func toggleSideMenu(){
         if sideMenuOpen {
