@@ -12,32 +12,29 @@ import Foundation
 class Listing: Codable {
     
     enum CodingKeys: String, CodingKey {
-        case uid, title, subtitle, price, description, ownerUID, iconPhotoID, willingToDeliver
+        case uid, title, subtitle, price, description, ownerUID, iconPhotoID
     }
-    
     var uid: String
     var title: String
     var subtitle: String
     var price: Double
     var description: String
     var ownerUID: String
-    var willingToDeliver: Bool
     
     var iconPhotoID: String
-    var profileImage: UIImage? = nil
-    var profileImageData: Data? {
-        guard let profileImage = profileImage else { return nil }
-        return profileImage.jpegData(compressionQuality: 0.5)
+    var iconImage: UIImage? = nil
+    var iconImageData: Data? {
+        guard let iconImage = iconImage else { return nil }
+        return iconImage.jpegData(compressionQuality: 0.5)
     }
     
-    init(uid: String, title: String, subtitle: String, price: Double, description: String, ownerUID: String, iconPhotoID: String, willingToDeliver: Bool) {
-        self.uid = uid
+    init(title: String, subtitle: String, price: Double, description: String, ownerUID: String, iconPhotoID: String) {
+        self.uid = UUID().uuidString
         self.title = title
         self.subtitle = subtitle
         self.price = price
         self.description = description
         self.ownerUID = ownerUID
         self.iconPhotoID = iconPhotoID
-        self.willingToDeliver = willingToDeliver
     }
 }
