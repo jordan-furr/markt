@@ -39,7 +39,7 @@ class ListingDetailViewController: UIViewController {
         descriptionTextView.isSelectable = false
         titleLabel.text = listing.title
         subtitleLabel.text = listing.subtitle
-        priceView.text = "\(listing.price)"
+        priceView.text = "\(listing.price)$"
         locationLabel.addLocationColoringAndText(user: user)
         dropOffLabel.addDropOffColoringAndText(user: user)
     }
