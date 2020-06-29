@@ -20,7 +20,6 @@ struct ListingKeys {
     static let descriptionKey = "description"
     static let ownerUIDKey = "ownerUID"
     static let iconPhotoIDKey = "iconPhotoID"
-    static let willingToDeliverKey = "willingToDeliver"
 }
 
 class ListingController {
@@ -30,6 +29,7 @@ class ListingController {
     let storage = Storage.storage()
     lazy var storageRef = storage.reference()
     let listingRef : CollectionReference = Firestore.firestore().collection("listings")
+    let bookRef : CollectionReference = Firestore.firestore().collection("books")
     
     var currentUserLiveListings: [Listing] = []
     
@@ -45,6 +45,52 @@ class ListingController {
             "uid" : listing.uid as String
             ] as [String : Any]
         listingRef.document(listing.uid).setData(listingInfoDict)
+    }
+    
+    func createBookListing(with listing: Listing, department: String, classNumber: Int){
+        let listingInfoDict = [
+            "title" : listing.title as String,
+            "subtitle" : listing.subtitle as String,
+            "price" : listing.price as Double,
+            "description": listing.description as String,
+            "ownerUID" : listing.ownerUID as String,
+            "iconPhotoID" : "",
+            "uid" : listing.uid as String
+            ] as [String : Any]
+        bookRef.document(department).collection("\(classNumber)").document(listing.uid).setData(listingInfoDict)
+    }
+    
+    func updateListingInfo(listing: Listing, completion: @escaping (Result<Listing?, ListingError>) -> Void) {
+        let listingDoc = listingRef.document(listing.uid)
+        let data = [
+            "\(ListingKeys.titleKey)" : listing.title as String,
+            "\(ListingKeys.subtitleKey)" : listing.subtitle as String,
+            "\(ListingKeys.priceKey)" : listing.price as Double,
+            "\(ListingKeys.descriptionKey)" : listing.description as String,
+            "\(ListingKeys.iconPhotoIDKey)" : listing.iconPhotoID as String,
+            "\(UserKeys.dropOffKey)" : false
+            ] as [String : Any]
+        listingDoc.setData(data, merge: true) { (error) in
+            if let error = error {
+                return completion(.failure(.firebaseError(error)))
+            } else {
+                guard let user = UserController.shared.currentUser else {return  completion(.failure(.noUserLoggedIn))}
+                guard let index = user.myListings.firstIndex(of: listing.uid) else {return completion(.failure(.noRecordFound))}
+                var listings = ListingController.shared.currentUserLiveListings
+                listings[index] = listing
+                ListingController.shared.currentUserLiveListings = listings
+                return completion(.success(listing))
+            }
+        }
+    }
+    
+    func deleteListing(listing: Listing, completion: @escaping (Result<Listing?, ListingError>) -> Void) {
+        guard let user = UserController.shared.currentUser else {return  completion(.failure(.noUserLoggedIn))}
+        guard let index = user.myListings.firstIndex(of: listing.uid) else {return completion(.failure(.noRecordFound))}
+        var listings = ListingController.shared.currentUserLiveListings
+        listings.remove(at: index)
+        ListingController.shared.currentUserLiveListings = listings
+        UserController.shared.deleteListing(listingID: listing.uid)
     }
     
     func fetchCurrentUsersListings(completion: @escaping (Result<[Listing]?, ListingError>) -> Void) {

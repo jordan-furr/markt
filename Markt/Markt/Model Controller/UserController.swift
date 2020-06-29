@@ -47,6 +47,7 @@ class UserController {
                    print(error.localizedDescription)
                }
            }
+        self.updatedUser()
        }
     
     func unSaveListing(listingID: String){
@@ -63,6 +64,7 @@ class UserController {
                 print(error.localizedDescription)
             }
         }
+        self.updatedUser()
     }
     
     func addCreatedListing(listingID: String){
@@ -78,6 +80,7 @@ class UserController {
                 print(error.localizedDescription)
             }
         }
+        self.updatedUser()
     }
     
     func deleteListing(listingID: String){
@@ -94,6 +97,7 @@ class UserController {
                 print(error.localizedDescription)
             }
         }
+        self.updatedUser()
     }
     
     func updateUserInfo(uid: String, email: String, firstName: String, lastName: String, profilePicUID: String, myListings: [String], savedListings: [String], completion: @escaping (Result<User?, UserError>) -> Void) {
