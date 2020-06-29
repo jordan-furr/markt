@@ -20,6 +20,7 @@ struct ListingKeys {
     static let descriptionKey = "description"
     static let ownerUIDKey = "ownerUID"
     static let iconPhotoIDKey = "iconPhotoID"
+    static let categoryKey = "category"
 }
 
 class ListingController {
@@ -29,7 +30,6 @@ class ListingController {
     let storage = Storage.storage()
     lazy var storageRef = storage.reference()
     let listingRef : CollectionReference = Firestore.firestore().collection("listings")
-    let bookRef : CollectionReference = Firestore.firestore().collection("books")
     
     var currentUserLiveListings: [Listing] = []
     
@@ -42,22 +42,10 @@ class ListingController {
             "description": listing.description as String,
             "ownerUID" : listing.ownerUID as String,
             "iconPhotoID" : "",
-            "uid" : listing.uid as String
+            "uid" : listing.uid as String,
+            "category" : listing.category as String
             ] as [String : Any]
         listingRef.document(listing.uid).setData(listingInfoDict)
-    }
-    
-    func createBookListing(with listing: Listing, department: String, classNumber: Int){
-        let listingInfoDict = [
-            "title" : listing.title as String,
-            "subtitle" : listing.subtitle as String,
-            "price" : listing.price as Double,
-            "description": listing.description as String,
-            "ownerUID" : listing.ownerUID as String,
-            "iconPhotoID" : "",
-            "uid" : listing.uid as String
-            ] as [String : Any]
-        bookRef.document(department).collection("\(classNumber)").document(listing.uid).setData(listingInfoDict)
     }
     
     func updateListingInfo(listing: Listing, completion: @escaping (Result<Listing?, ListingError>) -> Void) {
@@ -68,7 +56,7 @@ class ListingController {
             "\(ListingKeys.priceKey)" : listing.price as Double,
             "\(ListingKeys.descriptionKey)" : listing.description as String,
             "\(ListingKeys.iconPhotoIDKey)" : listing.iconPhotoID as String,
-            "\(UserKeys.dropOffKey)" : false
+            "\(ListingKeys.categoryKey)" : listing.category as  String
             ] as [String : Any]
         listingDoc.setData(data, merge: true) { (error) in
             if let error = error {
@@ -91,6 +79,11 @@ class ListingController {
         listings.remove(at: index)
         ListingController.shared.currentUserLiveListings = listings
         UserController.shared.deleteListing(listingID: listing.uid)
+    }
+    
+    func fetchClassesForDepartment(department: String, completion: @escaping (Result<[Int]?, ListingError>) -> Void) {
+       // let classNumbers: [Int] = []
+       // bookRef.
     }
     
     func fetchCurrentUsersListings(completion: @escaping (Result<[Listing]?, ListingError>) -> Void) {
