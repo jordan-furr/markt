@@ -29,6 +29,7 @@ class ListingDetailViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+    
     }
     
 
@@ -43,6 +44,7 @@ class ListingDetailViewController: UIViewController {
         locationLabel.addLocationColoringAndText(user: user)
         dropOffLabel.addDropOffColoringAndText(user: user)
     }
+    
     
     @IBAction func submitTapped(_ sender: Any) {
         messageTextField.text = ""

@@ -20,7 +20,7 @@ struct ListingKeys {
     static let descriptionKey = "description"
     static let ownerUIDKey = "ownerUID"
     static let iconPhotoIDKey = "iconPhotoID"
-    static let willingToDeliverKey = "willingToDeliver"
+    static let categoryKey = "category"
 }
 
 class ListingController {
@@ -42,9 +42,48 @@ class ListingController {
             "description": listing.description as String,
             "ownerUID" : listing.ownerUID as String,
             "iconPhotoID" : "",
-            "uid" : listing.uid as String
+            "uid" : listing.uid as String,
+            "category" : listing.category as String
             ] as [String : Any]
         listingRef.document(listing.uid).setData(listingInfoDict)
+    }
+    
+    func updateListingInfo(listing: Listing, completion: @escaping (Result<Listing?, ListingError>) -> Void) {
+        let listingDoc = listingRef.document(listing.uid)
+        let data = [
+            "\(ListingKeys.titleKey)" : listing.title as String,
+            "\(ListingKeys.subtitleKey)" : listing.subtitle as String,
+            "\(ListingKeys.priceKey)" : listing.price as Double,
+            "\(ListingKeys.descriptionKey)" : listing.description as String,
+            "\(ListingKeys.iconPhotoIDKey)" : listing.iconPhotoID as String,
+            "\(ListingKeys.categoryKey)" : listing.category as  String
+            ] as [String : Any]
+        listingDoc.setData(data, merge: true) { (error) in
+            if let error = error {
+                return completion(.failure(.firebaseError(error)))
+            } else {
+                guard let user = UserController.shared.currentUser else {return  completion(.failure(.noUserLoggedIn))}
+                guard let index = user.myListings.firstIndex(of: listing.uid) else {return completion(.failure(.noRecordFound))}
+                var listings = ListingController.shared.currentUserLiveListings
+                listings[index] = listing
+                ListingController.shared.currentUserLiveListings = listings
+                return completion(.success(listing))
+            }
+        }
+    }
+    
+    func deleteListing(listing: Listing, completion: @escaping (Result<Listing?, ListingError>) -> Void) {
+        guard let user = UserController.shared.currentUser else {return  completion(.failure(.noUserLoggedIn))}
+        guard let index = user.myListings.firstIndex(of: listing.uid) else {return completion(.failure(.noRecordFound))}
+        var listings = ListingController.shared.currentUserLiveListings
+        listings.remove(at: index)
+        ListingController.shared.currentUserLiveListings = listings
+        UserController.shared.deleteListing(listingID: listing.uid)
+    }
+    
+    func fetchClassesForDepartment(department: String, completion: @escaping (Result<[Int]?, ListingError>) -> Void) {
+       // let classNumbers: [Int] = []
+       // bookRef.
     }
     
     func fetchCurrentUsersListings(completion: @escaping (Result<[Listing]?, ListingError>) -> Void) {

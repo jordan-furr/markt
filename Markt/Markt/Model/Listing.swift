@@ -9,10 +9,21 @@
 import UIKit
 import Foundation
 
+struct Category8Keys {
+    static let booksKey = "books"
+    static let furnitureKey = "furniture"
+    static let electronicsKey = "electronics"
+    static let ticketsKey = "tickets"
+    static let clothingKey = "clothing"
+    static let transpotationKey = "transportaion"
+    static let freeKey = "free"
+    static let housingKey = "housing"
+}
+
 class Listing: Codable {
     
     enum CodingKeys: String, CodingKey {
-        case uid, title, subtitle, price, description, ownerUID, iconPhotoID
+        case uid, title, subtitle, price, description, ownerUID, iconPhotoID, category
     }
     var uid: String
     var title: String
@@ -20,6 +31,7 @@ class Listing: Codable {
     var price: Double
     var description: String
     var ownerUID: String
+    var category: String
     
     var iconPhotoID: String
     var iconImage: UIImage? = nil
@@ -28,7 +40,7 @@ class Listing: Codable {
         return iconImage.jpegData(compressionQuality: 0.5)
     }
     
-    init(title: String, subtitle: String, price: Double, description: String, ownerUID: String, iconPhotoID: String) {
+    init(title: String, subtitle: String, price: Double, description: String, ownerUID: String, iconPhotoID: String, category: String) {
         self.uid = UUID().uuidString
         self.title = title
         self.subtitle = subtitle
@@ -36,5 +48,6 @@ class Listing: Codable {
         self.description = description
         self.ownerUID = ownerUID
         self.iconPhotoID = iconPhotoID
+        self.category = category
     }
 }
