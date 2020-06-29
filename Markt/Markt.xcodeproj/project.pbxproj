@@ -13,6 +13,8 @@
 		C51426C224A90564002F58E6 /* ListingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51426C124A90564002F58E6 /* ListingDetailViewController.swift */; };
 		C51426C424AA4AAC002F58E6 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51426C324AA4AAC002F58E6 /* Book.swift */; };
 		C51426C624AA4CAF002F58E6 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51426C524AA4CAF002F58E6 /* Ticket.swift */; };
+		C51426C824AA8DAD002F58E6 /* BookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51426C724AA8DAD002F58E6 /* BookController.swift */; };
+		C51426CA24AA9AFA002F58E6 /* ExtraSubclassDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51426C924AA9AFA002F58E6 /* ExtraSubclassDetailsViewController.swift */; };
 		C54949D524904F2600B469F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54949D424904F2600B469F6 /* AppDelegate.swift */; };
 		C54949D724904F2600B469F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54949D624904F2600B469F6 /* SceneDelegate.swift */; };
 		C54949DC24904F2600B469F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C54949DA24904F2600B469F6 /* Main.storyboard */; };
@@ -49,6 +51,8 @@
 		C51426C124A90564002F58E6 /* ListingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingDetailViewController.swift; sourceTree = "<group>"; };
 		C51426C324AA4AAC002F58E6 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		C51426C524AA4CAF002F58E6 /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
+		C51426C724AA8DAD002F58E6 /* BookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookController.swift; sourceTree = "<group>"; };
+		C51426C924AA9AFA002F58E6 /* ExtraSubclassDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraSubclassDetailsViewController.swift; sourceTree = "<group>"; };
 		C54949D124904F2600B469F6 /* Markt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Markt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C54949D424904F2600B469F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C54949D624904F2600B469F6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 			children = (
 				C55904F624A7E9C00007916A /* CreateListingViewController.swift */,
 				C51426C124A90564002F58E6 /* ListingDetailViewController.swift */,
+				C51426C924AA9AFA002F58E6 /* ExtraSubclassDetailsViewController.swift */,
 			);
 			path = "Create views";
 			sourceTree = "<group>";
@@ -188,6 +193,7 @@
 			children = (
 				C5ED2B11249FF06200BB6730 /* UserController.swift */,
 				C594CFEF24A40B27007E832A /* ListingController.swift */,
+				C51426C724AA8DAD002F58E6 /* BookController.swift */,
 			);
 			path = "Model Controller";
 			sourceTree = "<group>";
@@ -360,10 +366,12 @@
 				C5ED2B15249FF2B500BB6730 /* UserError.swift in Sources */,
 				C5ED2B0B249D0BBB00BB6730 /* ContainerViewController.swift in Sources */,
 				C54949EE2490512500B469F6 /* Listing.swift in Sources */,
+				C51426C824AA8DAD002F58E6 /* BookController.swift in Sources */,
 				C54949D724904F2600B469F6 /* SceneDelegate.swift in Sources */,
 				C55904F124A7AB0B0007916A /* ProfileViewController.swift in Sources */,
 				C594CFEE24A40388007E832A /* ImageError.swift in Sources */,
 				C51426C224A90564002F58E6 /* ListingDetailViewController.swift in Sources */,
+				C51426CA24AA9AFA002F58E6 /* ExtraSubclassDetailsViewController.swift in Sources */,
 				C51426C024A8CAA5002F58E6 /* ListingError.swift in Sources */,
 				C55904F724A7E9C00007916A /* CreateListingViewController.swift in Sources */,
 				C5ED2B09249C445500BB6730 /* MarketViewController.swift in Sources */,
