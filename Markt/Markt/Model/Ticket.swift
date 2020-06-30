@@ -11,14 +11,16 @@ import Foundation
 class Ticket : Listing {
     
     enum CodingKeys: String, CodingKey {
-        case opponent
+        case opponent, gameDate
     }
     
     var opponent: String
+    var gameDate: Date
     
-    init(title: String, subtitle: String, price: Double, description: String, ownerUID: String, iconPhotoID: String, opponent: String) {
+    init(sport: String, gameDate: Date, price: Double, description: String, ownerUID: String, iconPhotoID: String, opponent: String) {
         self.opponent = opponent
-        super.init(title: title, subtitle: subtitle, price: price, description: description, ownerUID: ownerUID, iconPhotoID: iconPhotoID, category: "tickets")
+        self.gameDate = gameDate
+        super.init(title: (opponent + " " + sport), subtitle: sport, price: price, description: description, ownerUID: ownerUID, iconPhotoID: iconPhotoID, category: "tickets")
     }
     
     required init(from decoder: Decoder) throws {
