@@ -9,6 +9,14 @@
 import UIKit
 import Foundation
 
+var departments: [String] = {
+    ["MATH", "AMCULT", "ENGLISH", "ECON", "POLYSCI", "PSYCH", "EECS"]
+}()
+
+var furnitureTypes: [String] = {
+    ["Couch", "Bed", "Chair", "Desk", "Table", "Light", "Beanbag"]
+}()
+
 struct Category8Keys {
     static let booksKey = "books"
     static let furnitureKey = "furniture"
