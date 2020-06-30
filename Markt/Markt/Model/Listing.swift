@@ -17,6 +17,14 @@ var furnitureTypes: [String] = {
     ["Couch", "Bed", "Chair", "Desk", "Table", "Light", "Beanbag"]
 }()
 
+var sizes: [String] = {
+    ["XXS", "XS", "S", "M", "L", "XL", "XXL", "XXXL"]
+}()
+
+var subletTypes: [String] = {
+    ["Private Room", "Entire Aparmtent", "Entire House", "Shared Room", "Other"]
+}()
+
 struct Category8Keys {
     static let booksKey = "books"
     static let furnitureKey = "furniture"

@@ -11,19 +11,13 @@ import Foundation
 class Ticket : Listing {
     
     enum CodingKeys: String, CodingKey {
-        case gameID, section, seat, row
+        case opponent
     }
     
-    var gameID: String
-    var section: String
-    var seat: String
-    var row: String
+    var opponent: String
     
-    init(title: String, subtitle: String, price: Double, description: String, ownerUID: String, iconPhotoID: String, gameID: String, section: String, seat: String, row: String) {
-        self.gameID = gameID
-        self.section = section
-        self.seat = seat
-        self.row = row
+    init(title: String, subtitle: String, price: Double, description: String, ownerUID: String, iconPhotoID: String, opponent: String) {
+        self.opponent = opponent
         super.init(title: title, subtitle: subtitle, price: price, description: description, ownerUID: ownerUID, iconPhotoID: iconPhotoID, category: "tickets")
     }
     
