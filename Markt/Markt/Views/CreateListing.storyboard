@@ -226,7 +226,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="e5w-yI-cRI">
-                                                        <rect key="frame" x="0.0" y="299" width="374" height="216"/>
+                                                        <rect key="frame" x="0.0" y="299.5" width="374" height="216"/>
                                                     </datePicker>
                                                 </subviews>
                                             </stackView>
@@ -236,10 +236,10 @@
                                                     <constraint firstAttribute="height" constant="40" id="gdW-Jw-Vf7"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                             </textField>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="IFI-Bb-IWu">
-                                                <rect key="frame" x="20" y="695.5" width="374" height="100"/>
+                                                <rect key="frame" x="20" y="715.5" width="374" height="100"/>
                                                 <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="cE1-Yz-X57"/>
@@ -262,6 +262,12 @@
                                                     <action selector="createTapped:" destination="MPs-sR-07y" eventType="touchUpInside" id="5eo-M8-S4n"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AEI-hF-cYi">
+                                                <rect key="frame" x="20" y="686.5" width="374" height="24"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                <color key="textColor" red="0.090066097679999998" green="0.099462307989999998" blue="0.68343377110000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <gestureRecognizers/>
@@ -270,6 +276,7 @@
                                             <constraint firstItem="5dW-go-kOF" firstAttribute="leading" secondItem="a8q-aY-F5s" secondAttribute="leading" id="77v-xK-Tjg"/>
                                             <constraint firstAttribute="height" constant="1000" id="HCf-HG-QXL"/>
                                             <constraint firstAttribute="trailing" secondItem="a8q-aY-F5s" secondAttribute="trailing" constant="20" id="HgD-1L-ikX"/>
+                                            <constraint firstItem="AEI-hF-cYi" firstAttribute="trailing" secondItem="IFI-Bb-IWu" secondAttribute="trailing" id="KjC-Fd-if7"/>
                                             <constraint firstItem="IFI-Bb-IWu" firstAttribute="trailing" secondItem="a8q-aY-F5s" secondAttribute="trailing" id="Qcd-mu-UeT"/>
                                             <constraint firstItem="iIe-KQ-JP9" firstAttribute="trailing" secondItem="a8q-aY-F5s" secondAttribute="trailing" id="SH8-DV-nIe"/>
                                             <constraint firstItem="iIe-KQ-JP9" firstAttribute="leading" secondItem="a8q-aY-F5s" secondAttribute="leading" id="bko-jj-NEp"/>
@@ -277,7 +284,9 @@
                                             <constraint firstItem="a8q-aY-F5s" firstAttribute="top" secondItem="rQG-9y-SHw" secondAttribute="top" constant="20" id="mPJ-fa-pr1"/>
                                             <constraint firstItem="5dW-go-kOF" firstAttribute="top" secondItem="a8q-aY-F5s" secondAttribute="bottom" constant="100" id="nCf-DA-jFV"/>
                                             <constraint firstItem="5dW-go-kOF" firstAttribute="width" secondItem="a8q-aY-F5s" secondAttribute="width" multiplier="0.4" id="rGv-dj-plx"/>
-                                            <constraint firstItem="IFI-Bb-IWu" firstAttribute="top" secondItem="a8q-aY-F5s" secondAttribute="bottom" constant="160" id="zoG-35-alD"/>
+                                            <constraint firstItem="IFI-Bb-IWu" firstAttribute="top" secondItem="AEI-hF-cYi" secondAttribute="bottom" constant="5" id="uFa-By-TqN"/>
+                                            <constraint firstItem="AEI-hF-cYi" firstAttribute="leading" secondItem="IFI-Bb-IWu" secondAttribute="leading" id="zg2-lS-EtO"/>
+                                            <constraint firstItem="IFI-Bb-IWu" firstAttribute="top" secondItem="a8q-aY-F5s" secondAttribute="bottom" constant="180" id="zoG-35-alD"/>
                                             <constraint firstItem="a8q-aY-F5s" firstAttribute="leading" secondItem="rQG-9y-SHw" secondAttribute="leading" constant="20" id="zxs-gy-stw"/>
                                         </constraints>
                                         <connections>

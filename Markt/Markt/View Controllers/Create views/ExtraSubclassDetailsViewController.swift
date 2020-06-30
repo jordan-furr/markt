@@ -49,7 +49,10 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
         let subClass = subclassLabel.text ?? "N/A"
         let subtitle = subtitleTextField.text ?? "no subtitle"
         let price = Double(priceLabel.text ?? "0") ?? 0
-        let description = descriptionTextView.text ?? "No description provided :("
+        var description = descriptionTextView.text ?? ""
+        if description == "..." || description == "" {
+            description = "No description provided :("
+        }
         let ownerUID = UserController.shared.currentUser!.uid
         let iconPhotoID = ""
         let date = datePicker.date
@@ -70,7 +73,7 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
             createdListing = FurnitureItem(title: title, subtitle: subtitle, price: price, description: description, ownerUID: ownerUID, iconPhotoID: iconPhotoID, type: subClass)
         
         default:
-           createdListing = Listing(title: title, subtitle: subtitle, price: 0, description: description, ownerUID: ownerUID, iconPhotoID: iconPhotoID, category: "free")
+           createdListing = Listing(title: title, subtitle: subtitle, price: 0, description: description, ownerUID: ownerUID, iconPhotoID: iconPhotoID, category: category)
            ListingController.shared.createListing(with: createdListing!)
            UserController.shared.addCreatedListing(listingID: createdListing!.uid)
         }
@@ -116,7 +119,7 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
     func setUpViews(){
         dateLabel.isHidden = true
         datePicker.isHidden = true
-        descriptionTextView.text = "Enter a short description about this item"
+        descriptionTextView.text = "..."
         titleLabel.placeholder = "Enter Title"
         priceLabel.placeholder = "Asking price"
         guard let category = category else {return}
@@ -135,7 +138,7 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
         case "electronics":
             categoryLabel.text = "New Electronic Item"
             listingInfo1.isHidden = true
-            subclassLabel.placeholder = "Select Type"
+            subclassLabel.isHidden = true
         case "tickets":
             dateLabel.isHidden = false
             datePicker.isHidden = false
