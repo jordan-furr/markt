@@ -15,6 +15,7 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
     var subCategories: [String] = {["N/A"]}()
     var category: String?
     var selectedSubclass: String?
+    var createdListing: Listing?
     
     
     //MARK: IB OUTLETS
@@ -24,9 +25,12 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
     @IBOutlet weak var titleLabel: UITextField!
     @IBOutlet weak var priceLabel: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var subtitleTextField: UITextField!
+    @IBOutlet weak var createButton: UIButton!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var datePicker: UIDatePicker!
     
 
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         setUpViews()
@@ -36,6 +40,46 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
         createPickerView()
         dismissPickerView()
     }
+    
+    //MARK: - CREATE LISTING
+    @IBAction func createTapped(_ sender: Any) {
+        guard let category = category else {return}
+        
+        let title = titleLabel.text ?? "no title"
+        let subClass = subclassLabel.text ?? "N/A"
+        let subtitle = subtitleTextField.text ?? "no subtitle"
+        let price = Double(priceLabel.text ?? "0") ?? 0
+        var description = descriptionTextView.text ?? ""
+        if description == "..." || description == "" {
+            description = "No description provided :("
+        }
+        let ownerUID = UserController.shared.currentUser!.uid
+        let iconPhotoID = ""
+        let date = datePicker.date
+
+        switch (category) {
+        case "books":
+            guard let department = subclassLabel.text, let classNumber = listingInfo1.text else {return}
+            createdListing = Book(title: title, subtitle: subtitle, price: price, description: description, ownerUID: ownerUID, iconPhotoID: iconPhotoID, department: department, classNumber: classNumber)
+        case "tickets":
+            guard let sport = subclassLabel.text else {return}
+            let opponentName = title
+            createdListing = Ticket(sport: sport, gameDate: date, price: price, description: description, ownerUID: ownerUID, iconPhotoID: iconPhotoID, opponent: opponentName)
+        case "housing":
+            createdListing = Sublet(title: title, subtitle: subtitle, subletType: subClass, price: price, description: description, ownerUID: ownerUID, iconPhotoID: iconPhotoID, dateAvailable: date)
+        case "clothing":
+            createdListing = ClothingItem(title: title, subtitle: subtitle, price: price, description: description, ownerUID: ownerUID, iconPhotoID: iconPhotoID, size: subClass)
+        case "furniture":
+            createdListing = FurnitureItem(title: title, subtitle: subtitle, price: price, description: description, ownerUID: ownerUID, iconPhotoID: iconPhotoID, type: subClass)
+        
+        default:
+           createdListing = Listing(title: title, subtitle: subtitle, price: 0, description: description, ownerUID: ownerUID, iconPhotoID: iconPhotoID, category: category)
+           ListingController.shared.createListing(with: createdListing!)
+           UserController.shared.addCreatedListing(listingID: createdListing!.uid)
+        }
+        print(createdListing!)
+    }
+    
     
     func createPickerView() {
         let pickerView = UIPickerView()
@@ -73,7 +117,9 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
         subclassLabel.text = selectedSubclass
     }
     func setUpViews(){
-        descriptionTextView.text = "Enter a short description about this item"
+        dateLabel.isHidden = true
+        datePicker.isHidden = true
+        descriptionTextView.text = "..."
         titleLabel.placeholder = "Enter Title"
         priceLabel.placeholder = "Asking price"
         guard let category = category else {return}
@@ -92,13 +138,18 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
         case "electronics":
             categoryLabel.text = "New Electronic Item"
             listingInfo1.isHidden = true
-            subclassLabel.placeholder = "Select Type"
+            subclassLabel.isHidden = true
         case "tickets":
+            dateLabel.isHidden = false
+            datePicker.isHidden = false
+            dateLabel.text = "Date of Game:"
             categoryLabel.text = "New Ticket Listing"
+            
             listingInfo1.placeholder = "Enter Game Date"
-            subclassLabel.placeholder = "Select Opponent"
+            subclassLabel.placeholder = "Select Sport"
             descriptionTextView.text = "Enter info on section/row/seat"
-            titleLabel.isHidden = true
+            titleLabel.placeholder = "Enter Opposing Team"
+            subtitleTextField.isHidden = true
         case "clothing":
             categoryLabel.text = "New Clothing Item"
             subCategories = sizes
@@ -107,15 +158,21 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
         case "transportation":
             categoryLabel.text = "New Tranportation Listing"
             listingInfo1.isHidden = true
+            subclassLabel.isHidden = true
         case "housing":
+            dateLabel.isHidden = false
+            datePicker.isHidden = false
+            dateLabel.text = "Date Available:"
             categoryLabel.text = "New Sublet Listing"
-            listingInfo1.placeholder = "When is this sublet available?"
+            listingInfo1.isHidden = true
+            subCategories = subletTypes
             subclassLabel.placeholder = "Select Sublet Type"
             descriptionTextView.text = "Enter a description about this listing."
         default:
             categoryLabel.text = "New Free Item"
             subclassLabel.isHidden = true
             listingInfo1.isHidden = true
+            priceLabel.isHidden = true
         }
     }
     
