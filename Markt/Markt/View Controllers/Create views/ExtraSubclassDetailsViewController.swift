@@ -61,23 +61,28 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
         case "books":
             guard let department = subclassLabel.text, let classNumber = listingInfo1.text else {return}
             createdListing = Book(title: title, subtitle: subtitle, price: price, description: description, ownerUID: ownerUID, iconPhotoID: iconPhotoID, department: department, classNumber: classNumber)
+            ListingController.shared.createBookListing(with: createdListing! as! Book)
         case "tickets":
             guard let sport = subclassLabel.text else {return}
             let opponentName = title
             createdListing = Ticket(sport: sport, gameDate: date, price: price, description: description, ownerUID: ownerUID, iconPhotoID: iconPhotoID, opponent: opponentName)
+            ListingController.shared.createTicketListing(with: createdListing! as! Ticket)
         case "housing":
             createdListing = Sublet(title: title, subtitle: subtitle, subletType: subClass, price: price, description: description, ownerUID: ownerUID, iconPhotoID: iconPhotoID, dateAvailable: date)
+            ListingController.shared.createSubletListing(with: createdListing! as! Sublet)
         case "clothing":
             createdListing = ClothingItem(title: title, subtitle: subtitle, price: price, description: description, ownerUID: ownerUID, iconPhotoID: iconPhotoID, size: subClass)
+            ListingController.shared.createClothingListing(with: createdListing! as! ClothingItem)
         case "furniture":
             createdListing = FurnitureItem(title: title, subtitle: subtitle, price: price, description: description, ownerUID: ownerUID, iconPhotoID: iconPhotoID, type: subClass)
-        
+            ListingController.shared.createFurnitureListing(with: createdListing! as! FurnitureItem)
         default:
            createdListing = Listing(title: title, subtitle: subtitle, price: 0, description: description, ownerUID: ownerUID, iconPhotoID: iconPhotoID, category: category)
            ListingController.shared.createListing(with: createdListing!)
-           UserController.shared.addCreatedListing(listingID: createdListing!.uid)
+          
         }
-        print(createdListing!)
+         UserController.shared.addCreatedListing(listingID: createdListing!.uid)
+        self.dismiss(animated: true, completion: nil)
     }
     
     
@@ -144,7 +149,6 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
             datePicker.isHidden = false
             dateLabel.text = "Date of Game:"
             categoryLabel.text = "New Ticket Listing"
-            
             listingInfo1.placeholder = "Enter Game Date"
             subclassLabel.placeholder = "Select Sport"
             descriptionTextView.text = "Enter info on section/row/seat"
