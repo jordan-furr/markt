@@ -41,11 +41,89 @@ class ListingController {
             "price" : listing.price as Double,
             "description": listing.description as String,
             "ownerUID" : listing.ownerUID as String,
-            "iconPhotoID" : "",
+            "iconPhotoID" : listing.iconPhotoID as String,
             "uid" : listing.uid as String,
             "category" : listing.category as String
             ] as [String : Any]
         listingRef.document(listing.uid).setData(listingInfoDict)
+    }
+    
+    func createBookListing(with book: Book){
+        let listingInfoDict = [
+            "title" : book.title as String,
+            "subtitle" : book.subtitle as String,
+            "price" : book.price as Double,
+            "description": book.description as String,
+            "ownerUID" : book.ownerUID as String,
+            "iconPhotoID" : book.iconPhotoID as String,
+            "uid" : book.uid as String,
+            "category" : "books",
+            "department" : book.department as String,
+            "classNumber" : book.classNumber as String
+            ] as [String : Any]
+        listingRef.document(book.uid).setData(listingInfoDict)
+    }
+    
+    func createTicketListing(with ticket: Ticket){
+        let listingInfoDict = [
+            "title" : ticket.title as String,
+            "subtitle" : ticket.subtitle as String,
+            "price" : ticket.price as Double,
+            "description": ticket.description as String,
+            "ownerUID" : ticket.ownerUID as String,
+            "iconPhotoID" : ticket.iconPhotoID as String,
+            "uid" : ticket.uid as String,
+            "category" : "tickets",
+            "opponent" : ticket.opponent as String,
+            "gameDate" : ticket.gameDate as Date
+            ] as [String : Any]
+        listingRef.document(ticket.uid).setData(listingInfoDict)
+    }
+    
+    func createSubletListing(with sublet: Sublet){
+           let listingInfoDict = [
+               "title" : sublet.title as String,
+               "subtitle" : sublet.subtitle as String,
+               "price" : sublet.price as Double,
+               "description": sublet.description as String,
+               "ownerUID" : sublet.ownerUID as String,
+               "iconPhotoID" : sublet.iconPhotoID as String,
+               "uid" : sublet.uid as String,
+               "category" : "housing",
+               "dateAvailable" : sublet.dateAvailable as Date,
+               "subletType" : sublet.subletType as String
+               ] as [String : Any]
+           listingRef.document(sublet.uid).setData(listingInfoDict)
+       }
+    
+    func createClothingListing(with clothingItem: ClothingItem){
+        let listingInfoDict = [
+            "title" : clothingItem.title as String,
+            "subtitle" : clothingItem.subtitle as String,
+            "price" : clothingItem.price as Double,
+            "description": clothingItem.description as String,
+            "ownerUID" : clothingItem.ownerUID as String,
+            "iconPhotoID" : clothingItem.iconPhotoID as String,
+            "uid" : clothingItem.uid as String,
+            "category" : "clothing",
+            "size" : clothingItem.size as String
+            ] as [String : Any]
+        listingRef.document(clothingItem.uid).setData(listingInfoDict)
+    }
+    
+    func createFurnitureListing(with furnitureItem: FurnitureItem){
+        let listingInfoDict = [
+            "title" : furnitureItem.title as String,
+            "subtitle" : furnitureItem.subtitle as String,
+            "price" : furnitureItem.price as Double,
+            "description": furnitureItem.description as String,
+            "ownerUID" : furnitureItem.ownerUID as String,
+            "iconPhotoID" : furnitureItem.iconPhotoID as String,
+            "uid" : furnitureItem.uid as String,
+            "category" : "furniture",
+            "type" : furnitureItem.type as String
+            ] as [String : Any]
+        listingRef.document(furnitureItem.uid).setData(listingInfoDict)
     }
     
     func updateListingInfo(listing: Listing, completion: @escaping (Result<Listing?, ListingError>) -> Void) {

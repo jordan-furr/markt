@@ -25,6 +25,9 @@ var subletTypes: [String] = {
     ["Private Room", "Entire Aparmtent", "Entire House", "Shared Room", "Other"]
 }()
 
+var sports: [String] = {
+    ["Football", "Basketball", "Hockey", "Soccer", "Tennis"]
+}()
 struct Category8Keys {
     static let booksKey = "books"
     static let furnitureKey = "furniture"
