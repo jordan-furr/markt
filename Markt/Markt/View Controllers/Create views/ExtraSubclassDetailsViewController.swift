@@ -145,6 +145,7 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
             listingInfo1.isHidden = true
             subclassLabel.isHidden = true
         case "tickets":
+            subCategories = sports
             dateLabel.isHidden = false
             datePicker.isHidden = false
             dateLabel.text = "Date of Game:"
