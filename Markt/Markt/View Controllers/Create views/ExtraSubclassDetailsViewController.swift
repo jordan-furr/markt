@@ -150,7 +150,7 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
             datePicker.isHidden = false
             dateLabel.text = "Date of Game:"
             categoryLabel.text = "New Ticket Listing"
-            listingInfo1.placeholder = "Enter Game Date"
+            listingInfo1.isHidden = true
             subclassLabel.placeholder = "Select Sport"
             descriptionTextView.text = "Enter info on section/row/seat"
             titleLabel.placeholder = "Enter Opposing Team"

@@ -10,9 +10,12 @@ import UIKit
 
 class MarketViewController: UIViewController {
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        setUpViews()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpViews()
     }
     
     @IBAction func menuTapped(_ sender: Any) {

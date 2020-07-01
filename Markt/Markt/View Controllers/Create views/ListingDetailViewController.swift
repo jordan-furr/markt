@@ -38,6 +38,7 @@ class ListingDetailViewController: UIViewController {
         guard let listing = listing, let user = UserController.shared.currentUser else {return}
         descriptionTextView.isEditable = false
         descriptionTextView.isSelectable = false
+        descriptionTextView.text = listing.description
         titleLabel.text = listing.title
         subtitleLabel.text = listing.subtitle
         priceView.text = "\(listing.price)$"
@@ -49,6 +50,4 @@ class ListingDetailViewController: UIViewController {
     @IBAction func submitTapped(_ sender: Any) {
         messageTextField.text = ""
     }
-    
-
 }
