@@ -8,7 +8,15 @@
 
 import UIKit
 
+var categories: [String] = {
+    ["books", "furniture", "electronics", "tickets", "clothing", "transportation", "free", "housing"]
+}()
+
 class MarketViewController: UIViewController {
+    
+    //MARK: - IB OUTLETS
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -28,6 +36,8 @@ class MarketViewController: UIViewController {
     //MARK: HELPERS
     
     func setUpViews() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
         navigationItem.hidesBackButton = true
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(showProfile),
@@ -51,7 +61,7 @@ class MarketViewController: UIViewController {
             }
         }
         
-    
+        
     }
     @objc func showProfile() {
         performSegue(withIdentifier: "ShowProfile", sender: nil)
@@ -77,4 +87,19 @@ class MarketViewController: UIViewController {
     }
     
     
+}
+
+extension MarketViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        8
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        guard let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as? CategoryCollectionViewCell else {return UICollectionViewCell()}
+        
+        let category = categories[indexPath.row]
+        cell.setCategory(category: category)
+        return cell
+    }
 }

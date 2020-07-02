@@ -416,7 +416,7 @@
                                                     <constraint firstItem="R12-Ox-YUn" firstAttribute="top" secondItem="Uns-Sn-hm8" secondAttribute="top" id="t4u-VX-i72"/>
                                                 </constraints>
                                             </stackView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="books" translatesAutoresizingMaskIntoConstraints="NO" id="k5O-uQ-h4m">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k5O-uQ-h4m">
                                                 <rect key="frame" x="20" y="147" width="374" height="270"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="270" id="Aku-K7-Pch"/>
@@ -566,7 +566,4 @@
             <point key="canvasLocation" x="-59.420289855072468" y="743.97321428571422"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="books" width="820" height="459"/>
-    </resources>
 </document>

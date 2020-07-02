@@ -15,6 +15,7 @@
 		C51426C624AA4CAF002F58E6 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51426C524AA4CAF002F58E6 /* Ticket.swift */; };
 		C51426C824AA8DAD002F58E6 /* BookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51426C724AA8DAD002F58E6 /* BookController.swift */; };
 		C51426CA24AA9AFA002F58E6 /* ExtraSubclassDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51426C924AA9AFA002F58E6 /* ExtraSubclassDetailsViewController.swift */; };
+		C535BF3B24AE372A00F85D8A /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C535BF3A24AE372A00F85D8A /* CategoryCollectionViewCell.swift */; };
 		C54949D524904F2600B469F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54949D424904F2600B469F6 /* AppDelegate.swift */; };
 		C54949D724904F2600B469F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54949D624904F2600B469F6 /* SceneDelegate.swift */; };
 		C54949DC24904F2600B469F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C54949DA24904F2600B469F6 /* Main.storyboard */; };
@@ -56,6 +57,7 @@
 		C51426C524AA4CAF002F58E6 /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
 		C51426C724AA8DAD002F58E6 /* BookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookController.swift; sourceTree = "<group>"; };
 		C51426C924AA9AFA002F58E6 /* ExtraSubclassDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraSubclassDetailsViewController.swift; sourceTree = "<group>"; };
+		C535BF3A24AE372A00F85D8A /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		C54949D124904F2600B469F6 /* Markt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Markt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C54949D424904F2600B469F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C54949D624904F2600B469F6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 				C5ED2B08249C445500BB6730 /* MarketViewController.swift */,
 				C55904F024A7AB0B0007916A /* ProfileViewController.swift */,
 				C51426BD24A8C8B4002F58E6 /* ListingCollectionViewCell.swift */,
+				C535BF3A24AE372A00F85D8A /* CategoryCollectionViewCell.swift */,
 			);
 			path = "Market views";
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				C54949D524904F2600B469F6 /* AppDelegate.swift in Sources */,
 				C5ED2B15249FF2B500BB6730 /* UserError.swift in Sources */,
 				C5ED2B0B249D0BBB00BB6730 /* ContainerViewController.swift in Sources */,
+				C535BF3B24AE372A00F85D8A /* CategoryCollectionViewCell.swift in Sources */,
 				C54949EE2490512500B469F6 /* Listing.swift in Sources */,
 				C51426C824AA8DAD002F58E6 /* BookController.swift in Sources */,
 				C54949D724904F2600B469F6 /* SceneDelegate.swift in Sources */,
