@@ -63,9 +63,11 @@ class ListingDetailViewController: UIViewController {
     
     @IBAction func heartTapped(_ sender: Any) {
         print("tapepd heart")
-        heartButton.imageView?.image = UIImage(named: "heart.fill")
-        heartButton.reloadInputViews()
-        heartButton.backgroundColor = .red
+        if heartButton.backgroundColor == .red {
+            heartButton.backgroundColor = .white
+        } else {
+            heartButton.backgroundColor = .red
+        }
     }
     
 }
