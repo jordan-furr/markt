@@ -34,6 +34,8 @@
 		C5B5D51824AB8F1B00C51956 /* Sublet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B5D51724AB8F1B00C51956 /* Sublet.swift */; };
 		C5B5D51A24AB98C800C51956 /* ClothingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B5D51924AB98C800C51956 /* ClothingItem.swift */; };
 		C5B5D51C24AB993F00C51956 /* FurnitureItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B5D51B24AB993F00C51956 /* FurnitureItem.swift */; };
+		C5D6A1E024AECDC000C79FB6 /* MarketDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5D6A1DF24AECDC000C79FB6 /* MarketDetails.storyboard */; };
+		C5D6A1E224AECECA00C79FB6 /* FirstSubcategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D6A1E124AECECA00C79FB6 /* FirstSubcategoryTableViewController.swift */; };
 		C5ED2B09249C445500BB6730 /* MarketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ED2B08249C445500BB6730 /* MarketViewController.swift */; };
 		C5ED2B0B249D0BBB00BB6730 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ED2B0A249D0BBB00BB6730 /* ContainerViewController.swift */; };
 		C5ED2B0D249D0BE800BB6730 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ED2B0C249D0BE800BB6730 /* SideMenuTableViewController.swift */; };
@@ -78,6 +80,8 @@
 		C5B5D51724AB8F1B00C51956 /* Sublet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sublet.swift; sourceTree = "<group>"; };
 		C5B5D51924AB98C800C51956 /* ClothingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingItem.swift; sourceTree = "<group>"; };
 		C5B5D51B24AB993F00C51956 /* FurnitureItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FurnitureItem.swift; sourceTree = "<group>"; };
+		C5D6A1DF24AECDC000C79FB6 /* MarketDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MarketDetails.storyboard; sourceTree = "<group>"; };
+		C5D6A1E124AECECA00C79FB6 /* FirstSubcategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSubcategoryTableViewController.swift; sourceTree = "<group>"; };
 		C5ED2B08249C445500BB6730 /* MarketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketViewController.swift; sourceTree = "<group>"; };
 		C5ED2B0A249D0BBB00BB6730 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		C5ED2B0C249D0BE800BB6730 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 				C54949EF249051EB00B469F6 /* Market.storyboard */,
 				C559E9B92492CE6300FF3AFB /* Messaging.storyboard */,
 				C55904F424A7E92A0007916A /* CreateListing.storyboard */,
+				C5D6A1DF24AECDC000C79FB6 /* MarketDetails.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -235,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				C5ED2B0A249D0BBB00BB6730 /* ContainerViewController.swift */,
+				C5D6A1E124AECECA00C79FB6 /* FirstSubcategoryTableViewController.swift */,
 				C5ED2B0C249D0BE800BB6730 /* SideMenuTableViewController.swift */,
 				C5ED2B08249C445500BB6730 /* MarketViewController.swift */,
 				C55904F024A7AB0B0007916A /* ProfileViewController.swift */,
@@ -314,6 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C54949F0249051EB00B469F6 /* Market.storyboard in Resources */,
+				C5D6A1E024AECDC000C79FB6 /* MarketDetails.storyboard in Resources */,
 				C54949E124904F2E00B469F6 /* LaunchScreen.storyboard in Resources */,
 				C54949DE24904F2E00B469F6 /* Assets.xcassets in Resources */,
 				C54949DC24904F2600B469F6 /* Main.storyboard in Resources */,
@@ -375,6 +382,7 @@
 				C55904F324A7DB820007916A /* StyleGuide.swift in Sources */,
 				C5ED2B12249FF06200BB6730 /* UserController.swift in Sources */,
 				C54949D524904F2600B469F6 /* AppDelegate.swift in Sources */,
+				C5D6A1E224AECECA00C79FB6 /* FirstSubcategoryTableViewController.swift in Sources */,
 				C5ED2B15249FF2B500BB6730 /* UserError.swift in Sources */,
 				C5ED2B0B249D0BBB00BB6730 /* ContainerViewController.swift in Sources */,
 				C535BF3B24AE372A00F85D8A /* CategoryCollectionViewCell.swift in Sources */,

@@ -7,9 +7,14 @@
 //
 
 import UIKit
+//
+//protocol CategoryCollectionViewCellDelegate: class {
+//    func selectedCategory(category: String)
+//}
 
 class CategoryCollectionViewCell: UICollectionViewCell {
     
+  //  var delegate: CategoryCollectionViewCellDelegate?
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var categoryTitle: UILabel!
     
