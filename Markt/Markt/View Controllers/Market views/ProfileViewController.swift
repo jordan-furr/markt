@@ -34,8 +34,8 @@ class ProfileViewController: UIViewController {
         guard let user = UserController.shared.currentUser else {return}
         
         nameLabel.text = user.firstName + " " + user.lastName
-        locationLabel.addCornerRadius()
-        dropOffBool.addCornerRadius()
+        locationLabel.layer.cornerRadius = 8
+        dropOffBool.layer.cornerRadius = 8
      
         
         locationLabel.addLocationColoringAndText(user: user)
@@ -53,7 +53,7 @@ class ProfileViewController: UIViewController {
 }
 
 
-extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return ListingController.shared.currentUserLiveListings.count
     }
@@ -62,8 +62,13 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         guard let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "listingCell", for: indexPath) as? ListingCollectionViewCell else {return UICollectionViewCell()}
         let listing = ListingController.shared.currentUserLiveListings[indexPath.row]
         cell.setListing(listing: listing)
+        cell.layer.borderWidth = 1.4
+        cell.layer.borderColor = .init(srgbRed: 4, green: 4, blue: 4, alpha: 4)
         return cell
     }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+              return CGSize(width: 120, height: 120)
+          }
 }
 
 

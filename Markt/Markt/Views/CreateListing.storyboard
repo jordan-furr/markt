@@ -385,25 +385,22 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Ym2-dW-DyH">
-                                                        <rect key="frame" x="0.0" y="76.5" width="187" height="20.5"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Ym2-dW-DyH">
+                                                        <rect key="frame" x="0.0" y="76.5" width="262" height="20.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EMU-CI-CsD">
-                                                                <rect key="frame" x="0.0" y="0.0" width="65.5" height="20.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="128.5" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DropOff" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vqg-Wy-rYE">
-                                                                <rect key="frame" x="125" y="0.0" width="62" height="20.5"/>
+                                                                <rect key="frame" x="133.5" y="0.0" width="128.5" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
-                                                        <constraints>
-                                                            <constraint firstAttribute="trailing" secondItem="Vqg-Wy-rYE" secondAttribute="trailing" id="kuy-3K-6zb"/>
-                                                        </constraints>
                                                     </stackView>
                                                 </subviews>
                                                 <constraints>
@@ -411,7 +408,7 @@
                                                     <constraint firstItem="emO-g3-V1o" firstAttribute="top" secondItem="R12-Ox-YUn" secondAttribute="bottom" constant="10" id="Gc9-Hx-5Eo"/>
                                                     <constraint firstItem="R12-Ox-YUn" firstAttribute="leading" secondItem="Uns-Sn-hm8" secondAttribute="leading" id="Ja1-Ch-jDd"/>
                                                     <constraint firstAttribute="trailing" secondItem="emO-g3-V1o" secondAttribute="trailing" id="QHd-YD-sha"/>
-                                                    <constraint firstItem="Ym2-dW-DyH" firstAttribute="width" secondItem="emO-g3-V1o" secondAttribute="width" multiplier="0.5" id="ZjH-Ba-abF"/>
+                                                    <constraint firstItem="Ym2-dW-DyH" firstAttribute="width" secondItem="emO-g3-V1o" secondAttribute="width" multiplier="0.7" id="ZjH-Ba-abF"/>
                                                     <constraint firstAttribute="trailing" secondItem="R12-Ox-YUn" secondAttribute="trailing" id="mzf-XL-Y9a"/>
                                                     <constraint firstItem="R12-Ox-YUn" firstAttribute="top" secondItem="Uns-Sn-hm8" secondAttribute="top" id="t4u-VX-i72"/>
                                                 </constraints>

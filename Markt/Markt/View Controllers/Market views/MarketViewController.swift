@@ -40,6 +40,7 @@ class MarketViewController: UIViewController {
     func setUpViews() {
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tap)))
         navigationItem.hidesBackButton = true
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(showProfile),
@@ -62,9 +63,22 @@ class MarketViewController: UIViewController {
                 print("live user listings fetched"); if (listings != nil) { print(listings!)}
             }
         }
-        
-        
     }
+    
+    @objc func tap(sender: UITapGestureRecognizer){
+        if let indexPath = self.collectionView?.indexPathForItem(at: sender.location(in: self.collectionView)) {
+            let category = categories[indexPath.item]
+            selectedCategory = category
+            if category == "electronics" || category == "free" || category == "transportation"  {
+                performSegue(withIdentifier: "toShopView", sender: self)
+            } else {
+                performSegue(withIdentifier: "toSubCategories", sender: self)
+            }
+        } else {
+            print("collection view was tapped")
+        }
+    }
+    
     @objc func showProfile() {
         performSegue(withIdentifier: "ShowProfile", sender: nil)
     }
@@ -89,9 +103,24 @@ class MarketViewController: UIViewController {
         menuTapped(self)
     }
     
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toSubCategories" {
+        if segue.identifier == "toSubCategories"  {
             guard let destinationVC = segue.destination as? FirstSubcategoryTableViewController else {return}
+            destinationVC.category = selectedCategory ?? "error"
+        }
+        if segue.identifier == "toShopView"  {
+            guard let destinationVC = segue.destination as? ShopCollectionViewController else {return}
+            
+            ListingController.shared.fetchListingsInCategory(category: selectedCategory!) { (result) in
+                switch result {
+                case .success(let listings):
+                    guard let listings = listings else {return}
+                    destinationVC.listings = listings
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
             destinationVC.category = selectedCategory ?? "error"
         }
     }
@@ -109,17 +138,10 @@ extension MarketViewController: UICollectionViewDataSource, UICollectionViewDele
         
         let category = categories[indexPath.item]
         cell.setCategory(category: category)
-        cell.layer.borderColor = CGColor(srgbRed: 4, green: 4, blue: 4, alpha: 4)
-        cell.layer.borderWidth = 2
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-           return CGSize(width: 85, height: 85)
-       }
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let category = categories[indexPath.item]
-        selectedCategory = category
-        performSegue(withIdentifier: "toSubCategories", sender: self)
-        print("tapped cell")
+        return CGSize(width: 85, height: 85)
     }
+    
 }

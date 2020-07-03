@@ -27,10 +27,21 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     func updateUI(){
         guard let category = category else {return}
+        self.contentView.isUserInteractionEnabled = true
         imageView.image = UIImage(named: category)
         categoryTitle.text = category
         if category == "transportation" {
             categoryTitle.text = "transport"
         }
     }
+    override func layoutSubviews() {
+           super.layoutSubviews()
+           layer.cornerRadius = 10
+           backgroundColor = .white // very important
+           layer.masksToBounds = false
+           layer.shadowOpacity = 0.23
+           layer.shadowRadius = 4
+           layer.shadowOffset = CGSize(width: 0, height: 0)
+           layer.shadowColor = UIColor.black.cgColor
+       }
 }
