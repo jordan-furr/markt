@@ -14,6 +14,8 @@ var categories: [String] = {
 
 class MarketViewController: UIViewController {
     
+    
+    var selectedCategory: String?
     //MARK: - IB OUTLETS
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -69,6 +71,7 @@ class MarketViewController: UIViewController {
     @objc func showSettings() {
         performSegue(withIdentifier: "ShowSettings", sender: nil)
     }
+    
     @objc func showAbout() {
         performSegue(withIdentifier: "ShowAbout", sender: nil)
     }
@@ -86,10 +89,16 @@ class MarketViewController: UIViewController {
         menuTapped(self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toSubCategories" {
+            guard let destinationVC = segue.destination as? FirstSubcategoryTableViewController else {return}
+            destinationVC.category = selectedCategory ?? "error"
+        }
+    }
     
 }
 
-extension MarketViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension MarketViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         8
     }
@@ -98,11 +107,19 @@ extension MarketViewController: UICollectionViewDelegate, UICollectionViewDataSo
         
         guard let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as? CategoryCollectionViewCell else {return UICollectionViewCell()}
         
-        let category = categories[indexPath.row]
+        let category = categories[indexPath.item]
         cell.setCategory(category: category)
+        cell.layer.borderColor = CGColor(srgbRed: 4, green: 4, blue: 4, alpha: 4)
+        cell.layer.borderWidth = 2
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
            return CGSize(width: 85, height: 85)
        }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let category = categories[indexPath.item]
+        selectedCategory = category
+        performSegue(withIdentifier: "toSubCategories", sender: self)
+        print("tapped cell")
+    }
 }
