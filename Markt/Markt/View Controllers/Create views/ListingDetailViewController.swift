@@ -65,6 +65,7 @@ class ListingDetailViewController: UIViewController {
         print("tapepd heart")
         heartButton.imageView?.image = UIImage(named: "heart.fill")
         heartButton.reloadInputViews()
+        heartButton.backgroundColor = .red
     }
     
 }
