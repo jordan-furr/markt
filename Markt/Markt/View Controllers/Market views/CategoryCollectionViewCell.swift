@@ -11,6 +11,7 @@ import UIKit
 class CategoryCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var categoryTitle: UILabel!
     
     var category: String?
     
@@ -22,5 +23,9 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     func updateUI(){
         guard let category = category else {return}
         imageView.image = UIImage(named: category)
+        categoryTitle.text = category
+        if category == "transportation" {
+            categoryTitle.text = "transport"
+        }
     }
 }
