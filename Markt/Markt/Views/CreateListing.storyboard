@@ -414,19 +414,19 @@
                                                 </constraints>
                                             </stackView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k5O-uQ-h4m">
-                                                <rect key="frame" x="20" y="147" width="374" height="270"/>
+                                                <rect key="frame" x="20" y="147" width="304" height="270"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="270" id="Aku-K7-Pch"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="107-za-tGk">
-                                                <rect key="frame" x="20" y="442" width="374" height="26.5"/>
+                                                <rect key="frame" x="20" y="452" width="374" height="26.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EDW-rT-zyF">
-                                                <rect key="frame" x="20" y="473.5" width="374" height="108"/>
+                                                <rect key="frame" x="20" y="483.5" width="374" height="108"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <string key="text">Description: lor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod     description  incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</string>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -434,7 +434,7 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p1x-4p-raA">
-                                                <rect key="frame" x="20" y="601.5" width="374" height="162"/>
+                                                <rect key="frame" x="20" y="611.5" width="374" height="162"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="bottom" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Wqe-ae-zM8">
                                                         <rect key="frame" x="20" y="20" width="334" height="122"/>
@@ -483,7 +483,7 @@
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IYm-9v-f00">
-                                                <rect key="frame" x="20" y="783.5" width="374" height="44"/>
+                                                <rect key="frame" x="20" y="793.5" width="374" height="44"/>
                                                 <color key="backgroundColor" red="0.87409400069999998" green="1" blue="0.28349309750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="H5s-OZ-FCv"/>
@@ -491,11 +491,26 @@
                                                 <state key="normal" title="More From Seller"/>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Asking price:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jne-7v-TOg">
-                                                <rect key="frame" x="20" y="419" width="89" height="18"/>
+                                                <rect key="frame" x="20" y="429" width="89" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lnG-GI-drB">
+                                                <rect key="frame" x="334" y="377" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="40" id="ba5-FP-fC4"/>
+                                                    <constraint firstAttribute="width" secondItem="lnG-GI-drB" secondAttribute="height" multiplier="1:1" id="pnH-S0-2B0"/>
+                                                </constraints>
+                                                <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" image="heart" catalog="system">
+                                                    <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="heartTapped:" destination="51p-Fw-9cP" eventType="touchUpInside" id="mFf-9f-ml1"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
@@ -503,18 +518,20 @@
                                             <constraint firstItem="p1x-4p-raA" firstAttribute="top" secondItem="EDW-rT-zyF" secondAttribute="bottom" constant="20" id="22Z-R2-5DN"/>
                                             <constraint firstItem="IYm-9v-f00" firstAttribute="width" secondItem="p1x-4p-raA" secondAttribute="width" id="9mG-JV-DBX"/>
                                             <constraint firstItem="p1x-4p-raA" firstAttribute="leading" secondItem="uJW-ng-Suc" secondAttribute="leading" constant="20" id="Ehj-a9-E1g"/>
-                                            <constraint firstItem="107-za-tGk" firstAttribute="top" secondItem="k5O-uQ-h4m" secondAttribute="bottom" constant="25" id="MEK-nv-qHj"/>
+                                            <constraint firstItem="107-za-tGk" firstAttribute="top" secondItem="k5O-uQ-h4m" secondAttribute="bottom" constant="35" id="MEK-nv-qHj"/>
                                             <constraint firstItem="jne-7v-TOg" firstAttribute="leading" secondItem="107-za-tGk" secondAttribute="leading" id="Pbf-eX-Tnq"/>
+                                            <constraint firstItem="lnG-GI-drB" firstAttribute="leading" secondItem="k5O-uQ-h4m" secondAttribute="trailing" constant="10" id="SRr-8J-HJi"/>
                                             <constraint firstItem="Uns-Sn-hm8" firstAttribute="top" secondItem="uJW-ng-Suc" secondAttribute="top" constant="30" id="Vcq-Fe-0cT"/>
                                             <constraint firstAttribute="trailing" secondItem="p1x-4p-raA" secondAttribute="trailing" constant="20" id="XNl-IF-v7T"/>
                                             <constraint firstItem="107-za-tGk" firstAttribute="top" secondItem="jne-7v-TOg" secondAttribute="bottom" constant="5" id="Yve-tr-dlv"/>
                                             <constraint firstItem="p1x-4p-raA" firstAttribute="height" secondItem="k5O-uQ-h4m" secondAttribute="height" multiplier="0.6" id="dOZ-ba-jbY"/>
                                             <constraint firstItem="IYm-9v-f00" firstAttribute="top" secondItem="p1x-4p-raA" secondAttribute="bottom" constant="20" id="e8l-y7-Bz9"/>
                                             <constraint firstAttribute="trailing" secondItem="EDW-rT-zyF" secondAttribute="trailing" constant="20" id="ggW-MW-Zcg"/>
+                                            <constraint firstItem="lnG-GI-drB" firstAttribute="bottom" secondItem="k5O-uQ-h4m" secondAttribute="bottom" id="i67-pC-kxu"/>
                                             <constraint firstItem="k5O-uQ-h4m" firstAttribute="top" secondItem="Uns-Sn-hm8" secondAttribute="bottom" constant="20" id="iGj-IK-FvB"/>
                                             <constraint firstAttribute="trailing" secondItem="Uns-Sn-hm8" secondAttribute="trailing" constant="20" id="jwC-v9-c0a"/>
                                             <constraint firstAttribute="trailing" secondItem="IYm-9v-f00" secondAttribute="trailing" constant="20" id="pC8-2m-d5t"/>
-                                            <constraint firstItem="k5O-uQ-h4m" firstAttribute="trailing" secondItem="Uns-Sn-hm8" secondAttribute="trailing" id="pRR-uX-zUK"/>
+                                            <constraint firstItem="k5O-uQ-h4m" firstAttribute="trailing" secondItem="Uns-Sn-hm8" secondAttribute="trailing" constant="-70" id="pRR-uX-zUK"/>
                                             <constraint firstItem="107-za-tGk" firstAttribute="leading" secondItem="uJW-ng-Suc" secondAttribute="leading" constant="20" id="qQf-JS-DPf"/>
                                             <constraint firstAttribute="height" constant="1100" id="ql4-2S-kj7"/>
                                             <constraint firstItem="EDW-rT-zyF" firstAttribute="leading" secondItem="uJW-ng-Suc" secondAttribute="leading" constant="20" id="s0p-zx-Ts9"/>
@@ -549,11 +566,14 @@
                     <connections>
                         <outlet property="descriptionTextView" destination="EDW-rT-zyF" id="Ptl-Dv-6he"/>
                         <outlet property="dropOffLabel" destination="Vqg-Wy-rYE" id="Egp-G9-og8"/>
+                        <outlet property="heartButton" destination="lnG-GI-drB" id="A3Y-BD-gxU"/>
                         <outlet property="imageView" destination="k5O-uQ-h4m" id="yqh-TM-0eB"/>
                         <outlet property="locationLabel" destination="EMU-CI-CsD" id="bFG-WK-4jT"/>
                         <outlet property="messageTextField" destination="Jfl-22-2gP" id="SNy-hB-5Xo"/>
+                        <outlet property="moreButton" destination="IYm-9v-f00" id="xPB-TR-XzR"/>
                         <outlet property="priceView" destination="107-za-tGk" id="iaT-wP-Xim"/>
                         <outlet property="submitButton" destination="dGN-2T-n43" id="BGb-zD-mzw"/>
+                        <outlet property="submitView" destination="p1x-4p-raA" id="y9t-Av-l86"/>
                         <outlet property="subtitleLabel" destination="emO-g3-V1o" id="rso-R5-43k"/>
                         <outlet property="titleLabel" destination="R12-Ox-YUn" id="snq-wu-jyx"/>
                     </connections>
@@ -563,4 +583,7 @@
             <point key="canvasLocation" x="-59.420289855072468" y="743.97321428571422"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="heart" catalog="system" width="128" height="109"/>
+    </resources>
 </document>

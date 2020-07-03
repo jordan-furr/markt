@@ -26,6 +26,7 @@ class ContainerViewController: UIViewController {
         UIView.animate(withDuration: 0.3){
             self.view.layoutIfNeeded()
         }
+        print("toggled")
     }
     
     override func viewDidLoad() {
@@ -36,6 +37,4 @@ class ContainerViewController: UIViewController {
     @IBAction func swipeBack(_ sender: Any) {
         self.toggleSideMenu()
     }
-    
-
 }
