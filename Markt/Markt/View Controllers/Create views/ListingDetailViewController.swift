@@ -20,6 +20,9 @@ class ListingDetailViewController: UIViewController {
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var heartButton: UIButton!
+    @IBOutlet weak var submitView: UIView!
+    @IBOutlet weak var moreButton: UIButton!
     
     
     var listing: Listing?
@@ -34,6 +37,11 @@ class ListingDetailViewController: UIViewController {
     
     func setUpViews(){
         guard let listing = listing, let user = UserController.shared.currentUser else {return}
+        if listing.ownerUID == user.uid {
+           // heartButton.isHidden = true
+            submitView.isHidden = true
+            moreButton.isHidden = true
+        }
         descriptionTextView.isEditable = false
         descriptionTextView.isSelectable = false
         descriptionTextView.text = listing.description
@@ -52,4 +60,15 @@ class ListingDetailViewController: UIViewController {
     @IBAction func submitTapped(_ sender: Any) {
         messageTextField.text = ""
     }
+    
+    @IBAction func heartTapped(_ sender: Any) {
+        print("tapepd heart")
+        if heartButton.backgroundColor == .red {
+            heartButton.backgroundColor = .white
+        } else {
+            heartButton.backgroundColor = .red
+        }
+    }
+    
 }
+

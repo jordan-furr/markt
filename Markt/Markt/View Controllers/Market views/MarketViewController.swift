@@ -27,13 +27,11 @@ class MarketViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+
     @IBAction func menuTapped(_ sender: Any) {
         print("toggle side menu")
         NotificationCenter.default.post(name: NSNotification.Name("ToggleSideMenu"), object: nil)
     }
-    
-    
     
     //MARK: HELPERS
     
@@ -69,11 +67,7 @@ class MarketViewController: UIViewController {
         if let indexPath = self.collectionView?.indexPathForItem(at: sender.location(in: self.collectionView)) {
             let category = categories[indexPath.item]
             selectedCategory = category
-            if category == "electronics" || category == "free" || category == "transportation"  {
-                performSegue(withIdentifier: "toShopView", sender: self)
-            } else {
-                performSegue(withIdentifier: "toSubCategories", sender: self)
-            }
+            performSegue(withIdentifier: "toSubCategories", sender: self)
         } else {
             print("collection view was tapped")
         }
@@ -109,22 +103,12 @@ class MarketViewController: UIViewController {
             guard let destinationVC = segue.destination as? FirstSubcategoryTableViewController else {return}
             destinationVC.category = selectedCategory ?? "error"
         }
-        if segue.identifier == "toShopView"  {
-            guard let destinationVC = segue.destination as? ShopCollectionViewController else {return}
-            
-            ListingController.shared.fetchListingsInCategory(category: selectedCategory!) { (result) in
-                switch result {
-                case .success(let listings):
-                    guard let listings = listings else {return}
-                    destinationVC.listings = listings
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
-            }
-            destinationVC.category = selectedCategory ?? "error"
+        if segue.identifier == "ShowProfile" {
+            print("1")
         }
     }
     
+  
 }
 
 extension MarketViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate{
