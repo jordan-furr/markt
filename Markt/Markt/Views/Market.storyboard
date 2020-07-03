@@ -66,6 +66,7 @@
                                                         <connections>
                                                             <outlet property="categoryTitle" destination="RFo-he-1HL" id="uyd-tA-dvQ"/>
                                                             <outlet property="imageView" destination="g9z-GM-bVh" id="3BH-9a-K3g"/>
+                                                            <segue destination="Kt5-rt-e95" kind="show" identifier="toSubCategories" id="hk3-bd-BFc"/>
                                                         </connections>
                                                     </collectionViewCell>
                                                 </cells>
@@ -160,7 +161,6 @@
                         <segue destination="9mk-2k-OWo" kind="show" identifier="ShowProfile" id="oq4-Ah-IOM"/>
                         <segue destination="2ha-TN-FWb" kind="show" identifier="ShowSettings" id="G88-Os-hJv"/>
                         <segue destination="wJj-E6-PLF" kind="show" identifier="ShowAbout" id="tFi-ci-vTs"/>
-                        <segue destination="Kt5-rt-e95" kind="show" identifier="toSubCategories" id="OBi-JQ-LUw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CUz-z0-grY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

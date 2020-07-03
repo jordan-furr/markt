@@ -111,6 +111,7 @@ extension MarketViewController: UICollectionViewDataSource, UICollectionViewDele
         cell.setCategory(category: category)
         cell.layer.borderColor = CGColor(srgbRed: 4, green: 4, blue: 4, alpha: 4)
         cell.layer.borderWidth = 2
+        cell.backgroundColor = .yellow
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
