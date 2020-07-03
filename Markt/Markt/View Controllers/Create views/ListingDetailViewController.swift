@@ -32,8 +32,6 @@ class ListingDetailViewController: UIViewController {
     
     }
     
-
-    
     func setUpViews(){
         guard let listing = listing, let user = UserController.shared.currentUser else {return}
         descriptionTextView.isEditable = false
@@ -44,6 +42,8 @@ class ListingDetailViewController: UIViewController {
         priceView.text = "\(listing.price)$"
         locationLabel.addLocationColoringAndText(user: user)
         dropOffLabel.addDropOffColoringAndText(user: user)
+        let image = UIImage(named: listing.category)
+        imageView.image = image
     }
     
     
