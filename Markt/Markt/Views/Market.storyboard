@@ -25,7 +25,7 @@
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Zzb-Y2-jhy">
                                                 <rect key="frame" x="0.0" y="56" width="414" height="238"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="4" minimumInteritemSpacing="4" id="owv-cY-HKr">
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="5" minimumInteritemSpacing="4" id="owv-cY-HKr">
                                                     <size key="itemSize" width="80" height="80"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -187,7 +187,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DEt-yJ-a5s">
                                 <rect key="frame" x="0.0" y="387" width="414" height="475"/>
-                                <color key="backgroundColor" red="0.01094978972" green="0.66460676029999999" blue="0.40860673939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HCQ-01-Dna">
                                     <size key="itemSize" width="120" height="120"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -223,7 +223,7 @@
                                                 <constraint firstItem="lvP-sH-sKq" firstAttribute="centerY" secondItem="fDm-Fk-AuW" secondAttribute="centerY" multiplier="1.5" id="rxs-cs-vQu"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <color key="backgroundColor" red="0.87409400069999998" green="1" blue="0.28349309750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <size key="customSize" width="124" height="124"/>
                                         <connections>
                                             <outlet property="priceLabel" destination="lvP-sH-sKq" id="NU5-5X-Cuu"/>
@@ -286,7 +286,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.72200512886047363" green="0.92558532953262329" blue="0.64340043067932129" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="m7Z-kl-Nmg" firstAttribute="centerY" secondItem="2Pu-re-6I8" secondAttribute="centerY" multiplier="0.4" id="6Nw-Y7-jn9"/>
                             <constraint firstItem="2Pu-re-6I8" firstAttribute="bottom" secondItem="DEt-yJ-a5s" secondAttribute="bottom" id="9H0-bF-dZg"/>

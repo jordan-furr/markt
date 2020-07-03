@@ -40,6 +40,7 @@ class MarketViewController: UIViewController {
     func setUpViews() {
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tap)))
         navigationItem.hidesBackButton = true
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(showProfile),
@@ -62,9 +63,18 @@ class MarketViewController: UIViewController {
                 print("live user listings fetched"); if (listings != nil) { print(listings!)}
             }
         }
-        
-        
     }
+    
+    @objc func tap(sender: UITapGestureRecognizer){
+           if let indexPath = self.collectionView?.indexPathForItem(at: sender.location(in: self.collectionView)) {
+               let category = categories[indexPath.item]
+                selectedCategory = category
+                performSegue(withIdentifier: "toSubCategories", sender: self)
+           } else {
+               print("collection view was tapped")
+           }
+       }
+    
     @objc func showProfile() {
         performSegue(withIdentifier: "ShowProfile", sender: nil)
     }
@@ -109,18 +119,10 @@ extension MarketViewController: UICollectionViewDataSource, UICollectionViewDele
         
         let category = categories[indexPath.item]
         cell.setCategory(category: category)
-        cell.layer.borderColor = CGColor(srgbRed: 4, green: 4, blue: 4, alpha: 4)
-        cell.layer.borderWidth = 2
-        cell.backgroundColor = .yellow
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
            return CGSize(width: 85, height: 85)
        }
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let category = categories[indexPath.item]
-        selectedCategory = category
-        performSegue(withIdentifier: "toSubCategories", sender: self)
-        print("tapped cell")
-    }
+
 }

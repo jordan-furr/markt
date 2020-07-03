@@ -41,6 +41,8 @@ class ListingDetailViewController: UIViewController {
         subtitleLabel.text = listing.subtitle
         priceView.text = "\(listing.price)$"
         locationLabel.addLocationColoringAndText(user: user)
+        locationLabel.layer.cornerRadius = 8
+        dropOffLabel.layer.cornerRadius = 8
         dropOffLabel.addDropOffColoringAndText(user: user)
         let image = UIImage(named: listing.category)
         imageView.image = image
