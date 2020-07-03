@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		4970AD64ACDD56E3729AB663 /* Pods_Markt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B10721D191ED55C2DF93D58 /* Pods_Markt.framework */; };
+		C506A4BB24AFB93800BB38B2 /* ShopCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C506A4BA24AFB93800BB38B2 /* ShopCollectionViewController.swift */; };
 		C51426BE24A8C8B4002F58E6 /* ListingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51426BD24A8C8B4002F58E6 /* ListingCollectionViewCell.swift */; };
 		C51426C024A8CAA5002F58E6 /* ListingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51426BF24A8CAA5002F58E6 /* ListingError.swift */; };
 		C51426C224A90564002F58E6 /* ListingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51426C124A90564002F58E6 /* ListingDetailViewController.swift */; };
 		C51426C424AA4AAC002F58E6 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51426C324AA4AAC002F58E6 /* Book.swift */; };
 		C51426C624AA4CAF002F58E6 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51426C524AA4CAF002F58E6 /* Ticket.swift */; };
-		C51426C824AA8DAD002F58E6 /* BookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51426C724AA8DAD002F58E6 /* BookController.swift */; };
 		C51426CA24AA9AFA002F58E6 /* ExtraSubclassDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51426C924AA9AFA002F58E6 /* ExtraSubclassDetailsViewController.swift */; };
 		C535BF3B24AE372A00F85D8A /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C535BF3A24AE372A00F85D8A /* CategoryCollectionViewCell.swift */; };
 		C54949D524904F2600B469F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54949D424904F2600B469F6 /* AppDelegate.swift */; };
@@ -52,12 +52,12 @@
 		1B10721D191ED55C2DF93D58 /* Pods_Markt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Markt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		36497F4227F2D9F559CF8CE7 /* Pods-Markt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Markt.debug.xcconfig"; path = "Target Support Files/Pods-Markt/Pods-Markt.debug.xcconfig"; sourceTree = "<group>"; };
 		77A4E3D36E4B9B48ED6E397D /* Pods-Markt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Markt.release.xcconfig"; path = "Target Support Files/Pods-Markt/Pods-Markt.release.xcconfig"; sourceTree = "<group>"; };
+		C506A4BA24AFB93800BB38B2 /* ShopCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCollectionViewController.swift; sourceTree = "<group>"; };
 		C51426BD24A8C8B4002F58E6 /* ListingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingCollectionViewCell.swift; sourceTree = "<group>"; };
 		C51426BF24A8CAA5002F58E6 /* ListingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingError.swift; sourceTree = "<group>"; };
 		C51426C124A90564002F58E6 /* ListingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingDetailViewController.swift; sourceTree = "<group>"; };
 		C51426C324AA4AAC002F58E6 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		C51426C524AA4CAF002F58E6 /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
-		C51426C724AA8DAD002F58E6 /* BookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookController.swift; sourceTree = "<group>"; };
 		C51426C924AA9AFA002F58E6 /* ExtraSubclassDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraSubclassDetailsViewController.swift; sourceTree = "<group>"; };
 		C535BF3A24AE372A00F85D8A /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		C54949D124904F2600B469F6 /* Markt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Markt.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -209,7 +209,6 @@
 			children = (
 				C5ED2B11249FF06200BB6730 /* UserController.swift */,
 				C594CFEF24A40B27007E832A /* ListingController.swift */,
-				C51426C724AA8DAD002F58E6 /* BookController.swift */,
 			);
 			path = "Model Controller";
 			sourceTree = "<group>";
@@ -243,6 +242,7 @@
 				C5D6A1E124AECECA00C79FB6 /* FirstSubcategoryTableViewController.swift */,
 				C5ED2B0C249D0BE800BB6730 /* SideMenuTableViewController.swift */,
 				C5ED2B08249C445500BB6730 /* MarketViewController.swift */,
+				C506A4BA24AFB93800BB38B2 /* ShopCollectionViewController.swift */,
 				C55904F024A7AB0B0007916A /* ProfileViewController.swift */,
 				C51426BD24A8C8B4002F58E6 /* ListingCollectionViewCell.swift */,
 				C535BF3A24AE372A00F85D8A /* CategoryCollectionViewCell.swift */,
@@ -387,7 +387,6 @@
 				C5ED2B0B249D0BBB00BB6730 /* ContainerViewController.swift in Sources */,
 				C535BF3B24AE372A00F85D8A /* CategoryCollectionViewCell.swift in Sources */,
 				C54949EE2490512500B469F6 /* Listing.swift in Sources */,
-				C51426C824AA8DAD002F58E6 /* BookController.swift in Sources */,
 				C54949D724904F2600B469F6 /* SceneDelegate.swift in Sources */,
 				C55904F124A7AB0B0007916A /* ProfileViewController.swift in Sources */,
 				C594CFEE24A40388007E832A /* ImageError.swift in Sources */,
@@ -400,6 +399,7 @@
 				C5ED2B1A24A2A03E00BB6730 /* LaunchViewController.swift in Sources */,
 				C51426C424AA4AAC002F58E6 /* Book.swift in Sources */,
 				C5ED2B2224A2A09700BB6730 /* RegisterViewController.swift in Sources */,
+				C506A4BB24AFB93800BB38B2 /* ShopCollectionViewController.swift in Sources */,
 				C594CFF024A40B27007E832A /* ListingController.swift in Sources */,
 				C5ED2B1E24A2A07F00BB6730 /* WelcomeViewController.swift in Sources */,
 				C5B5D51A24AB98C800C51956 /* ClothingItem.swift in Sources */,

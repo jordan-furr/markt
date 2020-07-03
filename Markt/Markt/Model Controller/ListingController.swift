@@ -181,6 +181,29 @@ class ListingController {
         return completion(.success(currentUserLiveListings))
     }
     
+    func fetchListingsInCategory(category: String, completion: @escaping (Result<[Listing]?, ListingError>) -> Void) {
+        var listings: [Listing] = []
+        db.collection("listings").whereField("category", isEqualTo: category).getDocuments { (querySnapshot, error) in
+            if let error = error {
+                print("no listings found", error.localizedDescription)
+                return completion(.failure(.noRecordFound))
+            } else {
+                for document in querySnapshot!.documents {
+                    self.fetchListing(listingUID: document.documentID) { (result) in
+                        switch result {
+                        case .success(let listing):
+                            guard let listing = listing else {return}
+                            listings.append(listing)
+                        case .failure(let error):
+                            print(error.errorDescription)
+                        }
+                    }
+                }
+            }
+        }
+        return completion(.success(listings))
+    }
+    
     func fetchListing(listingUID: String, completion: @escaping (Result<Listing?, ListingError>) -> Void) {
         let listingDoc = listingRef.document(listingUID)
         listingDoc.getDocument { (snapshot, error) in
