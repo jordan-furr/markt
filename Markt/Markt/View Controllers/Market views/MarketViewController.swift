@@ -71,12 +71,9 @@ class MarketViewController: UIViewController {
     @objc func showSettings() {
         performSegue(withIdentifier: "ShowSettings", sender: nil)
     }
+    
     @objc func showAbout() {
         performSegue(withIdentifier: "ShowAbout", sender: nil)
-    }
-    
-    @IBAction func imageTapped(_ sender: Any) {
-        performSegue(withIdentifier: "toSubCategories", sender: self)
     }
     
     @IBAction func backgroundTapped(_ sender: Any) {
