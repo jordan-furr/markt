@@ -37,12 +37,13 @@ struct Category8Keys {
     static let transpotationKey = "transportaion"
     static let freeKey = "free"
     static let housingKey = "housing"
+    static let dateKey = "date"
 }
 
 class Listing: Codable {
     
     enum CodingKeys: String, CodingKey {
-        case uid, title, subtitle, price, description, ownerUID, iconPhotoID, category
+        case uid, title, subtitle, price, description, ownerUID, iconPhotoID, category, date
     }
     var uid: String
     var title: String
@@ -51,6 +52,7 @@ class Listing: Codable {
     var description: String
     var ownerUID: String
     var category: String
+    var date: Date?
     
     var iconPhotoID: String
     var iconImage: UIImage? = nil

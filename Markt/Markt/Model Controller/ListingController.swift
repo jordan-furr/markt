@@ -75,7 +75,7 @@ class ListingController {
             "uid" : ticket.uid as String,
             "category" : "tickets",
             "opponent" : ticket.opponent as String,
-            "gameDate" : ticket.gameDate as Date
+            "date" : ticket.date! as Date
             ] as [String : Any]
         listingRef.document(ticket.uid).setData(listingInfoDict)
     }
@@ -90,7 +90,7 @@ class ListingController {
                "iconPhotoID" : sublet.iconPhotoID as String,
                "uid" : sublet.uid as String,
                "category" : "housing",
-               "dateAvailable" : sublet.dateAvailable as Date,
+               "date" : sublet.date! as Date,
                "subletType" : sublet.subletType as String
                ] as [String : Any]
            listingRef.document(sublet.uid).setData(listingInfoDict)
@@ -218,4 +218,36 @@ class ListingController {
             }
         }
     }
+    
+    func fetchTicket(listingUID: String, completion: @escaping (Result<Ticket?, ListingError>) -> Void) {
+           let listingDoc = listingRef.document(listingUID)
+           listingDoc.getDocument { (snapshot, error) in
+               if snapshot != nil {
+                   guard let snapshot = snapshot else { return completion(.failure(.noListingFound)) }
+                   guard let data = snapshot.data() else { return completion(.failure(.couldNotUnwrapListing)) }
+                   let listing = try! FirestoreDecoder().decode(Ticket.self, from: data)
+                   return completion(.success(listing))
+               } else {
+                   print("snapshot is nil")
+                   return completion(.failure(.noRecordFound))
+               }
+           }
+       }
+    
+    func fetchSublet(listingUID: String, completion: @escaping (Result<Sublet?, ListingError>) -> Void) {
+        let listingDoc = listingRef.document(listingUID)
+        listingDoc.getDocument { (snapshot, error) in
+            if snapshot != nil {
+                guard let snapshot = snapshot else { return completion(.failure(.noListingFound)) }
+                guard let data = snapshot.data() else { return completion(.failure(.couldNotUnwrapListing)) }
+                let listing = try! FirestoreDecoder().decode(Sublet.self, from: data)
+                return completion(.success(listing))
+            } else {
+                print("snapshot is nil")
+                return completion(.failure(.noRecordFound))
+            }
+        }
+    }
+    
+    
 }

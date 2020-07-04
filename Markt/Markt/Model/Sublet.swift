@@ -11,16 +11,15 @@ import Foundation
 class Sublet : Listing {
     
     enum CodingKeys: String, CodingKey {
-        case dateAvailable, subletType
+        case subletType
     }
     
-    var dateAvailable: Date
     var subletType: String
     
-    init(title: String, subtitle: String, subletType: String, price: Double, description: String, ownerUID: String, iconPhotoID: String, dateAvailable: Date) {
-        self.dateAvailable = dateAvailable
+    init(title: String, subtitle: String, subletType: String, price: Double, description: String, ownerUID: String, iconPhotoID: String, date: Date) {
         self.subletType = subletType
         super.init(title: title, subtitle: subtitle, price: price, description: description, ownerUID: ownerUID, iconPhotoID: iconPhotoID, category: "housing")
+        self.date = date
     }
     
     required init(from decoder: Decoder) throws {

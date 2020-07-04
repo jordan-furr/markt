@@ -47,7 +47,8 @@ class ProfileViewController: UIViewController {
         if let cell = sender as? ListingCollectionViewCell,
             let indexPath = self.collectionView.indexPath(for: cell) {
             let vc = segue.destination as! ListingDetailViewController
-            vc.listing = ListingController.shared.currentUserLiveListings[indexPath.row] as Listing
+            let listing = ListingController.shared.currentUserLiveListings[indexPath.row] as Listing
+            vc.listing = listing
         }
     }
 }

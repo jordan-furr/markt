@@ -45,7 +45,7 @@ class CreateListingViewController: UIViewController {
         self.performSegue(withIdentifier: "toExtras", sender: self)
     }
     @IBAction func housingTapped(_ sender: Any) {
-        self.category = "books"
+        self.category = "housing"
         self.performSegue(withIdentifier: "toExtras", sender: self)
     }
     
