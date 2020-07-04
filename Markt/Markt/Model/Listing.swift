@@ -37,6 +37,7 @@ struct Category8Keys {
     static let transpotationKey = "transportaion"
     static let freeKey = "free"
     static let housingKey = "housing"
+    static let dateKey = "date"
 }
 
 class Listing: Codable {
@@ -51,6 +52,7 @@ class Listing: Codable {
     var description: String
     var ownerUID: String
     var category: String
+    var date: Date?
     
     var iconPhotoID: String
     var iconImage: UIImage? = nil

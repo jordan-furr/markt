@@ -65,10 +65,10 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
         case "tickets":
             guard let sport = subclassLabel.text else {return}
             let opponentName = title
-            createdListing = Ticket(sport: sport, gameDate: date, price: price, description: description, ownerUID: ownerUID, iconPhotoID: iconPhotoID, opponent: opponentName)
+            createdListing = Ticket(sport: sport, price: price, description: description, ownerUID: ownerUID, iconPhotoID: iconPhotoID, opponent: opponentName, gameDate: date)
             ListingController.shared.createTicketListing(with: createdListing! as! Ticket)
         case "housing":
-            createdListing = Sublet(title: title, subtitle: subtitle, subletType: subClass, price: price, description: description, ownerUID: ownerUID, iconPhotoID: iconPhotoID, dateAvailable: date)
+            createdListing = Sublet(title: title, subtitle: subtitle, subletType: subClass, price: price, description: description, ownerUID: ownerUID, iconPhotoID: iconPhotoID, date: date)
             ListingController.shared.createSubletListing(with: createdListing! as! Sublet)
         case "clothing":
             createdListing = ClothingItem(title: title, subtitle: subtitle, price: price, description: description, ownerUID: ownerUID, iconPhotoID: iconPhotoID, size: subClass)

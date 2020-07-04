@@ -46,6 +46,10 @@ class ListingDetailViewController: UIViewController {
         }
         if listing.category == "tickets" || listing.category == "housing" {
             dateLabel.isHidden = false
+            let df = DateFormatter()
+            df.dateFormat = "yyyy-MM-dd"
+            let text = df.string(from: listing.date!)
+            dateLabel.text = text  
         }
         descriptionTextView.isEditable = false
         descriptionTextView.isSelectable = false
