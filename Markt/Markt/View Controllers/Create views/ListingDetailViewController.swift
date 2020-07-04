@@ -22,6 +22,7 @@ class ListingDetailViewController: UIViewController {
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var heartButton: UIButton!
     @IBOutlet weak var submitView: UIView!
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var moreButton: UIButton!
     
     
@@ -37,10 +38,14 @@ class ListingDetailViewController: UIViewController {
     
     func setUpViews(){
         guard let listing = listing, let user = UserController.shared.currentUser else {return}
+        dateLabel.isHidden = true
         if listing.ownerUID == user.uid {
-           // heartButton.isHidden = true
+           heartButton.isHidden = true
             submitView.isHidden = true
             moreButton.isHidden = true
+        }
+        if listing.category == "tickets" || listing.category == "housing" {
+            dateLabel.isHidden = false
         }
         descriptionTextView.isEditable = false
         descriptionTextView.isSelectable = false
