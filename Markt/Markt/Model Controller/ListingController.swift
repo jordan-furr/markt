@@ -204,6 +204,21 @@ class ListingController {
         return completion(.success(listings))
     }
     
+    func fetchDate(listingUID: String, completion: @escaping (Result<Date?, ListingError>) -> Void) {
+        let listingDoc = listingRef.document(listingUID)
+               listingDoc.getDocument { (snapshot, error) in
+                   if snapshot != nil {
+                       guard let snapshot = snapshot else { return completion(.failure(.noListingFound)) }
+                    let timestamp: Timestamp = snapshot.get("date") as! Timestamp
+                    let date: Date = timestamp.dateValue()
+                       return completion(.success(date))
+                   } else {
+                       print("snapshot is nil")
+                       return completion(.failure(.noRecordFound))
+                   }
+               }
+    }
+    
     func fetchListing(listingUID: String, completion: @escaping (Result<Listing?, ListingError>) -> Void) {
         let listingDoc = listingRef.document(listingUID)
         listingDoc.getDocument { (snapshot, error) in
