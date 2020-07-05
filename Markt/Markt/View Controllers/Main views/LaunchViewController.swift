@@ -13,7 +13,7 @@ class LaunchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      // UserController.shared.signoutCurrentUser()
+    //  UserController.shared.signoutCurrentUser()
         DispatchQueue.main.async {
             if Auth.auth().currentUser != nil {
                 UserController.shared.fetchCurrentUser { (result) in
