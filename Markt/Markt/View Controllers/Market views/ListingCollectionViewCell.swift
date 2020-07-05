@@ -10,10 +10,7 @@ import UIKit
 
 class ListingCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var priceLabel: UILabel!
-    
-    var listing: Listing?
+   var listing: Listing?
     
     func setListing(listing: Listing){
         self.listing = listing
@@ -22,8 +19,5 @@ class ListingCollectionViewCell: UICollectionViewCell {
     
     func updateUI(){
         guard let listing = listing else {return}
-        titleLabel.text = listing.title
-        priceLabel.text = "\(listing.price)"
-        priceLabel.textColor = .red
     }
 }

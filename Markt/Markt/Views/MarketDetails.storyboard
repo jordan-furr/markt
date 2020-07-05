@@ -38,10 +38,10 @@
             </objects>
             <point key="canvasLocation" x="143" y="137"/>
         </scene>
-        <!--Collection View Controller-->
+        <!--Shop Collection View Controller-->
         <scene sceneID="WRv-j9-A8t">
             <objects>
-                <collectionViewController modalPresentationStyle="fullScreen" id="vnt-N3-6JG" sceneMemberID="viewController">
+                <collectionViewController modalPresentationStyle="fullScreen" id="vnt-N3-6JG" customClass="ShopCollectionViewController" customModule="Markt" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="tU6-EN-FhG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
