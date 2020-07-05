@@ -27,6 +27,12 @@ class FirstSubcategoryTableViewController: UITableViewController {
         switch category {
         case "furniture":
             subcategories = furnitureTypes
+        case "clothing":
+            subcategories = sizes
+        case "housing":
+            subcategories = subletTypes
+        case "tickets":
+            subcategories = sports
             default:
             subcategories = departments
         }

@@ -67,7 +67,11 @@ class MarketViewController: UIViewController {
         if let indexPath = self.collectionView?.indexPathForItem(at: sender.location(in: self.collectionView)) {
             let category = categories[indexPath.item]
             selectedCategory = category
-            performSegue(withIdentifier: "toSubCategories", sender: self)
+            if category == "electronics" || category == "free" || category == "transportation" {
+                performSegue(withIdentifier: "straightToShop", sender: self)
+            } else {
+                performSegue(withIdentifier: "toSubCategories", sender: self)
+            }
         } else {
             print("collection view was tapped")
         }
@@ -105,6 +109,10 @@ class MarketViewController: UIViewController {
         }
         if segue.identifier == "ShowProfile" {
             print("1")
+        }
+        if segue.identifier == "straightToShop"  {
+            guard let destinationVC = segue.destination as? ShopCollectionViewController else {return}
+            destinationVC.category = selectedCategory ?? "error"
         }
     }
     
