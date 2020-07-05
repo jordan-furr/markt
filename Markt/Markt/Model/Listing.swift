@@ -43,7 +43,7 @@ struct Category8Keys {
 class Listing: Codable {
     
     enum CodingKeys: String, CodingKey {
-        case uid, title, subtitle, price, description, ownerUID, iconPhotoID, category, date
+        case uid, title, subtitle, price, description, ownerUID, iconPhotoID, category
     }
     var uid: String
     var title: String

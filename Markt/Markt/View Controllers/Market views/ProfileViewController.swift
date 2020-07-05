@@ -28,6 +28,7 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.register(ListingCollectionViewCell.self, forCellWithReuseIdentifier: "listingCell")
     }
     
     func setUpViews() {
@@ -36,8 +37,6 @@ class ProfileViewController: UIViewController {
         nameLabel.text = user.firstName + " " + user.lastName
         locationLabel.layer.cornerRadius = 8
         dropOffBool.layer.cornerRadius = 8
-     
-        
         locationLabel.addLocationColoringAndText(user: user)
         dropOffBool.addDropOffColoringAndText(user: user)
     }
@@ -63,13 +62,17 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         guard let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "listingCell", for: indexPath) as? ListingCollectionViewCell else {return UICollectionViewCell()}
         let listing = ListingController.shared.currentUserLiveListings[indexPath.row]
         cell.setListing(listing: listing)
-        cell.layer.borderWidth = 1.4
-        cell.layer.borderColor = .init(srgbRed: 4, green: 4, blue: 4, alpha: 4)
+        cell.backgroundColor = .lightGray
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-              return CGSize(width: 120, height: 120)
+              return CGSize(width: 110, height: 110)
           }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! ListingCollectionViewCell
+        performSegue(withIdentifier: "toListingDetail", sender: cell)
+    }
 }
 
 

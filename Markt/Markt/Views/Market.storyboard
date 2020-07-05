@@ -201,33 +201,10 @@
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fDm-Fk-AuW">
                                             <rect key="frame" x="0.0" y="0.0" width="124" height="124"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cBe-R2-dzz">
-                                                    <rect key="frame" x="0.0" y="10" width="124" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvP-sH-sKq">
-                                                    <rect key="frame" x="41" y="83" width="42" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="cBe-R2-dzz" secondAttribute="trailing" id="0X8-rs-ld8"/>
-                                                <constraint firstItem="lvP-sH-sKq" firstAttribute="centerX" secondItem="fDm-Fk-AuW" secondAttribute="centerX" id="9GS-bi-Zpc"/>
-                                                <constraint firstItem="cBe-R2-dzz" firstAttribute="leading" secondItem="fDm-Fk-AuW" secondAttribute="leading" id="UqV-Cv-Flp"/>
-                                                <constraint firstItem="cBe-R2-dzz" firstAttribute="top" secondItem="fDm-Fk-AuW" secondAttribute="top" constant="10" id="c4N-h0-mFR"/>
-                                                <constraint firstItem="lvP-sH-sKq" firstAttribute="centerY" secondItem="fDm-Fk-AuW" secondAttribute="centerY" multiplier="1.5" id="rxs-cs-vQu"/>
-                                            </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <size key="customSize" width="124" height="124"/>
                                         <connections>
-                                            <outlet property="priceLabel" destination="lvP-sH-sKq" id="NU5-5X-Cuu"/>
-                                            <outlet property="titleLabel" destination="cBe-R2-dzz" id="MfL-SF-sy2"/>
                                             <segue destination="QZX-LH-nh6" kind="show" identifier="toListingDetail" id="4KQ-i8-Pk5"/>
                                         </connections>
                                     </collectionViewCell>

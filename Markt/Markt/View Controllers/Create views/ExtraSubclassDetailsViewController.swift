@@ -83,6 +83,15 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
         }
          UserController.shared.addCreatedListing(listingID: createdListing!.uid)
         self.dismiss(animated: true, completion: nil)
+        ListingController.shared.fetchCurrentUsersListings { (result) in
+            switch result {
+            case .failure(let error):
+                print("Could not fetch user's live listings")
+                print(error, error.localizedDescription)
+            case .success(let listings):
+                print("live user listings fetched"); if (listings != nil) { print(listings!)}
+            }
+        }
     }
     
     

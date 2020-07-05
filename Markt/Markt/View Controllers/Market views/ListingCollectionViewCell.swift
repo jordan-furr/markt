@@ -10,10 +10,39 @@ import UIKit
 
 class ListingCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var priceLabel: UILabel!
-    
     var listing: Listing?
+    
+    fileprivate let bg: UIImageView = {
+          let iv = UIImageView()
+           iv.translatesAutoresizingMaskIntoConstraints = false
+           iv.contentMode = .center
+           iv.clipsToBounds = true
+                   iv.layer.cornerRadius = 12
+           return iv
+       }()
+       
+       override init(frame: CGRect) {
+           super.init(frame: .zero)
+           
+
+
+           
+           contentView.addSubview(bg)
+
+           bg.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+           bg.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
+           bg.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
+           bg.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+
+       }
+       
+    func encodeWithCoder(_ aCoder: NSCoder) {
+           // Serialize your object here
+       }
+
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)!
+       }
     
     func setListing(listing: Listing){
         self.listing = listing
@@ -22,8 +51,7 @@ class ListingCollectionViewCell: UICollectionViewCell {
     
     func updateUI(){
         guard let listing = listing else {return}
-        titleLabel.text = listing.title
-        priceLabel.text = "\(listing.price)"
-        priceLabel.textColor = .red
+        bg.image = UIImage(named: listing.category)
+       
     }
 }

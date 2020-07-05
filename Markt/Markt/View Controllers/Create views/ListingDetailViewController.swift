@@ -6,6 +6,7 @@
 //  Copyright © 2020 Jordan Furr. All rights reserved.
 //
 
+import CodableFirebase
 import UIKit
 
 class ListingDetailViewController: UIViewController {
@@ -48,8 +49,20 @@ class ListingDetailViewController: UIViewController {
             dateLabel.isHidden = false
             let df = DateFormatter()
             df.dateFormat = "yyyy-MM-dd"
-            let text = df.string(from: listing.date!)
-            dateLabel.text = text  
+                ListingController.shared.fetchDate(listingUID: listing.uid, completion: { (result) in
+                switch result {
+                    case .success(let date):
+                        guard let date = date else {return}
+                        let dateString = df.string(from: date)
+                        if listing.category == "housing" {
+                            self.dateLabel.text = "Available: " + dateString
+                        } else {
+                             self.dateLabel.text = "Game Date: " + dateString
+                    }
+                case .failure(let err):
+                    print(err.localizedDescription)
+                }
+            })
         }
         descriptionTextView.isEditable = false
         descriptionTextView.isSelectable = false
