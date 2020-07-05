@@ -55,9 +55,9 @@ class ListingDetailViewController: UIViewController {
                         guard let date = date else {return}
                         let dateString = df.string(from: date)
                         if listing.category == "housing" {
-                            self.dateLabel.text = "Available:" + dateString
+                            self.dateLabel.text = "Available: " + dateString
                         } else {
-                             self.dateLabel.text = "Game Date:" + dateString
+                             self.dateLabel.text = "Game Date: " + dateString
                     }
                 case .failure(let err):
                     print(err.localizedDescription)
