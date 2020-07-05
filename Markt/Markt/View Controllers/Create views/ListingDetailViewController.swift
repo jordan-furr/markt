@@ -85,10 +85,14 @@ class ListingDetailViewController: UIViewController {
     
     @IBAction func heartTapped(_ sender: Any) {
         print("tapepd heart")
+        guard let listing = listing else {return}
+        
         if heartButton.backgroundColor == .red {
             heartButton.backgroundColor = .white
+            UserController.shared.unSaveListing(listingID: listing.uid)
         } else {
             heartButton.backgroundColor = .red
+            UserController.shared.saveListing(listingID: listing.uid)
         }
     }
     

@@ -32,6 +32,8 @@ class ListingController {
     let listingRef : CollectionReference = Firestore.firestore().collection("listings")
     
     var currentUserLiveListings: [Listing] = []
+    var currentCategoryLIstings: [Listing] = []
+    var allListings: [Listing] = []
     
     
     func createListing(with listing: Listing){
@@ -173,7 +175,7 @@ class ListingController {
                 case .failure(let error):
                     print(error)
                 case .success(let listing):
-                    guard let listing = listing else {return completion(.failure(.couldNotUnwrapListing))}
+                    guard let listing = listing else {return completion(.failure(.noListingFound))}
                     self.currentUserLiveListings.append(listing)
                 }
             }
@@ -181,9 +183,19 @@ class ListingController {
         return completion(.success(currentUserLiveListings))
     }
     
-    func fetchListingsInCategory(category: String, completion: @escaping (Result<[Listing]?, ListingError>) -> Void) {
+    func fetchListingsInCategory(category: String) -> ([Listing]) {
         var listings: [Listing] = []
-        db.collection("listings").whereField("category", isEqualTo: category).getDocuments { (querySnapshot, error) in
+        for listing in allListings {
+            if listing.category == category {
+                listings.append(listing)
+            }
+        }
+        return listings
+    }
+    
+    func fetchAllListings(completion: @escaping (Result<[Listing]?, ListingError>) -> Void) {
+        allListings = []
+        db.collection("listings").getDocuments { (querySnapshot, error) in
             if let error = error {
                 print("no listings found", error.localizedDescription)
                 return completion(.failure(.noRecordFound))
@@ -191,9 +203,9 @@ class ListingController {
                 for document in querySnapshot!.documents {
                     self.fetchListing(listingUID: document.documentID) { (result) in
                         switch result {
-                        case .success(let listing):
-                            guard let listing = listing else {return}
-                            listings.append(listing)
+                        case .success(let listing1):
+                            guard let listing2 = listing1 else {return}
+                            self.allListings.append(listing2)
                         case .failure(let error):
                             print(error.errorDescription)
                         }
@@ -201,8 +213,9 @@ class ListingController {
                 }
             }
         }
-        return completion(.success(listings))
+        return completion(.success(allListings))
     }
+    
     
     func fetchDate(listingUID: String, completion: @escaping (Result<Date?, ListingError>) -> Void) {
         let listingDoc = listingRef.document(listingUID)
@@ -219,12 +232,31 @@ class ListingController {
                }
     }
     
+    func fetchSubListings(listingUID: String, completion: @escaping (Result<Date?, ListingError>) -> Void) {
+        let listingDoc = listingRef.document(listingUID)
+               listingDoc.getDocument { (snapshot, error) in
+                   if snapshot != nil {
+                       guard let snapshot = snapshot else { return completion(.failure(.noListingFound)) }
+                    let timestamp: Timestamp = snapshot.get("date") as! Timestamp
+                    let date: Date = timestamp.dateValue()
+                       return completion(.success(date))
+                   } else {
+                       print("snapshot is nil")
+                       return completion(.failure(.noRecordFound))
+                   }
+               }
+    }
+    
+    
     func fetchListing(listingUID: String, completion: @escaping (Result<Listing?, ListingError>) -> Void) {
         let listingDoc = listingRef.document(listingUID)
+        print(listingUID)
         listingDoc.getDocument { (snapshot, error) in
             if snapshot != nil {
                 guard let snapshot = snapshot else { return completion(.failure(.noListingFound)) }
-                guard let data = snapshot.data() else { return completion(.failure(.couldNotUnwrapListing)) }
+                print("here")
+                guard let data = snapshot.data() else { return completion(.failure(.noRecordFound))}
+                
                 let listing = try! FirestoreDecoder().decode(Listing.self, from: data)
                 return completion(.success(listing))
             } else {

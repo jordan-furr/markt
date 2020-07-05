@@ -16,7 +16,6 @@ class MarketViewController: UIViewController {
     
     
     var selectedCategory: String?
-    //MARK: - IB OUTLETS
     @IBOutlet weak var collectionView: UICollectionView!
     
     
@@ -27,7 +26,7 @@ class MarketViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
     @IBAction func menuTapped(_ sender: Any) {
         print("toggle side menu")
         NotificationCenter.default.post(name: NSNotification.Name("ToggleSideMenu"), object: nil)
@@ -61,21 +60,35 @@ class MarketViewController: UIViewController {
                 print("live user listings fetched"); if (listings != nil) { print(listings!)}
             }
         }
+        
+        ListingController.shared.fetchAllListings { (result) in
+            switch result {
+            case .failure(let error):
+                print("Could not fetch user's live listings")
+                print(error, error.localizedDescription)
+            case .success(let listings):
+                print("live user listings fetched")
+            }
+        }
     }
     
     @objc func tap(sender: UITapGestureRecognizer){
         if let indexPath = self.collectionView?.indexPathForItem(at: sender.location(in: self.collectionView)) {
             let category = categories[indexPath.item]
             selectedCategory = category
-            if category == "electronics" || category == "free" || category == "transportation" {
-                performSegue(withIdentifier: "straightToShop", sender: self)
-            } else {
-                performSegue(withIdentifier: "toSubCategories", sender: self)
-            }
+            let listings = ListingController.shared.fetchListingsInCategory(category: category)
+            ListingController.shared.currentCategoryLIstings = listings
+            performSegue(withIdentifier: "straightToShop", sender: self)
+//            if category == "electronics" || category == "free" || category == "transportation" {
+//                performSegue(withIdentifier: "straightToShop", sender: self)
+//            } else {
+//                performSegue(withIdentifier: "toSubCategories", sender: self)
+//            }
         } else {
             print("collection view was tapped")
         }
     }
+    
     
     @objc func showProfile() {
         performSegue(withIdentifier: "ShowProfile", sender: nil)
@@ -103,12 +116,12 @@ class MarketViewController: UIViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        
+        
         if segue.identifier == "toSubCategories"  {
             guard let destinationVC = segue.destination as? FirstSubcategoryTableViewController else {return}
             destinationVC.category = selectedCategory ?? "error"
-        }
-        if segue.identifier == "ShowProfile" {
-            print("1")
         }
         if segue.identifier == "straightToShop"  {
             guard let destinationVC = segue.destination as? ShopCollectionViewController else {return}
@@ -116,7 +129,7 @@ class MarketViewController: UIViewController {
         }
     }
     
-  
+    
 }
 
 extension MarketViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate{

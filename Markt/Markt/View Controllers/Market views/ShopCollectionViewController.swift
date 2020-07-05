@@ -10,9 +10,10 @@ import UIKit
 
 private let reuseIdentifier = "itemCell"
 
-class ShopCollectionViewController: UICollectionViewController {
+class ShopCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     var category: String?
+    var subcategory: String?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -45,12 +46,12 @@ class ShopCollectionViewController: UICollectionViewController {
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return ListingController.shared.currentUserLiveListings.count
+        return ListingController.shared.currentCategoryLIstings.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "itemCell", for: indexPath) as? ListingCollectionViewCell else {return UICollectionViewCell()}
-        let listing = ListingController.shared.currentUserLiveListings[indexPath.row]
+        let listing = ListingController.shared.currentCategoryLIstings[indexPath.row]
         cell.setListing(listing: listing)
         cell.backgroundColor = .lightGray
         return cell
