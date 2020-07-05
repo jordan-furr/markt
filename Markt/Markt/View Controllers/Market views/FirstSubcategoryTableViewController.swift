@@ -12,6 +12,7 @@ class FirstSubcategoryTableViewController: UITableViewController {
 
     var category: String?
     var subcategories: [String] = []
+    var selectedSubcategory: String?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -27,6 +28,12 @@ class FirstSubcategoryTableViewController: UITableViewController {
         switch category {
         case "furniture":
             subcategories = furnitureTypes
+        case "clothing":
+            subcategories = sizes
+        case "housing":
+            subcategories = subletTypes
+        case "tickets":
+            subcategories = sports
             default:
             subcategories = departments
         }
@@ -42,11 +49,16 @@ class FirstSubcategoryTableViewController: UITableViewController {
         cell.textLabel?.text = subcategories[indexPath.row]
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedSubcategory = subcategories[indexPath.row]
+    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toSecond" {
-            guard let destinationVC = segue.destination as? ShopCollectionViewController else {return}
+            guard let destinationVC = segue.destination as? ShopCollectionViewController, let subcategory = selectedSubcategory else {return}
             destinationVC.category = category
+            destinationVC.subcategory = subcategory
         }
     }
 }

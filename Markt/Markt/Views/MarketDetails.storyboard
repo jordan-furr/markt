@@ -41,25 +41,26 @@
         <!--Shop Collection View Controller-->
         <scene sceneID="WRv-j9-A8t">
             <objects>
-                <collectionViewController modalPresentationStyle="fullScreen" id="vnt-N3-6JG" customClass="ShopCollectionViewController" customModule="Markt" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="shop" modalPresentationStyle="fullScreen" id="vnt-N3-6JG" customClass="ShopCollectionViewController" customModule="Markt" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="tU6-EN-FhG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="p0U-Zy-IzA">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="p0U-Zy-IzA">
                             <size key="itemSize" width="128" height="128"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="itemCell" id="VhT-8Q-8Ck">
-                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                <rect key="frame" x="10" y="10" width="95" height="95"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="6Wq-Ht-X8T">
-                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="95" height="95"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </collectionViewCellContentView>
+                                <size key="customSize" width="95" height="95"/>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -68,10 +69,23 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="F35-hM-SCY"/>
+                    <connections>
+                        <segue destination="tQb-fg-MKE" kind="show" identifier="toListingDetail" id="lvr-4M-fHc"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fNo-EI-4E3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="859" y="137"/>
+        </scene>
+        <!--listingView-->
+        <scene sceneID="9Gv-SD-uVH">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CreateListing" referencedIdentifier="listingView" id="tQb-fg-MKE" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="y2W-Xn-Df5"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WZk-n1-3Fk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1537" y="-131"/>
         </scene>
     </scenes>
 </document>

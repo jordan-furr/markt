@@ -161,6 +161,7 @@
                         <segue destination="9mk-2k-OWo" kind="show" identifier="ShowProfile" id="oq4-Ah-IOM"/>
                         <segue destination="2ha-TN-FWb" kind="show" identifier="ShowSettings" id="G88-Os-hJv"/>
                         <segue destination="wJj-E6-PLF" kind="show" identifier="ShowAbout" id="tFi-ci-vTs"/>
+                        <segue destination="K42-tQ-8Ag" kind="show" identifier="straightToShop" id="Edw-iQ-gr5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CUz-z0-grY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -686,6 +687,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tmT-Jo-Ph2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2353" y="-245"/>
+        </scene>
+        <!--shop-->
+        <scene sceneID="eep-eZ-U5U">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MarketDetails" referencedIdentifier="shop" id="K42-tQ-8Ag" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="YT3-Cw-GNP"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4fw-Jw-j7G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2359" y="-206"/>
         </scene>
     </scenes>
     <resources>
