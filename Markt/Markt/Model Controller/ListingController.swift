@@ -210,7 +210,7 @@ class ListingController {
             if snapshot != nil {
                 guard let snapshot = snapshot else { return completion(.failure(.noListingFound)) }
                 guard let data = snapshot.data() else { return completion(.failure(.couldNotUnwrapListing)) }
-                let listing = try! FirestoreDecoder().decode(Listing.self, from: data)
+                let listing = try! FirebaseDecoder().decode(Listing.self, from: data)
                 return completion(.success(listing))
             } else {
                 print("snapshot is nil")
@@ -248,6 +248,5 @@ class ListingController {
             }
         }
     }
-    
-    
 }
+extension Timestamp: TimestampType {}

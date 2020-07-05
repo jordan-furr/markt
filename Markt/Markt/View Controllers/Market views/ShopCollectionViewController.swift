@@ -8,7 +8,7 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
+private let reuseIdentifier = "itemCell"
 
 class ShopCollectionViewController: UICollectionViewController {
 
@@ -16,6 +16,7 @@ class ShopCollectionViewController: UICollectionViewController {
     var listings: [Listing]?
     
     override func viewWillAppear(_ animated: Bool) {
+        listings = ListingController.shared.currentUserLiveListings
         print(listings?.count)
         super.viewWillAppear(true)
         setUpViews()
@@ -50,6 +51,7 @@ class ShopCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        cell.backgroundColor = .red
         return cell
     }
 

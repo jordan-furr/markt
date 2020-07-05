@@ -71,4 +71,6 @@ class Listing: Codable {
         self.iconPhotoID = iconPhotoID
         self.category = category
     }
+    
+
 }
