@@ -9,7 +9,7 @@
 import UIKit
 
 class FirstSubcategoryViewController: UIViewController {
-
+    
     var category: String?
     var subcategories: [String] = []
     var selectedSubcategory: String?
@@ -30,12 +30,20 @@ class FirstSubcategoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
     func setUpViews(){
         categoryCollectionView.delegate = self
-        classesCollectionView.delegate = self
         categoryCollectionView.dataSource = self
-        classesCollectionView.dataSource = self
+        
+        if category == "books" {
+            classesCollectionView.dataSource = self
+            classesCollectionView.delegate = self
+        } else {
+            classesCollectionView.isHidden = true
+            popularclassLabel.isHidden = true
+        }
+        
+        
         guard let category = category else {return}
         categoryLabel.text = category
         navigationItem.title = "Markt"
@@ -48,7 +56,7 @@ class FirstSubcategoryViewController: UIViewController {
             subcategories = subletTypes
         case "tickets":
             subcategories = sports
-            default:
+        default:
             subcategories = departments
         }
         print(subcategories.count)
@@ -68,22 +76,23 @@ extension FirstSubcategoryViewController: UICollectionViewDelegate, UICollection
         if collectionView == categoryCollectionView {
             return subcategories.count
         } else {
-            return 0
+            return 3
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-         if collectionView == categoryCollectionView {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath)
+        if collectionView == categoryCollectionView {
+            let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath)
+            let category = subcategories[indexPath.item]
             cell.backgroundColor = .green
             return cell
         } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "classCell", for: indexPath)
+            let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "classCell", for: indexPath)
             cell.backgroundColor = .blue
             return cell
         }
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-           return CGSize(width: 140, height: 40)
-       }
+        return CGSize(width: 140, height: 40)
+    }
 }

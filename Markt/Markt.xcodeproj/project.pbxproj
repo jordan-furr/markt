@@ -34,7 +34,6 @@
 		C5B5D51824AB8F1B00C51956 /* Sublet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B5D51724AB8F1B00C51956 /* Sublet.swift */; };
 		C5B5D51A24AB98C800C51956 /* ClothingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B5D51924AB98C800C51956 /* ClothingItem.swift */; };
 		C5B5D51C24AB993F00C51956 /* FurnitureItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B5D51B24AB993F00C51956 /* FurnitureItem.swift */; };
-		C5BCD7D924B36229007B00F8 /* RectangleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BCD7D824B36229007B00F8 /* RectangleCollectionViewCell.swift */; };
 		C5D6A1E024AECDC000C79FB6 /* MarketDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5D6A1DF24AECDC000C79FB6 /* MarketDetails.storyboard */; };
 		C5D6A1E224AECECA00C79FB6 /* FirstSubcategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D6A1E124AECECA00C79FB6 /* FirstSubcategoryTableViewController.swift */; };
 		C5ED2B09249C445500BB6730 /* MarketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ED2B08249C445500BB6730 /* MarketViewController.swift */; };
@@ -81,7 +80,6 @@
 		C5B5D51724AB8F1B00C51956 /* Sublet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sublet.swift; sourceTree = "<group>"; };
 		C5B5D51924AB98C800C51956 /* ClothingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingItem.swift; sourceTree = "<group>"; };
 		C5B5D51B24AB993F00C51956 /* FurnitureItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FurnitureItem.swift; sourceTree = "<group>"; };
-		C5BCD7D824B36229007B00F8 /* RectangleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleCollectionViewCell.swift; sourceTree = "<group>"; };
 		C5D6A1DF24AECDC000C79FB6 /* MarketDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MarketDetails.storyboard; sourceTree = "<group>"; };
 		C5D6A1E124AECECA00C79FB6 /* FirstSubcategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSubcategoryTableViewController.swift; sourceTree = "<group>"; };
 		C5ED2B08249C445500BB6730 /* MarketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketViewController.swift; sourceTree = "<group>"; };
@@ -174,7 +172,6 @@
 			isa = PBXGroup;
 			children = (
 				C51426BD24A8C8B4002F58E6 /* ListingCollectionViewCell.swift */,
-				C5BCD7D824B36229007B00F8 /* RectangleCollectionViewCell.swift */,
 				C535BF3A24AE372A00F85D8A /* CategoryCollectionViewCell.swift */,
 			);
 			path = "Custom Cells";
@@ -416,7 +413,6 @@
 				C5B5D51A24AB98C800C51956 /* ClothingItem.swift in Sources */,
 				C54949EA249050E700B469F6 /* User.swift in Sources */,
 				C51426BE24A8C8B4002F58E6 /* ListingCollectionViewCell.swift in Sources */,
-				C5BCD7D924B36229007B00F8 /* RectangleCollectionViewCell.swift in Sources */,
 				C51426C624AA4CAF002F58E6 /* Ticket.swift in Sources */,
 				C5B5D51C24AB993F00C51956 /* FurnitureItem.swift in Sources */,
 				C5ED2B2024A2A08B00BB6730 /* LoginViewController.swift in Sources */,
