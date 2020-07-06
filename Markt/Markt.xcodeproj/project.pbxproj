@@ -51,6 +51,7 @@
 		C5ED2B1E24A2A07F00BB6730 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ED2B1D24A2A07F00BB6730 /* WelcomeViewController.swift */; };
 		C5ED2B2024A2A08B00BB6730 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ED2B1F24A2A08B00BB6730 /* LoginViewController.swift */; };
 		C5ED2B2224A2A09700BB6730 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ED2B2124A2A09700BB6730 /* RegisterViewController.swift */; };
+		C5F3034B24B3F10B008FB049 /* ClassesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F3034A24B3F10B008FB049 /* ClassesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +103,7 @@
 		C5ED2B1D24A2A07F00BB6730 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		C5ED2B1F24A2A08B00BB6730 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C5ED2B2124A2A09700BB6730 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		C5F3034A24B3F10B008FB049 /* ClassesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +196,7 @@
 			children = (
 				C55904F024A7AB0B0007916A /* ProfileViewController.swift */,
 				C5BCD7DC24B3951D007B00F8 /* SettingsViewController.swift */,
+				C5ED2B0C249D0BE800BB6730 /* SideMenuTableViewController.swift */,
 				C5BCD7DE24B3952B007B00F8 /* AboutViewController.swift */,
 				C5BCD7E024B3953D007B00F8 /* SavedListingsViewController.swift */,
 			);
@@ -273,9 +276,9 @@
 			children = (
 				C5ED2B0A249D0BBB00BB6730 /* ContainerViewController.swift */,
 				C5D6A1E124AECECA00C79FB6 /* FirstSubcategoryTableViewController.swift */,
-				C5ED2B0C249D0BE800BB6730 /* SideMenuTableViewController.swift */,
-				C5ED2B08249C445500BB6730 /* MarketViewController.swift */,
 				C506A4BA24AFB93800BB38B2 /* ShopCollectionViewController.swift */,
+				C5F3034A24B3F10B008FB049 /* ClassesTableViewController.swift */,
+				C5ED2B08249C445500BB6730 /* MarketViewController.swift */,
 				C5BCD7DA24B3622E007B00F8 /* Custom Cells */,
 			);
 			path = "Market views";
@@ -426,6 +429,7 @@
 				C51426C224A90564002F58E6 /* ListingDetailViewController.swift in Sources */,
 				C51426CA24AA9AFA002F58E6 /* ExtraSubclassDetailsViewController.swift in Sources */,
 				C5BCD7DF24B3952B007B00F8 /* AboutViewController.swift in Sources */,
+				C5F3034B24B3F10B008FB049 /* ClassesTableViewController.swift in Sources */,
 				C51426C024A8CAA5002F58E6 /* ListingError.swift in Sources */,
 				C55904F724A7E9C00007916A /* CreateListingViewController.swift in Sources */,
 				C5ED2B09249C445500BB6730 /* MarketViewController.swift in Sources */,

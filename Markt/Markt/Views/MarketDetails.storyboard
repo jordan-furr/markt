@@ -187,10 +187,10 @@
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="134.59821428571428"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Classes Table View Controller-->
         <scene sceneID="L1a-9u-oQa">
             <objects>
-                <tableViewController modalPresentationStyle="fullScreen" id="JJy-53-9ep" sceneMemberID="viewController">
+                <tableViewController modalPresentationStyle="fullScreen" id="JJy-53-9ep" customClass="ClassesTableViewController" customModule="Markt" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="kJo-vp-GqU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

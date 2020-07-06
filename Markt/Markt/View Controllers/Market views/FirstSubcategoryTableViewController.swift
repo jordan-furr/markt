@@ -93,6 +93,13 @@ class FirstSubcategoryViewController: UIViewController {
             destinationVC.category = category
             destinationVC.subcategory = subcategory
         }
+        
+        if segue.identifier == "toClassNumbers" {
+                   guard let destinationVC = segue.destination as? ClassesTableViewController, let subcategory = selectedSubcategory else {return}
+                   destinationVC.category = category
+                   destinationVC.subcategory = subcategory
+               }
+        
     }
 }
 
@@ -133,5 +140,13 @@ extension FirstSubcategoryViewController: UICollectionViewDelegate, UICollection
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("tapped")
+        if collectionView == categoryCollectionView {
+            if category == "books"{
+                selectedSubcategory = subcategories[indexPath.row]
+                performSegue(withIdentifier: "toClassNumbers", sender: self)
+            }
+        } else {
+            performSegue(withIdentifier: "toSecond", sender: self)
+        }
     }
 }
