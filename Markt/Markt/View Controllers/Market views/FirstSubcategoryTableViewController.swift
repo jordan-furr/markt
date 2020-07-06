@@ -8,11 +8,20 @@
 
 import UIKit
 
-class FirstSubcategoryTableViewController: UITableViewController {
+class FirstSubcategoryViewController: UIViewController {
 
     var category: String?
     var subcategories: [String] = []
     var selectedSubcategory: String?
+    
+    
+    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var classesCollectionView: UICollectionView!
+    @IBOutlet weak var categoryCollectionView: UICollectionView!
+    @IBOutlet weak var popularclassLabel: UILabel!
+    @IBOutlet weak var subcategoryLabel: UILabel!
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -23,8 +32,13 @@ class FirstSubcategoryTableViewController: UITableViewController {
     }
 
     func setUpViews(){
+        categoryCollectionView.delegate = self
+        classesCollectionView.delegate = self
+        categoryCollectionView.dataSource = self
+        classesCollectionView.dataSource = self
         guard let category = category else {return}
-        navigationItem.title = category
+        categoryLabel.text = category
+        navigationItem.title = "Markt"
         switch category {
         case "furniture":
             subcategories = furnitureTypes
@@ -37,23 +51,9 @@ class FirstSubcategoryTableViewController: UITableViewController {
             default:
             subcategories = departments
         }
-        
+        print(subcategories.count)
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return subcategories.count
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "subCatCell", for: indexPath)
-        cell.textLabel?.text = subcategories[indexPath.row]
-        return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedSubcategory = subcategories[indexPath.row]
-    }
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toSecond" {
             guard let destinationVC = segue.destination as? ShopCollectionViewController, let subcategory = selectedSubcategory else {return}
@@ -61,4 +61,29 @@ class FirstSubcategoryTableViewController: UITableViewController {
             destinationVC.subcategory = subcategory
         }
     }
+}
+
+extension FirstSubcategoryViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView == categoryCollectionView {
+            return subcategories.count
+        } else {
+            return 0
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+         if collectionView == categoryCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath)
+            cell.backgroundColor = .green
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "classCell", for: indexPath)
+            cell.backgroundColor = .blue
+            return cell
+        }
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+           return CGSize(width: 140, height: 40)
+       }
 }

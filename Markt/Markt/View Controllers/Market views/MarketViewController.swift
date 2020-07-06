@@ -78,7 +78,7 @@ class MarketViewController: UIViewController {
             selectedCategory = category
             let listings = ListingController.shared.fetchListingsInCategory(category: category)
             ListingController.shared.currentCategoryLIstings = listings
-            performSegue(withIdentifier: "straightToShop", sender: self)
+            performSegue(withIdentifier: "toSubCategories", sender: self)
 //            if category == "electronics" || category == "free" || category == "transportation" {
 //                performSegue(withIdentifier: "straightToShop", sender: self)
 //            } else {
@@ -120,7 +120,7 @@ class MarketViewController: UIViewController {
         
         
         if segue.identifier == "toSubCategories"  {
-            guard let destinationVC = segue.destination as? FirstSubcategoryTableViewController else {return}
+            guard let destinationVC = segue.destination as? FirstSubcategoryViewController else {return}
             destinationVC.category = selectedCategory ?? "error"
         }
         if segue.identifier == "straightToShop"  {
@@ -138,7 +138,6 @@ extension MarketViewController: UICollectionViewDataSource, UICollectionViewDele
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         guard let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as? CategoryCollectionViewCell else {return UICollectionViewCell()}
         
         let category = categories[indexPath.item]
