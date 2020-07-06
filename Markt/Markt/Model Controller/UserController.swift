@@ -16,11 +16,12 @@ struct UserKeys {
     static let emailKey = "email"
     static let firstKey = "firstName"
     static let lastKey = "lastName"
-    static let uidKey = "uidKey"
+    static let uidKey = "uid"
     static let profilePicUID = "profilePicUID"
     static let myListings = "myListings"
     static let savedListings = "savedListings"
     static let dropOffKey = "dropOff"
+    static let campusLocationKey = "campusLocation"
 }
 
 class UserController {
@@ -100,7 +101,7 @@ class UserController {
         self.updatedUser()
     }
     
-    func updateUserInfo(uid: String, email: String, firstName: String, lastName: String, profilePicUID: String, myListings: [String], savedListings: [String], completion: @escaping (Result<User?, UserError>) -> Void) {
+    func updateUserInfo(uid: String, email: String, firstName: String, lastName: String, myListings: [String], savedListings: [String], dropOff: Bool, campusLocation: Int, completion: @escaping (Result<User?, UserError>) -> Void) {
         let userDoc = usersRef.document(uid)
         let data = [
             "\(UserKeys.firstKey)" : "\(firstName)",
@@ -108,7 +109,8 @@ class UserController {
             "\(UserKeys.uidKey)" : "\(uid)",
             "\(UserKeys.myListings)" : myListings as [String],
             "\(UserKeys.savedListings)" : savedListings as [String],
-            "\(UserKeys.dropOffKey)" : false
+            "\(UserKeys.dropOffKey)" : dropOff,
+            "\(UserKeys.campusLocationKey)" : campusLocation as Int
             ] as [String : Any]
         userDoc.setData(data, merge: true) { (error) in
             if let error = error {
@@ -120,6 +122,24 @@ class UserController {
             }
         }
     }
+    
+    func initUser(uid: String) {
+           let userDoc = usersRef.document(uid)
+           let data = [
+               "\(UserKeys.myListings)" : [] as [String],
+               "\(UserKeys.savedListings)" : [] as [String],
+               "\(UserKeys.dropOffKey)" : false,
+               "\(UserKeys.campusLocationKey)" : 0 as Int
+               ] as [String : Any]
+           userDoc.setData(data, merge: true) { (error) in
+               if let error = error {
+                  print(error)
+               } else {
+                self.updatedUser()
+               }
+           }
+       }
+    
     
     
     func updatedUser() {

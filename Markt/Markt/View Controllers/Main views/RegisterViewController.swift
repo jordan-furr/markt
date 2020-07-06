@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class RegisterViewController: UIViewController {
     
@@ -16,6 +17,12 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmTextField: UITextField!
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        setUpViews()
+    }
     
     
     override func viewDidLoad() {
@@ -51,6 +58,8 @@ class RegisterViewController: UIViewController {
                 print(error.localizedDescription)
                 self.presentRegisterAlertView(error: error)
             } else {
+                UserController.shared.initUser(uid: Auth.auth().currentUser!.uid)
+                UserController.shared.updatedUser()
                 self.performSegue(withIdentifier: "newUser", sender: self)
             }
         }
@@ -70,6 +79,11 @@ class RegisterViewController: UIViewController {
     
     //MARK: HELPER ALERTS
     
+    func setUpViews(){
+        emailTextField.autocorrectionType = .yes
+        passwordTextField.autocorrectionType = .no
+        confirmTextField.autocorrectionType = .no
+    }
     func presentMisMatchPasswordAlert(){
         let alertController = UIAlertController(title: "Passwords do not match", message: "Please re-type password", preferredStyle: .alert)
         let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
