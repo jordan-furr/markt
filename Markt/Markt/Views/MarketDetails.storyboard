@@ -22,18 +22,21 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SgB-yu-afe">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1100"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="oak-n3-Zd4">
-                                                <rect key="frame" x="20" y="110" width="374" height="337"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="oak-n3-Zd4">
+                                                <rect key="frame" x="20" y="110" width="374" height="381"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Popular Classes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q2V-CZ-nZV">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="24"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wUJ-FB-ahD">
-                                                        <rect key="frame" x="0.0" y="35" width="374" height="128"/>
+                                                        <rect key="frame" x="0.0" y="35" width="374" height="150"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="150" id="ptn-dZ-pZY"/>
+                                                        </constraints>
                                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="O6P-O8-gC8">
                                                             <size key="itemSize" width="128" height="128"/>
                                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -53,14 +56,17 @@
                                                         </cells>
                                                     </collectionView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subcategories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ODU-qt-hFu">
-                                                        <rect key="frame" x="0.0" y="174" width="374" height="24"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <rect key="frame" x="0.0" y="196" width="374" height="24"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GZg-eI-YE1">
-                                                        <rect key="frame" x="0.0" y="209" width="374" height="128"/>
+                                                        <rect key="frame" x="0.0" y="231" width="374" height="150"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="150" id="2g6-54-mNV"/>
+                                                        </constraints>
                                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="R3O-gj-hyd">
                                                             <size key="itemSize" width="128" height="128"/>
                                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -86,7 +92,6 @@
                                         <constraints>
                                             <constraint firstItem="oak-n3-Zd4" firstAttribute="leading" secondItem="SgB-yu-afe" secondAttribute="leading" constant="20" id="HSs-ze-Zz9"/>
                                             <constraint firstAttribute="trailing" secondItem="oak-n3-Zd4" secondAttribute="trailing" constant="20" id="aF4-kH-9me"/>
-                                            <constraint firstItem="oak-n3-Zd4" firstAttribute="height" secondItem="SgB-yu-afe" secondAttribute="height" multiplier="0.306364" id="fmZ-Rl-09Y"/>
                                             <constraint firstAttribute="height" constant="1100" id="rIv-tA-v3l"/>
                                             <constraint firstItem="oak-n3-Zd4" firstAttribute="top" secondItem="SgB-yu-afe" secondAttribute="top" constant="110" id="tAQ-62-FOH"/>
                                             <constraint firstItem="oak-n3-Zd4" firstAttribute="centerX" secondItem="SgB-yu-afe" secondAttribute="centerX" id="zU6-PM-5OX"/>

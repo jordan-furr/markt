@@ -93,6 +93,6 @@ extension FirstSubcategoryViewController: UICollectionViewDelegate, UICollection
         }
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 140, height: 40)
+        return CGSize(width: 140, height: 32)
     }
 }
