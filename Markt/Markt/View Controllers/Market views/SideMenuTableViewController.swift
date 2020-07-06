@@ -10,21 +10,26 @@ import UIKit
 
 class SideMenuTableViewController: UITableViewController {
     
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
-        NotificationCenter.default.post(name: NSNotification.Name("ToggleSideMenu"), object: nil)
         
+
+        NotificationCenter.default.post(name: NSNotification.Name("ToggleSideMenu"), object: nil)
         switch indexPath.row {
-        case 0: NotificationCenter.default.post(name: NSNotification.Name("ShowProfile"), object: nil)
-        case 1: NotificationCenter.default.post(name: NSNotification.Name("ShowSettings"), object: nil)
-        case 2: NotificationCenter.default.post(name: NSNotification.Name("ShowAbout"), object: nil)
+        case 0:
+            performSegue(withIdentifier: "ShowProfile", sender: self)
+        case 1:
+             performSegue(withIdentifier: "ShowSettings", sender: self)
+        case 2:
+             performSegue(withIdentifier: "ShowAbout", sender: self)
         default: break
         }
-        
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

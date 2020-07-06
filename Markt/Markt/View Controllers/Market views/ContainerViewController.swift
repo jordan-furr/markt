@@ -11,15 +11,18 @@ import UIKit
 var sideMenuOpen = false
 
 class ContainerViewController: UIViewController {
-
+    
     @IBOutlet weak var sideMenuConstraint: NSLayoutConstraint!
     @IBOutlet weak var marketContainer: UIView!
+    @IBOutlet weak var sideMenucontainer: UIView!
+    @IBOutlet var tapGesture: UITapGestureRecognizer!
     
     @objc func toggleSideMenu(){
         if sideMenuOpen {
             sideMenuOpen = false
             sideMenuConstraint.constant = -380
             marketContainer.isUserInteractionEnabled = true
+            
         } else {
             sideMenuOpen = true
             sideMenuConstraint.constant = 0
@@ -32,15 +35,19 @@ class ContainerViewController: UIViewController {
     }
     
     @IBAction func viewTapped(_ sender: UITapGestureRecognizer) {
-        print("tapped")
-        let touchPoint = sender.location(in: view)
-        if marketContainer.frame.contains(touchPoint) {
-            self.toggleSideMenu()
+        if sideMenuOpen {
+            print("tapped")
+            let touchPoint = sender.location(in: view)
+            if marketContainer.frame.contains(touchPoint) {
+                self.toggleSideMenu()
+            }
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tapGesture.cancelsTouchesInView = false
+        sideMenucontainer.isUserInteractionEnabled = true
         NotificationCenter.default.addObserver(self, selector: #selector(toggleSideMenu), name: NSNotification.Name("ToggleSideMenu"), object: nil)
     }
     

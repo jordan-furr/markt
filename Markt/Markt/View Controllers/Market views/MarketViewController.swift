@@ -14,7 +14,6 @@ var categories: [String] = {
 
 class MarketViewController: UIViewController {
     
-    
     var selectedCategory: String?
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet var swipegesture: UISwipeGestureRecognizer!
@@ -40,6 +39,7 @@ class MarketViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tap)))
         navigationItem.hidesBackButton = true
+        
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(showProfile),
                                                name: NSNotification.Name("ShowProfile"),
@@ -52,6 +52,7 @@ class MarketViewController: UIViewController {
                                                selector: #selector(showAbout),
                                                name: NSNotification.Name("ShowAbout"),
                                                object: nil)
+            
         ListingController.shared.fetchCurrentUsersListings { (result) in
             switch result {
             case .failure(let error):
@@ -71,8 +72,6 @@ class MarketViewController: UIViewController {
                 print("live user listings fetched")
             }
         }
-        
-       
     }
     
     @objc func tap(sender: UITapGestureRecognizer){

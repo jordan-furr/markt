@@ -50,6 +50,11 @@ class ProfileViewController: UIViewController {
             vc.listing = listing
         }
     }
+    
+    @IBAction func exitProfile(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }
 
 
@@ -73,6 +78,8 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         let cell = collectionView.cellForItem(at: indexPath) as! ListingCollectionViewCell
         performSegue(withIdentifier: "toListingDetail", sender: cell)
     }
+    
+    
 }
 
 
