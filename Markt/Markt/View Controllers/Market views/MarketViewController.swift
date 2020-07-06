@@ -17,6 +17,7 @@ class MarketViewController: UIViewController {
     
     var selectedCategory: String?
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet var swipegesture: UISwipeGestureRecognizer!
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,6 +71,8 @@ class MarketViewController: UIViewController {
                 print("live user listings fetched")
             }
         }
+        
+       
     }
     
     @objc func tap(sender: UITapGestureRecognizer){
@@ -116,9 +119,7 @@ class MarketViewController: UIViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        
-        
+        swipegesture.isEnabled = false
         if segue.identifier == "toSubCategories"  {
             guard let destinationVC = segue.destination as? FirstSubcategoryViewController else {return}
             destinationVC.category = selectedCategory ?? "error"
