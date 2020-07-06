@@ -83,6 +83,8 @@ class RegisterViewController: UIViewController {
         emailTextField.autocorrectionType = .yes
         passwordTextField.autocorrectionType = .no
         confirmTextField.autocorrectionType = .no
+        passwordTextField.textContentType = .none
+        passwordTextField.isSecureTextEntry = false
     }
     func presentMisMatchPasswordAlert(){
         let alertController = UIAlertController(title: "Passwords do not match", message: "Please re-type password", preferredStyle: .alert)

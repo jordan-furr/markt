@@ -158,6 +158,7 @@
                     <size key="freeformSize" width="414" height="1800"/>
                     <connections>
                         <outlet property="collectionView" destination="Zzb-Y2-jhy" id="nab-Yp-tJ7"/>
+                        <outlet property="swipegesture" destination="YMj-kx-eMo" id="vUw-Ei-smQ"/>
                         <segue destination="9mk-2k-OWo" kind="show" identifier="ShowProfile" id="oq4-Ah-IOM"/>
                         <segue destination="2ha-TN-FWb" kind="show" identifier="ShowSettings" id="G88-Os-hJv"/>
                         <segue destination="wJj-E6-PLF" kind="show" identifier="ShowAbout" id="tFi-ci-vTs"/>
@@ -523,9 +524,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nv9-Mj-9wt">
-                                <rect key="frame" x="-310" y="0.0" width="310" height="896"/>
+                                <rect key="frame" x="-380" y="0.0" width="380" height="896"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="310" id="q0V-BB-up7"/>
+                                    <constraint firstAttribute="width" constant="380" id="q0V-BB-up7"/>
                                 </constraints>
                                 <connections>
                                     <segue destination="NtW-GE-ufq" kind="embed" id="WyN-ob-VbL"/>
@@ -542,7 +543,7 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="Acc-cT-19b" secondAttribute="bottom" id="4Qe-aL-SzX"/>
-                            <constraint firstItem="nv9-Mj-9wt" firstAttribute="leading" secondItem="IBf-Fu-JT7" secondAttribute="leading" constant="-310" id="CVR-5k-UGI"/>
+                            <constraint firstItem="nv9-Mj-9wt" firstAttribute="leading" secondItem="IBf-Fu-JT7" secondAttribute="leading" constant="-380" id="CVR-5k-UGI"/>
                             <constraint firstItem="Acc-cT-19b" firstAttribute="top" secondItem="wE6-A2-za0" secondAttribute="top" id="RSd-Vu-Qap"/>
                             <constraint firstItem="nv9-Mj-9wt" firstAttribute="top" secondItem="wE6-A2-za0" secondAttribute="top" id="Ufd-BR-Hqb"/>
                             <constraint firstItem="Acc-cT-19b" firstAttribute="leading" secondItem="nv9-Mj-9wt" secondAttribute="trailing" id="jBs-pG-s8T"/>
@@ -552,9 +553,11 @@
                         <viewLayoutGuide key="safeArea" id="IBf-Fu-JT7"/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="fYf-BR-8x1" appends="YES" id="T21-2j-jAh"/>
+                            <outletCollection property="gestureRecognizers" destination="IiC-TQ-z2b" appends="YES" id="ZOu-2a-s9g"/>
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="marketContainer" destination="Acc-cT-19b" id="Ylw-Pg-T7e"/>
                         <outlet property="sideMenuConstraint" destination="CVR-5k-UGI" id="KUY-9k-GHU"/>
                     </connections>
                 </viewController>
@@ -564,15 +567,20 @@
                         <action selector="swipeBack:" destination="gdc-sT-qXH" id="URP-D9-hp8"/>
                     </connections>
                 </swipeGestureRecognizer>
+                <tapGestureRecognizer id="IiC-TQ-z2b">
+                    <connections>
+                        <action selector="viewTapped:" destination="gdc-sT-qXH" id="nrp-55-bXq"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1099" y="-531"/>
+            <point key="canvasLocation" x="1098.5507246376812" y="-531.02678571428567"/>
         </scene>
         <!--Side Menu Table View Controller-->
         <scene sceneID="F2i-N9-ysZ">
             <objects>
                 <tableViewController id="NtW-GE-ufq" customClass="SideMenuTableViewController" customModule="Markt" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="60" sectionFooterHeight="18" id="Tmc-be-aAV">
-                        <rect key="frame" x="0.0" y="0.0" width="310" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="380" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -580,10 +588,10 @@
                             <tableViewSection headerTitle="Menu" id="W2Z-6z-BhF">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="Rvj-2W-3sd">
-                                        <rect key="frame" x="0.0" y="55.5" width="310" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="380" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Rvj-2W-3sd" id="S4S-1B-a8Y">
-                                            <rect key="frame" x="0.0" y="0.0" width="310" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="380" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ccc-wJ-wQT">
@@ -602,10 +610,10 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="aAf-ys-Oca">
-                                        <rect key="frame" x="0.0" y="99" width="310" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="99" width="380" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aAf-ys-Oca" id="Sdt-Ja-GvL">
-                                            <rect key="frame" x="0.0" y="0.0" width="310" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="380" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57U-BO-oM6">
@@ -624,10 +632,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="1tc-JR-spy">
-                                        <rect key="frame" x="0.0" y="142.5" width="310" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="142.5" width="380" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1tc-JR-spy" id="kVI-Lu-Sw7">
-                                            <rect key="frame" x="0.0" y="0.0" width="310" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="380" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ulN-eP-xAf">

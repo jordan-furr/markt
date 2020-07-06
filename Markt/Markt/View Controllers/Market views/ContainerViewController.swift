@@ -13,20 +13,30 @@ var sideMenuOpen = false
 class ContainerViewController: UIViewController {
 
     @IBOutlet weak var sideMenuConstraint: NSLayoutConstraint!
-    
+    @IBOutlet weak var marketContainer: UIView!
     
     @objc func toggleSideMenu(){
         if sideMenuOpen {
             sideMenuOpen = false
-            sideMenuConstraint.constant = -310
+            sideMenuConstraint.constant = -380
+            marketContainer.isUserInteractionEnabled = true
         } else {
             sideMenuOpen = true
             sideMenuConstraint.constant = 0
+            marketContainer.isUserInteractionEnabled = false
         }
         UIView.animate(withDuration: 0.3){
             self.view.layoutIfNeeded()
         }
         print("toggled")
+    }
+    
+    @IBAction func viewTapped(_ sender: UITapGestureRecognizer) {
+        print("tapped")
+        let touchPoint = sender.location(in: view)
+        if marketContainer.frame.contains(touchPoint) {
+            self.toggleSideMenu()
+        }
     }
     
     override func viewDidLoad() {

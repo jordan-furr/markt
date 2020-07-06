@@ -168,6 +168,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C5BCD7DA24B3622E007B00F8 /* Custom Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C51426BD24A8C8B4002F58E6 /* ListingCollectionViewCell.swift */,
+				C535BF3A24AE372A00F85D8A /* CategoryCollectionViewCell.swift */,
+			);
+			path = "Custom Cells";
+			sourceTree = "<group>";
+		};
 		C5ED2B0E249D1FFF00BB6730 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,8 +253,7 @@
 				C5ED2B08249C445500BB6730 /* MarketViewController.swift */,
 				C506A4BA24AFB93800BB38B2 /* ShopCollectionViewController.swift */,
 				C55904F024A7AB0B0007916A /* ProfileViewController.swift */,
-				C51426BD24A8C8B4002F58E6 /* ListingCollectionViewCell.swift */,
-				C535BF3A24AE372A00F85D8A /* CategoryCollectionViewCell.swift */,
+				C5BCD7DA24B3622E007B00F8 /* Custom Cells */,
 			);
 			path = "Market views";
 			sourceTree = "<group>";
