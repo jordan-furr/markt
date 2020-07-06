@@ -159,6 +159,7 @@
                     <connections>
                         <outlet property="collectionView" destination="Zzb-Y2-jhy" id="nab-Yp-tJ7"/>
                         <outlet property="swipegesture" destination="YMj-kx-eMo" id="vUw-Ei-smQ"/>
+                        <outlet property="tapGesture" destination="Utd-oI-ugZ" id="Z9y-E7-tWi"/>
                         <segue destination="K42-tQ-8Ag" kind="show" identifier="straightToShop" id="Edw-iQ-gr5"/>
                     </connections>
                 </viewController>
@@ -181,11 +182,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="9mk-2k-OWo" customClass="ProfileViewController" customModule="Markt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GGI-X3-xWT">
-                        <rect key="frame" x="0.0" y="0.0" width="380" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="380" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DEt-yJ-a5s">
-                                <rect key="frame" x="0.0" y="373" width="380" height="489"/>
+                                <rect key="frame" x="0.0" y="359.5" width="380" height="448.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HCQ-01-Dna">
                                     <size key="itemSize" width="120" height="120"/>
@@ -210,7 +211,7 @@
                                 </cells>
                             </collectionView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="m7Z-kl-Nmg">
-                                <rect key="frame" x="23" y="143" width="334" height="76.5"/>
+                                <rect key="frame" x="23" y="134.5" width="334" height="76.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seller Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Gm-3Q-aoN">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="16.5"/>
@@ -230,7 +231,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gyY-h5-fGx">
-                                <rect key="frame" x="23" y="245" width="167" height="90"/>
+                                <rect key="frame" x="23" y="231.5" width="167" height="90"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Campus Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yFU-c8-cRp">
                                         <rect key="frame" x="0.0" y="0.0" width="167" height="18"/>
@@ -261,22 +262,11 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mJ0-QH-2DQ">
-                                <rect key="frame" x="20" y="44" width="21" height="22"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="xmark" catalog="system">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
-                                </state>
-                                <connections>
-                                    <action selector="exitProfile:" destination="9mk-2k-OWo" eventType="touchUpInside" id="l3T-jj-KrQ"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.72200512886047363" green="0.92558532953262329" blue="0.64340043067932129" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="m7Z-kl-Nmg" firstAttribute="centerY" secondItem="2Pu-re-6I8" secondAttribute="centerY" multiplier="0.4" id="6Nw-Y7-jn9"/>
                             <constraint firstItem="2Pu-re-6I8" firstAttribute="bottom" secondItem="DEt-yJ-a5s" secondAttribute="bottom" id="9H0-bF-dZg"/>
-                            <constraint firstItem="mJ0-QH-2DQ" firstAttribute="leading" secondItem="2Pu-re-6I8" secondAttribute="leading" constant="20" id="Mfw-Gp-mFy"/>
                             <constraint firstItem="m7Z-kl-Nmg" firstAttribute="centerX" secondItem="2Pu-re-6I8" secondAttribute="centerX" id="TrI-wB-dvh"/>
                             <constraint firstItem="DEt-yJ-a5s" firstAttribute="top" secondItem="gyY-h5-fGx" secondAttribute="bottom" constant="38" id="Vaf-oo-W3S"/>
                             <constraint firstItem="2Pu-re-6I8" firstAttribute="trailing" secondItem="DEt-yJ-a5s" secondAttribute="trailing" id="Y4o-MB-twJ"/>
@@ -285,11 +275,16 @@
                             <constraint firstItem="DEt-yJ-a5s" firstAttribute="leading" secondItem="2Pu-re-6I8" secondAttribute="leading" id="gOf-BR-7Y2"/>
                             <constraint firstItem="gyY-h5-fGx" firstAttribute="leading" secondItem="qey-JZ-o9Y" secondAttribute="leading" id="kkd-rx-42L"/>
                             <constraint firstItem="m7Z-kl-Nmg" firstAttribute="width" secondItem="GGI-X3-xWT" secondAttribute="width" multiplier="0.88" id="s4J-BG-dlL"/>
-                            <constraint firstItem="mJ0-QH-2DQ" firstAttribute="top" secondItem="2Pu-re-6I8" secondAttribute="top" id="zFb-9V-zYj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2Pu-re-6I8"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Profile" id="T8A-xe-HpH"/>
+                    <navigationItem key="navigationItem" title="Profile" id="T8A-xe-HpH">
+                        <barButtonItem key="leftBarButtonItem" image="xmark" catalog="system" id="QE5-2S-lCj">
+                            <connections>
+                                <action selector="exitProfile:" destination="9mk-2k-OWo" id="9fl-K7-eCn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="DEt-yJ-a5s" id="xkh-Jx-nRy"/>
                         <outlet property="dropOffBool" destination="NpH-Ob-JzR" id="wcs-bq-sdY"/>
@@ -299,7 +294,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EuO-2A-Kt2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1260.8695652173915" y="1551.5625"/>
+            <point key="canvasLocation" x="2118.840579710145" y="1551.5625"/>
         </scene>
         <!--listingView-->
         <scene sceneID="VrV-mm-egA">
@@ -311,24 +306,23 @@
             </objects>
             <point key="canvasLocation" x="1033" y="1930"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="TMc-UK-s52">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="2ha-TN-FWb" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="2ha-TN-FWb" customClass="SettingsViewController" customModule="Markt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EQX-Sh-VfJ">
                         <rect key="frame" x="0.0" y="0.0" width="380" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tdz-FH-wTS">
-                                <rect key="frame" x="39" y="44" width="21" height="22"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h3i-cO-CEt">
+                                <rect key="frame" x="55" y="60" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="titleShadowOffset" width="2" height="2"/>
                                 <state key="normal" image="xmark" catalog="system">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
                                 </state>
                                 <connections>
-                                    <action selector="exitProfile:" destination="9mk-2k-OWo" eventType="touchUpInside" id="Bsj-Qx-jqj"/>
-                                    <action selector="exitProfile:" destination="m0E-PP-e7V" eventType="touchUpInside" id="rAs-e1-ILZ"/>
+                                    <action selector="closeTapped:" destination="2ha-TN-FWb" eventType="touchUpInside" id="jo0-eh-6ZE"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -339,26 +333,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m0E-PP-e7V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1924" y="1549"/>
+            <point key="canvasLocation" x="2781.1594202898555" y="1548.8839285714284"/>
         </scene>
-        <!--View Controller-->
+        <!--About View Controller-->
         <scene sceneID="3js-xh-LKI">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="wJj-E6-PLF" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="wJj-E6-PLF" customClass="AboutViewController" customModule="Markt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dui-gM-NC8">
                         <rect key="frame" x="0.0" y="0.0" width="380" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCB-E3-Yqq">
-                                <rect key="frame" x="38" y="59" width="21" height="22"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vyx-Pp-Vay">
+                                <rect key="frame" x="39" y="52" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="titleShadowOffset" width="2" height="2"/>
                                 <state key="normal" image="xmark" catalog="system">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
                                 </state>
                                 <connections>
-                                    <action selector="exitProfile:" destination="9mk-2k-OWo" eventType="touchUpInside" id="KzF-h1-hZN"/>
-                                    <action selector="exitProfile:" destination="pSL-Wa-PPM" eventType="touchUpInside" id="oUE-QB-I87"/>
+                                    <action selector="closeTapped:" destination="2ha-TN-FWb" eventType="touchUpInside" id="dmq-py-Wpc"/>
+                                    <action selector="closeTapped:" destination="wJj-E6-PLF" eventType="touchUpInside" id="o2O-gO-l6B"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -369,7 +363,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pSL-Wa-PPM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2597" y="1552"/>
+            <point key="canvasLocation" x="3452.1739130434785" y="1551.5625"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="cbb-1M-YVk">
@@ -701,7 +695,7 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <segue destination="9mk-2k-OWo" kind="show" identifier="ShowProfile" id="WJl-H1-ON2"/>
+                        <segue destination="rLz-Ok-bul" kind="show" identifier="ShowProfile" id="WJl-H1-ON2"/>
                         <segue destination="2ha-TN-FWb" kind="show" identifier="ShowSettings" id="1b6-E0-4iG"/>
                         <segue destination="wJj-E6-PLF" kind="show" identifier="ShowAbout" id="TSm-7k-4pq"/>
                     </connections>
@@ -749,6 +743,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4fw-Jw-j7G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2359" y="-206"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="WMN-KG-PN1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="rLz-Ok-bul" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="8sf-fn-Idn"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="stO-6i-r7Z">
+                        <rect key="frame" x="0.0" y="44" width="380" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9mk-2k-OWo" kind="relationship" relationship="rootViewController" id="GIq-Db-9ly"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cjh-lb-KVj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1506" y="1552"/>
         </scene>
     </scenes>
     <resources>
