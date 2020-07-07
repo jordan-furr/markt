@@ -15,7 +15,8 @@ import FirebaseAuth
 struct ListingKeys {
     static let uidKey = "uid"
     static let titleKey = "title"
-    static let subtitleKey = "subtitle"
+    static let subcategoryKey = "subcategory"
+    static let subsubcategoryKey = "subsubCategory"
     static let priceKey = "price"
     static let descriptionKey = "description"
     static let ownerUIDKey = "ownerUID"
@@ -31,7 +32,6 @@ class ListingController {
     lazy var storageRef = storage.reference()
     let listingRef : CollectionReference = Firestore.firestore().collection("listings")
     
-    var allBookListings: [Book] = []
     var currentUserLiveListings: [Listing] = []
     var currentCategoryLIstings: [Listing] = []
     var allListings: [Listing] = []
@@ -40,100 +40,25 @@ class ListingController {
     func createListing(with listing: Listing){
         let listingInfoDict = [
             "title" : listing.title as String,
-            "subtitle" : listing.subtitle as String,
+            "subcategory" : listing.subcategory as String,
+            "subsubCategory" : listing.subsubCategory as String,
             "price" : listing.price as Double,
             "description": listing.description as String,
             "ownerUID" : listing.ownerUID as String,
             "iconPhotoID" : listing.iconPhotoID as String,
             "uid" : listing.uid as String,
-            "category" : listing.category as String
+            "category" : listing.category as String,
+            "date" : listing.date as Date
             ] as [String : Any]
         listingRef.document(listing.uid).setData(listingInfoDict)
-    }
-    
-    func createBookListing(with book: Book){
-        let listingInfoDict = [
-            "title" : book.title as String,
-            "subtitle" : book.subtitle as String,
-            "price" : book.price as Double,
-            "description": book.description as String,
-            "ownerUID" : book.ownerUID as String,
-            "iconPhotoID" : book.iconPhotoID as String,
-            "uid" : book.uid as String,
-            "category" : "books",
-            "department" : book.department as String,
-            "classNumber" : book.classNumber as String
-            ] as [String : Any]
-        listingRef.document(book.uid).setData(listingInfoDict)
-    }
-    
-    func createTicketListing(with ticket: Ticket){
-        let listingInfoDict = [
-            "title" : ticket.title as String,
-            "subtitle" : ticket.subtitle as String,
-            "price" : ticket.price as Double,
-            "description": ticket.description as String,
-            "ownerUID" : ticket.ownerUID as String,
-            "iconPhotoID" : ticket.iconPhotoID as String,
-            "uid" : ticket.uid as String,
-            "category" : "tickets",
-            "opponent" : ticket.opponent as String,
-            "date" : ticket.date! as Date
-            ] as [String : Any]
-        listingRef.document(ticket.uid).setData(listingInfoDict)
-    }
-    
-    func createSubletListing(with sublet: Sublet){
-           let listingInfoDict = [
-               "title" : sublet.title as String,
-               "subtitle" : sublet.subtitle as String,
-               "price" : sublet.price as Double,
-               "description": sublet.description as String,
-               "ownerUID" : sublet.ownerUID as String,
-               "iconPhotoID" : sublet.iconPhotoID as String,
-               "uid" : sublet.uid as String,
-               "category" : "housing",
-               "date" : sublet.date! as Date,
-               "subletType" : sublet.subletType as String
-               ] as [String : Any]
-           listingRef.document(sublet.uid).setData(listingInfoDict)
-       }
-    
-    func createClothingListing(with clothingItem: ClothingItem){
-        let listingInfoDict = [
-            "title" : clothingItem.title as String,
-            "subtitle" : clothingItem.subtitle as String,
-            "price" : clothingItem.price as Double,
-            "description": clothingItem.description as String,
-            "ownerUID" : clothingItem.ownerUID as String,
-            "iconPhotoID" : clothingItem.iconPhotoID as String,
-            "uid" : clothingItem.uid as String,
-            "category" : "clothing",
-            "size" : clothingItem.size as String
-            ] as [String : Any]
-        listingRef.document(clothingItem.uid).setData(listingInfoDict)
-    }
-    
-    func createFurnitureListing(with furnitureItem: FurnitureItem){
-        let listingInfoDict = [
-            "title" : furnitureItem.title as String,
-            "subtitle" : furnitureItem.subtitle as String,
-            "price" : furnitureItem.price as Double,
-            "description": furnitureItem.description as String,
-            "ownerUID" : furnitureItem.ownerUID as String,
-            "iconPhotoID" : furnitureItem.iconPhotoID as String,
-            "uid" : furnitureItem.uid as String,
-            "category" : "furniture",
-            "type" : furnitureItem.type as String
-            ] as [String : Any]
-        listingRef.document(furnitureItem.uid).setData(listingInfoDict)
     }
     
     func updateListingInfo(listing: Listing, completion: @escaping (Result<Listing?, ListingError>) -> Void) {
         let listingDoc = listingRef.document(listing.uid)
         let data = [
             "\(ListingKeys.titleKey)" : listing.title as String,
-            "\(ListingKeys.subtitleKey)" : listing.subtitle as String,
+            "\(ListingKeys.subcategoryKey)" : listing.subcategory as String,
+            "\(ListingKeys.subsubcategoryKey)" : listing.subsubCategory as String,
             "\(ListingKeys.priceKey)" : listing.price as Double,
             "\(ListingKeys.descriptionKey)" : listing.description as String,
             "\(ListingKeys.iconPhotoIDKey)" : listing.iconPhotoID as String,
@@ -243,39 +168,6 @@ class ListingController {
                 guard let data = snapshot.data() else { return completion(.failure(.noRecordFound))}
                 
                 var listing = try! FirestoreDecoder().decode(Listing.self, from: data)
-                if listing.category == "books"{
-                    listing = try! FirestoreDecoder().decode(Book.self, from: data)
-                }
-                return completion(.success(listing))
-            } else {
-                print("snapshot is nil")
-                return completion(.failure(.noRecordFound))
-            }
-        }
-    }
-    
-    func fetchTicket(listingUID: String, completion: @escaping (Result<Ticket?, ListingError>) -> Void) {
-           let listingDoc = listingRef.document(listingUID)
-           listingDoc.getDocument { (snapshot, error) in
-               if snapshot != nil {
-                   guard let snapshot = snapshot else { return completion(.failure(.noListingFound)) }
-                   guard let data = snapshot.data() else { return completion(.failure(.couldNotUnwrapListing)) }
-                   let listing = try! FirestoreDecoder().decode(Ticket.self, from: data)
-                   return completion(.success(listing))
-               } else {
-                   print("snapshot is nil")
-                   return completion(.failure(.noRecordFound))
-               }
-           }
-       }
-    
-    func fetchSublet(listingUID: String, completion: @escaping (Result<Sublet?, ListingError>) -> Void) {
-        let listingDoc = listingRef.document(listingUID)
-        listingDoc.getDocument { (snapshot, error) in
-            if snapshot != nil {
-                guard let snapshot = snapshot else { return completion(.failure(.noListingFound)) }
-                guard let data = snapshot.data() else { return completion(.failure(.couldNotUnwrapListing)) }
-                let listing = try! FirestoreDecoder().decode(Sublet.self, from: data)
                 return completion(.success(listing))
             } else {
                 print("snapshot is nil")

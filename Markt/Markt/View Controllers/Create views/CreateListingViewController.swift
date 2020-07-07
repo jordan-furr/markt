@@ -40,10 +40,6 @@ class CreateListingViewController: UIViewController {
         self.category = "transportation"
         self.performSegue(withIdentifier: "toExtras", sender: self)
     }
-    @IBAction func freeTapped(_ sender: Any) {
-        self.category = "free"
-        self.performSegue(withIdentifier: "toExtras", sender: self)
-    }
     @IBAction func housingTapped(_ sender: Any) {
         self.category = "housing"
         self.performSegue(withIdentifier: "toExtras", sender: self)

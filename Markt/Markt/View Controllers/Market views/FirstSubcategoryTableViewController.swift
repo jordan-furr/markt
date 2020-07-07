@@ -76,7 +76,6 @@ class FirstSubcategoryViewController: UIViewController {
             subcategoryLabel.text = "Departments"
             categoryLabel.text = "Books"
             subcategories = departments
-            fetchBooks()
         case "electronics":
             categoryLabel.text = "Electronics"
         case "transportation":
@@ -86,11 +85,6 @@ class FirstSubcategoryViewController: UIViewController {
             subcategoryLabel.isHidden = true
         }
         print(subcategories.count)
-    }
-    
-    func fetchBooks(){
-        let allBooks = ListingController.shared.currentCategoryLIstings as! [Book]
-        ListingController.shared.allBookListings = allBooks
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

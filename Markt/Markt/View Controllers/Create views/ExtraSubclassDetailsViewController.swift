@@ -25,7 +25,6 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
     @IBOutlet weak var titleLabel: UITextField!
     @IBOutlet weak var priceLabel: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
-    @IBOutlet weak var subtitleTextField: UITextField!
     @IBOutlet weak var createButton: UIButton!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
@@ -44,43 +43,40 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
     //MARK: - CREATE LISTING
     @IBAction func createTapped(_ sender: Any) {
         guard let category = category else {return}
-        
+        guard let classNumber = listingInfo1.text else {return}
         let title = titleLabel.text ?? "no title"
         let subClass = subclassLabel.text ?? "N/A"
-        let subtitle = subtitleTextField.text ?? "no subtitle"
         let price = Double(priceLabel.text ?? "0") ?? 0
         var description = descriptionTextView.text ?? ""
         if description == "..." || description == "" {
             description = "No description provided :("
         }
-        let ownerUID = UserController.shared.currentUser!.uid
+        let user = UserController.shared.currentUser!
         let iconPhotoID = ""
         let date = datePicker.date
 
+        
         switch (category) {
         case "books":
-            guard let department = subclassLabel.text, let classNumber = listingInfo1.text else {return}
-            createdListing = Book(title: title, subtitle: subtitle, price: price, description: description, ownerUID: ownerUID, iconPhotoID: iconPhotoID, department: department, classNumber: classNumber)
-            ListingController.shared.createBookListing(with: createdListing! as! Book)
+            createdListing = Listing(title: title, subcategory: subClass, subsubCategory: classNumber, price: price, description: description, ownerUID: user.uid, iconPhotoID: iconPhotoID, category: category)
         case "tickets":
-            guard let sport = subclassLabel.text else {return}
-            let opponentName = title
-            createdListing = Ticket(sport: sport, price: price, description: description, ownerUID: ownerUID, iconPhotoID: iconPhotoID, opponent: opponentName, gameDate: date)
-            ListingController.shared.createTicketListing(with: createdListing! as! Ticket)
+            createdListing = Listing(title: "", subcategory: subClass, subsubCategory: title, price: price, description: description, ownerUID: user.uid, iconPhotoID: iconPhotoID, category: category)
+            createdListing?.date = date
         case "housing":
-            createdListing = Sublet(title: title, subtitle: subtitle, subletType: subClass, price: price, description: description, ownerUID: ownerUID, iconPhotoID: iconPhotoID, date: date)
-            ListingController.shared.createSubletListing(with: createdListing! as! Sublet)
+            createdListing = Listing(title: title, subcategory: subClass, subsubCategory: String(user.campusLocation), price: price, description: description, ownerUID: user.uid, iconPhotoID: iconPhotoID, category: category)
+            createdListing?.date = date
         case "clothing":
-            createdListing = ClothingItem(title: title, subtitle: subtitle, price: price, description: description, ownerUID: ownerUID, iconPhotoID: iconPhotoID, size: subClass)
-            ListingController.shared.createClothingListing(with: createdListing! as! ClothingItem)
+            //FIXME::::: ADD CLOTHING ITEM TYPE
+            createdListing = Listing(title: title, subcategory: "" , subsubCategory: subClass, price: price, description: description, ownerUID: user.uid, iconPhotoID: iconPhotoID, category: category)
         case "furniture":
-            createdListing = FurnitureItem(title: title, subtitle: subtitle, price: price, description: description, ownerUID: ownerUID, iconPhotoID: iconPhotoID, type: subClass)
-            ListingController.shared.createFurnitureListing(with: createdListing! as! FurnitureItem)
+            createdListing = Listing(title: title, subcategory: subClass, subsubCategory: "", price: price, description: description, ownerUID: user.uid, iconPhotoID: iconPhotoID, category: category)
         default:
-           createdListing = Listing(title: title, subtitle: subtitle, price: 0, description: description, ownerUID: ownerUID, iconPhotoID: iconPhotoID, category: category)
-           ListingController.shared.createListing(with: createdListing!)
-          
+            createdListing = Listing(title: title, subcategory: "", subsubCategory: "", price: price, description: description, ownerUID: user.uid, iconPhotoID: iconPhotoID, category: category)
+            break;
         }
+        
+        ListingController.shared.createListing(with: createdListing!)
+        
          UserController.shared.addCreatedListing(listingID: createdListing!.uid)
         self.dismiss(animated: true, completion: nil)
         ListingController.shared.fetchCurrentUsersListings { (result) in
@@ -143,7 +139,6 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
             subCategories = departments
             listingInfo1.placeholder = "Enter course number"
             subclassLabel.placeholder = "Select Department"
-            descriptionTextView.text = "Enter any comments about state of book"
         case "furniture":
             categoryLabel.text = "New Furniture Item"
             subCategories = furnitureTypes
@@ -163,7 +158,6 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
             subclassLabel.placeholder = "Select Sport"
             descriptionTextView.text = "Enter info on section/row/seat"
             titleLabel.placeholder = "Enter Opposing Team"
-            subtitleTextField.isHidden = true
         case "clothing":
             categoryLabel.text = "New Clothing Item"
             subCategories = sizes
@@ -195,3 +189,22 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
     }
     
 }
+
+
+/*
+ 
+ switch (category) {
+      case "books":
+          break;
+      case "tickets":
+          break;
+      case "housing":
+          break;
+      case "clothing":
+          break
+      case "furniture":
+          break;
+      default:
+          break;
+      }
+ */

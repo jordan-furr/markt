@@ -24,13 +24,19 @@ class ShopCollectionViewController: UICollectionViewController, UICollectionView
         self.collectionView!.register(ListingCollectionViewCell.self.self, forCellWithReuseIdentifier: reuseIdentifier)
         collectionView.delegate = self
         collectionView.dataSource = self
+        presentNoListingsAlert()
     }
     
     func setUpViews(){
-        guard let category = category else {return}
-        navigationItem.title = category
-        
+        navigationItem.title = "Markt"
     }
+    
+    func presentNoListingsAlert() {
+          let alertController = UIAlertController(title: "Oops!", message: "Looks like there aren't any listings posted here yet!", preferredStyle: .alert)
+          let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+          alertController.addAction(defaultAction)
+          present(alertController, animated: true, completion: nil)
+      }
     
 
        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -42,6 +48,8 @@ class ShopCollectionViewController: UICollectionViewController, UICollectionView
                   vc.listing = listing
               }
           }
+    
+    
     
     
     
