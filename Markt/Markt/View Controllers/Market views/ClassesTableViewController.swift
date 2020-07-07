@@ -18,6 +18,9 @@ class ClassesTableViewController: UITableViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
+        classes = classes.sorted(by: { (a, b) -> Bool in
+           return a < b
+        })
         super.viewWillAppear(true)
         tableView.reloadData()
      
