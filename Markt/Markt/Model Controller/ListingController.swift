@@ -31,6 +31,7 @@ class ListingController {
     lazy var storageRef = storage.reference()
     let listingRef : CollectionReference = Firestore.firestore().collection("listings")
     
+    var allBookListings: [Book] = []
     var currentUserLiveListings: [Listing] = []
     var currentCategoryLIstings: [Listing] = []
     var allListings: [Listing] = []
@@ -232,22 +233,6 @@ class ListingController {
                }
     }
     
-    func fetchSubListings(listingUID: String, completion: @escaping (Result<Date?, ListingError>) -> Void) {
-        let listingDoc = listingRef.document(listingUID)
-               listingDoc.getDocument { (snapshot, error) in
-                   if snapshot != nil {
-                       guard let snapshot = snapshot else { return completion(.failure(.noListingFound)) }
-                    let timestamp: Timestamp = snapshot.get("date") as! Timestamp
-                    let date: Date = timestamp.dateValue()
-                       return completion(.success(date))
-                   } else {
-                       print("snapshot is nil")
-                       return completion(.failure(.noRecordFound))
-                   }
-               }
-    }
-    
-    
     func fetchListing(listingUID: String, completion: @escaping (Result<Listing?, ListingError>) -> Void) {
         let listingDoc = listingRef.document(listingUID)
         print(listingUID)
@@ -257,7 +242,10 @@ class ListingController {
                 print("here")
                 guard let data = snapshot.data() else { return completion(.failure(.noRecordFound))}
                 
-                let listing = try! FirestoreDecoder().decode(Listing.self, from: data)
+                var listing = try! FirestoreDecoder().decode(Listing.self, from: data)
+                if listing.category == "books"{
+                    listing = try! FirestoreDecoder().decode(Book.self, from: data)
+                }
                 return completion(.success(listing))
             } else {
                 print("snapshot is nil")

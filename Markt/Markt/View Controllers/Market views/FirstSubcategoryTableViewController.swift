@@ -35,31 +35,62 @@ class FirstSubcategoryViewController: UIViewController {
         categoryCollectionView.delegate = self
         categoryCollectionView.dataSource = self
         
+        guard let category = category else {return}
         if category == "books" {
             classesCollectionView.dataSource = self
             classesCollectionView.delegate = self
+            categoryCollectionView.isHidden = false
         } else {
             classesCollectionView.isHidden = true
             popularclassLabel.isHidden = true
+            
         }
         
         
-        guard let category = category else {return}
+        if (category == "electronics" || category == "tranportation"){
+            subcategoryLabel.isHidden = true
+            categoryCollectionView.isHidden = true
+        }
         categoryLabel.text = category
         navigationItem.title = "Markt"
+        subcategoryLabel.text = "Sort"
         switch category {
         case "furniture":
             subcategories = furnitureTypes
+            categoryLabel.text = "Furniture"
         case "clothing":
             subcategories = sizes
+            categoryLabel.text = "Clothing"
         case "housing":
             subcategories = subletTypes
+            subcategoryLabel.text = "Housing Type"
+            categoryLabel.text = "Housing"
         case "tickets":
+            subcategoryLabel.text = "Sports"
+            categoryLabel.text = "Tickets"
             subcategories = sports
+        case "free":
+            subcategories = freeCategories
+            categoryLabel.text = "Free"
+        case "books":
+            subcategoryLabel.text = "Departments"
+            categoryLabel.text = "Books"
+            subcategories = departments
+            fetchBooks()
+        case "electronics":
+            categoryLabel.text = "Electronics"
+        case "transportation":
+            categoryLabel.text = "Transportation"
         default:
             subcategories = departments
+            subcategoryLabel.isHidden = true
         }
         print(subcategories.count)
+    }
+    
+    func fetchBooks(){
+        let allBooks = ListingController.shared.currentCategoryLIstings as! [Book]
+        ListingController.shared.allBookListings = allBooks
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -68,6 +99,12 @@ class FirstSubcategoryViewController: UIViewController {
             destinationVC.category = category
             destinationVC.subcategory = subcategory
         }
+        if segue.identifier == "toClassNumbers" {
+            guard let destinationVC = segue.destination as? ClassesTableViewController, let subcategory = selectedSubcategory else {return}
+            destinationVC.category = category
+            destinationVC.subcategory = subcategory
+        }
+        
     }
 }
 
@@ -76,23 +113,45 @@ extension FirstSubcategoryViewController: UICollectionViewDelegate, UICollection
         if collectionView == categoryCollectionView {
             return subcategories.count
         } else {
-            return 3
+            return popularClasses.count
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == categoryCollectionView {
-            let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath)
+            guard let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as? SubCategoryCollectionViewCell else {return UICollectionViewCell()}
             let category = subcategories[indexPath.item]
+            cell.titleLabel.text = category
             cell.backgroundColor = .green
             return cell
         } else {
-            let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "classCell", for: indexPath)
+            guard let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "classCell", for: indexPath) as? ClassCollectionViewCell else {return UICollectionViewCell()}
+            let classNum = popularClasses[indexPath.item]
+            cell.classLabel.text = classNum
             cell.backgroundColor = .blue
             return cell
         }
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 140, height: 32)
+        if collectionView == categoryCollectionView {
+            if category == "housing" {
+                return CGSize(width: 160, height: 32)
+            }
+            return CGSize(width: 100, height: 32)
+        } else {
+            return CGSize(width: 140, height: 28)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("tapped")
+        if collectionView == categoryCollectionView {
+            if category == "books"{
+                selectedSubcategory = subcategories[indexPath.row]
+                performSegue(withIdentifier: "toClassNumbers", sender: self)
+            }
+        } else {
+            performSegue(withIdentifier: "toSecond", sender: self)
+        }
     }
 }

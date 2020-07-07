@@ -34,6 +34,11 @@
 		C5B5D51824AB8F1B00C51956 /* Sublet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B5D51724AB8F1B00C51956 /* Sublet.swift */; };
 		C5B5D51A24AB98C800C51956 /* ClothingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B5D51924AB98C800C51956 /* ClothingItem.swift */; };
 		C5B5D51C24AB993F00C51956 /* FurnitureItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B5D51B24AB993F00C51956 /* FurnitureItem.swift */; };
+		C5BCD7DD24B3951D007B00F8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BCD7DC24B3951D007B00F8 /* SettingsViewController.swift */; };
+		C5BCD7DF24B3952B007B00F8 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BCD7DE24B3952B007B00F8 /* AboutViewController.swift */; };
+		C5BCD7E124B3953D007B00F8 /* SavedListingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BCD7E024B3953D007B00F8 /* SavedListingsViewController.swift */; };
+		C5BCD7E324B39BBB007B00F8 /* ClassCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BCD7E224B39BBB007B00F8 /* ClassCollectionViewCell.swift */; };
+		C5BCD7E524B39BC5007B00F8 /* SubCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BCD7E424B39BC5007B00F8 /* SubCategoryCollectionViewCell.swift */; };
 		C5D6A1E024AECDC000C79FB6 /* MarketDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5D6A1DF24AECDC000C79FB6 /* MarketDetails.storyboard */; };
 		C5D6A1E224AECECA00C79FB6 /* FirstSubcategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D6A1E124AECECA00C79FB6 /* FirstSubcategoryTableViewController.swift */; };
 		C5ED2B09249C445500BB6730 /* MarketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ED2B08249C445500BB6730 /* MarketViewController.swift */; };
@@ -46,6 +51,7 @@
 		C5ED2B1E24A2A07F00BB6730 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ED2B1D24A2A07F00BB6730 /* WelcomeViewController.swift */; };
 		C5ED2B2024A2A08B00BB6730 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ED2B1F24A2A08B00BB6730 /* LoginViewController.swift */; };
 		C5ED2B2224A2A09700BB6730 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ED2B2124A2A09700BB6730 /* RegisterViewController.swift */; };
+		C5F3034B24B3F10B008FB049 /* ClassesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F3034A24B3F10B008FB049 /* ClassesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +86,11 @@
 		C5B5D51724AB8F1B00C51956 /* Sublet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sublet.swift; sourceTree = "<group>"; };
 		C5B5D51924AB98C800C51956 /* ClothingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingItem.swift; sourceTree = "<group>"; };
 		C5B5D51B24AB993F00C51956 /* FurnitureItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FurnitureItem.swift; sourceTree = "<group>"; };
+		C5BCD7DC24B3951D007B00F8 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		C5BCD7DE24B3952B007B00F8 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		C5BCD7E024B3953D007B00F8 /* SavedListingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedListingsViewController.swift; sourceTree = "<group>"; };
+		C5BCD7E224B39BBB007B00F8 /* ClassCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassCollectionViewCell.swift; sourceTree = "<group>"; };
+		C5BCD7E424B39BC5007B00F8 /* SubCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		C5D6A1DF24AECDC000C79FB6 /* MarketDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MarketDetails.storyboard; sourceTree = "<group>"; };
 		C5D6A1E124AECECA00C79FB6 /* FirstSubcategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSubcategoryTableViewController.swift; sourceTree = "<group>"; };
 		C5ED2B08249C445500BB6730 /* MarketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +103,7 @@
 		C5ED2B1D24A2A07F00BB6730 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		C5ED2B1F24A2A08B00BB6730 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C5ED2B2124A2A09700BB6730 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		C5F3034A24B3F10B008FB049 /* ClassesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,8 +185,22 @@
 			children = (
 				C51426BD24A8C8B4002F58E6 /* ListingCollectionViewCell.swift */,
 				C535BF3A24AE372A00F85D8A /* CategoryCollectionViewCell.swift */,
+				C5BCD7E224B39BBB007B00F8 /* ClassCollectionViewCell.swift */,
+				C5BCD7E424B39BC5007B00F8 /* SubCategoryCollectionViewCell.swift */,
 			);
 			path = "Custom Cells";
+			sourceTree = "<group>";
+		};
+		C5BCD7DB24B394D6007B00F8 /* SideMenu Views */ = {
+			isa = PBXGroup;
+			children = (
+				C55904F024A7AB0B0007916A /* ProfileViewController.swift */,
+				C5BCD7DC24B3951D007B00F8 /* SettingsViewController.swift */,
+				C5ED2B0C249D0BE800BB6730 /* SideMenuTableViewController.swift */,
+				C5BCD7DE24B3952B007B00F8 /* AboutViewController.swift */,
+				C5BCD7E024B3953D007B00F8 /* SavedListingsViewController.swift */,
+			);
+			path = "SideMenu Views";
 			sourceTree = "<group>";
 		};
 		C5ED2B0E249D1FFF00BB6730 /* Views */ = {
@@ -192,6 +218,7 @@
 		C5ED2B0F249D200C00BB6730 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C5BCD7DB24B394D6007B00F8 /* SideMenu Views */,
 				C5ED2B1B24A2A04A00BB6730 /* Main views */,
 				C5ED2B1C24A2A05600BB6730 /* Market views */,
 				C55904F824A7E9C40007916A /* Create views */,
@@ -249,10 +276,9 @@
 			children = (
 				C5ED2B0A249D0BBB00BB6730 /* ContainerViewController.swift */,
 				C5D6A1E124AECECA00C79FB6 /* FirstSubcategoryTableViewController.swift */,
-				C5ED2B0C249D0BE800BB6730 /* SideMenuTableViewController.swift */,
-				C5ED2B08249C445500BB6730 /* MarketViewController.swift */,
 				C506A4BA24AFB93800BB38B2 /* ShopCollectionViewController.swift */,
-				C55904F024A7AB0B0007916A /* ProfileViewController.swift */,
+				C5F3034A24B3F10B008FB049 /* ClassesTableViewController.swift */,
+				C5ED2B08249C445500BB6730 /* MarketViewController.swift */,
 				C5BCD7DA24B3622E007B00F8 /* Custom Cells */,
 			);
 			path = "Market views";
@@ -388,6 +414,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C55904F324A7DB820007916A /* StyleGuide.swift in Sources */,
+				C5BCD7E524B39BC5007B00F8 /* SubCategoryCollectionViewCell.swift in Sources */,
 				C5ED2B12249FF06200BB6730 /* UserController.swift in Sources */,
 				C54949D524904F2600B469F6 /* AppDelegate.swift in Sources */,
 				C5D6A1E224AECECA00C79FB6 /* FirstSubcategoryTableViewController.swift in Sources */,
@@ -401,18 +428,23 @@
 				C5B5D51824AB8F1B00C51956 /* Sublet.swift in Sources */,
 				C51426C224A90564002F58E6 /* ListingDetailViewController.swift in Sources */,
 				C51426CA24AA9AFA002F58E6 /* ExtraSubclassDetailsViewController.swift in Sources */,
+				C5BCD7DF24B3952B007B00F8 /* AboutViewController.swift in Sources */,
+				C5F3034B24B3F10B008FB049 /* ClassesTableViewController.swift in Sources */,
 				C51426C024A8CAA5002F58E6 /* ListingError.swift in Sources */,
 				C55904F724A7E9C00007916A /* CreateListingViewController.swift in Sources */,
 				C5ED2B09249C445500BB6730 /* MarketViewController.swift in Sources */,
 				C5ED2B1A24A2A03E00BB6730 /* LaunchViewController.swift in Sources */,
 				C51426C424AA4AAC002F58E6 /* Book.swift in Sources */,
 				C5ED2B2224A2A09700BB6730 /* RegisterViewController.swift in Sources */,
+				C5BCD7DD24B3951D007B00F8 /* SettingsViewController.swift in Sources */,
 				C506A4BB24AFB93800BB38B2 /* ShopCollectionViewController.swift in Sources */,
 				C594CFF024A40B27007E832A /* ListingController.swift in Sources */,
 				C5ED2B1E24A2A07F00BB6730 /* WelcomeViewController.swift in Sources */,
 				C5B5D51A24AB98C800C51956 /* ClothingItem.swift in Sources */,
 				C54949EA249050E700B469F6 /* User.swift in Sources */,
+				C5BCD7E124B3953D007B00F8 /* SavedListingsViewController.swift in Sources */,
 				C51426BE24A8C8B4002F58E6 /* ListingCollectionViewCell.swift in Sources */,
+				C5BCD7E324B39BBB007B00F8 /* ClassCollectionViewCell.swift in Sources */,
 				C51426C624AA4CAF002F58E6 /* Ticket.swift in Sources */,
 				C5B5D51C24AB993F00C51956 /* FurnitureItem.swift in Sources */,
 				C5ED2B2024A2A08B00BB6730 /* LoginViewController.swift in Sources */,

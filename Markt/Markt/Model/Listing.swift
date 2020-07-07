@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CodableFirebase
 import Foundation
 
 var departments: [String] = {
@@ -28,6 +29,15 @@ var subletTypes: [String] = {
 var sports: [String] = {
     ["Football", "Basketball", "Hockey", "Soccer", "Tennis"]
 }()
+
+var popularClasses: [String] = {
+    ["Econ 101", "Econ 102", "Math 115", "Psych 211", "COMM 102"]
+}()
+
+var freeCategories: [String] = {
+    ["Books", "Furniture", "Electronics", "Tickets", "Clothing", "Transportation"]
+}()
+
 struct Category8Keys {
     static let booksKey = "books"
     static let furnitureKey = "furniture"
