@@ -12,6 +12,8 @@ private let reuseIdentifier = "itemCell"
 
 class ShopCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
+
+    var listings: [Listing] = []
     var category: String?
     var subcategory: String?
     
@@ -24,13 +26,19 @@ class ShopCollectionViewController: UICollectionViewController, UICollectionView
         self.collectionView!.register(ListingCollectionViewCell.self.self, forCellWithReuseIdentifier: reuseIdentifier)
         collectionView.delegate = self
         collectionView.dataSource = self
+       // presentNoListingsAlert()
     }
     
     func setUpViews(){
-        guard let category = category else {return}
-        navigationItem.title = category
-        
+        navigationItem.title = "Markt"
     }
+    
+    func presentNoListingsAlert() {
+          let alertController = UIAlertController(title: "Oops!", message: "Looks like there aren't any listings posted here yet!", preferredStyle: .alert)
+          let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+          alertController.addAction(defaultAction)
+          present(alertController, animated: true, completion: nil)
+      }
     
 
        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -38,20 +46,22 @@ class ShopCollectionViewController: UICollectionViewController, UICollectionView
               if let cell = sender as? ListingCollectionViewCell,
                   let indexPath = self.collectionView.indexPath(for: cell) {
                   let vc = segue.destination as! ListingDetailViewController
-                  let listing = ListingController.shared.currentCategoryLIstings[indexPath.row] as Listing
+                  let listing = listings[indexPath.row] as Listing
                   vc.listing = listing
               }
           }
     
     
     
+    
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return ListingController.shared.currentCategoryLIstings.count
+        return listings.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "itemCell", for: indexPath) as? ListingCollectionViewCell else {return UICollectionViewCell()}
-        let listing = ListingController.shared.currentCategoryLIstings[indexPath.row]
+        let listing = listings[indexPath.row]
         cell.setListing(listing: listing)
         cell.backgroundColor = .lightGray
         return cell

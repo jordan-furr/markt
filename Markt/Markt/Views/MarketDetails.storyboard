@@ -196,7 +196,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="trF-E8-mIk">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="trF-E8-mIk">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="trF-E8-mIk" id="nwk-ip-dgC">
@@ -211,6 +211,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="5st-wn-qds"/>
+                    <connections>
+                        <segue destination="vnt-N3-6JG" kind="show" identifier="toShop" id="5a3-nr-bqK"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QRb-RT-83J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -266,4 +269,7 @@
             <point key="canvasLocation" x="1537" y="-131"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="5a3-nr-bqK"/>
+    </inferredMetricsTieBreakers>
 </document>

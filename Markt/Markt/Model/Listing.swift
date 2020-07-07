@@ -38,31 +38,21 @@ var freeCategories: [String] = {
     ["Books", "Furniture", "Electronics", "Tickets", "Clothing", "Transportation"]
 }()
 
-struct Category8Keys {
-    static let booksKey = "books"
-    static let furnitureKey = "furniture"
-    static let electronicsKey = "electronics"
-    static let ticketsKey = "tickets"
-    static let clothingKey = "clothing"
-    static let transpotationKey = "transportaion"
-    static let freeKey = "free"
-    static let housingKey = "housing"
-    static let dateKey = "date"
-}
 
 class Listing: Codable {
     
     enum CodingKeys: String, CodingKey {
-        case uid, title, subtitle, price, description, ownerUID, iconPhotoID, category
+        case uid, title, price, description, ownerUID, iconPhotoID, category, subcategory, subsubCategory
     }
     var uid: String
     var title: String
-    var subtitle: String
+    var category: String
+    var subcategory: String = ""
+    var subsubCategory: String = "" //class Number for books, size for clothes, opponent for ticket
     var price: Double
     var description: String
     var ownerUID: String
-    var category: String
-    var date: Date?
+    var date: Date = Date()
     
     var iconPhotoID: String
     var iconImage: UIImage? = nil
@@ -71,10 +61,11 @@ class Listing: Codable {
         return iconImage.jpegData(compressionQuality: 0.5)
     }
     
-    init(title: String, subtitle: String, price: Double, description: String, ownerUID: String, iconPhotoID: String, category: String) {
+    init(title: String, subcategory: String, subsubCategory: String, price: Double, description: String, ownerUID: String, iconPhotoID: String, category: String) {
         self.uid = UUID().uuidString
         self.title = title
-        self.subtitle = subtitle
+        self.subsubCategory = subsubCategory
+        self.subcategory = subcategory
         self.price = price
         self.description = description
         self.ownerUID = ownerUID

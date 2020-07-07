@@ -68,7 +68,7 @@ class ListingDetailViewController: UIViewController {
         descriptionTextView.isSelectable = false
         descriptionTextView.text = listing.description
         titleLabel.text = listing.title
-        subtitleLabel.text = listing.subtitle
+        subtitleLabel.text = listing.subcategory
         priceView.text = "\(listing.price)$"
         locationLabel.addLocationColoringAndText(user: user)
         locationLabel.layer.cornerRadius = 8
