@@ -37,20 +37,20 @@ class FirstSubcategoryViewController: UIViewController {
         
         guard let category = category else {return}
         if category == "books" {
-                   classesCollectionView.dataSource = self
-                   classesCollectionView.delegate = self
-                   categoryCollectionView.isHidden = false
-               } else {
-                   classesCollectionView.isHidden = true
-                   popularclassLabel.isHidden = true
-                   
-               }
-               
+            classesCollectionView.dataSource = self
+            classesCollectionView.delegate = self
+            categoryCollectionView.isHidden = false
+        } else {
+            classesCollectionView.isHidden = true
+            popularclassLabel.isHidden = true
+            
+        }
+        
         
         if (category == "electronics" || category == "tranportation"){
-                   subcategoryLabel.isHidden = true
-                   categoryCollectionView.isHidden = true
-               }
+            subcategoryLabel.isHidden = true
+            categoryCollectionView.isHidden = true
+        }
         categoryLabel.text = category
         navigationItem.title = "Markt"
         subcategoryLabel.text = "Sort"
@@ -76,15 +76,21 @@ class FirstSubcategoryViewController: UIViewController {
             subcategoryLabel.text = "Departments"
             categoryLabel.text = "Books"
             subcategories = departments
+            fetchBooks()
         case "electronics":
-             categoryLabel.text = "Electronics"
+            categoryLabel.text = "Electronics"
         case "transportation":
-             categoryLabel.text = "Transportation"
+            categoryLabel.text = "Transportation"
         default:
             subcategories = departments
             subcategoryLabel.isHidden = true
         }
         print(subcategories.count)
+    }
+    
+    func fetchBooks(){
+        let allBooks = ListingController.shared.currentCategoryLIstings as! [Book]
+        ListingController.shared.allBookListings = allBooks
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -93,12 +99,11 @@ class FirstSubcategoryViewController: UIViewController {
             destinationVC.category = category
             destinationVC.subcategory = subcategory
         }
-        
         if segue.identifier == "toClassNumbers" {
-                   guard let destinationVC = segue.destination as? ClassesTableViewController, let subcategory = selectedSubcategory else {return}
-                   destinationVC.category = category
-                   destinationVC.subcategory = subcategory
-               }
+            guard let destinationVC = segue.destination as? ClassesTableViewController, let subcategory = selectedSubcategory else {return}
+            destinationVC.category = category
+            destinationVC.subcategory = subcategory
+        }
         
     }
 }
@@ -134,7 +139,7 @@ extension FirstSubcategoryViewController: UICollectionViewDelegate, UICollection
             }
             return CGSize(width: 100, height: 32)
         } else {
-        return CGSize(width: 140, height: 28)
+            return CGSize(width: 140, height: 28)
         }
     }
     

@@ -12,10 +12,12 @@ class ClassesTableViewController: UITableViewController {
 
     var category: String?
     var subcategory: String?
+    var classes: [Int]
     
     
     override func viewDidLoad() {
-       // let classesForDepartment = ListingController.shared.currentCategoryLIstings.map()
+        let bookArray = ListingController.shared.allBookListings.filter( {$0.department == subcategory}).map({ return $0.department})
+        print(bookArray)
         super.viewDidLoad()
     }
 

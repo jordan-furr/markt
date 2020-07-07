@@ -24,7 +24,7 @@ class Book : Listing {
         super.init(title: title, subtitle: subtitle, price: price, description: description, ownerUID: ownerUID, iconPhotoID: iconPhotoID, category: "books")
     }
     
-    required init(from decoder: Decoder) throws {
-        fatalError("init(from:) has not been implemented")
+   required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
 }

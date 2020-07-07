@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CodableFirebase
 import Foundation
 
 var departments: [String] = {

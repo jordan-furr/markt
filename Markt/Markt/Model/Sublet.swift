@@ -23,6 +23,6 @@ class Sublet : Listing {
     }
     
     required init(from decoder: Decoder) throws {
-        fatalError("init(from:) has not been implemented")
+     fatalError("init(from:) has not been implemented")
     }
 }
