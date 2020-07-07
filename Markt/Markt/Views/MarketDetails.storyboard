@@ -211,6 +211,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="5st-wn-qds"/>
+                    <connections>
+                        <segue destination="vnt-N3-6JG" kind="show" identifier="toShop" id="5a3-nr-bqK"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QRb-RT-83J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -266,4 +269,7 @@
             <point key="canvasLocation" x="1537" y="-131"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="5a3-nr-bqK"/>
+    </inferredMetricsTieBreakers>
 </document>

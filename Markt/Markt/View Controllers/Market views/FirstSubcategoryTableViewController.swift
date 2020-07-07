@@ -95,8 +95,20 @@ class FirstSubcategoryViewController: UIViewController {
         }
         if segue.identifier == "toClassNumbers" {
             guard let destinationVC = segue.destination as? ClassesTableViewController, let subcategory = selectedSubcategory else {return}
+            var classNumbers: [String] = []
+            var booksInDepartment: [Listing] = []
+            for listing in ListingController.shared.currentCategoryLIstings {
+                if listing.subcategory == subcategory {
+                    if !classNumbers.contains(listing.subsubCategory) {
+                        classNumbers.append(listing.subsubCategory)
+                    }
+                    booksInDepartment.append(listing)
+                }
+            }
+            destinationVC.classes = classNumbers
             destinationVC.category = category
             destinationVC.subcategory = subcategory
+            destinationVC.booksInDepartment = booksInDepartment
         }
         
     }
@@ -129,7 +141,7 @@ extension FirstSubcategoryViewController: UICollectionViewDelegate, UICollection
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == categoryCollectionView {
             if category == "housing" {
-                return CGSize(width: 160, height: 32)
+                return CGSize(width: 170, height: 32)
             }
             return CGSize(width: 100, height: 32)
         } else {
@@ -145,7 +157,7 @@ extension FirstSubcategoryViewController: UICollectionViewDelegate, UICollection
                 performSegue(withIdentifier: "toClassNumbers", sender: self)
             }
         } else {
-            performSegue(withIdentifier: "toSecond", sender: self)
+          //  performSegue(withIdentifier: "toSecond", sender: self)
         }
     }
 }
