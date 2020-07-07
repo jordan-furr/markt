@@ -157,7 +157,7 @@ extension FirstSubcategoryViewController: UICollectionViewDelegate, UICollection
                 performSegue(withIdentifier: "toClassNumbers", sender: self)
             }
         } else {
-          //  performSegue(withIdentifier: "toSecond", sender: self)
+           performSegue(withIdentifier: "toSecond", sender: self)
         }
     }
 }

@@ -26,7 +26,9 @@ class ShopCollectionViewController: UICollectionViewController, UICollectionView
         self.collectionView!.register(ListingCollectionViewCell.self.self, forCellWithReuseIdentifier: reuseIdentifier)
         collectionView.delegate = self
         collectionView.dataSource = self
-       // presentNoListingsAlert()
+        if listings.count == 0 {
+            presentNoListingsAlert()
+        }
     }
     
     func setUpViews(){
