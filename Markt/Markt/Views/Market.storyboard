@@ -131,7 +131,7 @@
                         <viewLayoutGuide key="safeArea" id="PCi-wO-ATp"/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="Utd-oI-ugZ" appends="YES" id="IVb-YP-v6p"/>
-                            <outletCollection property="gestureRecognizers" destination="YMj-kx-eMo" appends="YES" id="pzE-be-bak"/>
+                            <outletCollection property="gestureRecognizers" destination="Xul-wA-FfJ" appends="YES" id="W7U-8v-nV6"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Markt" id="eqT-iw-uLk">
@@ -158,7 +158,6 @@
                     <size key="freeformSize" width="414" height="1800"/>
                     <connections>
                         <outlet property="collectionView" destination="Zzb-Y2-jhy" id="nab-Yp-tJ7"/>
-                        <outlet property="swipegesture" destination="YMj-kx-eMo" id="vUw-Ei-smQ"/>
                         <outlet property="tapGesture" destination="Utd-oI-ugZ" id="Z9y-E7-tWi"/>
                         <segue destination="K42-tQ-8Ag" kind="show" identifier="straightToShop" id="Edw-iQ-gr5"/>
                     </connections>
@@ -169,9 +168,9 @@
                         <action selector="backgroundTapped:" destination="Y3d-QV-HrL" id="UHg-Lg-nW1"/>
                     </connections>
                 </tapGestureRecognizer>
-                <swipeGestureRecognizer direction="right" id="YMj-kx-eMo">
+                <swipeGestureRecognizer direction="right" id="Xul-wA-FfJ">
                     <connections>
-                        <action selector="swipedLeftToMenu:" destination="Y3d-QV-HrL" id="ojo-gT-3Mg"/>
+                        <action selector="swipedLeft:" destination="Y3d-QV-HrL" id="ShJ-Bp-PKs"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
@@ -368,6 +367,7 @@
         <!--Table View Controller-->
         <scene sceneID="cbb-1M-YVk">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EbA-EP-ZcK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tableViewController id="mef-UN-7fR" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Bjv-VU-0AD">
                         <rect key="frame" x="0.0" y="0.0" width="374" height="931"/>
@@ -523,7 +523,6 @@
                         </connections>
                     </tableView>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EbA-EP-ZcK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2378" y="173"/>
         </scene>
@@ -747,11 +746,11 @@
         <!--Navigation Controller-->
         <scene sceneID="WMN-KG-PN1">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="rLz-Ok-bul" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rLz-Ok-bul" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="8sf-fn-Idn"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="stO-6i-r7Z">
-                        <rect key="frame" x="0.0" y="44" width="380" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="380" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

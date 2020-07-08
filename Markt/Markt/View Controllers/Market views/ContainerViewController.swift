@@ -52,6 +52,8 @@ class ContainerViewController: UIViewController {
     }
     
     @IBAction func swipeBack(_ sender: Any) {
+        if (sideMenuOpen){
         self.toggleSideMenu()
+        }
     }
 }
