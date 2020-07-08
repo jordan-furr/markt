@@ -20,7 +20,7 @@ class ContainerViewController: UIViewController {
     @objc func toggleSideMenu(){
         if sideMenuOpen {
             sideMenuOpen = false
-            sideMenuConstraint.constant = -380
+            sideMenuConstraint.constant = -342
             marketContainer.isUserInteractionEnabled = true
             
         } else {
