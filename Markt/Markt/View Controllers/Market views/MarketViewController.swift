@@ -16,7 +16,6 @@ class MarketViewController: UIViewController {
     
     var selectedCategory: String?
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet var swipegesture: UISwipeGestureRecognizer!
     @IBOutlet var tapGesture: UITapGestureRecognizer!
     
     
@@ -83,13 +82,11 @@ class MarketViewController: UIViewController {
         self.view.endEditing(true)
     }
     
-    @IBAction func swipedLeftToMenu(_ sender: Any) {
-        menuTapped(self)
+    @IBAction func swipedLeft(_ sender: Any) {
+        menuTapped(true)
     }
     
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        swipegesture.isEnabled = false
         if segue.identifier == "toSubCategories"  {
             guard let destinationVC = segue.destination as? FirstSubcategoryViewController else {return}
             destinationVC.category = selectedCategory ?? "error"
