@@ -14,7 +14,7 @@ class ClassCollectionViewCell: UICollectionViewCell {
     
     override func layoutSubviews() {
            super.layoutSubviews()
-           layer.cornerRadius = 18
+           layer.cornerRadius = 12
            backgroundColor = .random() // very important
            layer.masksToBounds = false
            layer.shadowOpacity = 0.23

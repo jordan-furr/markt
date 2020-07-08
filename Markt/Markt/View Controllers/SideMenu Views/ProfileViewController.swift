@@ -67,7 +67,6 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         guard let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "listingCell", for: indexPath) as? ListingCollectionViewCell else {return UICollectionViewCell()}
         let listing = ListingController.shared.currentUserLiveListings[indexPath.row]
         cell.setListing(listing: listing)
-        cell.backgroundColor = .lightGray
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

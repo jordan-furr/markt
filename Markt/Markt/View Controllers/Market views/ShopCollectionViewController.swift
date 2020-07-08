@@ -65,7 +65,6 @@ class ShopCollectionViewController: UICollectionViewController, UICollectionView
         guard let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "itemCell", for: indexPath) as? ListingCollectionViewCell else {return UICollectionViewCell()}
         let listing = listings[indexPath.row]
         cell.setListing(listing: listing)
-        cell.backgroundColor = .lightGray
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

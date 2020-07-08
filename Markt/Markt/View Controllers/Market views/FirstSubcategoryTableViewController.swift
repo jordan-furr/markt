@@ -13,6 +13,7 @@ class FirstSubcategoryViewController: UIViewController {
     var category: String?
     var subcategories: [String] = []
     var selectedSubcategory: String?
+    @IBOutlet weak var tableview: UITableView!
     
     
     @IBOutlet weak var categoryLabel: UILabel!
@@ -32,6 +33,8 @@ class FirstSubcategoryViewController: UIViewController {
     }
     
     func setUpViews(){
+        tableview.delegate = self
+        tableview.dataSource = self
         categoryCollectionView.delegate = self
         categoryCollectionView.dataSource = self
         
@@ -47,7 +50,7 @@ class FirstSubcategoryViewController: UIViewController {
         }
         
         
-        if (category == "electronics" || category == "tranportation"){
+        if (category == "electronics" || category == "transportation"){
             subcategoryLabel.isHidden = true
             categoryCollectionView.isHidden = true
         }
@@ -141,9 +144,9 @@ extension FirstSubcategoryViewController: UICollectionViewDelegate, UICollection
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == categoryCollectionView {
             if category == "housing" {
-                return CGSize(width: 170, height: 32)
+                return CGSize(width: 190, height: 32)
             }
-            return CGSize(width: 100, height: 32)
+            return CGSize(width: 150, height: 32)
         } else {
             return CGSize(width: 140, height: 28)
         }
@@ -160,4 +163,21 @@ extension FirstSubcategoryViewController: UICollectionViewDelegate, UICollection
            performSegue(withIdentifier: "toSecond", sender: self)
         }
     }
+}
+
+extension FirstSubcategoryViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        subcategories.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "subSwipeCell", for: indexPath)
+        cell.textLabel?.text = subcategories[indexPath.row]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100.0
+    }
+    
 }

@@ -51,4 +51,15 @@ class ListingCollectionViewCell: UICollectionViewCell {
         bg.image = UIImage(named: listing.category)
        
     }
+    
+    override func layoutSubviews() {
+              super.layoutSubviews()
+              layer.cornerRadius = 10
+              backgroundColor = .white // very important
+              layer.masksToBounds = false
+              layer.shadowOpacity = 0.23
+              layer.shadowRadius = 3
+              layer.shadowOffset = CGSize(width: 0, height: 0)
+              layer.shadowColor = UIColor.black.cgColor
+          }
 }
