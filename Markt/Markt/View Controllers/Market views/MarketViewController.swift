@@ -84,7 +84,7 @@ class MarketViewController: UIViewController {
     }
     
     @IBAction func swipedLeftToMenu(_ sender: Any) {
-        menuTapped(self)
+      //  menuTapped(self)
     }
     
     

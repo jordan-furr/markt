@@ -18,9 +18,6 @@ class SideMenuTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
-        
-
-        NotificationCenter.default.post(name: NSNotification.Name("ToggleSideMenu"), object: nil)
         switch indexPath.row {
         case 0:
             performSegue(withIdentifier: "ShowProfile", sender: self)
@@ -30,6 +27,7 @@ class SideMenuTableViewController: UITableViewController {
              performSegue(withIdentifier: "ShowAbout", sender: self)
         default: break
         }
+         NotificationCenter.default.post(name: NSNotification.Name("ToggleSideMenu"), object: nil)
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

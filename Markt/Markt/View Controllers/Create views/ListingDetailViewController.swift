@@ -64,6 +64,7 @@ class ListingDetailViewController: UIViewController {
                 }
             })
         }
+        
         descriptionTextView.isEditable = false
         descriptionTextView.isSelectable = false
         descriptionTextView.text = listing.description
@@ -76,6 +77,13 @@ class ListingDetailViewController: UIViewController {
         dropOffLabel.addDropOffColoringAndText(user: user)
         let image = UIImage(named: listing.category)
         imageView.image = image
+        
+        if listing.category == "books" || listing.category == "clothing" {
+            subtitleLabel.text = listing.subcategory + " " + listing.subsubCategory
+        }
+        if listing.category == "tickets"{
+            titleLabel.text = listing.subsubCategory + " " + listing.subcategory
+        }
     }
     
     
