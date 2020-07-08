@@ -27,7 +27,7 @@ class SideMenuTableViewController: UITableViewController {
              performSegue(withIdentifier: "ShowAbout", sender: self)
         default: break
         }
-         NotificationCenter.default.post(name: NSNotification.Name("ToggleSideMenu"), object: nil)
+        // NotificationCenter.default.post(name: NSNotification.Name("ToggleSideMenu"), object: nil)
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -16,7 +16,6 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
   //  var delegate: CategoryCollectionViewCellDelegate?
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var categoryTitle: UILabel!
     
     var category: String?
     
@@ -29,10 +28,6 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         guard let category = category else {return}
         self.contentView.isUserInteractionEnabled = true
         imageView.image = UIImage(named: category)
-        categoryTitle.text = category
-        if category == "transportation" {
-            categoryTitle.text = "transport"
-        }
     }
     override func layoutSubviews() {
            super.layoutSubviews()

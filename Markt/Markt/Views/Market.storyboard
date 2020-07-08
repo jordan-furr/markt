@@ -24,7 +24,7 @@
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Zzb-Y2-jhy">
                                                 <rect key="frame" x="0.0" y="56" width="414" height="238"/>
-                                                <color key="backgroundColor" red="0.92516591622745925" green="0.97377614321247219" blue="0.43145605991943115" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="5" minimumInteritemSpacing="4" id="owv-cY-HKr">
                                                     <size key="itemSize" width="80" height="80"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -40,31 +40,21 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g9z-GM-bVh">
-                                                                    <rect key="frame" x="10" y="5" width="60" height="50"/>
+                                                                    <rect key="frame" x="15" y="14" width="50" height="52"/>
                                                                     <gestureRecognizers/>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RFo-he-1HL">
-                                                                    <rect key="frame" x="2" y="63" width="76" height="17"/>
-                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                    <size key="shadowOffset" width="-2" height="-2"/>
-                                                                </label>
                                                             </subviews>
                                                             <gestureRecognizers/>
                                                             <constraints>
-                                                                <constraint firstItem="RFo-he-1HL" firstAttribute="top" secondItem="g9z-GM-bVh" secondAttribute="bottom" constant="8" id="9L9-Ji-j5c"/>
-                                                                <constraint firstAttribute="trailing" secondItem="g9z-GM-bVh" secondAttribute="trailing" constant="10" id="Ake-v9-GOx"/>
-                                                                <constraint firstItem="g9z-GM-bVh" firstAttribute="leading" secondItem="uy1-Et-5TS" secondAttribute="leading" constant="10" id="Qtl-xB-I0G"/>
-                                                                <constraint firstAttribute="bottom" secondItem="RFo-he-1HL" secondAttribute="bottom" id="ZHz-bt-3pB"/>
-                                                                <constraint firstItem="RFo-he-1HL" firstAttribute="centerX" secondItem="uy1-Et-5TS" secondAttribute="centerX" id="qGy-qQ-KWw"/>
-                                                                <constraint firstItem="g9z-GM-bVh" firstAttribute="top" secondItem="uy1-Et-5TS" secondAttribute="top" constant="5" id="wKA-R1-gzH"/>
-                                                                <constraint firstAttribute="trailing" secondItem="RFo-he-1HL" secondAttribute="trailing" constant="2" id="wtT-i0-pDI"/>
+                                                                <constraint firstItem="g9z-GM-bVh" firstAttribute="centerY" secondItem="uy1-Et-5TS" secondAttribute="centerY" id="2i7-qo-GNf"/>
+                                                                <constraint firstAttribute="trailing" secondItem="g9z-GM-bVh" secondAttribute="trailing" constant="15" id="Ake-v9-GOx"/>
+                                                                <constraint firstItem="g9z-GM-bVh" firstAttribute="leading" secondItem="uy1-Et-5TS" secondAttribute="leading" constant="15" id="Qtl-xB-I0G"/>
+                                                                <constraint firstItem="g9z-GM-bVh" firstAttribute="centerX" secondItem="uy1-Et-5TS" secondAttribute="centerX" id="iIO-Ir-xfQ"/>
+                                                                <constraint firstItem="g9z-GM-bVh" firstAttribute="height" secondItem="uy1-Et-5TS" secondAttribute="height" multiplier="0.65" id="nM4-YB-7hM"/>
                                                             </constraints>
                                                         </collectionViewCellContentView>
                                                         <gestureRecognizers/>
                                                         <connections>
-                                                            <outlet property="categoryTitle" destination="RFo-he-1HL" id="uyd-tA-dvQ"/>
                                                             <outlet property="imageView" destination="g9z-GM-bVh" id="3BH-9a-K3g"/>
                                                             <segue destination="Kt5-rt-e95" kind="show" identifier="toSubCategories" id="hk3-bd-BFc"/>
                                                         </connections>
@@ -308,23 +298,10 @@
         <!--Settings View Controller-->
         <scene sceneID="TMc-UK-s52">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="2ha-TN-FWb" customClass="SettingsViewController" customModule="Markt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2ha-TN-FWb" customClass="SettingsViewController" customModule="Markt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EQX-Sh-VfJ">
-                        <rect key="frame" x="0.0" y="0.0" width="342" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="342" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h3i-cO-CEt">
-                                <rect key="frame" x="55" y="60" width="22" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <size key="titleShadowOffset" width="2" height="2"/>
-                                <state key="normal" image="xmark" catalog="system">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
-                                </state>
-                                <connections>
-                                    <action selector="closeTapped:" destination="2ha-TN-FWb" eventType="touchUpInside" id="jo0-eh-6ZE"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" red="0.91980725529999996" green="0.54335944889999999" blue="0.76007172550000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="BRj-vB-dGB"/>
                     </view>
@@ -337,24 +314,10 @@
         <!--About View Controller-->
         <scene sceneID="3js-xh-LKI">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="wJj-E6-PLF" customClass="AboutViewController" customModule="Markt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="wJj-E6-PLF" customClass="AboutViewController" customModule="Markt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dui-gM-NC8">
-                        <rect key="frame" x="0.0" y="0.0" width="342" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="342" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vyx-Pp-Vay">
-                                <rect key="frame" x="39" y="52" width="22" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <size key="titleShadowOffset" width="2" height="2"/>
-                                <state key="normal" image="xmark" catalog="system">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
-                                </state>
-                                <connections>
-                                    <action selector="closeTapped:" destination="2ha-TN-FWb" eventType="touchUpInside" id="dmq-py-Wpc"/>
-                                    <action selector="closeTapped:" destination="wJj-E6-PLF" eventType="touchUpInside" id="o2O-gO-l6B"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" red="0.87409400069999998" green="1" blue="0.28349309750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="Ywl-Pn-o80"/>
                     </view>
@@ -746,11 +709,11 @@
         <!--Navigation Controller-->
         <scene sceneID="WMN-KG-PN1">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="rLz-Ok-bul" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rLz-Ok-bul" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="8sf-fn-Idn"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="stO-6i-r7Z">
-                        <rect key="frame" x="0.0" y="44" width="342" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="342" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
