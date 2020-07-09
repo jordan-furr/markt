@@ -138,11 +138,11 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
             categoryLabel.text = "New Book"
             subCategories = departments
             listingInfo1.placeholder = "Enter course number"
-            subclassLabel.placeholder = "Select Department"
+            subclassLabel.text = subCategories[0]
         case "furniture":
             categoryLabel.text = "New Furniture Item"
             subCategories = furnitureTypes
-            subclassLabel.placeholder = "Select Type"
+            subclassLabel.text = subCategories[0]
             listingInfo1.isHidden = true
         case "electronics":
             categoryLabel.text = "New Electronic Item"
@@ -155,14 +155,14 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
             dateLabel.text = "Date of Game:"
             categoryLabel.text = "New Ticket Listing"
             listingInfo1.isHidden = true
-            subclassLabel.placeholder = "Select Sport"
+            subclassLabel.text = subCategories[0]
             descriptionTextView.text = "Enter info on section/row/seat"
             titleLabel.placeholder = "Enter Opposing Team"
         case "clothing":
             categoryLabel.text = "New Clothing Item"
             subCategories = sizes
             listingInfo1.isHidden = true
-            subclassLabel.placeholder = "Select Size"
+            subclassLabel.text = subCategories[0]
         case "transportation":
             categoryLabel.text = "New Tranportation Listing"
             listingInfo1.isHidden = true
@@ -174,7 +174,7 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
             categoryLabel.text = "New Sublet Listing"
             listingInfo1.isHidden = true
             subCategories = subletTypes
-            subclassLabel.placeholder = "Select Sublet Type"
+            subclassLabel.text = subCategories[0]
             descriptionTextView.text = "Enter a description about this listing."
         default:
             categoryLabel.text = "New Free Item"

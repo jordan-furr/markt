@@ -23,7 +23,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1400"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="oak-n3-Zd4">
-                                                <rect key="frame" x="20" y="130" width="374" height="381"/>
+                                                <rect key="frame" x="20" y="130" width="374" height="421"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Popular Classes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q2V-CZ-nZV">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="24"/>
@@ -79,10 +79,10 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GZg-eI-YE1">
-                                                        <rect key="frame" x="0.0" y="231" width="374" height="150"/>
+                                                        <rect key="frame" x="0.0" y="231" width="374" height="190"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="150" id="2g6-54-mNV"/>
+                                                            <constraint firstAttribute="height" constant="190" id="2g6-54-mNV"/>
                                                         </constraints>
                                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="R3O-gj-hyd">
                                                             <size key="itemSize" width="128" height="128"/>
@@ -121,11 +121,28 @@
                                                     </collectionView>
                                                 </subviews>
                                             </stackView>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vBy-w5-eeT">
+                                                <rect key="frame" x="20" y="591" width="374" height="744"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <prototypes>
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="subSwipeCell" id="4uK-G1-NKK">
+                                                        <rect key="frame" x="0.0" y="28" width="374" height="43.5"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4uK-G1-NKK" id="sI0-lg-ebc">
+                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                        </tableViewCellContentView>
+                                                    </tableViewCell>
+                                                </prototypes>
+                                            </tableView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstItem="oak-n3-Zd4" firstAttribute="leading" secondItem="SgB-yu-afe" secondAttribute="leading" constant="20" id="HSs-ze-Zz9"/>
+                                            <constraint firstItem="vBy-w5-eeT" firstAttribute="top" secondItem="oak-n3-Zd4" secondAttribute="bottom" constant="40" id="SM6-gW-N9X"/>
                                             <constraint firstAttribute="trailing" secondItem="oak-n3-Zd4" secondAttribute="trailing" constant="20" id="aF4-kH-9me"/>
+                                            <constraint firstItem="vBy-w5-eeT" firstAttribute="centerX" secondItem="SgB-yu-afe" secondAttribute="centerX" id="iKh-lE-a2y"/>
+                                            <constraint firstAttribute="bottom" secondItem="vBy-w5-eeT" secondAttribute="bottom" constant="65" id="l0i-wy-0y5"/>
                                             <constraint firstAttribute="height" constant="1400" id="rIv-tA-v3l"/>
                                             <constraint firstItem="oak-n3-Zd4" firstAttribute="top" secondItem="SgB-yu-afe" secondAttribute="top" constant="130" id="tAQ-62-FOH"/>
                                             <constraint firstItem="oak-n3-Zd4" firstAttribute="centerX" secondItem="SgB-yu-afe" secondAttribute="centerX" id="zU6-PM-5OX"/>
@@ -169,6 +186,7 @@
                             <constraint firstItem="82f-mj-cRl" firstAttribute="bottom" secondItem="IcS-U7-k4L" secondAttribute="bottom" id="aHj-Bn-bIy"/>
                             <constraint firstItem="IcS-U7-k4L" firstAttribute="leading" secondItem="82f-mj-cRl" secondAttribute="leading" id="cPE-QJ-kk7"/>
                             <constraint firstItem="NHv-aO-Q1l" firstAttribute="top" secondItem="sGG-dd-Hb8" secondAttribute="bottom" id="kfk-K1-wxd"/>
+                            <constraint firstItem="vBy-w5-eeT" firstAttribute="width" secondItem="NHv-aO-Q1l" secondAttribute="width" id="tlE-ac-YGn"/>
                             <constraint firstItem="sGG-dd-Hb8" firstAttribute="top" secondItem="82f-mj-cRl" secondAttribute="top" id="wXf-sv-pFV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="82f-mj-cRl"/>
@@ -179,6 +197,7 @@
                         <outlet property="classesCollectionView" destination="wUJ-FB-ahD" id="8GX-eM-Xzs"/>
                         <outlet property="popularclassLabel" destination="Q2V-CZ-nZV" id="uYp-Gm-O3u"/>
                         <outlet property="subcategoryLabel" destination="ODU-qt-hFu" id="Vld-mk-6s3"/>
+                        <outlet property="tableview" destination="vBy-w5-eeT" id="EFx-5H-fj2"/>
                         <segue destination="vnt-N3-6JG" kind="show" identifier="toSecond" id="efa-pE-CaD"/>
                         <segue destination="JJy-53-9ep" kind="show" identifier="toClassNumbers" id="y0p-0D-c9s"/>
                     </connections>
