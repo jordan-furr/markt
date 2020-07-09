@@ -164,10 +164,8 @@ class ListingController {
         listingDoc.getDocument { (snapshot, error) in
             if snapshot != nil {
                 guard let snapshot = snapshot else { return completion(.failure(.noListingFound)) }
-                print("here")
                 guard let data = snapshot.data() else { return completion(.failure(.noRecordFound))}
-                
-                var listing = try! FirestoreDecoder().decode(Listing.self, from: data)
+                let listing = try! FirestoreDecoder().decode(Listing.self, from: data)
                 return completion(.success(listing))
             } else {
                 print("snapshot is nil")

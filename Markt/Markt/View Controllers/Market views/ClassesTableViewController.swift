@@ -31,6 +31,7 @@ class ClassesTableViewController: UITableViewController {
         if classes.count == 0 {
             presentNoListingsAlert()
         }
+        navigationItem.title = category
         
     }
 
