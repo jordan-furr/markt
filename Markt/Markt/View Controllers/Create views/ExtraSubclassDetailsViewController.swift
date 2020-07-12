@@ -28,6 +28,7 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
     @IBOutlet weak var createButton: UIButton!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var collectionOfImagesToUse: UICollectionView!
     
 
     override func viewWillAppear(_ animated: Bool) {
@@ -127,6 +128,8 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
         subclassLabel.text = selectedSubclass
     }
     func setUpViews(){
+        collectionOfImagesToUse.delegate = self
+        collectionOfImagesToUse.dataSource = self
         dateLabel.isHidden = true
         datePicker.isHidden = true
         descriptionTextView.text = "..."
@@ -190,6 +193,21 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
     
 }
 
+extension ExtraSubclassDetailsViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        4
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "imagePreview", for: indexPath) as? ImageCollectionViewCell else {return UICollectionViewCell()}
+        cell.backgroundColor = .blue
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+         return CGSize(width: 90, height: 90)
+    }
+}
 
 /*
  

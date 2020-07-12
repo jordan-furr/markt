@@ -279,5 +279,6 @@ class Listing: Codable {
         self.ownerUID = ownerUID
         self.iconPhotoID = iconPhotoID
         self.category = category
+        self.date = Date()
     }
 }
