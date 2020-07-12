@@ -97,7 +97,6 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
     
     
     @IBAction func addImageTapped(_ sender: Any) {
-        collectionOfImagesToUse.isHidden = false
         showChooseSourceTypeAlertController()
         numImages = numImages + 1
         collectionOfImagesToUse.reloadData()
@@ -270,6 +269,7 @@ extension ExtraSubclassDetailsViewController: UIImagePickerControllerDelegate, U
         } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             images.append(originalImage.withRenderingMode(.alwaysOriginal))
         }
+        collectionOfImagesToUse.isHidden = false
         collectionOfImagesToUse.reloadData()
         dismiss(animated: true, completion: nil)
     }
