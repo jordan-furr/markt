@@ -48,6 +48,7 @@
 		C5ED2B1E24A2A07F00BB6730 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ED2B1D24A2A07F00BB6730 /* WelcomeViewController.swift */; };
 		C5ED2B2024A2A08B00BB6730 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ED2B1F24A2A08B00BB6730 /* LoginViewController.swift */; };
 		C5ED2B2224A2A09700BB6730 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ED2B2124A2A09700BB6730 /* RegisterViewController.swift */; };
+		C5EE4E8124BB86230033E6BE /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EE4E8024BB86230033E6BE /* ImageCollectionViewCell.swift */; };
 		C5F3034B24B3F10B008FB049 /* ClassesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F3034A24B3F10B008FB049 /* ClassesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +98,7 @@
 		C5ED2B1D24A2A07F00BB6730 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		C5ED2B1F24A2A08B00BB6730 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C5ED2B2124A2A09700BB6730 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		C5EE4E8024BB86230033E6BE /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		C5F3034A24B3F10B008FB049 /* ClassesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -183,6 +185,7 @@
 				C535BF3A24AE372A00F85D8A /* CategoryCollectionViewCell.swift */,
 				C5BCD7E224B39BBB007B00F8 /* ClassCollectionViewCell.swift */,
 				C5BCD7E424B39BC5007B00F8 /* SubCategoryCollectionViewCell.swift */,
+				C5EE4E8024BB86230033E6BE /* ImageCollectionViewCell.swift */,
 			);
 			path = "Custom Cells";
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				C54949EE2490512500B469F6 /* Listing.swift in Sources */,
 				C54949D724904F2600B469F6 /* SceneDelegate.swift in Sources */,
 				C55904F124A7AB0B0007916A /* ProfileViewController.swift in Sources */,
+				C5EE4E8124BB86230033E6BE /* ImageCollectionViewCell.swift in Sources */,
 				C594CFEE24A40388007E832A /* ImageError.swift in Sources */,
 				C51426C224A90564002F58E6 /* ListingDetailViewController.swift in Sources */,
 				C51426CA24AA9AFA002F58E6 /* ExtraSubclassDetailsViewController.swift in Sources */,
