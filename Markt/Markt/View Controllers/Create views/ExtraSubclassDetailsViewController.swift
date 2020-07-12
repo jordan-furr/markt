@@ -16,6 +16,8 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
     var category: String?
     var selectedSubclass: String?
     var createdListing: Listing?
+    var numImages = 0
+    var images: [UIImage] = []
     
     
     //MARK: IB OUTLETS
@@ -29,6 +31,7 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var collectionOfImagesToUse: UICollectionView!
+    @IBOutlet weak var addpicsButton: UIButton!
     
 
     override func viewWillAppear(_ animated: Bool) {
@@ -92,6 +95,13 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
     }
     
     
+    
+    @IBAction func addImageTapped(_ sender: Any) {
+        showChooseSourceTypeAlertController()
+        numImages = numImages + 1
+        collectionOfImagesToUse.reloadData()
+    }
+    
     func createPickerView() {
         let pickerView = UIPickerView()
         pickerView.delegate = self
@@ -128,6 +138,11 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
         subclassLabel.text = selectedSubclass
     }
     func setUpViews(){
+        if images.count == 0 {
+            collectionOfImagesToUse.isHidden = true
+        }
+        createButton.addCornerRadius()
+        addpicsButton.addCornerRadius()
         collectionOfImagesToUse.delegate = self
         collectionOfImagesToUse.dataSource = self
         dateLabel.isHidden = true
@@ -152,6 +167,8 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
             listingInfo1.isHidden = true
             subclassLabel.isHidden = true
         case "tickets":
+            collectionOfImagesToUse.isHidden = true
+            addpicsButton.isHidden = true
             subCategories = sports
             dateLabel.isHidden = false
             datePicker.isHidden = false
@@ -195,22 +212,20 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
 
 extension ExtraSubclassDetailsViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        4
+        images.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "imagePreview", for: indexPath) as? ImageCollectionViewCell else {return UICollectionViewCell()}
-        cell.backgroundColor = .blue
+        cell.imageView.image = images[indexPath.row]
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-         return CGSize(width: 90, height: 90)
+         return CGSize(width: 85, height: 85)
     }
-}
-
+    
 /*
- 
  switch (category) {
       case "books":
           break;
@@ -226,3 +241,38 @@ extension ExtraSubclassDetailsViewController: UICollectionViewDelegate, UICollec
           break;
       }
  */
+}
+
+extension ExtraSubclassDetailsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func showChooseSourceTypeAlertController() {
+        let photoLibraryAction = UIAlertAction(title: "Choose a Photo", style: .default) { (action) in
+            self.showImagePickerController(sourceType: .photoLibrary)
+        }
+        let cameraAction = UIAlertAction(title: "Take a New Photo", style: .default) { (action) in
+            self.showImagePickerController(sourceType: .camera)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        AlertService.showAlert(style: .actionSheet, title: nil, message: nil, actions: [photoLibraryAction, cameraAction, cancelAction], completion: nil)
+    }
+    
+    func showImagePickerController(sourceType: UIImagePickerController.SourceType) {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.allowsEditing = true
+        imagePickerController.sourceType = sourceType
+        present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            images.append(editedImage.withRenderingMode(.alwaysOriginal))
+        } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            images.append(originalImage.withRenderingMode(.alwaysOriginal))
+        }
+        collectionOfImagesToUse.isHidden = false
+        collectionOfImagesToUse.reloadData()
+        dismiss(animated: true, completion: nil)
+    }
+}
+
+

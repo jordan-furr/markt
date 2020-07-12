@@ -49,6 +49,7 @@
 		C5ED2B2024A2A08B00BB6730 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ED2B1F24A2A08B00BB6730 /* LoginViewController.swift */; };
 		C5ED2B2224A2A09700BB6730 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ED2B2124A2A09700BB6730 /* RegisterViewController.swift */; };
 		C5EE4E8124BB86230033E6BE /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EE4E8024BB86230033E6BE /* ImageCollectionViewCell.swift */; };
+		C5EE4E8324BBB6280033E6BE /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EE4E8224BBB6280033E6BE /* AlertService.swift */; };
 		C5F3034B24B3F10B008FB049 /* ClassesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F3034A24B3F10B008FB049 /* ClassesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +100,7 @@
 		C5ED2B1F24A2A08B00BB6730 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C5ED2B2124A2A09700BB6730 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		C5EE4E8024BB86230033E6BE /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		C5EE4E8224BBB6280033E6BE /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
 		C5F3034A24B3F10B008FB049 /* ClassesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -247,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				C5ED2B14249FF2B500BB6730 /* UserError.swift */,
+				C5EE4E8224BBB6280033E6BE /* AlertService.swift */,
 				C594CFED24A40388007E832A /* ImageError.swift */,
 				C51426BF24A8CAA5002F58E6 /* ListingError.swift */,
 				C55904F224A7DB820007916A /* StyleGuide.swift */,
@@ -438,6 +441,7 @@
 				C54949EA249050E700B469F6 /* User.swift in Sources */,
 				C5BCD7E124B3953D007B00F8 /* SavedListingsViewController.swift in Sources */,
 				C51426BE24A8C8B4002F58E6 /* ListingCollectionViewCell.swift in Sources */,
+				C5EE4E8324BBB6280033E6BE /* AlertService.swift in Sources */,
 				C5BCD7E324B39BBB007B00F8 /* ClassCollectionViewCell.swift in Sources */,
 				C5ED2B2024A2A08B00BB6730 /* LoginViewController.swift in Sources */,
 				C5ED2B0D249D0BE800BB6730 /* SideMenuTableViewController.swift in Sources */,
