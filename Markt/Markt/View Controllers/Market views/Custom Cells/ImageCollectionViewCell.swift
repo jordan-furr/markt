@@ -9,6 +9,10 @@
 import UIKit
 
 class ImageCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var imageCover: UIView!
+    @IBOutlet weak var imageView: UIImageView!
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        layer.cornerRadius = 10
+    }
 }

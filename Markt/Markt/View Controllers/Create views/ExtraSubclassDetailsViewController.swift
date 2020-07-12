@@ -16,6 +16,7 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
     var category: String?
     var selectedSubclass: String?
     var createdListing: Listing?
+    var numImages = 0
     
     
     //MARK: IB OUTLETS
@@ -29,6 +30,7 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var collectionOfImagesToUse: UICollectionView!
+    @IBOutlet weak var addpicsButton: UIButton!
     
 
     override func viewWillAppear(_ animated: Bool) {
@@ -92,6 +94,12 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
     }
     
     
+    
+    @IBAction func addImageTapped(_ sender: Any) {
+        numImages = numImages + 1
+        collectionOfImagesToUse.reloadData()
+    }
+    
     func createPickerView() {
         let pickerView = UIPickerView()
         pickerView.delegate = self
@@ -128,6 +136,8 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
         subclassLabel.text = selectedSubclass
     }
     func setUpViews(){
+        createButton.addCornerRadius()
+        addpicsButton.addCornerRadius()
         collectionOfImagesToUse.delegate = self
         collectionOfImagesToUse.dataSource = self
         dateLabel.isHidden = true
@@ -152,6 +162,8 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
             listingInfo1.isHidden = true
             subclassLabel.isHidden = true
         case "tickets":
+            collectionOfImagesToUse.isHidden = true
+            addpicsButton.isHidden = true
             subCategories = sports
             dateLabel.isHidden = false
             datePicker.isHidden = false
@@ -195,22 +207,20 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
 
 extension ExtraSubclassDetailsViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        4
+        numImages
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "imagePreview", for: indexPath) as? ImageCollectionViewCell else {return UICollectionViewCell()}
-        cell.backgroundColor = .blue
+        cell.imageView.image = UIImage(named: "books")
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-         return CGSize(width: 90, height: 90)
+         return CGSize(width: 85, height: 85)
     }
-}
-
+    
 /*
- 
  switch (category) {
       case "books":
           break;
@@ -226,3 +236,4 @@ extension ExtraSubclassDetailsViewController: UICollectionViewDelegate, UICollec
           break;
       }
  */
+}
