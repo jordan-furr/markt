@@ -250,7 +250,7 @@ var freeCategories: [String] = {
 class Listing: Codable {
     
     enum CodingKeys: String, CodingKey {
-        case uid, title, price, description, ownerUID, iconPhotoID, category, subcategory, subsubCategory
+        case uid, title, price, description, ownerUID, iconPhotoID, category, subcategory, subsubCategory, imageURLS
     }
     var uid: String
     var title: String
@@ -261,6 +261,8 @@ class Listing: Codable {
     var description: String
     var ownerUID: String
     var date: Date = Date()
+    var imageURLS: [String] = []
+    var images: [UIImage] = []
     
     var iconPhotoID: String
     var iconImage: UIImage? = nil

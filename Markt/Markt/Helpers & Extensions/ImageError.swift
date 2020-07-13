@@ -12,6 +12,7 @@ enum ImageError: LocalizedError {
     
     case noImageFound
     case couldNotUnwrapImage
+    case couldNotUploadImage
 
     var errorDescription: String? {
         switch self {
@@ -19,6 +20,8 @@ enum ImageError: LocalizedError {
             return "No image found."
         case .couldNotUnwrapImage:
             return "Could not unwrap image."
+        case .couldNotUploadImage:
+            return "Image could not be uploaded"
         }
     }
 }

@@ -22,6 +22,7 @@ struct ListingKeys {
     static let ownerUIDKey = "ownerUID"
     static let iconPhotoIDKey = "iconPhotoID"
     static let categoryKey = "category"
+    static let tourImageURLKey = "imageURLS"
 }
 
 class ListingController {
@@ -35,6 +36,7 @@ class ListingController {
     var currentUserLiveListings: [Listing] = []
     var currentCategoryLIstings: [Listing] = []
     var allListings: [Listing] = []
+    var imageURLSForNewListing: [String] = []
     
     
     func createListing(with listing: Listing){
@@ -48,7 +50,8 @@ class ListingController {
             "iconPhotoID" : listing.iconPhotoID as String,
             "uid" : listing.uid as String,
             "category" : listing.category as String,
-            "date" : listing.date as Date
+            "date" : listing.date as Date,
+            "imageURLS" : imageURLSForNewListing as [String]
             ] as [String : Any]
         listingRef.document(listing.uid).setData(listingInfoDict)
     }
@@ -166,6 +169,24 @@ class ListingController {
                 guard let snapshot = snapshot else { return completion(.failure(.noListingFound)) }
                 guard let data = snapshot.data() else { return completion(.failure(.noRecordFound))}
                 let listing = try! FirestoreDecoder().decode(Listing.self, from: data)
+                
+                listing.images = []
+                for imageURL in listing.imageURLS {
+                    let path = "\(Auth.auth().currentUser!.uid)/\(listingUID)/\(imageURL)"
+                    self.downloadPhoto(urlPath: path) { (result) in
+                        DispatchQueue.main.async {
+                            do {
+                                let image = try result.get()
+                                listing.images.append(image!)
+                                return completion(.success(listing))
+                            } catch {
+                                print(error)
+                            }
+                        }
+                    }
+                }
+                
+                
                 return completion(.success(listing))
             } else {
                 print("snapshot is nil")
@@ -173,5 +194,39 @@ class ListingController {
             }
         }
     }
+    
+    func uploadPhoto(image: Data?, listingUID: String, completion: @escaping (Result<String?, ImageError>) -> Void)  {
+        guard let data = image, let uid = UserController.shared.currentUser?.uid else { print("Image Failed to upload"); return }
+        let imageReference = Storage.storage().reference().child("\(uid)/\(listingUID)").child(UUID().uuidString)
+        imageReference.putData(data, metadata: nil) { (metaData, error) in
+            if error != nil {
+                print("Error uploading Image")
+                completion(.failure(.couldNotUploadImage))
+            }
+            imageReference.downloadURL(completion: { (url, error) in
+                if error != nil {
+                    print("Error uploading Image")
+                }
+                guard let url = url else { return }
+                print(url)
+                completion(.success(url.absoluteString))
+            })
+        }
+    }
+    
+    func downloadPhoto(urlPath: String, completion: @escaping (Result<UIImage?, ImageError>) -> Void) {
+        let locationImageReference = storageRef.child(urlPath)
+        locationImageReference.getData(maxSize: 1000000) { (data, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                guard let picture = UIImage(data: data!) else { return completion(.failure(.noImageFound))}
+                completion(.success(picture) )
+            }
+            completion(.failure(.couldNotUnwrapImage))
+        }
+    }
 }
+
+
 extension Timestamp: TimestampType {}
