@@ -50,10 +50,21 @@ class ListingController {
             "iconPhotoID" : listing.iconPhotoID as String,
             "uid" : listing.uid as String,
             "category" : listing.category as String,
-            "date" : listing.date as Date,
-            "imageURLS" : imageURLSForNewListing as [String]
+            "date" : listing.date as Date
             ] as [String : Any]
         listingRef.document(listing.uid).setData(listingInfoDict)
+    }
+    
+    func saveImageURLS(listing: Listing) {
+        let listingDoc = listingRef.document(listing.uid)
+        let data = [
+            "\(ListingKeys.tourImageURLKey)" : imageURLSForNewListing as [String]
+        ] as [String: Any]
+        listingDoc.setData(data, merge: true) { (error) in
+            if let error = error {
+                 print(error)
+            }
+        }
     }
     
     func updateListingInfo(listing: Listing, completion: @escaping (Result<Listing?, ListingError>) -> Void) {

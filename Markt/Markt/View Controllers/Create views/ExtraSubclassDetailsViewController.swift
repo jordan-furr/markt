@@ -46,6 +46,7 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
     
     //MARK: - CREATE LISTING
     @IBAction func createTapped(_ sender: Any) {
+        ListingController.shared.imageURLSForNewListing = []
         guard let category = category else {return}
         guard let classNumber = listingInfo1.text else {return}
         let title = titleLabel.text ?? "no title"
@@ -86,6 +87,7 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
                     case .success(let imageURL):
                         guard let imageFullURL = imageURL else {return}
                         ListingController.shared.imageURLSForNewListing.append(imageFullURL)
+                        ListingController.shared.saveImageURLS(listing: self.createdListing!)
                     case .failure(let error):
                         print(error)
                     }
