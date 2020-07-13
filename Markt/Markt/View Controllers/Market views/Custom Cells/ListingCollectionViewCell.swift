@@ -48,8 +48,11 @@ class ListingCollectionViewCell: UICollectionViewCell {
     
     func updateUI(){
         guard let listing = listing else {return}
-        bg.image = UIImage(named: listing.category)
-       
+        if listing.images.count == 0 {
+            bg.image = UIImage(named: listing.category)
+        } else {
+        bg.image = listing.images[0]
+        }
     }
     
     override func layoutSubviews() {

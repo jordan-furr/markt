@@ -9,7 +9,7 @@
 import UIKit
 
 class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
-  
+    
     
     //MARK: PROPERTIES
     var subCategories: [String] = {["N/A"]}()
@@ -33,7 +33,7 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
     @IBOutlet weak var collectionOfImagesToUse: UICollectionView!
     @IBOutlet weak var addpicsButton: UIButton!
     
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         setUpViews()
@@ -58,7 +58,7 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
         let user = UserController.shared.currentUser!
         let iconPhotoID = ""
         let date = datePicker.date
-
+        
         
         switch (category) {
         case "books":
@@ -79,9 +79,22 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
             break;
         }
         
-        ListingController.shared.createListing(with: createdListing!)
+        if category != "tickets" {
+            for image in images{
+                ListingController.shared.uploadPhoto(image: image.jpegData(compressionQuality: 0.3), listingUID: createdListing!.uid) { (result) in
+                    switch result {
+                    case .success(let imageURL):
+                        guard let imageFullURL = imageURL else {return}
+                        ListingController.shared.imageURLSForNewListing.append(imageFullURL)
+                    case .failure(let error):
+                        print(error)
+                    }
+                }
+            }
+        }
         
-         UserController.shared.addCreatedListing(listingID: createdListing!.uid)
+        ListingController.shared.createListing(with: createdListing!)
+        UserController.shared.addCreatedListing(listingID: createdListing!.uid)
         self.dismiss(animated: true, completion: nil)
         ListingController.shared.fetchCurrentUsersListings { (result) in
             switch result {
@@ -118,16 +131,16 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
     }
     
     @objc func action() {
-       view.endEditing(true)
+        view.endEditing(true)
     }
     
-      func numberOfComponents(in pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         1
-      }
-      
-      func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-          subCategories.count
-      }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        subCategories.count
+    }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return subCategories[row]
@@ -222,25 +235,25 @@ extension ExtraSubclassDetailsViewController: UICollectionViewDelegate, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-         return CGSize(width: 85, height: 85)
+        return CGSize(width: 85, height: 85)
     }
     
-/*
- switch (category) {
-      case "books":
-          break;
-      case "tickets":
-          break;
-      case "housing":
-          break;
-      case "clothing":
-          break
-      case "furniture":
-          break;
-      default:
-          break;
-      }
- */
+    /*
+     switch (category) {
+     case "books":
+     break;
+     case "tickets":
+     break;
+     case "housing":
+     break;
+     case "clothing":
+     break
+     case "furniture":
+     break;
+     default:
+     break;
+     }
+     */
 }
 
 extension ExtraSubclassDetailsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
