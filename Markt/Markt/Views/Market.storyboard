@@ -183,21 +183,7 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="listingCell" id="oLd-R8-21K" customClass="ListingCollectionViewCell" customModule="Markt" customModuleProvider="target">
-                                        <rect key="frame" x="10" y="10" width="124" height="124"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fDm-Fk-AuW">
-                                            <rect key="frame" x="0.0" y="0.0" width="124" height="124"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <size key="customSize" width="124" height="124"/>
-                                        <connections>
-                                            <segue destination="QZX-LH-nh6" kind="show" identifier="toListingDetail" id="4KQ-i8-Pk5"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
+                                <cells/>
                             </collectionView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="m7Z-kl-Nmg">
                                 <rect key="frame" x="20.5" y="134.5" width="301" height="76.5"/>
@@ -279,6 +265,7 @@
                         <outlet property="dropOffBool" destination="NpH-Ob-JzR" id="wcs-bq-sdY"/>
                         <outlet property="locationLabel" destination="bn1-vj-6jx" id="Zg0-Xr-2P2"/>
                         <outlet property="nameLabel" destination="qey-JZ-o9Y" id="eiP-bf-x5n"/>
+                        <segue destination="QZX-LH-nh6" kind="show" identifier="toListingDetail" id="hJ6-1M-u2f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EuO-2A-Kt2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
