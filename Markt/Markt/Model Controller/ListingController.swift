@@ -208,7 +208,8 @@ class ListingController {
     
     func uploadPhoto(image: Data?, listingUID: String, completion: @escaping (Result<String?, ImageError>) -> Void)  {
         guard let data = image, let uid = UserController.shared.currentUser?.uid else { print("Image Failed to upload"); return }
-        let imageReference = Storage.storage().reference().child("\(uid)/\(listingUID)").child(UUID().uuidString)
+        let imageName = UUID().uuidString
+        let imageReference = Storage.storage().reference().child("\(uid)/\(listingUID)").child(imageName)
         imageReference.putData(data, metadata: nil) { (metaData, error) in
             if error != nil {
                 print("Error uploading Image")
@@ -219,8 +220,8 @@ class ListingController {
                     print("Error uploading Image")
                 }
                 guard let url = url else { return }
-                print(url)
-                completion(.success(url.absoluteString))
+                print(url.absoluteString)
+                completion(.success(imageName))
             })
         }
     }
