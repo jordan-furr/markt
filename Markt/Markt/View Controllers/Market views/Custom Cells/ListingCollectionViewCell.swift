@@ -15,9 +15,9 @@ class ListingCollectionViewCell: UICollectionViewCell {
     fileprivate let bg: UIImageView = {
           let iv = UIImageView()
            iv.translatesAutoresizingMaskIntoConstraints = false
-           iv.contentMode = .center
+           iv.contentMode = .scaleAspectFill
            iv.clipsToBounds = true
-                   iv.layer.cornerRadius = 12
+                   iv.layer.cornerRadius = 9
            return iv
        }()
        
@@ -61,7 +61,7 @@ class ListingCollectionViewCell: UICollectionViewCell {
               backgroundColor = .white // very important
               layer.masksToBounds = false
               layer.shadowOpacity = 0.23
-              layer.shadowRadius = 3
+              layer.shadowRadius = 1
               layer.shadowOffset = CGSize(width: 0, height: 0)
               layer.shadowColor = UIColor.black.cgColor
           }

@@ -14,5 +14,6 @@ class ImageCollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         layer.cornerRadius = 10
+        imageView.contentMode = .scaleAspectFill
     }
 }

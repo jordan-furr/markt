@@ -82,7 +82,7 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
         
         if category != "tickets" {
             for image in images{
-                ListingController.shared.uploadPhoto(image: image.jpegData(compressionQuality: 0.3), listingUID: createdListing!.uid) { (result) in
+                ListingController.shared.uploadPhoto(image: image.pngData(), listingUID: createdListing!.uid) { (result) in
                     switch result {
                     case .success(let imageURL):
                         guard let imageFullURL = imageURL else {return}
