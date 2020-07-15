@@ -245,8 +245,7 @@ class UserController {
                     print("Error uploading Image")
                 }
                 guard let url = url else { return }
-                print(url.absoluteString)
-                completion(imageName)
+                completion(url.absoluteString)
             })
         }
     }

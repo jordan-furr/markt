@@ -23,12 +23,12 @@ class ShopCollectionViewController: UICollectionViewController, UICollectionView
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.collectionView!.register(ListingPrevCollectionViewCell.self.self, forCellWithReuseIdentifier: reuseIdentifier)
         collectionView.delegate = self
         collectionView.dataSource = self
         if listings.count == 0 {
             presentNoListingsAlert()
         }
+         self.collectionView!.register(ListingPrevCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     }
     
     func setUpViews(){
@@ -62,13 +62,10 @@ class ShopCollectionViewController: UICollectionViewController, UICollectionView
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? ListingPrevCollectionViewCell else {return UICollectionViewCell()}
+        let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ListingPrevCollectionViewCell
         let listing = listings[indexPath.row]
         cell.setListing(listing: listing)
         return cell
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 120, height: 170)
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

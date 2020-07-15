@@ -27,10 +27,10 @@ class ListingPrevCollectionViewCell: UICollectionViewCell {
     
     func updateUI(){
         guard let listing = listing else {return}
-        if listing.images.count == 0 {
-            listingImage.image = UIImage(named: listing.category)
+        if listing.imageURLS.count != 0 {
+            listingImage.loadImageUsingCacheWithUrlString(urlString: listing.imageURLS.first! as NSString)
         } else {
-            listingImage.image = listing.images[0]
+            
         }
         titleLabel.text = listing.title
         priceLabel.text = "\(listing.price)"

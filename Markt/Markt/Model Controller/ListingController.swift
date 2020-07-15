@@ -220,15 +220,14 @@ class ListingController {
                     print("Error uploading Image")
                 }
                 guard let url = url else { return }
-                print(url.absoluteString)
-                completion(.success(imageName))
+                completion(.success(url.absoluteString))
             })
         }
     }
     
     func downloadPhoto(urlPath: String, completion: @escaping (Result<UIImage?, ImageError>) -> Void) {
         let locationImageReference = storageRef.child(urlPath)
-        locationImageReference.getData(maxSize: 1000000) { (data, error) in
+        locationImageReference.getData(maxSize: 10000000) { (data, error) in
             if let error = error {
                 print(error.localizedDescription)
             } else {
