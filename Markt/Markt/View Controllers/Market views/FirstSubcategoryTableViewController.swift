@@ -48,12 +48,7 @@ class FirstSubcategoryViewController: UIViewController {
             popularclassLabel.isHidden = true
             
         }
-        
-        
-        if (category == "electronics" || category == "transportation"){
-            subcategoryLabel.isHidden = true
-            categoryCollectionView.isHidden = true
-        }
+    
         categoryLabel.text = category
         navigationItem.title = "Markt"
         subcategoryLabel.text = "Sort"
@@ -62,7 +57,7 @@ class FirstSubcategoryViewController: UIViewController {
             subcategories = furnitureTypes
             categoryLabel.text = "Furniture"
         case "clothing":
-            subcategories = sizes
+            subcategories = clothingTypes
             categoryLabel.text = "Clothing"
         case "housing":
             subcategories = subletTypes
@@ -78,10 +73,13 @@ class FirstSubcategoryViewController: UIViewController {
         case "books":
             subcategoryLabel.text = "Departments"
             categoryLabel.text = "Books"
-            subcategories = departments
+            subcategories = topDepartments
+            tableview.isHidden = true
         case "electronics":
+            subcategories = electronicTypes
             categoryLabel.text = "Electronics"
         case "transportation":
+            subcategories = transportTypes
             categoryLabel.text = "Transportation"
         default:
             subcategories = departments

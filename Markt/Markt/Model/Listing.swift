@@ -10,6 +10,10 @@ import UIKit
 import CodableFirebase
 import Foundation
 
+
+var topDepartments: [String] = {
+    ["ARTDES", "CHEM", "COMM", "EDUC", "EECS", "ENGLISH", "ENGR", "FRENCH", "GERMAN", "MATH", "PHYSICS", "POLSCI", "PSYCH", "SOC", "SPANISH", "STATS", "WOMENSTD", "WRITING"]
+}()
 var departments: [String] = {
     ["AAPTIS", "AAS", "ACABS", "ACC", "ADABRD", "AERO", "AEROSP", "AMCULT", "ANATOMY", "ANTHRARC", "ANTHRBIO", "ANTHRCUL", "AOSS", "APPPHYS", "ARABAM", "ARABIC","ARCH", "ARMENIAN", "ARTDES", "ARTSADMN", "ASIAN", "ASIANLAN", "ASIANPAM", "ASTRO", "AT",
     "AUTO",
@@ -169,7 +173,7 @@ var departments: [String] = {
     "PORTUG",
     "PPE",
    "PSYCH",
-   " PUBHLTH",
+   "PUBHLTH",
     "PUBPOL",
     "RACKHAM",
     "RAV",
@@ -222,24 +226,36 @@ var departments: [String] = {
     "YIDDISH"]
 }()
 
+var transportTypes: [String] = {
+    ["Scooter", "Car", "Boards", "Other"]
+}()
+
+var electronicTypes: [String] = {
+    ["Gaming", "For class", "Calculators", "Under 15$", "Under 50$", "Cords/etc"]
+}()
+
 var furnitureTypes: [String] = {
-    ["Couch", "Bed", "Chair", "Desk", "Table", "Light", "Beanbag"]
+    ["Couch", "Bed", "Chair", "Desk", "Table", "Lights/Lamps"]
 }()
 
 var sizes: [String] = {
     ["XXS", "XS", "S", "M", "L", "XL", "XXL", "XXXL"]
 }()
 
+var clothingTypes: [String] = {
+   ["Shirts", "Pants", "Jackets", "Shoes", "Accesories", "Gameday"]
+}()
+
 var subletTypes: [String] = {
-    ["Private Room", "Entire Aparmtent", "Entire House", "Shared Room", "Other"]
+    ["Room in Apt", "Room in House", "Entire Apartment", "Entire House", "Shared Room", "Other"]
 }()
 
 var sports: [String] = {
-    ["Football", "Basketball", "Hockey", "Soccer", "Tennis"]
+    ["Football", "Basketball", "Hockey"]
 }()
 
 var popularClasses: [String] = {
-    ["Econ 101", "Econ 102", "Math 115", "Psych 211", "COMM 102"]
+    ["Econ 101", "Econ 102", "Math 115", "Math 116", "Psych 211", "COMM 102"]
 }()
 
 var freeCategories: [String] = {
