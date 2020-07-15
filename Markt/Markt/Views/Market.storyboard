@@ -175,29 +175,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DEt-yJ-a5s">
-                                <rect key="frame" x="0.0" y="359.5" width="342" height="448.5"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="0.0" y="346.5" width="342" height="461.5"/>
+                                <color key="backgroundColor" red="0.72200512886047363" green="0.92558532953262329" blue="0.64340043067932129" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HCQ-01-Dna">
                                     <size key="itemSize" width="120" height="120"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="listingCell" id="oLd-R8-21K" customClass="ListingCollectionViewCell" customModule="Markt" customModuleProvider="target">
-                                        <rect key="frame" x="10" y="10" width="124" height="124"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fDm-Fk-AuW">
-                                            <rect key="frame" x="0.0" y="0.0" width="124" height="124"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <size key="customSize" width="124" height="124"/>
-                                        <connections>
-                                            <segue destination="QZX-LH-nh6" kind="show" identifier="toListingDetail" id="4KQ-i8-Pk5"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
+                                <cells/>
                             </collectionView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="m7Z-kl-Nmg">
                                 <rect key="frame" x="20.5" y="134.5" width="301" height="76.5"/>
@@ -257,7 +243,7 @@
                             <constraint firstItem="m7Z-kl-Nmg" firstAttribute="centerY" secondItem="2Pu-re-6I8" secondAttribute="centerY" multiplier="0.4" id="6Nw-Y7-jn9"/>
                             <constraint firstItem="2Pu-re-6I8" firstAttribute="bottom" secondItem="DEt-yJ-a5s" secondAttribute="bottom" id="9H0-bF-dZg"/>
                             <constraint firstItem="m7Z-kl-Nmg" firstAttribute="centerX" secondItem="2Pu-re-6I8" secondAttribute="centerX" id="TrI-wB-dvh"/>
-                            <constraint firstItem="DEt-yJ-a5s" firstAttribute="top" secondItem="gyY-h5-fGx" secondAttribute="bottom" constant="38" id="Vaf-oo-W3S"/>
+                            <constraint firstItem="DEt-yJ-a5s" firstAttribute="top" secondItem="gyY-h5-fGx" secondAttribute="bottom" constant="25" id="Vaf-oo-W3S"/>
                             <constraint firstItem="2Pu-re-6I8" firstAttribute="trailing" secondItem="DEt-yJ-a5s" secondAttribute="trailing" id="Y4o-MB-twJ"/>
                             <constraint firstItem="gyY-h5-fGx" firstAttribute="width" secondItem="qey-JZ-o9Y" secondAttribute="width" multiplier="0.5" id="ZhY-yW-KWl"/>
                             <constraint firstItem="gyY-h5-fGx" firstAttribute="centerY" secondItem="2Pu-re-6I8" secondAttribute="centerY" multiplier="0.64" id="eGv-s0-hFY"/>
@@ -279,6 +265,7 @@
                         <outlet property="dropOffBool" destination="NpH-Ob-JzR" id="wcs-bq-sdY"/>
                         <outlet property="locationLabel" destination="bn1-vj-6jx" id="Zg0-Xr-2P2"/>
                         <outlet property="nameLabel" destination="qey-JZ-o9Y" id="eiP-bf-x5n"/>
+                        <segue destination="QZX-LH-nh6" kind="show" identifier="toListingDetail" id="hJ6-1M-u2f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EuO-2A-Kt2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

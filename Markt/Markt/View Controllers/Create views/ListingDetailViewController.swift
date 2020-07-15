@@ -75,8 +75,7 @@ class ListingDetailViewController: UIViewController {
         locationLabel.layer.cornerRadius = 8
         dropOffLabel.layer.cornerRadius = 8
         dropOffLabel.addDropOffColoringAndText(user: user)
-        let image = UIImage(named: listing.category)
-        imageView.image = image
+        imageView.loadImageUsingCacheWithUrlString(urlString: listing.imageURLS.first! as NSString)
         
         if listing.category == "books" || listing.category == "clothing" {
             subtitleLabel.text = listing.subcategory + " " + listing.subsubCategory

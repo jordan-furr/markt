@@ -8,7 +8,7 @@
 
 import UIKit
 
-private let reuseIdentifier = "itemCell"
+private let reuseIdentifier = "listingCell"
 
 class ShopCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
@@ -23,12 +23,12 @@ class ShopCollectionViewController: UICollectionViewController, UICollectionView
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.collectionView!.register(ListingCollectionViewCell.self.self, forCellWithReuseIdentifier: reuseIdentifier)
         collectionView.delegate = self
         collectionView.dataSource = self
         if listings.count == 0 {
             presentNoListingsAlert()
         }
+         self.collectionView!.register(ListingPrevCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     }
     
     func setUpViews(){
@@ -45,7 +45,7 @@ class ShopCollectionViewController: UICollectionViewController, UICollectionView
 
        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
               
-              if let cell = sender as? ListingCollectionViewCell,
+              if let cell = sender as? ListingPrevCollectionViewCell,
                   let indexPath = self.collectionView.indexPath(for: cell) {
                   let vc = segue.destination as! ListingDetailViewController
                   let listing = listings[indexPath.row] as Listing
@@ -62,17 +62,14 @@ class ShopCollectionViewController: UICollectionViewController, UICollectionView
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "itemCell", for: indexPath) as? ListingCollectionViewCell else {return UICollectionViewCell()}
+        let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ListingPrevCollectionViewCell
         let listing = listings[indexPath.row]
         cell.setListing(listing: listing)
         return cell
     }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 110, height: 110)
-    }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as! ListingCollectionViewCell
+        let cell = collectionView.cellForItem(at: indexPath) as! ListingPrevCollectionViewCell
         performSegue(withIdentifier: "toListingDetail", sender: cell)
     }
     
