@@ -183,18 +183,7 @@ class ListingController {
                 
                 listing.images = []
                 for imageURL in listing.imageURLS {
-                    let path = "\(Auth.auth().currentUser!.uid)/\(listingUID)/\(imageURL)"
-                    self.downloadPhoto(urlPath: path) { (result) in
-                        DispatchQueue.main.async {
-                            do {
-                                let image = try result.get()
-                                listing.images.append(image!)
-                                return completion(.success(listing))
-                            } catch {
-                                print(error)
-                            }
-                        }
-                    }
+                    listing.loadImageUsingCacheWithURLString(urlString: imageURL as NSString)
                 }
                 
                 

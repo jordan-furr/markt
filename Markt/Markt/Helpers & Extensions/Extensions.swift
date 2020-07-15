@@ -36,3 +36,25 @@ extension UIImageView {
         }).resume()
     }
 }
+
+extension Listing {
+    func loadImageUsingCacheWithURLString(urlString: NSString) {
+        if let cachedImage = imageCache.object(forKey: urlString){
+            return
+        }
+        let url = URL(string: urlString as String)
+        URLSession.shared.dataTask(with: url!, completionHandler: { (data, responses, error) in
+            if error != nil {
+                print(error!)
+                return
+            }
+            
+            DispatchQueue.main.async {
+                
+                if let downloadedImage = UIImage(data: data!) {
+                    imageCache.setObject(downloadedImage, forKey: urlString)
+                }
+            }
+        }).resume()
+    }
+}
