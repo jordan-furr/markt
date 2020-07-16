@@ -180,7 +180,8 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
         case "electronics":
             categoryLabel.text = "New Electronic Item"
             listingInfo1.isHidden = true
-            subclassLabel.isHidden = true
+            subCategories = electronicTypes
+            subclassLabel.text = subCategories[0]
         case "tickets":
             collectionOfImagesToUse.isHidden = true
             addpicsButton.isHidden = true
@@ -195,13 +196,14 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
             titleLabel.placeholder = "Enter Opposing Team"
         case "clothing":
             categoryLabel.text = "New Clothing Item"
-            subCategories = sizes
+            subCategories = clothingTypes
             listingInfo1.isHidden = true
             subclassLabel.text = subCategories[0]
         case "transportation":
             categoryLabel.text = "New Tranportation Listing"
             listingInfo1.isHidden = true
-            subclassLabel.isHidden = true
+            subCategories = transportTypes
+            subclassLabel.text = subCategories[0]
         case "housing":
             dateLabel.isHidden = false
             datePicker.isHidden = false
@@ -213,7 +215,8 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
             descriptionTextView.text = "Enter a description about this listing."
         default:
             categoryLabel.text = "New Free Item"
-            subclassLabel.isHidden = true
+            subCategories = freeCategories
+            subclassLabel.text = subCategories[0]
             listingInfo1.isHidden = true
             priceLabel.isHidden = true
         }

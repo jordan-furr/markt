@@ -8,8 +8,6 @@
 
 import UIKit
 
-private let reuseIdentifier = "listingCell"
-
 class ShopCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
 
@@ -28,7 +26,7 @@ class ShopCollectionViewController: UICollectionViewController, UICollectionView
         if listings.count == 0 {
             presentNoListingsAlert()
         }
-         self.collectionView!.register(ListingPrevCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        collectionView.register(UINib(nibName: "ListingPrevCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "listingCell")
     }
     
     func setUpViews(){
@@ -62,7 +60,7 @@ class ShopCollectionViewController: UICollectionViewController, UICollectionView
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ListingPrevCollectionViewCell
+        let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "listingCell", for: indexPath) as! ListingPrevCollectionViewCell
         let listing = listings[indexPath.row]
         cell.setListing(listing: listing)
         return cell

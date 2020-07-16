@@ -19,4 +19,8 @@ class CollectionTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var collectionViewOnCell: UICollectionView!
+    
+    
 }
