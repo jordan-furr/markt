@@ -24,12 +24,13 @@ var storedOffsets = [Int: CGFloat]()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 5
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "scrollCell", for: indexPath) as? CollectionTableViewCell else {return UITableViewCell()}
         cell.categoryLabel.text = "All Listings"
+        print("all listings = \(ListingController.shared.allListings.count)")
         return cell
     }
     
@@ -45,6 +46,6 @@ var storedOffsets = [Int: CGFloat]()
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 240.0
+        return 200.0
     }
 }
