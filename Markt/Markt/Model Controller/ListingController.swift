@@ -134,7 +134,7 @@ class ListingController {
     }
     
     func fetchAllListings(completion: @escaping (Result<[Listing]?, ListingError>) -> Void) {
-        allListings = []
+        var listings: [Listing] = []
         db.collection("listings").getDocuments { (querySnapshot, error) in
             if let error = error {
                 print("no listings found", error.localizedDescription)
@@ -144,15 +144,19 @@ class ListingController {
                     self.fetchListing(listingUID: document.documentID) { (result) in
                         switch result {
                         case .success(let listing1):
+                            print("success fetching listing")
                             guard let listing2 = listing1 else {return}
-                            self.allListings.append(listing2)
+                            listings.append(listing2)
                         case .failure(let error):
+                            print("failure fetching listing in all listings")
                             print(error.errorDescription)
                         }
                     }
                 }
             }
         }
+        print(listings.count)
+        allListings = listings
         return completion(.success(allListings))
     }
     

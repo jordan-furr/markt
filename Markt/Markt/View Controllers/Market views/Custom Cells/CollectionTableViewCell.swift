@@ -11,12 +11,14 @@ import UIKit
 class CollectionTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        ListingController.shared.allListings.count
+        10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionViewOnCell.dequeueReusableCell(withReuseIdentifier: "listingCell", for: indexPath as IndexPath) as! ListingPrevCollectionViewCell
-        let listing = ListingController.shared.allListings[indexPath.row]
+        
+        let listing = Listing(title: "test", subcategory: "MATH", subsubCategory: "116", price: 3.45, description: "", ownerUID: UserController.shared.currentUser!.uid, iconPhotoID: "", category: "books")
+        listing.imageURLS = ["https://firebasestorage.googleapis.com/v0/b/markt-246fa.appspot.com/o/iahlkTN86TRukXmAdo7eJgZ5kwZ2%2FBF2A9F4B-DC65-4865-BAFB-AE9C56F39A41%2F1E5979E6-5188-43E3-BFCA-FB63B88C8888?alt=media&token=7ebca3ac-7862-4653-818a-e7fd5c891aa3"]
         cell.setListing(listing: listing)
         return cell
     }
@@ -43,6 +45,12 @@ class CollectionTableViewCell: UITableViewCell, UICollectionViewDelegate, UIColl
         self.collectionViewOnCell.register(UINib(nibName: "ListingPrevCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "listingCell")
     }
     
+    
+    override func layoutSubviews() {
+           super.layoutSubviews()
+           backgroundColor = .clear
+        collectionViewOnCell.backgroundColor = .clear
+       }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
