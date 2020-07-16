@@ -12,7 +12,6 @@ class ListingPrevCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var listingImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var priceLabel: UILabel!
     
     var listing: Listing?
     
@@ -33,13 +32,11 @@ class ListingPrevCollectionViewCell: UICollectionViewCell {
             
         }
         titleLabel.text = listing.title
-        priceLabel.text = "\(listing.price)"
         listingImage.contentMode = .scaleAspectFill
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        layer.cornerRadius = 10
         backgroundColor = .white // very important
         layer.masksToBounds = false
         layer.shadowOpacity = 0.23

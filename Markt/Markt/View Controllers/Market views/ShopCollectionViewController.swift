@@ -66,6 +66,10 @@ class ShopCollectionViewController: UICollectionViewController, UICollectionView
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+                 return CGSize(width: 110, height: 140)
+             }
+    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! ListingPrevCollectionViewCell
         performSegue(withIdentifier: "toListingDetail", sender: cell)
