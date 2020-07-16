@@ -227,7 +227,7 @@ var departments: [String] = {
 }()
 
 var transportTypes: [String] = {
-    ["Scooter", "Car", "Boards", "Other"]
+    ["Scooter", "Car", "Boards", "Under $50", "Rentals", "Other"]
 }()
 
 var electronicTypes: [String] = {

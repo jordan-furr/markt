@@ -32,7 +32,15 @@ class FirstSubcategoryViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    @objc func subCategoryLabelMoreTapped(_ sender: UITapGestureRecognizer){
+        performSegue(withIdentifier: "toMore", sender: self)
+    }
+    
     func setUpViews(){
+        let labelTap = UITapGestureRecognizer(target: self, action: #selector(subCategoryLabelMoreTapped(_:)))
+        subcategoryLabel.isUserInteractionEnabled = false
+        subcategoryLabel.addGestureRecognizer(labelTap)
+        
         tableview.delegate = self
         tableview.dataSource = self
         categoryCollectionView.delegate = self
@@ -51,7 +59,7 @@ class FirstSubcategoryViewController: UIViewController {
     
         categoryLabel.text = category
         navigationItem.title = "Markt"
-        subcategoryLabel.text = "Sort"
+        subcategoryLabel.text = "More"
         switch category {
         case "furniture":
             subcategories = furnitureTypes
@@ -86,6 +94,10 @@ class FirstSubcategoryViewController: UIViewController {
             subcategoryLabel.isHidden = true
         }
         print(subcategories.count)
+        if category == "books" || category == "electronics" || category == "furniture" || category == "clothing" {
+        subcategoryLabel.text = subcategoryLabel.text! + " >"
+        subcategoryLabel.isUserInteractionEnabled = true
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -98,6 +110,7 @@ class FirstSubcategoryViewController: UIViewController {
             guard let destinationVC = segue.destination as? ClassesTableViewController, let subcategory = selectedSubcategory else {return}
             var classNumbers: [String] = []
             var booksInDepartment: [Listing] = []
+            
             for listing in ListingController.shared.currentCategoryLIstings {
                 if listing.subcategory == subcategory {
                     if !classNumbers.contains(listing.subsubCategory) {
@@ -110,6 +123,18 @@ class FirstSubcategoryViewController: UIViewController {
             destinationVC.category = category
             destinationVC.subcategory = subcategory
             destinationVC.booksInDepartment = booksInDepartment
+        }
+        
+        if segue.identifier == "toMore"{
+            guard let desinationVC = segue.destination as? MoreSubcategoriesTableViewController, let category = category else {return}
+            desinationVC.category = category
+            switch category {
+            case "books":
+                desinationVC.moreCategories = departments
+            default:
+                desinationVC.moreCategories = subcategories
+                return
+            }
         }
         
     }

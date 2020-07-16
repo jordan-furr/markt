@@ -8,6 +8,39 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--More Subcategories Table View Controller-->
+        <scene sceneID="OJZ-pl-Cyf">
+            <objects>
+                <tableViewController modalPresentationStyle="fullScreen" id="R32-La-KVR" customClass="MoreSubcategoriesTableViewController" customModule="Markt" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Zyn-4K-oUL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="subCell" id="KPG-tR-jEW">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KPG-tR-jEW" id="hzM-NM-4HJ">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="R32-La-KVR" id="BUr-WF-cZL"/>
+                            <outlet property="delegate" destination="R32-La-KVR" id="0kt-U4-36d"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="bma-Ot-dxE"/>
+                    <connections>
+                        <segue destination="JJy-53-9ep" kind="show" identifier="toClasses" id="cUe-pG-DQS"/>
+                        <segue destination="vnt-N3-6JG" kind="show" identifier="toShop" id="k2t-Ut-z2T"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a9J-9Z-Tbs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-854" y="560"/>
+        </scene>
         <!--First Subcategory View Controller-->
         <scene sceneID="a7V-gF-cfR">
             <objects>
@@ -22,17 +55,18 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SgB-yu-afe">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1400"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="oak-n3-Zd4">
-                                                <rect key="frame" x="20" y="130" width="374" height="421"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="oak-n3-Zd4">
+                                                <rect key="frame" x="20" y="130" width="374" height="400"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Popular Classes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q2V-CZ-nZV">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="24"/>
+                                                        <color key="backgroundColor" red="0.95294123890000004" green="0.95294123890000004" blue="0.95294123890000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wUJ-FB-ahD">
-                                                        <rect key="frame" x="0.0" y="35" width="374" height="150"/>
+                                                        <rect key="frame" x="0.0" y="38" width="374" height="150"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="150" id="ptn-dZ-pZY"/>
@@ -73,16 +107,18 @@
                                                         </cells>
                                                     </collectionView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subcategories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ODU-qt-hFu">
-                                                        <rect key="frame" x="0.0" y="196" width="374" height="24"/>
+                                                        <rect key="frame" x="0.0" y="202" width="374" height="24"/>
+                                                        <color key="backgroundColor" red="0.95369203629032262" green="0.95369203629032262" blue="0.95369203629032262" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <gestureRecognizers/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GZg-eI-YE1">
-                                                        <rect key="frame" x="0.0" y="231" width="374" height="190"/>
+                                                        <rect key="frame" x="0.0" y="240" width="374" height="160"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="190" id="2g6-54-mNV"/>
+                                                            <constraint firstAttribute="height" constant="160" id="2g6-54-mNV"/>
                                                         </constraints>
                                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="R3O-gj-hyd">
                                                             <size key="itemSize" width="128" height="128"/>
@@ -122,7 +158,7 @@
                                                 </subviews>
                                             </stackView>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vBy-w5-eeT">
-                                                <rect key="frame" x="20" y="591" width="374" height="744"/>
+                                                <rect key="frame" x="20" y="570" width="374" height="765"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="subSwipeCell" id="4uK-G1-NKK">
@@ -200,6 +236,7 @@
                         <outlet property="tableview" destination="vBy-w5-eeT" id="EFx-5H-fj2"/>
                         <segue destination="vnt-N3-6JG" kind="show" identifier="toSecond" id="efa-pE-CaD"/>
                         <segue destination="JJy-53-9ep" kind="show" identifier="toClassNumbers" id="y0p-0D-c9s"/>
+                        <segue destination="R32-La-KVR" kind="show" identifier="toMore" id="CEg-6s-YKj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pe6-8q-1LN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -279,6 +316,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="efa-pE-CaD"/>
+        <segue reference="k2t-Ut-z2T"/>
+        <segue reference="cUe-pG-DQS"/>
     </inferredMetricsTieBreakers>
 </document>
