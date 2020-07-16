@@ -56,7 +56,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1400"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="oak-n3-Zd4">
-                                                <rect key="frame" x="20" y="130" width="374" height="400"/>
+                                                <rect key="frame" x="20" y="120" width="374" height="400"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Popular Classes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q2V-CZ-nZV">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="24"/>
@@ -158,7 +158,7 @@
                                                 </subviews>
                                             </stackView>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vBy-w5-eeT">
-                                                <rect key="frame" x="20" y="570" width="374" height="765"/>
+                                                <rect key="frame" x="20" y="560" width="374" height="775"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="subSwipeCell" id="4uK-G1-NKK">
@@ -180,7 +180,7 @@
                                             <constraint firstItem="vBy-w5-eeT" firstAttribute="centerX" secondItem="SgB-yu-afe" secondAttribute="centerX" id="iKh-lE-a2y"/>
                                             <constraint firstAttribute="bottom" secondItem="vBy-w5-eeT" secondAttribute="bottom" constant="65" id="l0i-wy-0y5"/>
                                             <constraint firstAttribute="height" constant="1400" id="rIv-tA-v3l"/>
-                                            <constraint firstItem="oak-n3-Zd4" firstAttribute="top" secondItem="SgB-yu-afe" secondAttribute="top" constant="130" id="tAQ-62-FOH"/>
+                                            <constraint firstItem="oak-n3-Zd4" firstAttribute="top" secondItem="SgB-yu-afe" secondAttribute="top" constant="120" id="tAQ-62-FOH"/>
                                             <constraint firstItem="oak-n3-Zd4" firstAttribute="centerX" secondItem="SgB-yu-afe" secondAttribute="centerX" id="zU6-PM-5OX"/>
                                         </constraints>
                                     </view>
@@ -316,7 +316,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="k2t-Ut-z2T"/>
-        <segue reference="cUe-pG-DQS"/>
+        <segue reference="efa-pE-CaD"/>
+        <segue reference="y0p-0D-c9s"/>
     </inferredMetricsTieBreakers>
 </document>

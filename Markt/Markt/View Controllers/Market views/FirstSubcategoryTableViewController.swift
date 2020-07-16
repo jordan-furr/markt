@@ -106,6 +106,7 @@ class FirstSubcategoryViewController: UIViewController {
             destinationVC.category = category
             destinationVC.subcategory = subcategory
         }
+     
         if segue.identifier == "toClassNumbers" {
             guard let destinationVC = segue.destination as? ClassesTableViewController, let subcategory = selectedSubcategory else {return}
             var classNumbers: [String] = []
@@ -179,6 +180,9 @@ extension FirstSubcategoryViewController: UICollectionViewDelegate, UICollection
             if category == "books"{
                 selectedSubcategory = subcategories[indexPath.row]
                 performSegue(withIdentifier: "toClassNumbers", sender: self)
+            } else {
+                selectedSubcategory = subcategories[indexPath.row]
+                performSegue(withIdentifier: "toSecond", sender: self)
             }
         } else {
            performSegue(withIdentifier: "toSecond", sender: self)
