@@ -12,7 +12,6 @@ class ListingPrevCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var listingImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var priceLabel: UILabel!
     
     var listing: Listing?
     
@@ -33,7 +32,6 @@ class ListingPrevCollectionViewCell: UICollectionViewCell {
             
         }
         titleLabel.text = listing.title
-        priceLabel.text = "\(listing.price)"
         listingImage.contentMode = .scaleAspectFill
     }
     
