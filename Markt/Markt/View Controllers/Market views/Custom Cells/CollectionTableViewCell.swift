@@ -16,9 +16,8 @@ class CollectionTableViewCell: UITableViewCell, UICollectionViewDelegate, UIColl
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionViewOnCell.dequeueReusableCell(withReuseIdentifier: "listingCell", for: indexPath as IndexPath) as! ListingPrevCollectionViewCell
-        
-        let listing = Listing(title: "test", subcategory: "MATH", subsubCategory: "116", price: 3.45, description: "", ownerUID: UserController.shared.currentUser!.uid, iconPhotoID: "", category: "books")
-        listing.imageURLS = ["https://firebasestorage.googleapis.com/v0/b/markt-246fa.appspot.com/o/iahlkTN86TRukXmAdo7eJgZ5kwZ2%2FBF2A9F4B-DC65-4865-BAFB-AE9C56F39A41%2F1E5979E6-5188-43E3-BFCA-FB63B88C8888?alt=media&token=7ebca3ac-7862-4653-818a-e7fd5c891aa3"]
+       let listing = Listing(title: "test", subcategory: "MATH", subsubCategory: "116", price: 3.45, description: "", ownerUID: UserController.shared.currentUser!.uid, iconPhotoID: "", category: "books")
+                         listing.imageURLS = ["https://firebasestorage.googleapis.com/v0/b/markt-246fa.appspot.com/o/7CbokXFlX5Q5TH22tT0BRymZcqC2%2F2371F504-ACDA-46BD-BA4F-E11D120D6E9F%2F208794C7-BD10-4531-8BE5-2D8E314B6648?alt=media&token=de3d0f5f-7607-4f8e-bc1a-d04eabe7167d"]
         cell.setListing(listing: listing)
         return cell
     }
@@ -26,7 +25,6 @@ class CollectionTableViewCell: UITableViewCell, UICollectionViewDelegate, UIColl
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 110, height: 140)
     }
-    
     
     var collectionViewOffset: CGFloat {
         get {
@@ -44,7 +42,6 @@ class CollectionTableViewCell: UITableViewCell, UICollectionViewDelegate, UIColl
         self.collectionViewOnCell.delegate = self
         self.collectionViewOnCell.register(UINib(nibName: "ListingPrevCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "listingCell")
     }
-    
     
     override func layoutSubviews() {
            super.layoutSubviews()

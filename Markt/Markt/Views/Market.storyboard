@@ -73,7 +73,7 @@
                                                 </constraints>
                                             </imageView>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dsl-rp-wsx">
-                                                <rect key="frame" x="20" y="352.5" width="374" height="972.5"/>
+                                                <rect key="frame" x="20" y="332.5" width="374" height="992.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
                                                     <segue destination="qt2-CF-eBP" kind="embed" id="mMO-xe-uon"/>
@@ -89,7 +89,7 @@
                                             <constraint firstAttribute="trailing" secondItem="Dsl-rp-wsx" secondAttribute="trailing" constant="20" id="Ju3-Sw-X1L"/>
                                             <constraint firstItem="Zzb-Y2-jhy" firstAttribute="height" secondItem="voE-m9-yE6" secondAttribute="height" multiplier="0.17" id="Ki9-2j-sIA"/>
                                             <constraint firstAttribute="trailing" secondItem="iAx-S6-qfO" secondAttribute="trailing" id="Vf1-BV-rdw"/>
-                                            <constraint firstItem="Dsl-rp-wsx" firstAttribute="top" secondItem="Zzb-Y2-jhy" secondAttribute="bottom" constant="50" id="Zrr-t0-ZwY"/>
+                                            <constraint firstItem="Dsl-rp-wsx" firstAttribute="top" secondItem="Zzb-Y2-jhy" secondAttribute="bottom" constant="30" id="Zrr-t0-ZwY"/>
                                             <constraint firstAttribute="trailing" secondItem="Zzb-Y2-jhy" secondAttribute="trailing" id="bQd-Wn-TfG"/>
                                             <constraint firstAttribute="height" constant="1450" id="drC-Cy-25u"/>
                                             <constraint firstItem="xjM-l2-ZHe" firstAttribute="centerX" secondItem="voE-m9-yE6" secondAttribute="centerX" id="jaZ-DQ-GoT"/>
@@ -172,7 +172,7 @@
             <objects>
                 <tableViewController id="qt2-CF-eBP" customClass="MarketScrollsTableViewController" customModule="Markt" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="r12-qh-qRh">
-                        <rect key="frame" x="0.0" y="0.0" width="374" height="972.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="374" height="992.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
