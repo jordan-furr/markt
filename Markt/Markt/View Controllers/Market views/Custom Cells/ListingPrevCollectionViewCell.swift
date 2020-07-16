@@ -39,7 +39,6 @@ class ListingPrevCollectionViewCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        layer.cornerRadius = 10
         backgroundColor = .white // very important
         layer.masksToBounds = false
         layer.shadowOpacity = 0.23
