@@ -24,6 +24,9 @@ class LaunchViewController: UIViewController {
                     case .success(let user):
                         print("user fetched successfully")
                         UserController.shared.currentUser = user
+                        ListingController.shared.fetchAllListings { (result) in
+                            print(result)
+                        }
                         self.performSegue(withIdentifier: "userFound", sender: self)
                     }
                     
