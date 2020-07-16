@@ -154,13 +154,11 @@ extension FirstSubcategoryViewController: UICollectionViewDelegate, UICollection
             guard let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as? SubCategoryCollectionViewCell else {return UICollectionViewCell()}
             let category = subcategories[indexPath.item]
             cell.titleLabel.text = category
-            cell.backgroundColor = .green
             return cell
         } else {
             guard let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "classCell", for: indexPath) as? ClassCollectionViewCell else {return UICollectionViewCell()}
             let classNum = popularClasses[indexPath.item]
             cell.classLabel.text = classNum
-            cell.backgroundColor = .blue
             return cell
         }
     }

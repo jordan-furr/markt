@@ -169,7 +169,7 @@
         <!--Extra Subclass Details View Controller-->
         <scene sceneID="Shf-1U-CjD">
             <objects>
-                <viewController id="MPs-sR-07y" customClass="ExtraSubclassDetailsViewController" customModule="Markt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="MPs-sR-07y" customClass="ExtraSubclassDetailsViewController" customModule="Markt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AMf-gb-PKg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
