@@ -37,12 +37,13 @@ class ListingPrevCollectionViewCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        backgroundColor = .white // very important
-        layer.masksToBounds = false
-        layer.shadowOpacity = 0.23
-        layer.shadowRadius = 1
-        layer.shadowOffset = CGSize(width: 0, height: 0)
-        layer.shadowColor = UIColor.black.cgColor
+        listingImage.addBabyRadius()
+        backgroundColor = .clear // very important
+//        layer.masksToBounds = false
+//        layer.shadowOpacity = 0.23
+//        layer.shadowRadius = 1
+//        layer.shadowOffset = CGSize(width: 0, height: 0)
+//        layer.shadowColor = UIColor.black.cgColor
     }
     
 }

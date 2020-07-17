@@ -14,6 +14,10 @@ extension UIView {
     func addCornerRadius(_ radius: CGFloat = 8) {
         self.layer.cornerRadius = radius
     }
+    
+    func addBabyRadius(_ radius: CGFloat = 2){
+        self.layer.cornerRadius = radius
+    }
 }
 
 extension UIImageView {

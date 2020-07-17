@@ -30,7 +30,7 @@ class CollectionTableViewCell: UITableViewCell, UICollectionViewDelegate, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 110, height: 140)
+        return CGSize(width: 140, height: 180)
     }
     
     var collectionViewOffset: CGFloat {
@@ -54,7 +54,15 @@ class CollectionTableViewCell: UITableViewCell, UICollectionViewDelegate, UIColl
         super.layoutSubviews()
         backgroundColor = .clear
         collectionViewOnCell.backgroundColor = .clear
+//        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 8, bottom: 10, right: 8))
+//        contentView.layer.cornerRadius = 8
+//        layer.masksToBounds = false
+//        layer.shadowOpacity = 0.23
+//        layer.shadowRadius = 3
+//        layer.shadowOffset = CGSize(width: 0, height: 0)
+//        layer.shadowColor = UIColor.black.cgColor
     }
+    
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

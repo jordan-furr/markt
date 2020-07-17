@@ -20,37 +20,40 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="1678"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="voE-m9-yE6">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1550"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1700"/>
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Zzb-Y2-jhy">
-                                                <rect key="frame" x="0.0" y="56" width="414" height="263.5"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="5" minimumInteritemSpacing="4" id="owv-cY-HKr">
-                                                    <size key="itemSize" width="80" height="80"/>
+                                                <rect key="frame" x="0.0" y="56" width="414" height="190"/>
+                                                <color key="backgroundColor" red="0.95294123890000004" green="0.95294123890000004" blue="0.95294123890000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="190" id="Jv1-AR-Kh8"/>
+                                                </constraints>
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="20" minimumInteritemSpacing="3" id="owv-cY-HKr">
+                                                    <size key="itemSize" width="65" height="65"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                    <inset key="sectionInset" minX="10" minY="24" maxX="30" maxY="24"/>
+                                                    <inset key="sectionInset" minX="25" minY="24" maxX="30" maxY="24"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="categoryCell" id="67Y-h0-fHE" customClass="CategoryCollectionViewCell" customModule="Markt" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="24" width="80" height="80"/>
+                                                        <rect key="frame" x="25" y="24" width="65" height="65"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="uy1-Et-5TS">
-                                                            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g9z-GM-bVh">
-                                                                    <rect key="frame" x="18" y="15" width="44" height="50"/>
+                                                                    <rect key="frame" x="10" y="8" width="45" height="49"/>
                                                                     <gestureRecognizers/>
                                                                 </imageView>
                                                             </subviews>
                                                             <gestureRecognizers/>
                                                             <constraints>
                                                                 <constraint firstItem="g9z-GM-bVh" firstAttribute="centerY" secondItem="uy1-Et-5TS" secondAttribute="centerY" id="2i7-qo-GNf"/>
-                                                                <constraint firstAttribute="trailing" secondItem="g9z-GM-bVh" secondAttribute="trailing" constant="18" id="Ake-v9-GOx"/>
-                                                                <constraint firstItem="g9z-GM-bVh" firstAttribute="leading" secondItem="uy1-Et-5TS" secondAttribute="leading" constant="18" id="Qtl-xB-I0G"/>
+                                                                <constraint firstAttribute="trailing" secondItem="g9z-GM-bVh" secondAttribute="trailing" constant="10" id="Ake-v9-GOx"/>
+                                                                <constraint firstItem="g9z-GM-bVh" firstAttribute="leading" secondItem="uy1-Et-5TS" secondAttribute="leading" constant="10" id="Qtl-xB-I0G"/>
                                                                 <constraint firstItem="g9z-GM-bVh" firstAttribute="centerX" secondItem="uy1-Et-5TS" secondAttribute="centerX" id="iIO-Ir-xfQ"/>
-                                                                <constraint firstItem="g9z-GM-bVh" firstAttribute="height" secondItem="uy1-Et-5TS" secondAttribute="height" multiplier="0.62" id="nM4-YB-7hM"/>
+                                                                <constraint firstItem="g9z-GM-bVh" firstAttribute="height" secondItem="uy1-Et-5TS" secondAttribute="height" multiplier="0.75" id="nM4-YB-7hM"/>
                                                             </constraints>
                                                         </collectionViewCellContentView>
                                                         <gestureRecognizers/>
@@ -66,32 +69,31 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </searchBar>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flame" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="xjM-l2-ZHe">
-                                                <rect key="frame" x="172" y="1449" width="70" height="70.5"/>
+                                                <rect key="frame" x="172" y="1599" width="70" height="70.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="70" id="Bfo-gY-gi7"/>
                                                     <constraint firstAttribute="width" secondItem="xjM-l2-ZHe" secondAttribute="height" multiplier="1:1" id="X3N-uz-KYh"/>
                                                 </constraints>
                                             </imageView>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dsl-rp-wsx">
-                                                <rect key="frame" x="20" y="349.5" width="374" height="1075.5"/>
+                                                <rect key="frame" x="20" y="258" width="394" height="1317"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
                                                     <segue destination="qt2-CF-eBP" kind="embed" id="mMO-xe-uon"/>
                                                 </connections>
                                             </containerView>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.95294123890000004" green="0.95294123890000004" blue="0.95294123890000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="Zzb-Y2-jhy" firstAttribute="top" secondItem="iAx-S6-qfO" secondAttribute="bottom" id="8GA-lA-GNy"/>
                                             <constraint firstAttribute="bottom" secondItem="Dsl-rp-wsx" secondAttribute="bottom" constant="125" id="99B-WZ-VE2"/>
                                             <constraint firstItem="Zzb-Y2-jhy" firstAttribute="leading" secondItem="voE-m9-yE6" secondAttribute="leading" id="D1s-sN-vSg"/>
                                             <constraint firstItem="iAx-S6-qfO" firstAttribute="top" secondItem="voE-m9-yE6" secondAttribute="top" id="Hq7-2A-6sf"/>
-                                            <constraint firstAttribute="trailing" secondItem="Dsl-rp-wsx" secondAttribute="trailing" constant="20" id="Ju3-Sw-X1L"/>
-                                            <constraint firstItem="Zzb-Y2-jhy" firstAttribute="height" secondItem="voE-m9-yE6" secondAttribute="height" multiplier="0.17" id="Ki9-2j-sIA"/>
+                                            <constraint firstAttribute="trailing" secondItem="Dsl-rp-wsx" secondAttribute="trailing" id="Ju3-Sw-X1L"/>
                                             <constraint firstAttribute="trailing" secondItem="iAx-S6-qfO" secondAttribute="trailing" id="Vf1-BV-rdw"/>
-                                            <constraint firstItem="Dsl-rp-wsx" firstAttribute="top" secondItem="Zzb-Y2-jhy" secondAttribute="bottom" constant="30" id="Zrr-t0-ZwY"/>
+                                            <constraint firstItem="Dsl-rp-wsx" firstAttribute="top" secondItem="Zzb-Y2-jhy" secondAttribute="bottom" constant="12" id="Zrr-t0-ZwY"/>
                                             <constraint firstAttribute="trailing" secondItem="Zzb-Y2-jhy" secondAttribute="trailing" id="bQd-Wn-TfG"/>
-                                            <constraint firstAttribute="height" constant="1550" id="drC-Cy-25u"/>
+                                            <constraint firstAttribute="height" constant="1700" id="drC-Cy-25u"/>
                                             <constraint firstItem="xjM-l2-ZHe" firstAttribute="centerX" secondItem="voE-m9-yE6" secondAttribute="centerX" id="jaZ-DQ-GoT"/>
                                             <constraint firstItem="Dsl-rp-wsx" firstAttribute="leading" secondItem="voE-m9-yE6" secondAttribute="leading" constant="20" id="lJc-MA-Yyx"/>
                                             <constraint firstItem="iAx-S6-qfO" firstAttribute="leading" secondItem="voE-m9-yE6" secondAttribute="leading" id="nzu-gY-bKi"/>
@@ -172,7 +174,7 @@
             <objects>
                 <tableViewController id="qt2-CF-eBP" customClass="MarketScrollsTableViewController" customModule="Markt" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="r12-qh-qRh">
-                        <rect key="frame" x="0.0" y="0.0" width="374" height="1075.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="394" height="1317"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
