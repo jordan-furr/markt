@@ -15,47 +15,46 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     
     
+    //MARK: - Life Cycle Functions
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
+    //MARK: IB Actions
+    
     @IBAction func loginTapped(_ sender: Any) {
         guard let email = emailTextField.text, let password = passwordTextField.text else {return}
         
-        if email != "" || password != "" {
-            UserController.shared.login(email: email, password: password) { (_, error)  in
-                if let error = error {
-                    print(error)
-                    self.presentLoginAlertView(error: error)
-                } else {
-                    UserController.shared.fetchCurrentUser { (result) in
-                        switch result {
-                        case .failure(let error):
-                            print("error fetching user", error)
-                        case .success(let user):
-                            print("user fetched successfully")
-                            UserController.shared.currentUser = user
-                            self.performSegue(withIdentifier: "loggedIn", sender: self)
-                        }
+        //Handles empty Fields
+        if email == "" || password == "" {
+          self.presentMissingInfoAlertView()
+        }
+        
+        UserController.shared.login(email: email, password: password) { (_, error)  in
+            if let error = error {
+                self.presentLoginAlertView(error: error); print(error)
+            } else {
+                //Fetch current user
+                UserController.shared.fetchCurrentUser { (result) in
+                    switch result {
+                    case .failure(let error):
+                        self.presentLoginAlertView(error: error); print("error fetching user", error)
+                    case .success(let user):
+                        UserController.shared.currentUser = user; print("user fetched successfully")
+                        self.performSegue(withIdentifier: "loggedIn", sender: self)
                     }
-                    print("logging user in")
                 }
             }
         }
     }
-    
     @IBAction func backgroundtapped(_ sender: Any) {
         self.view.endEditing(true)
     }
     
     @IBAction func cancelTapped(_ sender: Any){
         self.dismiss(animated: true, completion: nil)
-    }
-    
-    func presentLoginAlertView(error: Error) {
-        let alertController = UIAlertController(title: "Error Loggin In", message: error.localizedDescription, preferredStyle: .alert)
-        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(defaultAction)
-        present(alertController, animated: true, completion: nil)
     }
 }

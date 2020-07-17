@@ -27,7 +27,6 @@ extension UIImageView {
             }
             
             DispatchQueue.main.async {
-                
                 if let downloadedImage = UIImage(data: data!) {
                     imageCache.setObject(downloadedImage, forKey: urlString)
                     self.image = downloadedImage
@@ -38,8 +37,9 @@ extension UIImageView {
 }
 
 extension Listing {
+    //load image if not loaded
     func loadImageUsingCacheWithURLString(urlString: NSString) {
-        if let cachedImage = imageCache.object(forKey: urlString){
+        if (imageCache.object(forKey: urlString) != nil){
             return
         }
         let url = URL(string: urlString as String)
@@ -50,7 +50,6 @@ extension Listing {
             }
             
             DispatchQueue.main.async {
-                
                 if let downloadedImage = UIImage(data: data!) {
                     imageCache.setObject(downloadedImage, forKey: urlString)
                 }

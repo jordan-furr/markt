@@ -11,11 +11,17 @@ import UIKit
 class SideMenuTableViewController: UITableViewController {
     
    
+    //MARK: - Life Cycle Functions
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
+    
+    //MARK: - Table View Delegate/Data Source Functions
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
         switch indexPath.row {
@@ -30,6 +36,8 @@ class SideMenuTableViewController: UITableViewController {
         // NotificationCenter.default.post(name: NSNotification.Name("ToggleSideMenu"), object: nil)
     }
     
+    
+    //MARK: - Table View Style
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60.0
     }
@@ -37,5 +45,4 @@ class SideMenuTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 120.0
     }
-
 }

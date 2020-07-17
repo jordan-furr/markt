@@ -8,17 +8,17 @@
 
 import UIKit
 
-var categories: [String] = {
-    ["books", "furniture", "electronics", "tickets", "clothing", "transportation", "free", "housing"]
-}()
 
 class MarketViewController: UIViewController {
     
+    //MARK: - Properties
     var selectedCategory: String?
+    
+    //MARK: - IB OUTELTS
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet var tapGesture: UITapGestureRecognizer!
     
-    
+    //MARK: - Life Cycle Functions
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         setUpViews()
@@ -27,37 +27,25 @@ class MarketViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    @IBAction func menuTapped(_ sender: Any) {
-        print("toggle side menu")
-        NotificationCenter.default.post(name: NSNotification.Name("ToggleSideMenu"), object: nil)
-    }
+    //MARK: - IB Actions
+    @IBAction func menuTapped(_ sender: Any) { NotificationCenter.default.post(name: NSNotification.Name("ToggleSideMenu"), object: nil) }
+    @IBAction func backgroundTapped(_ sender: Any) { self.view.endEditing(true)}
+    @IBAction func swipedLeft(_ sender: Any) {menuTapped(true)}
+    
     
     //MARK: HELPERS
-    
     func setUpViews() {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tap)))
         navigationItem.hidesBackButton = true
         tapGesture.cancelsTouchesInView = false
-        ListingController.shared.fetchCurrentUsersListings { (result) in
-            switch result {
-            case .failure(let error):
-                print("Could not fetch user's live listings")
-                print(error, error.localizedDescription)
-            case .success(let listings):
-                print("live user listings fetched"); if (listings != nil) { print(listings!)}
-            }
-        }
         
+        ListingController.shared.fetchCurrentUsersListings { (result) in
+            print(result)
+        }
         ListingController.shared.fetchAllListings { (result) in
-            switch result {
-            case .failure(let error):
-                print("Could not fetch user's live listings")
-                print(error, error.localizedDescription)
-            case .success(let listings):
-                print("live user listings fetched")
-            }
+            print(result)
         }
     }
     
@@ -68,38 +56,19 @@ class MarketViewController: UIViewController {
             let listings = ListingController.shared.fetchListingsInCategory(category: category)
             ListingController.shared.currentCategoryLIstings = listings
             performSegue(withIdentifier: "toSubCategories", sender: self)
-//            if category == "electronics" || category == "free" || category == "transportation" {
-//                performSegue(withIdentifier: "straightToShop", sender: self)
-//            } else {
-//                performSegue(withIdentifier: "toSubCategories", sender: self)
-//            }
-        } else {
-            print("collection view was tapped")
         }
     }
     
-    @IBAction func backgroundTapped(_ sender: Any) {
-        self.view.endEditing(true)
-    }
-    
-    @IBAction func swipedLeft(_ sender: Any) {
-        menuTapped(true)
-    }
-    
+    //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toSubCategories"  {
             guard let destinationVC = segue.destination as? FirstSubcategoryViewController else {return}
             destinationVC.category = selectedCategory ?? "error"
         }
-        if segue.identifier == "straightToShop"  {
-            guard let destinationVC = segue.destination as? ShopCollectionViewController else {return}
-            destinationVC.category = selectedCategory ?? "error"
-        }
     }
-    
-    
 }
 
+    //MARK: - Top 8 Category Collection view
 extension MarketViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         8
@@ -107,13 +76,12 @@ extension MarketViewController: UICollectionViewDataSource, UICollectionViewDele
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as? CategoryCollectionViewCell else {return UICollectionViewCell()}
-        
         let category = categories[indexPath.item]
         cell.setCategory(category: category)
         return cell
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 85, height: 85)
     }
-    
 }

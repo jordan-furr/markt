@@ -12,28 +12,38 @@ var sideMenuOpen = false
 
 class ContainerViewController: UIViewController {
     
+    //MARK: - IB OUTLETS
     @IBOutlet weak var sideMenuConstraint: NSLayoutConstraint!
     @IBOutlet weak var marketContainer: UIView!
     @IBOutlet weak var sideMenucontainer: UIView!
     @IBOutlet var tapGesture: UITapGestureRecognizer!
     
-    @objc func toggleSideMenu(){
-        if sideMenuOpen {
-            sideMenuOpen = false
-            sideMenuConstraint.constant = -342
-            marketContainer.isUserInteractionEnabled = true
-            
-        } else {
-            sideMenuOpen = true
-            sideMenuConstraint.constant = 0
-            marketContainer.isUserInteractionEnabled = false
-        }
-        UIView.animate(withDuration: 0.3){
-            self.view.layoutIfNeeded()
-        }
-        print("toggled")
+    //MARK: - Life Cycle Functions
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        setUp()
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
     
+    //MARK: Helpers
+    @objc func toggleSideMenu(){
+        if sideMenuOpen { sideMenuOpen = false; sideMenuConstraint.constant = -342
+            marketContainer.isUserInteractionEnabled = true }
+        else { sideMenuOpen = true; sideMenuConstraint.constant = 0;
+            marketContainer.isUserInteractionEnabled = false }
+        
+        UIView.animate(withDuration: 0.3){ self.view.layoutIfNeeded()}
+    }
+    
+    func setUp(){
+        tapGesture.cancelsTouchesInView = false
+        sideMenucontainer.isUserInteractionEnabled = true
+        NotificationCenter.default.addObserver(self, selector: #selector(toggleSideMenu), name: NSNotification.Name("ToggleSideMenu"), object: nil)
+    }
+    
+    //MARK: Navigation
     @IBAction func viewTapped(_ sender: UITapGestureRecognizer) {
         if sideMenuOpen {
             print("tapped")
@@ -44,16 +54,9 @@ class ContainerViewController: UIViewController {
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tapGesture.cancelsTouchesInView = false
-        sideMenucontainer.isUserInteractionEnabled = true
-        NotificationCenter.default.addObserver(self, selector: #selector(toggleSideMenu), name: NSNotification.Name("ToggleSideMenu"), object: nil)
-    }
-    
     @IBAction func swipeBack(_ sender: Any) {
         if (sideMenuOpen){
-        self.toggleSideMenu()
+            self.toggleSideMenu()
         }
     }
 }
