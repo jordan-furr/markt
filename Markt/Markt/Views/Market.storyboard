@@ -22,21 +22,21 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="voE-m9-yE6">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1700"/>
                                         <subviews>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Zzb-Y2-jhy">
-                                                <rect key="frame" x="0.0" y="56" width="414" height="190"/>
-                                                <color key="backgroundColor" red="0.95294123890000004" green="0.95294123890000004" blue="0.95294123890000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Zzb-Y2-jhy">
+                                                <rect key="frame" x="0.0" y="56" width="414" height="210"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="190" id="Jv1-AR-Kh8"/>
+                                                    <constraint firstAttribute="height" constant="210" id="Jv1-AR-Kh8"/>
                                                 </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="16" minimumInteritemSpacing="3" id="owv-cY-HKr">
+                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="14" minimumInteritemSpacing="3" id="owv-cY-HKr">
                                                     <size key="itemSize" width="65" height="65"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                    <inset key="sectionInset" minX="20" minY="19" maxX="30" maxY="24"/>
+                                                    <inset key="sectionInset" minX="25" minY="30" maxX="25" maxY="20"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="categoryCell" id="67Y-h0-fHE" customClass="CategoryCollectionViewCell" customModule="Markt" customModuleProvider="target">
-                                                        <rect key="frame" x="20" y="19" width="65" height="65"/>
+                                                        <rect key="frame" x="25" y="30" width="65" height="65"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="uy1-Et-5TS">
                                                             <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
@@ -76,7 +76,7 @@
                                                 </constraints>
                                             </imageView>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dsl-rp-wsx">
-                                                <rect key="frame" x="20" y="258" width="394" height="1317"/>
+                                                <rect key="frame" x="20" y="266" width="394" height="1309"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
                                                     <segue destination="qt2-CF-eBP" kind="embed" id="mMO-xe-uon"/>
@@ -91,7 +91,7 @@
                                             <constraint firstItem="iAx-S6-qfO" firstAttribute="top" secondItem="voE-m9-yE6" secondAttribute="top" id="Hq7-2A-6sf"/>
                                             <constraint firstAttribute="trailing" secondItem="Dsl-rp-wsx" secondAttribute="trailing" id="Ju3-Sw-X1L"/>
                                             <constraint firstAttribute="trailing" secondItem="iAx-S6-qfO" secondAttribute="trailing" id="Vf1-BV-rdw"/>
-                                            <constraint firstItem="Dsl-rp-wsx" firstAttribute="top" secondItem="Zzb-Y2-jhy" secondAttribute="bottom" constant="12" id="Zrr-t0-ZwY"/>
+                                            <constraint firstItem="Dsl-rp-wsx" firstAttribute="top" secondItem="Zzb-Y2-jhy" secondAttribute="bottom" id="Zrr-t0-ZwY"/>
                                             <constraint firstAttribute="trailing" secondItem="Zzb-Y2-jhy" secondAttribute="trailing" id="bQd-Wn-TfG"/>
                                             <constraint firstAttribute="height" constant="1700" id="drC-Cy-25u"/>
                                             <constraint firstItem="xjM-l2-ZHe" firstAttribute="centerX" secondItem="voE-m9-yE6" secondAttribute="centerX" id="jaZ-DQ-GoT"/>
@@ -174,7 +174,7 @@
             <objects>
                 <tableViewController id="qt2-CF-eBP" customClass="MarketScrollsTableViewController" customModule="Markt" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="r12-qh-qRh">
-                        <rect key="frame" x="0.0" y="0.0" width="394" height="1317"/>
+                        <rect key="frame" x="0.0" y="0.0" width="394" height="1309"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

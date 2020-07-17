@@ -15,7 +15,7 @@ extension UIView {
         self.layer.cornerRadius = radius
     }
     
-    func addBabyRadius(_ radius: CGFloat = 2){
+    func addBabyRadius(_ radius: CGFloat = 3){
         self.layer.cornerRadius = radius
     }
 }
