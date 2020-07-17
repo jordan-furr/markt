@@ -10,20 +10,20 @@ import UIKit
 
 class FirstSubcategoryViewController: UIViewController {
     
+    //MARK: - Properties
     var category: String?
     var subcategories: [String] = []
     var selectedSubcategory: String?
+    
+    //MARK: - IB OUTLETS
     @IBOutlet weak var tableview: UITableView!
-    
-    
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var classesCollectionView: UICollectionView!
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     @IBOutlet weak var popularclassLabel: UILabel!
     @IBOutlet weak var subcategoryLabel: UILabel!
     
-    
-    
+    //MARK: - Life Cycle Functions
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         setUpViews()
@@ -32,41 +32,30 @@ class FirstSubcategoryViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    //MARK: - Helpers
     @objc func subCategoryLabelMoreTapped(_ sender: UITapGestureRecognizer){
         performSegue(withIdentifier: "toMore", sender: self)
     }
     
     func setUpViews(){
-        let labelTap = UITapGestureRecognizer(target: self, action: #selector(subCategoryLabelMoreTapped(_:)))
-        subcategoryLabel.isUserInteractionEnabled = false
-        subcategoryLabel.addGestureRecognizer(labelTap)
-        
-        tableview.delegate = self
-        tableview.dataSource = self
-        categoryCollectionView.delegate = self
-        categoryCollectionView.dataSource = self
-        
         guard let category = category else {return}
-        if category == "books" {
-            classesCollectionView.dataSource = self
-            classesCollectionView.delegate = self
-            categoryCollectionView.isHidden = false
-        } else {
-            classesCollectionView.isHidden = true
-            popularclassLabel.isHidden = true
-            
-        }
-    
+        
+        setUpTapRecognizerAndDelegates(category)
         categoryLabel.text = category
         navigationItem.title = "Markt"
         subcategoryLabel.text = "More"
+        
         switch category {
         case "furniture":
             subcategories = furnitureTypes
             categoryLabel.text = "Furniture"
+            subcategoryLabel.text = subcategoryLabel.text! + " >"
+            subcategoryLabel.isUserInteractionEnabled = true
         case "clothing":
             subcategories = clothingTypes
             categoryLabel.text = "Clothing"
+            subcategoryLabel.text = subcategoryLabel.text! + " >"
+            subcategoryLabel.isUserInteractionEnabled = true
         case "housing":
             subcategories = subletTypes
             subcategoryLabel.text = "Housing Type"
@@ -83,9 +72,13 @@ class FirstSubcategoryViewController: UIViewController {
             categoryLabel.text = "Books"
             subcategories = topDepartments
             tableview.isHidden = true
+            subcategoryLabel.text = subcategoryLabel.text! + " >"
+            subcategoryLabel.isUserInteractionEnabled = true
         case "electronics":
             subcategories = electronicTypes
             categoryLabel.text = "Electronics"
+            subcategoryLabel.text = subcategoryLabel.text! + " >"
+            subcategoryLabel.isUserInteractionEnabled = true
         case "transportation":
             subcategories = transportTypes
             categoryLabel.text = "Transportation"
@@ -93,25 +86,45 @@ class FirstSubcategoryViewController: UIViewController {
             subcategories = departments
             subcategoryLabel.isHidden = true
         }
-        print(subcategories.count)
-        if category == "books" || category == "electronics" || category == "furniture" || category == "clothing" {
-        subcategoryLabel.text = subcategoryLabel.text! + " >"
-        subcategoryLabel.isUserInteractionEnabled = true
+    }
+    
+    func setUpTapRecognizerAndDelegates(_ category: String){
+        let labelTap = UITapGestureRecognizer(target: self, action: #selector(subCategoryLabelMoreTapped(_:)))
+        subcategoryLabel.isUserInteractionEnabled = false
+        subcategoryLabel.addGestureRecognizer(labelTap)
+        
+        tableview.delegate = self
+        tableview.dataSource = self
+        categoryCollectionView.delegate = self
+        categoryCollectionView.dataSource = self
+        
+        if category == "books" {
+            classesCollectionView.dataSource = self
+            classesCollectionView.delegate = self
+            categoryCollectionView.isHidden = false
+        } else {
+            classesCollectionView.isHidden = true
+            popularclassLabel.isHidden = true
         }
     }
     
+    //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let category = category, let subcategory = selectedSubcategory else {return}
+        
         if segue.identifier == "toSecond" {
-            guard let destinationVC = segue.destination as? ShopCollectionViewController, let subcategory = selectedSubcategory else {return}
+            guard let destinationVC = segue.destination as? ShopCollectionViewController else {return}
             destinationVC.category = category
             destinationVC.subcategory = subcategory
         }
-     
+        
         if segue.identifier == "toClassNumbers" {
-            guard let destinationVC = segue.destination as? ClassesTableViewController, let subcategory = selectedSubcategory else {return}
+            guard let destinationVC = segue.destination as? ClassesTableViewController else {return}
+            //FIXME
+            //FETCH BOOKS AND CLASS NUMBERS
             var classNumbers: [String] = []
             var booksInDepartment: [Listing] = []
-            
+            //FIXME SUBSUB LISTINGS IN SUBCATEGORY
             for listing in ListingController.shared.currentCategoryLIstings {
                 if listing.subcategory == subcategory {
                     if !classNumbers.contains(listing.subsubCategory) {
@@ -127,7 +140,7 @@ class FirstSubcategoryViewController: UIViewController {
         }
         
         if segue.identifier == "toMore"{
-            guard let desinationVC = segue.destination as? MoreSubcategoriesTableViewController, let category = category else {return}
+            guard let desinationVC = segue.destination as? MoreSubcategoriesTableViewController else {return}
             desinationVC.category = category
             switch category {
             case "books":
@@ -175,7 +188,6 @@ extension FirstSubcategoryViewController: UICollectionViewDelegate, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("tapped")
         if collectionView == categoryCollectionView {
             if category == "books"{
                 selectedSubcategory = subcategories[indexPath.row]
@@ -185,11 +197,12 @@ extension FirstSubcategoryViewController: UICollectionViewDelegate, UICollection
                 performSegue(withIdentifier: "toSecond", sender: self)
             }
         } else {
-           performSegue(withIdentifier: "toSecond", sender: self)
+            performSegue(withIdentifier: "toSecond", sender: self)
         }
     }
 }
 
+//Table View delegate and data source funcs
 extension FirstSubcategoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         subcategories.count
@@ -197,6 +210,7 @@ extension FirstSubcategoryViewController: UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "subSwipeCell", for: indexPath)
+        //FIXME: MAKE CELL COLLECITONTABLEVIEWCELL
         cell.textLabel?.text = subcategories[indexPath.row]
         return cell
     }
@@ -204,5 +218,4 @@ extension FirstSubcategoryViewController: UITableViewDelegate, UITableViewDataSo
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100.0
     }
-    
 }
