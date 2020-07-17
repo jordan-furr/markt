@@ -10,13 +10,14 @@ import UIKit
 
 class CollectionTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
+    //FILLED WITH DUMMY VALUES
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionViewOnCell.dequeueReusableCell(withReuseIdentifier: "listingCell", for: indexPath as IndexPath) as! ListingPrevCollectionViewCell
-        let listing = Listing(title: "test", subcategory: "MATH", subsubCategory: "116", price: 3.45, description: "", ownerUID: UserController.shared.currentUser!.uid, iconPhotoID: "", category: "books")
+        let listing = Listing(title: "testing", subcategory: "MATH", subsubCategory: "116", price: 3.45, description: "", ownerUID: UserController.shared.currentUser!.uid, category: "books")
         
         if indexPath.row % 2 == 0 {
             listing.imageURLS = ["https://firebasestorage.googleapis.com/v0/b/markt-246fa.appspot.com/o/7CbokXFlX5Q5TH22tT0BRymZcqC2%2F2371F504-ACDA-46BD-BA4F-E11D120D6E9F%2F208794C7-BD10-4531-8BE5-2D8E314B6648?alt=media&token=de3d0f5f-7607-4f8e-bc1a-d04eabe7167d"]
@@ -29,7 +30,7 @@ class CollectionTableViewCell: UITableViewCell, UICollectionViewDelegate, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 110, height: 140)
+        return CGSize(width: 140, height: 180)
     }
     
     var collectionViewOffset: CGFloat {
@@ -53,7 +54,15 @@ class CollectionTableViewCell: UITableViewCell, UICollectionViewDelegate, UIColl
         super.layoutSubviews()
         backgroundColor = .clear
         collectionViewOnCell.backgroundColor = .clear
+//        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 8, bottom: 10, right: 8))
+//        contentView.layer.cornerRadius = 8
+//        layer.masksToBounds = false
+//        layer.shadowOpacity = 0.23
+//        layer.shadowRadius = 3
+//        layer.shadowOffset = CGSize(width: 0, height: 0)
+//        layer.shadowColor = UIColor.black.cgColor
     }
+    
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

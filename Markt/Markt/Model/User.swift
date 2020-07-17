@@ -14,7 +14,6 @@ class User: Codable {
     enum CodingKeys: String, CodingKey {
         case uid, email, firstName, lastName, campusLocation, myListings, savedListings, dropOff
     }
-    
     var uid: String
     var email: String
     var firstName: String

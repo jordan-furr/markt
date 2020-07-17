@@ -10,12 +10,15 @@ import UIKit
 
 class CreateListingViewController: UIViewController {
     
+    //MARK: - Properties
     var category: String?
     
+    //MARK: - Life Cycle Funcs
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
+    //MARK: IB Actions
     @IBAction func booksTapped(_ sender: Any) {
         self.category = "books"
         self.performSegue(withIdentifier: "toExtras", sender: self)
@@ -45,9 +48,9 @@ class CreateListingViewController: UIViewController {
         self.performSegue(withIdentifier: "toExtras", sender: self)
     }
     
+    //MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let category = category else {return}
-        
         if segue.identifier == "toExtras" {
             let vc = segue.destination as! ExtraSubclassDetailsViewController
             vc.category = category

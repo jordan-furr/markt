@@ -10,61 +10,71 @@ import CodableFirebase
 import UIKit
 
 class ListingDetailViewController: UIViewController {
-
+    
     //MARK: - IB OUTLETS
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var subtitleLabel: UILabel!
-    @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var dropOffLabel: UILabel!
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var priceView: UILabel!
-    @IBOutlet weak var descriptionTextView: UITextView!
-    @IBOutlet weak var messageTextField: UITextField!
-    @IBOutlet weak var submitButton: UIButton!
-    @IBOutlet weak var heartButton: UIButton!
-    @IBOutlet weak var submitView: UIView!
-    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel! ; @IBOutlet weak var subtitleLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel! ; @IBOutlet weak var dropOffLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView! ; @IBOutlet weak var priceView: UILabel!
+    @IBOutlet weak var descriptionTextView: UITextView! ; @IBOutlet weak var messageTextField: UITextField!
+    @IBOutlet weak var submitButton: UIButton! ; @IBOutlet weak var heartButton: UIButton!
+    @IBOutlet weak var submitView: UIView! ; @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var moreButton: UIButton!
     
-    
+    //MARK: - Properties
     var listing: Listing?
     
+    //MARK: - Life Cycle Functions
     override func viewWillAppear(_ animated: Bool) {
         setUpViews()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-    
     }
     
+    //MARK: IB ACTIONS
+    @IBAction func submitTapped(_ sender: Any) {
+        messageTextField.text = ""
+    }
+    
+    @IBAction func heartTapped(_ sender: Any) {
+        print("tapepd heart")
+        guard let listing = listing else {return}
+        if heartButton.backgroundColor == .red {
+            heartButton.backgroundColor = .white
+            UserController.shared.unSaveListing(listingID: listing.uid)
+        } else {
+            heartButton.backgroundColor = .red
+            UserController.shared.saveListing(listingID: listing.uid)
+        }
+    }
+    
+    //MARK: - HELPERS
     func setUpViews(){
         guard let listing = listing, let user = UserController.shared.currentUser else {return}
-        dateLabel.isHidden = true
-        if listing.ownerUID == user.uid {
-           heartButton.isHidden = true
-            submitView.isHidden = true
-            moreButton.isHidden = true
-        }
-        if listing.category == "tickets" || listing.category == "housing" {
-            dateLabel.isHidden = false
-            let df = DateFormatter()
-            df.dateFormat = "yyyy-MM-dd"
-                ListingController.shared.fetchDate(listingUID: listing.uid, completion: { (result) in
-                switch result {
-                    case .success(let date):
-                        guard let date = date else {return}
-                        let dateString = df.string(from: date)
-                        if listing.category == "housing" {
-                            self.dateLabel.text = "Available: " + dateString
-                        } else {
-                             self.dateLabel.text = "Game Date: " + dateString
-                    }
-                case .failure(let err):
-                    print(err.localizedDescription)
-                }
-            })
-        }
+        if listing.ownerUID == user.uid {setUpForListingOwnedByUser()}
         
+        setInteractionUISpecifics(listing, user)
+        imageView.loadImageUsingCacheWithUrlString(urlString: listing.imageURLS.first! as NSString)
+
+        switch listing.category {
+        case "books":
+            subtitleLabel.text = listing.subcategory + " " + listing.subsubCategory
+        case "tickets":
+            dateLabel.isHidden = false
+            setDateLabelWithListingID(listing: listing)
+            titleLabel.text = listing.subsubCategory + " " + listing.subcategory
+        case "housing":
+            dateLabel.isHidden = false
+            setDateLabelWithListingID(listing: listing)
+        case "clothing":
+            subtitleLabel.text = listing.subcategory + " " + listing.subsubCategory
+        default:
+            break
+        }
+    }
+    
+    func setInteractionUISpecifics(_ listing: Listing, _ user: User){
+        dateLabel.isHidden = true
         descriptionTextView.isEditable = false
         descriptionTextView.isSelectable = false
         descriptionTextView.text = listing.description
@@ -75,33 +85,11 @@ class ListingDetailViewController: UIViewController {
         locationLabel.layer.cornerRadius = 8
         dropOffLabel.layer.cornerRadius = 8
         dropOffLabel.addDropOffColoringAndText(user: user)
-        imageView.loadImageUsingCacheWithUrlString(urlString: listing.imageURLS.first! as NSString)
-        
-        if listing.category == "books" || listing.category == "clothing" {
-            subtitleLabel.text = listing.subcategory + " " + listing.subsubCategory
-        }
-        if listing.category == "tickets"{
-            titleLabel.text = listing.subsubCategory + " " + listing.subcategory
-        }
     }
-    
-    
-    @IBAction func submitTapped(_ sender: Any) {
-        messageTextField.text = ""
+    func setUpForListingOwnedByUser(){
+        heartButton.isHidden = true
+        submitView.isHidden = true
+        moreButton.isHidden = true
     }
-    
-    @IBAction func heartTapped(_ sender: Any) {
-        print("tapepd heart")
-        guard let listing = listing else {return}
-        
-        if heartButton.backgroundColor == .red {
-            heartButton.backgroundColor = .white
-            UserController.shared.unSaveListing(listingID: listing.uid)
-        } else {
-            heartButton.backgroundColor = .red
-            UserController.shared.saveListing(listingID: listing.uid)
-        }
-    }
-    
 }
 

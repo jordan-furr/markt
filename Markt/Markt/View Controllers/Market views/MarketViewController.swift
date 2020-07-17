@@ -82,6 +82,6 @@ extension MarketViewController: UICollectionViewDataSource, UICollectionViewDele
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 85, height: 85)
+        return CGSize(width: 72, height: 72)
     }
 }

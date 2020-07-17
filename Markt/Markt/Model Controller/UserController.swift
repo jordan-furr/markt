@@ -34,7 +34,6 @@ class UserController {
     
     var currentUser: User?
     
-    
     func saveListing(listingID: String){
         guard let user = currentUser else {return}
            let userDoc = usersRef.document(user.uid)
@@ -101,24 +100,20 @@ class UserController {
         self.updatedUser()
     }
     
-    func updateUserInfo(uid: String, email: String, firstName: String, lastName: String, myListings: [String], savedListings: [String], dropOff: Bool, campusLocation: Int, completion: @escaping (Result<User?, UserError>) -> Void) {
+    func updateUserInfo(uid: String, email: String, firstName: String, lastName: String, dropOff: Bool, campusLocation: Int) {
         let userDoc = usersRef.document(uid)
         let data = [
             "\(UserKeys.firstKey)" : "\(firstName)",
             "\(UserKeys.lastKey)" : "\(lastName)",
             "\(UserKeys.uidKey)" : "\(uid)",
-            "\(UserKeys.myListings)" : myListings as [String],
-            "\(UserKeys.savedListings)" : savedListings as [String],
             "\(UserKeys.dropOffKey)" : dropOff,
             "\(UserKeys.campusLocationKey)" : campusLocation as Int
             ] as [String : Any]
         userDoc.setData(data, merge: true) { (error) in
-            if let error = error {
-                return completion(.failure(.firebaseError(error)))
-            } else {
-                let updatedUser = User(email: email, firstName: firstName, lastName: lastName, uid: uid, myListings: myListings, savedListings: savedListings)
-                self.currentUser = updatedUser
-                return completion(.success(updatedUser))
+            if let error = error { print(error) }
+            else {
+                print("success updating user")
+                self.updatedUser()
             }
         }
     }
@@ -139,8 +134,6 @@ class UserController {
                }
            }
        }
-    
-    
     
     func updatedUser() {
         self.fetchCurrentUser { (result) in
