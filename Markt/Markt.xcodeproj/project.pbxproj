@@ -15,6 +15,8 @@
 		C51426C224A90564002F58E6 /* ListingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51426C124A90564002F58E6 /* ListingDetailViewController.swift */; };
 		C51426CA24AA9AFA002F58E6 /* ExtraSubclassDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51426C924AA9AFA002F58E6 /* ExtraSubclassDetailsViewController.swift */; };
 		C52BD57924C202EE00C420FF /* InfoStringArrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52BD57824C202EE00C420FF /* InfoStringArrays.swift */; };
+		C52BD57B24C219EA00C420FF /* ListingDetail+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52BD57A24C219EA00C420FF /* ListingDetail+Extensions.swift */; };
+		C52BD57D24C21DE600C420FF /* ExtraSubclassVC+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52BD57C24C21DE600C420FF /* ExtraSubclassVC+Extensions.swift */; };
 		C535BF3B24AE372A00F85D8A /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C535BF3A24AE372A00F85D8A /* CategoryCollectionViewCell.swift */; };
 		C54949D524904F2600B469F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54949D424904F2600B469F6 /* AppDelegate.swift */; };
 		C54949D724904F2600B469F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54949D624904F2600B469F6 /* SceneDelegate.swift */; };
@@ -69,6 +71,8 @@
 		C51426C124A90564002F58E6 /* ListingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingDetailViewController.swift; sourceTree = "<group>"; };
 		C51426C924AA9AFA002F58E6 /* ExtraSubclassDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraSubclassDetailsViewController.swift; sourceTree = "<group>"; };
 		C52BD57824C202EE00C420FF /* InfoStringArrays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoStringArrays.swift; sourceTree = "<group>"; };
+		C52BD57A24C219EA00C420FF /* ListingDetail+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListingDetail+Extensions.swift"; sourceTree = "<group>"; };
+		C52BD57C24C21DE600C420FF /* ExtraSubclassVC+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExtraSubclassVC+Extensions.swift"; sourceTree = "<group>"; };
 		C535BF3A24AE372A00F85D8A /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		C54949D124904F2600B469F6 /* Markt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Markt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C54949D424904F2600B469F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -175,7 +179,9 @@
 			children = (
 				C55904F624A7E9C00007916A /* CreateListingViewController.swift */,
 				C51426C124A90564002F58E6 /* ListingDetailViewController.swift */,
+				C52BD57A24C219EA00C420FF /* ListingDetail+Extensions.swift */,
 				C51426C924AA9AFA002F58E6 /* ExtraSubclassDetailsViewController.swift */,
+				C52BD57C24C21DE600C420FF /* ExtraSubclassVC+Extensions.swift */,
 			);
 			path = "Create views";
 			sourceTree = "<group>";
@@ -243,7 +249,6 @@
 			children = (
 				C54949E9249050E700B469F6 /* User.swift */,
 				C54949ED2490512500B469F6 /* Listing.swift */,
-				C52BD57824C202EE00C420FF /* InfoStringArrays.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -260,6 +265,7 @@
 		C5ED2B1824A29EEA00BB6730 /* Helpers & Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C52BD57824C202EE00C420FF /* InfoStringArrays.swift */,
 				C5ED2B14249FF2B500BB6730 /* UserError.swift */,
 				C5EE4E8224BBB6280033E6BE /* AlertService.swift */,
 				C594CFED24A40388007E832A /* ImageError.swift */,
@@ -433,6 +439,7 @@
 				C54949D524904F2600B469F6 /* AppDelegate.swift in Sources */,
 				C5D6A1E224AECECA00C79FB6 /* FirstSubcategoryTableViewController.swift in Sources */,
 				C552676924BE625F00E964E8 /* ListingPrevCollectionViewCell.swift in Sources */,
+				C52BD57D24C21DE600C420FF /* ExtraSubclassVC+Extensions.swift in Sources */,
 				C5ED2B15249FF2B500BB6730 /* UserError.swift in Sources */,
 				C5ED2B0B249D0BBB00BB6730 /* ContainerViewController.swift in Sources */,
 				C50388ED24B63795004651BF /* CollectionTableViewCell.swift in Sources */,
@@ -462,6 +469,7 @@
 				C54949EA249050E700B469F6 /* User.swift in Sources */,
 				C5BCD7E124B3953D007B00F8 /* SavedListingsViewController.swift in Sources */,
 				C5EE4E8324BBB6280033E6BE /* AlertService.swift in Sources */,
+				C52BD57B24C219EA00C420FF /* ListingDetail+Extensions.swift in Sources */,
 				C5BCD7E324B39BBB007B00F8 /* ClassCollectionViewCell.swift in Sources */,
 				C5ED2B2024A2A08B00BB6730 /* LoginViewController.swift in Sources */,
 				C5ED2B0D249D0BE800BB6730 /* SideMenuTableViewController.swift in Sources */,

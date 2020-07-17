@@ -47,7 +47,6 @@ class ListingController {
             "price" : listing.price as Double,
             "description": listing.description as String,
             "ownerUID" : listing.ownerUID as String,
-            "iconPhotoID" : listing.iconPhotoID as String,
             "uid" : listing.uid as String,
             "category" : listing.category as String,
             "date" : listing.date as Date
