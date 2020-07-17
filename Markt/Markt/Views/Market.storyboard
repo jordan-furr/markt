@@ -331,34 +331,81 @@
         <!--Settings View Controller-->
         <scene sceneID="TMc-UK-s52">
             <objects>
-                <viewController id="2ha-TN-FWb" customClass="SettingsViewController" customModule="Markt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="2ha-TN-FWb" customClass="SettingsViewController" customModule="Markt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EQX-Sh-VfJ">
-                        <rect key="frame" x="0.0" y="0.0" width="342" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="342" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.91980725529999996" green="0.54335944889999999" blue="0.76007172550000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Zf-CQ-orI">
+                                <rect key="frame" x="20" y="24" width="21" height="22"/>
+                                <state key="normal" image="xmark" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="regular"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeTapped:" destination="2ha-TN-FWb" eventType="touchUpInside" id="ShG-Id-Gi4"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0J-3e-fYV">
+                                <rect key="frame" x="121" y="18.5" width="100" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="BRj-vB-dGB" firstAttribute="top" secondItem="5Zf-CQ-orI" secondAttribute="top" constant="20" id="2sz-S5-yuZ"/>
+                            <constraint firstItem="g0J-3e-fYV" firstAttribute="centerX" secondItem="BRj-vB-dGB" secondAttribute="centerX" id="5pg-Jb-wkS"/>
+                            <constraint firstItem="5Zf-CQ-orI" firstAttribute="leading" secondItem="BRj-vB-dGB" secondAttribute="leading" constant="20" id="nCi-70-gG0"/>
+                            <constraint firstItem="g0J-3e-fYV" firstAttribute="centerY" secondItem="5Zf-CQ-orI" secondAttribute="centerY" id="u35-wh-i53"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="BRj-vB-dGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="f74-Yn-dCV"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m0E-PP-e7V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2781.1594202898555" y="1548.8839285714284"/>
+            <point key="canvasLocation" x="2829" y="1560"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="3js-xh-LKI">
             <objects>
-                <viewController id="wJj-E6-PLF" customClass="AboutViewController" customModule="Markt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="wJj-E6-PLF" customClass="AboutViewController" customModule="Markt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dui-gM-NC8">
-                        <rect key="frame" x="0.0" y="0.0" width="342" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="342" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.87409400069999998" green="1" blue="0.28349309750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l30-T5-wNA">
+                                <rect key="frame" x="20" y="24" width="21" height="22"/>
+                                <state key="normal" image="xmark" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="regular"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeTapped:" destination="2ha-TN-FWb" eventType="touchUpInside" id="1Gi-BR-6jr"/>
+                                    <action selector="closeTapped:" destination="wJj-E6-PLF" eventType="touchUpInside" id="5hH-9y-uUs"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="odu-xV-GmE">
+                                <rect key="frame" x="134.5" y="18.5" width="73.5" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="odu-xV-GmE" firstAttribute="centerY" secondItem="l30-T5-wNA" secondAttribute="centerY" id="8v7-zO-Jwc"/>
+                            <constraint firstItem="odu-xV-GmE" firstAttribute="centerX" secondItem="Ywl-Pn-o80" secondAttribute="centerX" id="FBA-gP-Z5J"/>
+                            <constraint firstItem="l30-T5-wNA" firstAttribute="leading" secondItem="Ywl-Pn-o80" secondAttribute="leading" constant="20" id="j7H-cz-1p3"/>
+                            <constraint firstItem="Ywl-Pn-o80" firstAttribute="top" secondItem="l30-T5-wNA" secondAttribute="top" constant="20" id="otD-Ck-CrT"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Ywl-Pn-o80"/>
                     </view>
                     <navigationItem key="navigationItem" id="DNG-Wt-7Lv"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pSL-Wa-PPM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3452.1739130434785" y="1551.5625"/>
+            <point key="canvasLocation" x="3489.8550724637685" y="1559.5982142857142"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3Sq-x7-7tu">

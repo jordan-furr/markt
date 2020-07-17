@@ -9,7 +9,7 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-
+    
     
     //MARK: - IB OUTLETS
     @IBOutlet weak var nameLabel: UILabel!
@@ -18,22 +18,26 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     
+    //MARK: - PROPERTIES
     var userListings: [Listing] = []
     
+    
+    //MARK: - Life Cycle Functions
     override func viewWillAppear(_ animated: Bool) {
         setUpViews()
-        collectionView.reloadData()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        self.collectionView.register(UINib(nibName: "ListingPrevCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "listingCell")
     }
     
+    
+    //MARK: - Helper funcs
     func setUpViews() {
         guard let user = UserController.shared.currentUser else {return}
-        print(userListings.count)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(UINib(nibName: "ListingPrevCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "listingCell")
+        collectionView.reloadData()
         userListings = ListingController.shared.currentUserLiveListings
         nameLabel.text = user.firstName + " " + user.lastName
         locationLabel.layer.cornerRadius = 8
@@ -42,8 +46,9 @@ class ProfileViewController: UIViewController {
         dropOffBool.addDropOffColoringAndText(user: user)
     }
     
+    
+    //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if let cell = sender as? ListingPrevCollectionViewCell,
             let indexPath = self.collectionView.indexPath(for: cell) {
             let vc = segue.destination as! ListingDetailViewController
@@ -55,15 +60,15 @@ class ProfileViewController: UIViewController {
     @IBAction func exitProfile(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
 }
 
+
+//MARK: - Collection View
 
 extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return userListings.count
     }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "listingCell", for: indexPath) as? ListingPrevCollectionViewCell else {return UICollectionViewCell()}
         let listing = userListings[indexPath.row]
@@ -71,15 +76,13 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-              return CGSize(width: 110, height: 140)
-          }
+        return CGSize(width: 110, height: 140)
+    }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! ListingPrevCollectionViewCell
         performSegue(withIdentifier: "toListingDetail", sender: cell)
     }
-    
-    
 }
 
 

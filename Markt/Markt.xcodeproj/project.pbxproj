@@ -204,9 +204,9 @@
 		C5BCD7DB24B394D6007B00F8 /* SideMenu Views */ = {
 			isa = PBXGroup;
 			children = (
+				C5ED2B0C249D0BE800BB6730 /* SideMenuTableViewController.swift */,
 				C55904F024A7AB0B0007916A /* ProfileViewController.swift */,
 				C5BCD7DC24B3951D007B00F8 /* SettingsViewController.swift */,
-				C5ED2B0C249D0BE800BB6730 /* SideMenuTableViewController.swift */,
 				C5BCD7DE24B3952B007B00F8 /* AboutViewController.swift */,
 				C5BCD7E024B3953D007B00F8 /* SavedListingsViewController.swift */,
 			);
