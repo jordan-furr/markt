@@ -76,7 +76,7 @@
                                                 </constraints>
                                             </imageView>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dsl-rp-wsx">
-                                                <rect key="frame" x="20" y="266" width="394" height="1309"/>
+                                                <rect key="frame" x="20" y="284" width="394" height="1291"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
                                                     <segue destination="qt2-CF-eBP" kind="embed" id="mMO-xe-uon"/>
@@ -91,7 +91,7 @@
                                             <constraint firstItem="iAx-S6-qfO" firstAttribute="top" secondItem="voE-m9-yE6" secondAttribute="top" id="Hq7-2A-6sf"/>
                                             <constraint firstAttribute="trailing" secondItem="Dsl-rp-wsx" secondAttribute="trailing" id="Ju3-Sw-X1L"/>
                                             <constraint firstAttribute="trailing" secondItem="iAx-S6-qfO" secondAttribute="trailing" id="Vf1-BV-rdw"/>
-                                            <constraint firstItem="Dsl-rp-wsx" firstAttribute="top" secondItem="Zzb-Y2-jhy" secondAttribute="bottom" id="Zrr-t0-ZwY"/>
+                                            <constraint firstItem="Dsl-rp-wsx" firstAttribute="top" secondItem="Zzb-Y2-jhy" secondAttribute="bottom" constant="18" id="Zrr-t0-ZwY"/>
                                             <constraint firstAttribute="trailing" secondItem="Zzb-Y2-jhy" secondAttribute="trailing" id="bQd-Wn-TfG"/>
                                             <constraint firstAttribute="height" constant="1700" id="drC-Cy-25u"/>
                                             <constraint firstItem="xjM-l2-ZHe" firstAttribute="centerX" secondItem="voE-m9-yE6" secondAttribute="centerX" id="jaZ-DQ-GoT"/>
@@ -173,8 +173,8 @@
         <scene sceneID="QBb-24-UIP">
             <objects>
                 <tableViewController id="qt2-CF-eBP" customClass="MarketScrollsTableViewController" customModule="Markt" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="r12-qh-qRh">
-                        <rect key="frame" x="0.0" y="0.0" width="394" height="1309"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="r12-qh-qRh">
+                        <rect key="frame" x="0.0" y="0.0" width="394" height="1291"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -193,11 +193,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="9mk-2k-OWo" customClass="ProfileViewController" customModule="Markt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GGI-X3-xWT">
-                        <rect key="frame" x="0.0" y="0.0" width="342" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="342" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DEt-yJ-a5s">
-                                <rect key="frame" x="0.0" y="351" width="342" height="457"/>
+                                <rect key="frame" x="0.0" y="364.5" width="342" height="497.5"/>
                                 <color key="backgroundColor" red="0.95294123890000004" green="0.95294123890000004" blue="0.95294123890000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HCQ-01-Dna">
                                     <size key="itemSize" width="120" height="120"/>
@@ -208,7 +208,7 @@
                                 <cells/>
                             </collectionView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="m7Z-kl-Nmg">
-                                <rect key="frame" x="20.5" y="134.5" width="301" height="76.5"/>
+                                <rect key="frame" x="20.5" y="143" width="301" height="76.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seller Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Gm-3Q-aoN">
                                         <rect key="frame" x="0.0" y="0.0" width="301" height="16.5"/>
@@ -228,7 +228,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gyY-h5-fGx">
-                                <rect key="frame" x="20.5" y="236" width="150.5" height="90"/>
+                                <rect key="frame" x="20.5" y="249.5" width="150.5" height="90"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Campus Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yFU-c8-cRp">
                                         <rect key="frame" x="0.0" y="0.0" width="150.5" height="18"/>
@@ -260,10 +260,21 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tg1-fm-4IX">
-                                <rect key="frame" x="20.5" y="99.5" width="301" height="30"/>
+                                <rect key="frame" x="20.5" y="108" width="301" height="30"/>
                                 <state key="normal" title="edit profile &gt;"/>
                                 <connections>
                                     <segue destination="b5T-mF-Zvw" kind="show" id="i78-lp-rWR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egN-8l-6ZP">
+                                <rect key="frame" x="57" y="59" width="21" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="xmark" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="regular"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeTapped:" destination="2ha-TN-FWb" eventType="touchUpInside" id="Oy1-IU-SbA"/>
+                                    <action selector="exitProfile:" destination="9mk-2k-OWo" eventType="touchUpInside" id="C3p-e7-CB5"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -319,7 +330,7 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="b5T-mF-Zvw" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oOy-Mk-Xsc">
-                        <rect key="frame" x="0.0" y="0.0" width="342" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="342" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="49S-gl-rbp"/>
@@ -469,6 +480,7 @@
                             <outletCollection property="gestureRecognizers" destination="IiC-TQ-z2b" appends="YES" id="ZOu-2a-s9g"/>
                         </connections>
                     </view>
+                    <navigationItem key="navigationItem" id="Vtw-DL-KE3"/>
                     <connections>
                         <outlet property="marketContainer" destination="Acc-cT-19b" id="Ylw-Pg-T7e"/>
                         <outlet property="sideMenuConstraint" destination="CVR-5k-UGI" id="KUY-9k-GHU"/>
@@ -577,9 +589,9 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <segue destination="rLz-Ok-bul" kind="show" identifier="ShowProfile" id="WJl-H1-ON2"/>
                         <segue destination="2ha-TN-FWb" kind="show" identifier="ShowSettings" id="1b6-E0-4iG"/>
                         <segue destination="wJj-E6-PLF" kind="show" identifier="ShowAbout" id="TSm-7k-4pq"/>
+                        <segue destination="9mk-2k-OWo" kind="show" identifier="ShowProfile" id="i51-o6-Qti"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mzA-CD-QYw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -625,25 +637,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4fw-Jw-j7G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2359" y="-206"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="WMN-KG-PN1">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="rLz-Ok-bul" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="8sf-fn-Idn"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="stO-6i-r7Z">
-                        <rect key="frame" x="0.0" y="44" width="342" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="9mk-2k-OWo" kind="relationship" relationship="rootViewController" id="GIq-Db-9ly"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cjh-lb-KVj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1506" y="1552"/>
         </scene>
     </scenes>
     <resources>

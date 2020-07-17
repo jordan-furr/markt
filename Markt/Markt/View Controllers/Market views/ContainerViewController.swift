@@ -29,12 +29,17 @@ class ContainerViewController: UIViewController {
     
     //MARK: Helpers
     @objc func toggleSideMenu(){
-        if sideMenuOpen { sideMenuOpen = false; sideMenuConstraint.constant = -342
-            marketContainer.isUserInteractionEnabled = true }
-        else { sideMenuOpen = true; sideMenuConstraint.constant = 0;
-            marketContainer.isUserInteractionEnabled = false }
-        
-        UIView.animate(withDuration: 0.3){ self.view.layoutIfNeeded()}
+        if sideMenuOpen {
+            sideMenuOpen = false;
+            sideMenuConstraint.constant = -342
+            marketContainer.isUserInteractionEnabled = true
+        } else {
+            sideMenuConstraint.constant = 0;
+            marketContainer.isUserInteractionEnabled = false
+            sideMenuOpen = true;
+        }
+        UIView.animate(withDuration: 0.3){ self.view.layoutIfNeeded()
+        }
     }
     
     func setUp(){
