@@ -11,9 +11,22 @@ import FirebaseAuth
 
 class LaunchViewController: UIViewController {
     
+    //MARK: - Life Cycle
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        setUpViews()
+    }
     override func viewDidLoad() {
-        super.viewDidLoad()
-    //  UserController.shared.signoutCurrentUser()
+        super.viewDidLoad() //  UserController.shared.signoutCurrentUser()
+        checkForUserAndSegue()
+    }
+    
+    //MARK: - Helpers
+    func setUpViews(){
+        //add markt logo
+    }
+    
+    func checkForUserAndSegue(){
         DispatchQueue.main.async {
             if Auth.auth().currentUser != nil {
                 UserController.shared.fetchCurrentUser { (result) in
