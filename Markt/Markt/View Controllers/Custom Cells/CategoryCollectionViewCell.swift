@@ -37,6 +37,6 @@ class CategoryCollectionViewCell: UICollectionViewCell {
            layer.shadowOpacity = 0.23
            layer.shadowRadius = 4
            layer.shadowOffset = CGSize(width: 0, height: 0)
-           layer.shadowColor = UIColor.yellow.cgColor
+           layer.shadowColor = UIColor.black.cgColor
        }
 }

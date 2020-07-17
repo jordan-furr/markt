@@ -23,7 +23,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="5st-Vs-8g0">
-                        <rect key="frame" x="30" y="63" width="290" height="137"/>
+                        <rect key="frame" x="25" y="63" width="295" height="137"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BZq-YT-LSy">
                             <size key="itemSize" width="122" height="128"/>
@@ -44,7 +44,7 @@
                     <constraint firstAttribute="trailing" secondItem="5st-Vs-8g0" secondAttribute="trailing" id="7Zn-AY-xV0"/>
                     <constraint firstItem="5st-Vs-8g0" firstAttribute="top" secondItem="CMn-vX-5nh" secondAttribute="bottom" constant="12" id="7qQ-Xz-nrZ"/>
                     <constraint firstItem="CMn-vX-5nh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="9FZ-Xu-adg"/>
-                    <constraint firstItem="5st-Vs-8g0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="VCe-tM-Krl"/>
+                    <constraint firstItem="5st-Vs-8g0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="VCe-tM-Krl"/>
                     <constraint firstItem="CMn-vX-5nh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="xWA-vB-b4p"/>
                 </constraints>
             </tableViewCellContentView>
