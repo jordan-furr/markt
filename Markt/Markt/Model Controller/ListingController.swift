@@ -74,7 +74,6 @@ class ListingController {
             "\(ListingKeys.subsubcategoryKey)" : listing.subsubCategory as String,
             "\(ListingKeys.priceKey)" : listing.price as Double,
             "\(ListingKeys.descriptionKey)" : listing.description as String,
-            "\(ListingKeys.iconPhotoIDKey)" : listing.iconPhotoID as String,
             "\(ListingKeys.categoryKey)" : listing.category as  String
             ] as [String : Any]
         listingDoc.setData(data, merge: true) { (error) in
@@ -154,7 +153,7 @@ class ListingController {
                 }
             }
         }
-        print(listings.count)
+        print("fetch \(listings.count) total listings!!!!")
         allListings = listings
         return completion(.success(allListings))
     }
@@ -183,13 +182,9 @@ class ListingController {
                 guard let snapshot = snapshot else { return completion(.failure(.noListingFound)) }
                 guard let data = snapshot.data() else { return completion(.failure(.noRecordFound))}
                 let listing = try! FirestoreDecoder().decode(Listing.self, from: data)
-                
-                listing.images = []
                 for imageURL in listing.imageURLS {
                     listing.loadImageUsingCacheWithURLString(urlString: imageURL as NSString)
                 }
-                
-                
                 return completion(.success(listing))
             } else {
                 print("snapshot is nil")

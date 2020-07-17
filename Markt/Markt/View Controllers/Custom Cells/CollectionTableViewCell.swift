@@ -10,13 +10,14 @@ import UIKit
 
 class CollectionTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
+    //FILLED WITH DUMMY VALUES
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionViewOnCell.dequeueReusableCell(withReuseIdentifier: "listingCell", for: indexPath as IndexPath) as! ListingPrevCollectionViewCell
-        let listing = Listing(title: "test", subcategory: "MATH", subsubCategory: "116", price: 3.45, description: "", ownerUID: UserController.shared.currentUser!.uid, iconPhotoID: "", category: "books")
+        let listing = Listing(title: "testing", subcategory: "MATH", subsubCategory: "116", price: 3.45, description: "", ownerUID: UserController.shared.currentUser!.uid, category: "books")
         
         if indexPath.row % 2 == 0 {
             listing.imageURLS = ["https://firebasestorage.googleapis.com/v0/b/markt-246fa.appspot.com/o/7CbokXFlX5Q5TH22tT0BRymZcqC2%2F2371F504-ACDA-46BD-BA4F-E11D120D6E9F%2F208794C7-BD10-4531-8BE5-2D8E314B6648?alt=media&token=de3d0f5f-7607-4f8e-bc1a-d04eabe7167d"]
