@@ -10,7 +10,7 @@ import CodableFirebase
 import UIKit
 
 class ListingDetailViewController: UIViewController {
-
+    
     //MARK: - IB OUTLETS
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
@@ -26,7 +26,7 @@ class ListingDetailViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var moreButton: UIButton!
     
-    
+    //MARK: - Listings
     var listing: Listing?
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,37 +34,54 @@ class ListingDetailViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-    
     }
     
+    //MARK: IB ACTIONS
+    @IBAction func submitTapped(_ sender: Any) {
+        messageTextField.text = ""
+    }
+    
+    @IBAction func heartTapped(_ sender: Any) {
+        print("tapepd heart")
+        guard let listing = listing else {return}
+        
+        if heartButton.backgroundColor == .red {
+            heartButton.backgroundColor = .white
+            UserController.shared.unSaveListing(listingID: listing.uid)
+        } else {
+            heartButton.backgroundColor = .red
+            UserController.shared.saveListing(listingID: listing.uid)
+        }
+    }
+    
+    //MARK: - HELPERS
     func setUpViews(){
         guard let listing = listing, let user = UserController.shared.currentUser else {return}
+        
         dateLabel.isHidden = true
         if listing.ownerUID == user.uid {
-           heartButton.isHidden = true
-            submitView.isHidden = true
-            moreButton.isHidden = true
+            setUpForListingOwnedByUser()
         }
+        //FIXME ADD SWITCH STATEMENT
         if listing.category == "tickets" || listing.category == "housing" {
             dateLabel.isHidden = false
             let df = DateFormatter()
             df.dateFormat = "yyyy-MM-dd"
-                ListingController.shared.fetchDate(listingUID: listing.uid, completion: { (result) in
+            ListingController.shared.fetchDate(listingUID: listing.uid, completion: { (result) in
                 switch result {
-                    case .success(let date):
-                        guard let date = date else {return}
-                        let dateString = df.string(from: date)
-                        if listing.category == "housing" {
-                            self.dateLabel.text = "Available: " + dateString
-                        } else {
-                             self.dateLabel.text = "Game Date: " + dateString
+                case .success(let date):
+                    guard let date = date else {return}
+                    let dateString = df.string(from: date)
+                    if listing.category == "housing" {
+                        self.dateLabel.text = "Available: " + dateString
+                    } else {
+                        self.dateLabel.text = "Game Date: " + dateString
                     }
                 case .failure(let err):
                     print(err.localizedDescription)
                 }
             })
         }
-        
         descriptionTextView.isEditable = false
         descriptionTextView.isSelectable = false
         descriptionTextView.text = listing.description
@@ -85,23 +102,10 @@ class ListingDetailViewController: UIViewController {
         }
     }
     
-    
-    @IBAction func submitTapped(_ sender: Any) {
-        messageTextField.text = ""
+    func setUpForListingOwnedByUser(){
+        heartButton.isHidden = true
+        submitView.isHidden = true
+        moreButton.isHidden = true
     }
-    
-    @IBAction func heartTapped(_ sender: Any) {
-        print("tapepd heart")
-        guard let listing = listing else {return}
-        
-        if heartButton.backgroundColor == .red {
-            heartButton.backgroundColor = .white
-            UserController.shared.unSaveListing(listingID: listing.uid)
-        } else {
-            heartButton.backgroundColor = .red
-            UserController.shared.saveListing(listingID: listing.uid)
-        }
-    }
-    
 }
 
