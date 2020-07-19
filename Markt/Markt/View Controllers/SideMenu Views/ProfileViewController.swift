@@ -56,10 +56,6 @@ class ProfileViewController: UIViewController {
             vc.listing = listing
         }
     }
-    
-    @IBAction func exitProfile(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
 }
 
 

@@ -38,7 +38,8 @@ class ContainerViewController: UIViewController {
             marketContainer.isUserInteractionEnabled = false
             sideMenuOpen = true;
         }
-        UIView.animate(withDuration: 0.3){ self.view.layoutIfNeeded()
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
         }
     }
     
