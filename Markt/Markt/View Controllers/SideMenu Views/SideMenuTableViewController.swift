@@ -33,7 +33,7 @@ class SideMenuTableViewController: UITableViewController {
              performSegue(withIdentifier: "ShowAbout", sender: self)
         default: break
         }
-        // NotificationCenter.default.post(name: NSNotification.Name("ToggleSideMenu"), object: nil)
+        //NotificationCenter.default.post(name: NSNotification.Name("ToggleSideMenu"), object: nil)
     }
     
     
