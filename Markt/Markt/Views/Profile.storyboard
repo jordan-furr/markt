@@ -16,27 +16,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DEt-yJ-a5s">
-                                <rect key="frame" x="0.0" y="379" width="414" height="483"/>
+                                <rect key="frame" x="0.0" y="328" width="414" height="534"/>
                                 <color key="backgroundColor" red="0.95294123890000004" green="0.95294123890000004" blue="0.95294123890000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HCQ-01-Dna">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="3" minimumInteritemSpacing="3" id="HCQ-01-Dna">
                                     <size key="itemSize" width="120" height="120"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
+                                    <inset key="sectionInset" minX="7" minY="10" maxX="7" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="m7Z-kl-Nmg">
-                                <rect key="frame" x="25" y="151.5" width="364" height="77"/>
+                                <rect key="frame" x="25" y="143" width="364" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seller Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Gm-3Q-aoN">
-                                        <rect key="frame" x="0.0" y="0.0" width="364" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="qey-JZ-o9Y">
-                                        <rect key="frame" x="0.0" y="27" width="364" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="364" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="V8O-B7-bd0"/>
                                         </constraints>
@@ -47,7 +41,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gyY-h5-fGx">
-                                <rect key="frame" x="25" y="264" width="182" height="90"/>
+                                <rect key="frame" x="25" y="213" width="182" height="90"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Campus Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yFU-c8-cRp">
                                         <rect key="frame" x="0.0" y="0.0" width="182" height="18"/>
@@ -79,7 +73,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tg1-fm-4IX">
-                                <rect key="frame" x="25" y="116.5" width="364" height="30"/>
+                                <rect key="frame" x="25" y="93" width="364" height="30"/>
                                 <state key="normal" title="edit profile &gt;"/>
                                 <connections>
                                     <segue destination="b5T-mF-Zvw" kind="show" id="i78-lp-rWR"/>
@@ -89,18 +83,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="tg1-fm-4IX" firstAttribute="leading" secondItem="m7Z-kl-Nmg" secondAttribute="leading" id="37X-tF-wjj"/>
-                            <constraint firstItem="m7Z-kl-Nmg" firstAttribute="centerY" secondItem="2Pu-re-6I8" secondAttribute="centerY" multiplier="0.4" id="6Nw-Y7-jn9"/>
                             <constraint firstItem="2Pu-re-6I8" firstAttribute="bottom" secondItem="DEt-yJ-a5s" secondAttribute="bottom" id="9H0-bF-dZg"/>
-                            <constraint firstItem="m7Z-kl-Nmg" firstAttribute="top" secondItem="tg1-fm-4IX" secondAttribute="bottom" constant="5" id="GRr-fh-DES"/>
+                            <constraint firstItem="m7Z-kl-Nmg" firstAttribute="top" secondItem="tg1-fm-4IX" secondAttribute="bottom" constant="20" id="GRr-fh-DES"/>
                             <constraint firstItem="m7Z-kl-Nmg" firstAttribute="centerX" secondItem="2Pu-re-6I8" secondAttribute="centerX" id="TrI-wB-dvh"/>
                             <constraint firstItem="DEt-yJ-a5s" firstAttribute="top" secondItem="gyY-h5-fGx" secondAttribute="bottom" constant="25" id="Vaf-oo-W3S"/>
                             <constraint firstItem="2Pu-re-6I8" firstAttribute="trailing" secondItem="DEt-yJ-a5s" secondAttribute="trailing" id="Y4o-MB-twJ"/>
                             <constraint firstItem="gyY-h5-fGx" firstAttribute="width" secondItem="qey-JZ-o9Y" secondAttribute="width" multiplier="0.5" id="ZhY-yW-KWl"/>
                             <constraint firstItem="tg1-fm-4IX" firstAttribute="trailing" secondItem="m7Z-kl-Nmg" secondAttribute="trailing" id="e2l-Hl-7PO"/>
-                            <constraint firstItem="gyY-h5-fGx" firstAttribute="centerY" secondItem="2Pu-re-6I8" secondAttribute="centerY" multiplier="0.65" id="eGv-s0-hFY"/>
                             <constraint firstItem="DEt-yJ-a5s" firstAttribute="leading" secondItem="2Pu-re-6I8" secondAttribute="leading" id="gOf-BR-7Y2"/>
                             <constraint firstItem="gyY-h5-fGx" firstAttribute="leading" secondItem="qey-JZ-o9Y" secondAttribute="leading" id="kkd-rx-42L"/>
+                            <constraint firstItem="tg1-fm-4IX" firstAttribute="top" secondItem="2Pu-re-6I8" secondAttribute="top" constant="5" id="mut-ev-wri"/>
                             <constraint firstItem="m7Z-kl-Nmg" firstAttribute="width" secondItem="GGI-X3-xWT" secondAttribute="width" multiplier="0.88" id="s4J-BG-dlL"/>
+                            <constraint firstItem="gyY-h5-fGx" firstAttribute="top" secondItem="m7Z-kl-Nmg" secondAttribute="bottom" constant="20" id="wtd-XC-cL5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2Pu-re-6I8"/>
                     </view>
