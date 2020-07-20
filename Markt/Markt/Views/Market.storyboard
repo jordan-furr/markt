@@ -141,9 +141,7 @@
                             </barButtonItem>
                             <barButtonItem image="square.and.pencil" catalog="system" id="GZW-oN-olf">
                                 <connections>
-                                    <segue destination="I0F-Xv-xGa" kind="popoverPresentation" popoverAnchorBarButtonItem="GZW-oN-olf" id="3ZT-MK-V0t">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <segue destination="I0F-Xv-xGa" kind="show" id="3ZT-MK-V0t"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>

@@ -33,22 +33,13 @@ class ShopViewController: UIViewController {
         navigationItem.title = "Markt"
         if subsubcategory != nil {
             subsubCategoryLabel.text = subsubcategory
-        } else if subcategory != nil {
-            subsubCategoryLabel.text = subcategory
         } else {
-            subsubCategoryLabel.text = category
+            subsubCategoryLabel.text = subcategory
         }
+        
         shopCollectionView.delegate = self
         shopCollectionView.dataSource = self
-        if listings.count == 0 { presentNoListingsAlert()}
         shopCollectionView.register(UINib(nibName: "ListingPrevCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "listingCell")
-    }
-    
-    func presentNoListingsAlert() {
-        let alertController = UIAlertController(title: "Oops!", message: "Looks like there aren't any listings posted here yet!", preferredStyle: .alert)
-        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(defaultAction)
-        present(alertController, animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
