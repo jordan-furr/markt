@@ -10,15 +10,16 @@ import UIKit
 
 class CollectionTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
-    var listings: [Listing] = []
+    var listings: [Listing]?
     //FILLED WITH DUMMY VALUES
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        listings.count
+       // listings!.count
+        10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionViewOnCell.dequeueReusableCell(withReuseIdentifier: "listingCell", for: indexPath as IndexPath) as! ListingPrevCollectionViewCell
-        let listing = listings[indexPath.row]
+        let listing = listings![indexPath.row]
         cell.setListing(listing: listing)
         return cell
     }

@@ -39,7 +39,10 @@ class MarketScrollsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "scrollCell", for: indexPath) as? CollectionTableViewCell else {return UITableViewCell()}
         cell.categoryLabel.text = "All Listings"
-        cell.listings = ListingController.shared.currentUserLiveListings
+        let listing = Listing(title: "test", subcategory: "MATH", subsubCategory: "116", price: 10, description: "", ownerUID: "7CbokXFlX5Q5TH22tT0BRymZcqC2", category: "books")
+        var listings: [Listing] = []
+        listings.append(listing)
+        cell.listings = listings
         return cell
     }
     
