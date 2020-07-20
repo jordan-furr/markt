@@ -99,7 +99,7 @@ class ListingController {
         UserController.shared.deleteListing(listingID: listing.uid)
     }
     
-    func fetchClassesForDepartment(department: String, completion: @escaping (Result<[Int]?, ListingError>) -> Void) {
+    func fetchClassesForDepartment(department: String, completion: @escaping (Result<[String]?, ListingError>) -> Void) {
        // let classNumbers: [Int] = []
        // bookRef.
     }
@@ -143,6 +143,7 @@ class ListingController {
                         switch result {
                         case .success(let listing1):
                             print("success fetching listing")
+                            print(listing1?.title)
                             guard let listing2 = listing1 else {return}
                             listings.append(listing2)
                         case .failure(let error):
