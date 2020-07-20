@@ -131,6 +131,9 @@ class ListingController {
         return listings
     }
     
+    func loadListings(completed: @escaping () -> ()){
+    }
+    
     func fetchAllListings(completion: @escaping (Result<[Listing]?, ListingError>) -> Void) {
         var listings: [Listing] = []
         db.collection("listings").getDocuments { (querySnapshot, error) in
