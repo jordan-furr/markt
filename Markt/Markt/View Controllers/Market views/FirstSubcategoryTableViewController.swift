@@ -113,7 +113,7 @@ class FirstSubcategoryViewController: UIViewController {
         guard let category = category, let subcategory = selectedSubcategory else {return}
         
         if segue.identifier == "toSecond" {
-            guard let destinationVC = segue.destination as? ShopCollectionViewController else {return}
+            guard let destinationVC = segue.destination as? ShopViewController else {return}
             destinationVC.category = category
             destinationVC.subcategory = subcategory
         }

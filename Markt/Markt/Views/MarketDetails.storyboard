@@ -246,7 +246,7 @@
         <!--Shop View Controller-->
         <scene sceneID="s6h-Tg-tnt">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="ZR2-Jg-DrZ" customClass="ShopViewController" customModule="Markt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="shop" modalPresentationStyle="fullScreen" id="ZR2-Jg-DrZ" customClass="ShopViewController" customModule="Markt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MJ2-Vy-rdW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

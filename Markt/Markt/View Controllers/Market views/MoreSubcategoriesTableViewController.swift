@@ -64,7 +64,7 @@ class MoreSubcategoriesTableViewController: UITableViewController {
                     destinationVC.booksInDepartment = booksInDepartment
         }
         if segue.identifier == "toShop"{
-             guard let destinationVC = segue.destination as? ShopCollectionViewController else {return}
+             guard let destinationVC = segue.destination as? ShopViewController else {return}
                 destinationVC.category = category
                 destinationVC.subcategory = subcategory
         }
