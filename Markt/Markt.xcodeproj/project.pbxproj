@@ -45,6 +45,7 @@
 		C5BCD7E524B39BC5007B00F8 /* SubCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BCD7E424B39BC5007B00F8 /* SubCategoryCollectionViewCell.swift */; };
 		C5D6A1E024AECDC000C79FB6 /* MarketDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5D6A1DF24AECDC000C79FB6 /* MarketDetails.storyboard */; };
 		C5D6A1E224AECECA00C79FB6 /* FirstSubcategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D6A1E124AECECA00C79FB6 /* FirstSubcategoryTableViewController.swift */; };
+		C5DAB54724C62979004EE599 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DAB54624C62979004EE599 /* ShopViewController.swift */; };
 		C5E2C92C24C4CE40009128E5 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5E2C92B24C4CE40009128E5 /* Profile.storyboard */; };
 		C5E2C92E24C4CE67009128E5 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5E2C92D24C4CE67009128E5 /* Settings.storyboard */; };
 		C5ED2B09249C445500BB6730 /* MarketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ED2B08249C445500BB6730 /* MarketViewController.swift */; };
@@ -105,6 +106,7 @@
 		C5BCD7E424B39BC5007B00F8 /* SubCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		C5D6A1DF24AECDC000C79FB6 /* MarketDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MarketDetails.storyboard; sourceTree = "<group>"; };
 		C5D6A1E124AECECA00C79FB6 /* FirstSubcategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSubcategoryTableViewController.swift; sourceTree = "<group>"; };
+		C5DAB54624C62979004EE599 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		C5E2C92B24C4CE40009128E5 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		C5E2C92D24C4CE67009128E5 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		C5ED2B08249C445500BB6730 /* MarketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketViewController.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 				C5ED2B0A249D0BBB00BB6730 /* ContainerViewController.swift */,
 				C5D6A1E124AECECA00C79FB6 /* FirstSubcategoryTableViewController.swift */,
 				C506A4BA24AFB93800BB38B2 /* ShopCollectionViewController.swift */,
+				C5DAB54624C62979004EE599 /* ShopViewController.swift */,
 				C5F3034A24B3F10B008FB049 /* ClassesTableViewController.swift */,
 				C5ED2B08249C445500BB6730 /* MarketViewController.swift */,
 				C583BBD824BFF99E0023E810 /* MarketScrollsTableViewController.swift */,
@@ -441,6 +444,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5DAB54724C62979004EE599 /* ShopViewController.swift in Sources */,
 				C55904F324A7DB820007916A /* StyleGuide.swift in Sources */,
 				C5BCD7E524B39BC5007B00F8 /* SubCategoryCollectionViewCell.swift in Sources */,
 				C5ED2B12249FF06200BB6730 /* UserController.swift in Sources */,

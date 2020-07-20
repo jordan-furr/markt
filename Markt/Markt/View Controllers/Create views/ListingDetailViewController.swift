@@ -54,7 +54,11 @@ class ListingDetailViewController: UIViewController {
         if listing.ownerUID == user.uid {setUpForListingOwnedByUser()}
         
         setInteractionUISpecifics(listing, user)
-        imageView.loadImageUsingCacheWithUrlString(urlString: listing.imageURLS.first! as NSString)
+        if listing.imageURLS.count == 0 {
+            imageView.image = UIImage(named: "noImage")
+        } else {
+            imageView.loadImageUsingCacheWithUrlString(urlString: listing.imageURLS.first! as NSString)
+        }
 
         switch listing.category {
         case "books":

@@ -17,10 +17,13 @@ class ShopCollectionViewController: UICollectionViewController, UICollectionView
     
     //MARK: - IB OUTLETS
     
-    
     //MARK: - Life Cycle Functions
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        ListingController.shared.loadAllListings {
+            self.collectionView.reloadData()
+        }
+        listings = ListingController.shared.allListings
         setUpViews()
     }
     override func viewDidLoad() {

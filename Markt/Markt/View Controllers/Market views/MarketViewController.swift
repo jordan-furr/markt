@@ -44,9 +44,6 @@ class MarketViewController: UIViewController {
         ListingController.shared.fetchCurrentUsersListings { (result) in
             print(result)
         }
-        ListingController.shared.fetchAllListings { (result) in
-            print(result)
-        }
     }
     
     @objc func tap(sender: UITapGestureRecognizer){

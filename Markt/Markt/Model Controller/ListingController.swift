@@ -20,9 +20,8 @@ struct ListingKeys {
     static let priceKey = "price"
     static let descriptionKey = "description"
     static let ownerUIDKey = "ownerUID"
-    static let iconPhotoIDKey = "iconPhotoID"
     static let categoryKey = "category"
-    static let tourImageURLKey = "imageURLS"
+    static let imageURLKeY = "imageURLS"
 }
 
 class ListingController {
@@ -57,11 +56,11 @@ class ListingController {
     func saveImageURLS(listing: Listing) {
         let listingDoc = listingRef.document(listing.uid)
         let data = [
-            "\(ListingKeys.tourImageURLKey)" : imageURLSForNewListing as [String]
-        ] as [String: Any]
+            "\(ListingKeys.imageURLKeY)" : imageURLSForNewListing as [String]
+            ] as [String: Any]
         listingDoc.setData(data, merge: true) { (error) in
             if let error = error {
-                 print(error)
+                print(error)
             }
         }
     }
@@ -100,8 +99,8 @@ class ListingController {
     }
     
     func fetchClassesForDepartment(department: String, completion: @escaping (Result<[String]?, ListingError>) -> Void) {
-       // let classNumbers: [Int] = []
-       // bookRef.
+        // let classNumbers: [Int] = []
+        // bookRef.
     }
     
     func fetchCurrentUsersListings(completion: @escaping (Result<[Listing]?, ListingError>) -> Void) {
@@ -131,51 +130,37 @@ class ListingController {
         return listings
     }
     
-    func loadListings(completed: @escaping () -> ()){
-    }
-    
-    func fetchAllListings(completion: @escaping (Result<[Listing]?, ListingError>) -> Void) {
-        var listings: [Listing] = []
-        db.collection("listings").getDocuments { (querySnapshot, error) in
-            if let error = error {
-                print("no listings found", error.localizedDescription)
-                return completion(.failure(.noRecordFound))
-            } else {
-                for document in querySnapshot!.documents {
-                    self.fetchListing(listingUID: document.documentID) { (result) in
-                        switch result {
-                        case .success(let listing1):
-                            print("success fetching listing")
-                            print(listing1?.title)
-                            guard let listing2 = listing1 else {return}
-                            listings.append(listing2)
-                        case .failure(let error):
-                            print("failure fetching listing in all listings")
-                            print(error.errorDescription)
-                        }
-                    }
+    func loadAllListings(completed: @escaping() -> ()){
+        db.collection("listings").addSnapshotListener { (querySnapshot, error) in
+            guard error == nil else { print("ERROR"); return completed()}
+            
+            self.allListings = []
+            for doc in querySnapshot!.documents {
+                let data = doc.data()
+                let listing = try! FirestoreDecoder().decode(Listing.self, from: data)
+                print(listing.title)
+                for imageURL in listing.imageURLS {
+                    listing.loadImageUsingCacheWithURLString(urlString: imageURL as NSString)
                 }
+                self.allListings.append(listing)
             }
+            completed()
         }
-        print("fetch \(listings.count) total listings!!!!")
-        allListings = listings
-        return completion(.success(allListings))
     }
-    
     
     func fetchDate(listingUID: String, completion: @escaping (Result<Date?, ListingError>) -> Void) {
         let listingDoc = listingRef.document(listingUID)
-               listingDoc.getDocument { (snapshot, error) in
-                   if snapshot != nil {
-                       guard let snapshot = snapshot else { return completion(.failure(.noListingFound)) }
-                    let timestamp: Timestamp = snapshot.get("date") as! Timestamp
-                    let date: Date = timestamp.dateValue()
-                       return completion(.success(date))
-                   } else {
-                       print("snapshot is nil")
-                       return completion(.failure(.noRecordFound))
-                   }
-               }
+        listingDoc.getDocument { (snapshot, error) in
+            if snapshot != nil {
+                guard let snapshot = snapshot else { return completion(.failure(.noListingFound)) }
+                let timestamp: Timestamp = snapshot.get("date") as! Timestamp
+                let date: Date = timestamp.dateValue()
+                return completion(.success(date))
+            } else {
+                print("snapshot is nil")
+                return completion(.failure(.noRecordFound))
+            }
+        }
     }
     
     func fetchListing(listingUID: String, completion: @escaping (Result<Listing?, ListingError>) -> Void) {

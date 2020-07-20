@@ -24,6 +24,9 @@ class MarketScrollsTableViewController: UITableViewController {
 
     //MARK: - Helpers
     func setUpViews(){
+        ListingController.shared.loadAllListings {
+            self.tableView.reloadData()
+        }
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "CollectionTableViewCell", bundle: nil), forCellReuseIdentifier: "scrollCell")
@@ -36,9 +39,9 @@ class MarketScrollsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "scrollCell", for: indexPath) as? CollectionTableViewCell else {return UITableViewCell()}
         cell.categoryLabel.text = "All Listings"
+        cell.listings = ListingController.shared.allListings
         return cell
     }
-    
     
     //MARK: - TableView Style
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

@@ -51,7 +51,7 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
             let classNumber = listingInfo1.text!
             createdListing = Listing(title: title, subcategory: subClass, subsubCategory: classNumber, price: price, description: description, ownerUID: user.uid, category: category)
         case "tickets":
-            createdListing = Listing(title: "", subcategory: subClass, subsubCategory: title, price: price, description: description, ownerUID: user.uid, category: category)
+            createdListing = Listing(title: (title + " " + subClass), subcategory: subClass, subsubCategory: title, price: price, description: description, ownerUID: user.uid, category: category)
             createdListing?.date = date
         case "housing":
             createdListing = Listing(title: title, subcategory: subClass, subsubCategory: String(user.campusLocation), price: price, description: description, ownerUID: user.uid, category: category)

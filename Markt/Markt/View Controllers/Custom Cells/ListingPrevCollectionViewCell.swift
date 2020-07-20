@@ -29,7 +29,7 @@ class ListingPrevCollectionViewCell: UICollectionViewCell {
         if listing.imageURLS.count != 0 {
             listingImage.loadImageUsingCacheWithUrlString(urlString: listing.imageURLS.first! as NSString)
         } else {
-            
+            listingImage.image = UIImage(named: "noImage")
         }
         titleLabel.text = listing.title
         listingImage.contentMode = .scaleAspectFill

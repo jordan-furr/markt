@@ -23,6 +23,9 @@ extension UIImageView {
         URLSession.shared.dataTask(with: url!, completionHandler: { (data, responses, error) in
             if error != nil {
                 print(error!)
+                let image = UIImage(named: "noImage")!
+                imageCache.setObject(image, forKey: urlString)
+                self.image = image
                 return
             }
             
