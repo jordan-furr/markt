@@ -70,7 +70,7 @@ extension ShopViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 110, height: 140)
+        return CGSize(width: 160, height: 200)
     }
     
 }

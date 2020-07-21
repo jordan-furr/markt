@@ -53,7 +53,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SgB-yu-afe">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1400"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="oak-n3-Zd4">
                                                 <rect key="frame" x="20" y="120" width="374" height="400"/>
@@ -157,8 +157,8 @@
                                                     </collectionView>
                                                 </subviews>
                                             </stackView>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vBy-w5-eeT">
-                                                <rect key="frame" x="20" y="560" width="374" height="775"/>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vBy-w5-eeT">
+                                                <rect key="frame" x="20" y="560" width="374" height="875"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="subSwipeCell" id="4uK-G1-NKK">
@@ -179,7 +179,7 @@
                                             <constraint firstAttribute="trailing" secondItem="oak-n3-Zd4" secondAttribute="trailing" constant="20" id="aF4-kH-9me"/>
                                             <constraint firstItem="vBy-w5-eeT" firstAttribute="centerX" secondItem="SgB-yu-afe" secondAttribute="centerX" id="iKh-lE-a2y"/>
                                             <constraint firstAttribute="bottom" secondItem="vBy-w5-eeT" secondAttribute="bottom" constant="65" id="l0i-wy-0y5"/>
-                                            <constraint firstAttribute="height" constant="1400" id="rIv-tA-v3l"/>
+                                            <constraint firstAttribute="height" constant="1500" id="rIv-tA-v3l"/>
                                             <constraint firstItem="oak-n3-Zd4" firstAttribute="top" secondItem="SgB-yu-afe" secondAttribute="top" constant="120" id="tAQ-62-FOH"/>
                                             <constraint firstItem="oak-n3-Zd4" firstAttribute="centerX" secondItem="SgB-yu-afe" secondAttribute="centerX" id="zU6-PM-5OX"/>
                                         </constraints>
@@ -264,22 +264,13 @@
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="l0L-1z-xnO">
                                                 <rect key="frame" x="0.0" y="154.5" width="414" height="1345.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BI2-Fu-7lp">
+                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BI2-Fu-7lp">
                                                     <size key="itemSize" width="128" height="128"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <inset key="sectionInset" minX="20" minY="10" maxX="20" maxY="20"/>
                                                 </collectionViewFlowLayout>
-                                                <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="54n-ai-u2G">
-                                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="1Jj-zj-s3W">
-                                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                        </collectionViewCellContentView>
-                                                    </collectionViewCell>
-                                                </cells>
+                                                <cells/>
                                             </collectionView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Sub sub category)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pzf-q2-bdK">
                                                 <rect key="frame" x="20" y="76" width="286" height="38.5"/>
