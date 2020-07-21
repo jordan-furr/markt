@@ -34,11 +34,11 @@ class MarketScrollsTableViewController: UITableViewController {
     
     //MARK: - Tableview delegate/data source methods
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 1
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "scrollCell", for: indexPath) as? CollectionTableViewCell else {return UITableViewCell()}
-        cell.categoryLabel.text = "All Listings"
+        cell.categoryLabel.text = "Random"
         let listing = Listing(title: "test", subcategory: "MATH", subsubCategory: "116", price: 10, description: "", ownerUID: "7CbokXFlX5Q5TH22tT0BRymZcqC2", category: "books")
         var listings: [Listing] = []
         listings.append(listing)

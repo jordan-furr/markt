@@ -137,6 +137,12 @@ class ListingController {
         }
     }
     
+    func returnListingsInSubCategory(category: String, subcategory: String) -> [Listing]{
+        let subListings: [Listing] = []
+        
+        return subListings
+    }
+    
     func loadAllListings(completed: @escaping() -> ()){
         db.collection("listings").addSnapshotListener { (querySnapshot, error) in
             guard error == nil else { print("ERROR"); return completed()}

@@ -56,12 +56,11 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
             createdListing = Listing(title: title, subcategory: subClass, subsubCategory: String(user.campusLocation), price: price, description: description, ownerUID: user.uid, category: category)
             createdListing?.date = date
         case "clothing":
-            //FIXME::::: ADD CLOTHING ITEM TYPE
-            createdListing = Listing(title: title, subcategory: "" , subsubCategory: subClass, price: price, description: description, ownerUID: user.uid, category: category)
+            createdListing = Listing(title: title, subcategory: subClass , subsubCategory: "", price: price, description: description, ownerUID: user.uid, category: category)
         case "furniture":
             createdListing = Listing(title: title, subcategory: subClass, subsubCategory: "", price: price, description: description, ownerUID: user.uid, category: category)
         default:
-            createdListing = Listing(title: title, subcategory: "", subsubCategory: "", price: price, description: description, ownerUID: user.uid, category: category)
+            createdListing = Listing(title: title, subcategory: subClass, subsubCategory: "", price: price, description: description, ownerUID: user.uid, category: category)
             break;
         }
         

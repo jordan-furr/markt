@@ -149,6 +149,7 @@
                     <size key="freeformSize" width="414" height="1800"/>
                     <connections>
                         <outlet property="collectionView" destination="Zzb-Y2-jhy" id="nab-Yp-tJ7"/>
+                        <outlet property="containerView" destination="Dsl-rp-wsx" id="v5K-h6-neg"/>
                         <outlet property="tapGesture" destination="Utd-oI-ugZ" id="Z9y-E7-tWi"/>
                         <segue destination="K42-tQ-8Ag" kind="show" identifier="straightToShop" id="Edw-iQ-gr5"/>
                     </connections>

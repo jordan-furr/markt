@@ -156,6 +156,11 @@ class FirstSubcategoryViewController: UIViewController {
         }
         
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        ListingController.shared.currentCategoryLIstings = []
+    }
 }
 
 extension FirstSubcategoryViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
@@ -214,7 +219,8 @@ extension FirstSubcategoryViewController: UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableview.dequeueReusableCell(withIdentifier: "scrollCell", for: indexPath) as? CollectionTableViewCell else {return UITableViewCell()}
-        cell.categoryLabel.text = subcategories[indexPath.row]
+        let subcategory = subcategories[indexPath.row]
+        cell.categoryLabel.text = subcategory
         let subCategoryListings: [Listing] = ListingController.shared.currentCategoryLIstings
         cell.listings = subCategoryListings
         return cell

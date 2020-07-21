@@ -17,6 +17,7 @@ class MarketViewController: UIViewController {
     //MARK: - IB OUTELTS
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet var tapGesture: UITapGestureRecognizer!
+    @IBOutlet weak var containerView: UIView!
     
     //MARK: - Life Cycle Functions
     override func viewWillAppear(_ animated: Bool) {
@@ -35,6 +36,7 @@ class MarketViewController: UIViewController {
     
     //MARK: HELPERS
     func setUpViews() {
+        containerView.reloadInputViews()
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tap)))
@@ -50,9 +52,7 @@ class MarketViewController: UIViewController {
         if let indexPath = self.collectionView?.indexPathForItem(at: sender.location(in: self.collectionView)) {
             let category = categories[indexPath.item]
             selectedCategory = category
-            ListingController.shared.loadListingsInCategory(category: category) {
-                print("loaded listings in category")
-            }
+            ListingController.shared.loadListingsInCategory(category: category) {print("done")}
             performSegue(withIdentifier: "toSubCategories", sender: self)
         }
     }
