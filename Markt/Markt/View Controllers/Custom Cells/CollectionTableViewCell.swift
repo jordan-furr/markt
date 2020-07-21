@@ -13,8 +13,8 @@ class CollectionTableViewCell: UITableViewCell, UICollectionViewDelegate, UIColl
     var listings: [Listing]?
     //FILLED WITH DUMMY VALUES
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-       // listings!.count
-        10
+       listings!.count
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -43,6 +43,7 @@ class CollectionTableViewCell: UITableViewCell, UICollectionViewDelegate, UIColl
         self.collectionViewOnCell.dataSource = self
         self.collectionViewOnCell.delegate = self
         self.collectionViewOnCell.register(UINib(nibName: "ListingPrevCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "listingCell")
+        collectionViewOnCell.reloadData()
     }
     
     override func layoutSubviews() {

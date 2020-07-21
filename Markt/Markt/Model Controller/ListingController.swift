@@ -98,11 +98,6 @@ class ListingController {
         UserController.shared.deleteListing(listingID: listing.uid)
     }
     
-    func fetchClassesForDepartment(department: String, completion: @escaping (Result<[String]?, ListingError>) -> Void) {
-        // let classNumbers: [Int] = []
-        // bookRef.
-    }
-    
     func fetchCurrentUsersListings(completion: @escaping (Result<[Listing]?, ListingError>) -> Void) {
         guard let user = UserController.shared.currentUser else {return completion(.failure(.noUserLoggedIn))}
         currentUserLiveListings = []
@@ -120,20 +115,9 @@ class ListingController {
         return completion(.success(currentUserLiveListings))
     }
     
-    func fetchListingsInCategory(category: String) -> ([Listing]) {
-        var listings: [Listing] = []
-        for listing in allListings {
-            if listing.category == category {
-                listings.append(listing)
-            }
-        }
-        return listings
-    }
-    
     func loadAllListings(completed: @escaping() -> ()){
         db.collection("listings").addSnapshotListener { (querySnapshot, error) in
             guard error == nil else { print("ERROR"); return completed()}
-            
             self.allListings = []
             for doc in querySnapshot!.documents {
                 let data = doc.data()
@@ -214,6 +198,5 @@ class ListingController {
         }
     }
 }
-
 
 extension Timestamp: TimestampType {}

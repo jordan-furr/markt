@@ -157,7 +157,13 @@
                         <edgeInsets key="layoutMargins" top="0.0" left="20" bottom="0.0" right="20"/>
                         <viewLayoutGuide key="safeArea" id="pfz-s2-LfH"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Create" id="FwI-Kg-F1T"/>
+                    <navigationItem key="navigationItem" title="Create" id="FwI-Kg-F1T">
+                        <barButtonItem key="leftBarButtonItem" image="xmark" catalog="system" id="yXc-WQ-HOU">
+                            <connections>
+                                <action selector="cancelTapped:" destination="cNt-ba-Cei" id="iLj-fH-rBw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="MPs-sR-07y" kind="show" identifier="toExtras" id="WL4-oW-rA0"/>
                     </connections>
@@ -633,5 +639,6 @@
     </scenes>
     <resources>
         <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
     </resources>
 </document>
