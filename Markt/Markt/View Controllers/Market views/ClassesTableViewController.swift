@@ -65,7 +65,7 @@ class ClassesTableViewController: UITableViewController {
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toShop"{
-            guard let destinationVC = segue.destination as? ShopCollectionViewController else {return}
+            guard let destinationVC = segue.destination as? ShopViewController else {return}
             
             //FIXME
             //RETRIEVE BOOKS IN CLASS
