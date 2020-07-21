@@ -120,6 +120,23 @@ class ListingController {
         return completion(.success(currentUserLiveListings))
     }
     
+    func loadListingsInCategory(category: String, completed: @escaping() -> ()){
+        db.collection("listings").whereField("category", isEqualTo: category).addSnapshotListener { (querySnapshot, error) in
+            guard error == nil else { print("ERROR"); return completed()}
+            self.currentCategoryLIstings = []
+            for doc in querySnapshot!.documents {
+                let data = doc.data()
+                let listing = try! FirestoreDecoder().decode(Listing.self, from: data)
+                print(listing.title)
+                for imageURL in listing.imageURLS {
+                    listing.loadImageUsingCacheWithURLString(urlString: imageURL as NSString)
+                }
+                self.currentCategoryLIstings.append(listing)
+            }
+            completed()
+        }
+    }
+    
     func loadAllListings(completed: @escaping() -> ()){
         db.collection("listings").addSnapshotListener { (querySnapshot, error) in
             guard error == nil else { print("ERROR"); return completed()}
@@ -136,8 +153,6 @@ class ListingController {
             completed()
         }
     }
-    
-    
     
     func fetchDate(listingUID: String, completion: @escaping (Result<Date?, ListingError>) -> Void) {
         let listingDoc = listingRef.document(listingUID)
