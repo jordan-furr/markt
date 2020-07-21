@@ -14,6 +14,7 @@ class FirstSubcategoryViewController: UIViewController {
     var category: String?
     var subcategories: [String] = []
     var selectedSubcategory: String?
+    var storedOffsets = [Int: CGFloat]()
     
     //MARK: - IB OUTLETS
     @IBOutlet weak var tableview: UITableView!
@@ -39,7 +40,10 @@ class FirstSubcategoryViewController: UIViewController {
     
     func setUpViews(){
         guard let category = category else {return}
-        
+        tableview.reloadData()
+//        ListingController.shared.loadListingsInCategory(category: category) {
+//            self.tableview.reloadData()
+//        }
         setUpTapRecognizerAndDelegates(category)
         categoryLabel.text = category
         navigationItem.title = "Markt"
@@ -92,9 +96,9 @@ class FirstSubcategoryViewController: UIViewController {
         let labelTap = UITapGestureRecognizer(target: self, action: #selector(subCategoryLabelMoreTapped(_:)))
         subcategoryLabel.isUserInteractionEnabled = false
         subcategoryLabel.addGestureRecognizer(labelTap)
-        
         tableview.delegate = self
         tableview.dataSource = self
+        tableview.register(UINib(nibName: "CollectionTableViewCell", bundle: nil), forCellReuseIdentifier: "scrollCell")
         categoryCollectionView.delegate = self
         categoryCollectionView.dataSource = self
         
@@ -113,7 +117,7 @@ class FirstSubcategoryViewController: UIViewController {
         guard let category = category, let subcategory = selectedSubcategory else {return}
         
         if segue.identifier == "toSecond" {
-            guard let destinationVC = segue.destination as? ShopCollectionViewController else {return}
+            guard let destinationVC = segue.destination as? ShopViewController else {return}
             destinationVC.category = category
             destinationVC.subcategory = subcategory
         }
@@ -209,13 +213,24 @@ extension FirstSubcategoryViewController: UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "subSwipeCell", for: indexPath)
-        //FIXME: MAKE CELL COLLECITONTABLEVIEWCELL
-        cell.textLabel?.text = subcategories[indexPath.row]
+        guard let cell = tableview.dequeueReusableCell(withIdentifier: "scrollCell", for: indexPath) as? CollectionTableViewCell else {return UITableViewCell()}
+        cell.categoryLabel.text = subcategories[indexPath.row]
+        let subCategoryListings: [Listing] = ListingController.shared.currentCategoryLIstings
+        cell.listings = subCategoryListings
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100.0
+        return 190.0
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let cell = cell as? CollectionTableViewCell else {return}
+        cell.collectionViewOffset = storedOffsets[indexPath.row] ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let cell = cell as? CollectionTableViewCell else {return}
+        storedOffsets[indexPath.row] = cell.collectionViewOffset
     }
 }

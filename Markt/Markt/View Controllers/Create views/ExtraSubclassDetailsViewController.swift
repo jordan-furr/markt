@@ -41,7 +41,6 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
     //MARK: - CREATE LISTING
     @IBAction func createTapped(_ sender: Any) {
         guard let category = category, let user = UserController.shared.currentUser else {return}
-        ListingController.shared.imageURLSForNewListing = []
         
         let title = titleLabel.text ?? "no title" ; let subClass = subclassLabel.text ?? "N/A" ; let price = Double(priceLabel.text ?? "0") ?? 0 ; var description = descriptionTextView.text ?? "" ; let date = datePicker.date
         if description == "" { description = "No description provided :(" }
@@ -51,7 +50,7 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
             let classNumber = listingInfo1.text!
             createdListing = Listing(title: title, subcategory: subClass, subsubCategory: classNumber, price: price, description: description, ownerUID: user.uid, category: category)
         case "tickets":
-            createdListing = Listing(title: "", subcategory: subClass, subsubCategory: title, price: price, description: description, ownerUID: user.uid, category: category)
+            createdListing = Listing(title: (title + " " + subClass), subcategory: subClass, subsubCategory: title, price: price, description: description, ownerUID: user.uid, category: category)
             createdListing?.date = date
         case "housing":
             createdListing = Listing(title: title, subcategory: subClass, subsubCategory: String(user.campusLocation), price: price, description: description, ownerUID: user.uid, category: category)
@@ -66,24 +65,10 @@ class ExtraSubclassDetailsViewController: UIViewController, UIPickerViewDelegate
             break;
         }
         
-        if category != "tickets" {
-            for image in images{
-                ListingController.shared.uploadPhoto(image: image.jpegData(compressionQuality: 0.25), listingUID: createdListing!.uid) { (result) in
-                    switch result {
-                    case .success(let imageURL):
-                        guard let imageFullURL = imageURL else {return}
-                        ListingController.shared.imageURLSForNewListing.append(imageFullURL)
-                    case .failure(let error): print(error) }
-                }
-            }
-        }
         ListingController.shared.createListing(with: createdListing!)
+        ListingController.shared.uploadListingImages(listing: createdListing!, images: images)
         UserController.shared.addCreatedListing(listingID: createdListing!.uid)
-        ListingController.shared.saveImageURLS(listing: createdListing!)
         self.dismiss(animated: true, completion: nil)
-        ListingController.shared.fetchCurrentUsersListings { (result) in
-            print(result)
-        }
     }
     
     @IBAction func addImageTapped(_ sender: Any) {

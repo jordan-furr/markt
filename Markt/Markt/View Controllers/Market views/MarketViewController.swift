@@ -44,17 +44,15 @@ class MarketViewController: UIViewController {
         ListingController.shared.fetchCurrentUsersListings { (result) in
             print(result)
         }
-        ListingController.shared.fetchAllListings { (result) in
-            print(result)
-        }
     }
     
     @objc func tap(sender: UITapGestureRecognizer){
         if let indexPath = self.collectionView?.indexPathForItem(at: sender.location(in: self.collectionView)) {
             let category = categories[indexPath.item]
             selectedCategory = category
-            let listings = ListingController.shared.fetchListingsInCategory(category: category)
-            ListingController.shared.currentCategoryLIstings = listings
+            ListingController.shared.loadListingsInCategory(category: category) {
+                print("loaded listings in category")
+            }
             performSegue(withIdentifier: "toSubCategories", sender: self)
         }
     }

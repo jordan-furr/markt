@@ -48,6 +48,10 @@ class CreateListingViewController: UIViewController {
         self.performSegue(withIdentifier: "toExtras", sender: self)
     }
     
+    @IBAction func cancelTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     //MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let category = category else {return}
