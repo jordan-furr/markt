@@ -35,7 +35,6 @@ class ListingController {
     var currentUserLiveListings: [Listing] = []
     var currentCategoryLIstings: [Listing] = []
     var allListings: [Listing] = []
-    var imageURLSForNewListing: [String] = []
     
     
     func createListing(with listing: Listing){
@@ -48,19 +47,25 @@ class ListingController {
             "ownerUID" : listing.ownerUID as String,
             "uid" : listing.uid as String,
             "category" : listing.category as String,
-            "date" : listing.date as Date
+            "date" : listing.date as Date,
+            "imageURLS" : [] as [String]
             ] as [String : Any]
         listingRef.document(listing.uid).setData(listingInfoDict)
     }
     
-    func saveImageURLS(listing: Listing) {
-        let listingDoc = listingRef.document(listing.uid)
-        let data = [
-            "\(ListingKeys.imageURLKeY)" : imageURLSForNewListing as [String]
-            ] as [String: Any]
-        listingDoc.setData(data, merge: true) { (error) in
-            if let error = error {
-                print(error)
+    func uploadListingImages(listing: Listing, images: [UIImage]) {
+        var imageURLS: [String] = []
+        if listing.category != "tickets" {
+            for image in images{
+                self.uploadPhoto(image: image.jpegData(compressionQuality: 0.25), listingUID: listing.uid) { (result) in
+                    switch result {
+                    case .success(let imageURL):
+                        guard let imageFullURL = imageURL else {return}
+                        imageURLS.append(imageFullURL)
+                        let listingDoc = self.listingRef.document(listing.uid)
+                        listingDoc.updateData(["imageURLS": imageURLS])
+                    case .failure(let error): print(error) }
+                }
             }
         }
     }
@@ -131,6 +136,8 @@ class ListingController {
             completed()
         }
     }
+    
+    
     
     func fetchDate(listingUID: String, completion: @escaping (Result<Date?, ListingError>) -> Void) {
         let listingDoc = listingRef.document(listingUID)
