@@ -50,6 +50,9 @@ class MarketViewController: UIViewController {
         if let indexPath = self.collectionView?.indexPathForItem(at: sender.location(in: self.collectionView)) {
             let category = categories[indexPath.item]
             selectedCategory = category
+            ListingController.shared.loadListingsInCategory(category: category) {
+                print("loaded listings in category")
+            }
             performSegue(withIdentifier: "toSubCategories", sender: self)
         }
     }

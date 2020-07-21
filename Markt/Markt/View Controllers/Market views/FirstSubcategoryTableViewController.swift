@@ -40,9 +40,10 @@ class FirstSubcategoryViewController: UIViewController {
     
     func setUpViews(){
         guard let category = category else {return}
-        ListingController.shared.loadListingsInCategory(category: category) {
-            self.tableview.reloadData()
-        }
+        tableview.reloadData()
+//        ListingController.shared.loadListingsInCategory(category: category) {
+//            self.tableview.reloadData()
+//        }
         setUpTapRecognizerAndDelegates(category)
         categoryLabel.text = category
         navigationItem.title = "Markt"
