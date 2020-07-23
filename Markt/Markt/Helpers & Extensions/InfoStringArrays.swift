@@ -21,7 +21,7 @@ var transportTypes: [String] = {
 }()
 
 var electronicTypes: [String] = {
-    ["Gaming", "For class", "Calculators", "Under 15$", "Under 50$", "Cords/etc"]
+    ["Gaming",  "Under 50$", "For class", "Calculators", "Under 15$", "Cords/etc"]
 }()
 
 var furnitureTypes: [String] = {
