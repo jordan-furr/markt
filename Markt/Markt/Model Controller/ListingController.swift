@@ -137,9 +137,13 @@ class ListingController {
         }
     }
     
-    func returnListingsInSubCategory(category: String, subcategory: String) -> [Listing]{
-        let subListings: [Listing] = []
-        
+    func returnListingsInSubCategory(listings: [Listing], subcategory: String) -> [Listing]{
+        var subListings: [Listing] = []
+        for listing in listings {
+            if listing.subcategory == subcategory {
+                subListings.append(listing)
+            }
+        }
         return subListings
     }
     

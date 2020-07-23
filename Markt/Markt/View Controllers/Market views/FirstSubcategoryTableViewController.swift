@@ -221,8 +221,9 @@ extension FirstSubcategoryViewController: UITableViewDelegate, UITableViewDataSo
         guard let cell = tableview.dequeueReusableCell(withIdentifier: "scrollCell", for: indexPath) as? CollectionTableViewCell else {return UITableViewCell()}
         let subcategory = subcategories[indexPath.row]
         cell.categoryLabel.text = subcategory
-        let subCategoryListings: [Listing] = ListingController.shared.currentCategoryLIstings
-        cell.listings = subCategoryListings
+        let categoryListings: [Listing] = ListingController.shared.currentCategoryLIstings
+        let subListings = ListingController.shared.returnListingsInSubCategory(listings: categoryListings, subcategory: subcategory)
+        cell.listings = subListings
         return cell
     }
     
