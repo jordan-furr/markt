@@ -136,7 +136,8 @@ class ListingController {
             completed()
         }
     }
-    
+   
+    //FIX ME: LOOK INTO/ USE FILTER FUNC FOR FASTER RESULTS
     func returnListingsInSubCategory(listings: [Listing], subcategory: String) -> [Listing]{
         var subListings: [Listing] = []
         for listing in listings {
@@ -146,6 +147,16 @@ class ListingController {
         }
         return subListings
     }
+    //FIX ME: LOOK INTO/ USE FILTER FUNC FOR FASTER RESULTS
+    func returnListingsInSubSubCategory(listings: [Listing], subsubcategory: String) -> [Listing]{
+          var subsubListings: [Listing] = []
+          for sublisting in listings {
+              if sublisting.subsubCategory == subsubcategory {
+                  subsubListings.append(sublisting)
+              }
+          }
+          return subsubListings
+      }
     
     func loadAllListings(completed: @escaping() -> ()){
         db.collection("listings").addSnapshotListener { (querySnapshot, error) in
