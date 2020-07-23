@@ -21,8 +21,9 @@ class ShopViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         ListingController.shared.loadAllListings {
             self.shopCollectionView.reloadData()
-            self.listings = ListingController.shared.allListings
         }
+        self.listings = ListingController.shared.allListings
+        self.listings = ListingController.shared.returnListingsInSubCategory(listings: listings, subcategory: subcategory!)
         setUpViews()
     }
     override func viewDidLoad() {
