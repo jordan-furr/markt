@@ -1,4 +1,4 @@
-# markt
-College-campus marketplace app, with Cloud FireStore, Core Animation, and real time messaging (NoSQL, MVC, UIKit)
+# gourmet ~~~
+Takeout ordering app, with Cloud FireStore, Core Animation, (MVC, UIKit)
 
 STAY TUNED
